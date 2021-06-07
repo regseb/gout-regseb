@@ -2,14 +2,15 @@
  * @module
  */
 
-const BASE_URL = import.meta.url.slice(0, import.meta.url.lastIndexOf("/") + 1);
+const BASE_URI = import.meta.url.slice(0, import.meta.url.lastIndexOf("/"));
 
-export const Scraper = class {
-    constructor({ lang = "fr", complements }) {
-        this._lang = lang;
+export default class {
+
+    constructor({ lang, complements }) {
+        this._lang = lang ?? "fr";
         this._complements = {
             color: "#607d8b",
-            icon:  BASE_URL + "img/articleauhasard.svg",
+            icon:  `${BASE_URI}/img/articleauhasard.svg`,
             ...complements,
         };
     }
@@ -26,4 +27,4 @@ export const Scraper = class {
             title: random.title,
         })).map((i) => ({ ...this._complements, ...i }));
     }
-};
+}

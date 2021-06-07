@@ -44,30 +44,11 @@ export default class extends HTMLElement {
             li.classList.remove("empty");
         }
 
-        const imgChannel = li.querySelector("img.channel");
-        imgChannel.src = `${BASE_URI}/img/${item.channel}.svg`;
-        imgChannel.alt = item.channel;
-        imgChannel.title = item.name;
-
-        const imgType = li.querySelector("img.type");
-        imgType.src = `${BASE_URI}/img/${item.type}.svg`;
-        imgType.alt = item.type;
-        imgType.title = item.category;
-        imgType.classList.add(item.type);
-
-        const span = li.querySelector("span");
-        for (let i = 0; i < item.mark; ++i) {
-            const img = document.createElement("img");
-            img.src = `${BASE_URI}/img/star.svg`;
-            img.alt = "*";
-            span.append(img);
-        }
+        const img = li.querySelector("img");
+        img.src = item.icon ?? "";
 
         const a = li.querySelector("a");
-        a.textContent = item.title +
-                        (undefined === item.subtitle || "" === item.subtitle
-                                                       ? ""
-                                                       : " - " + item.subtitle);
+        a.textContent = item.title ?? "";
         if (undefined === item.link) {
             a.removeAttribute("href");
         } else {
@@ -75,6 +56,23 @@ export default class extends HTMLElement {
         }
         a.target = item.target ?? "_blank";
         a.title = item.desc ?? "";
+
+        const span = li.querySelector("span");
+        span.replaceChildren();
+        for (const showing of item.showings ?? []) {
+            const a2 = document.createElement("a");
+            a2.textContent = showing.title ?? "";
+            if (undefined !== showing.link) {
+                a2.href = showing.link;
+            }
+            a2.target = showing.target ?? "_blank";
+            a2.rel = "noopener noreferrer";
+            a2.title = showing.desc ?? "";
+            span.append(a2);
+        }
+        if (span.hasChildNodes()) {
+            span.prepend(":");
+        }
 
         // Si l'élément n'est pas dans la liste.
         if (!li.isConnected) {
@@ -131,7 +129,7 @@ export default class extends HTMLElement {
     async connectedCallback() {
         this.attachShadow({ mode: "open" });
 
-        const response = await fetch(`${BASE_URI}/tv.tpl`);
+        const response = await fetch(`${BASE_URI}/cinema.tpl`);
         const text = await response.text();
         const template = new DOMParser().parseFromString(text, "text/html")
                                         .querySelector("template");
@@ -139,13 +137,14 @@ export default class extends HTMLElement {
 
         const link = document.createElement("link");
         link.rel = "stylesheet";
-        link.href = `${BASE_URI}/tv.css`;
+        link.href = `${BASE_URI}/cinema.css`;
         this.shadowRoot.append(link);
 
+        // Par défaut, mettre à jour les données tous les jours à 1h.
         this._cron = new Cron(this._config.cron ?? "0 1 * * *",
                               this._update.bind(this));
         this._max = this._config.max ?? Number.MAX_SAFE_INTEGER;
-        this._empty = this._config.empty ?? {};
+        this._empty = this._config.empty ?? { title: "(aucune scéance)" };
 
         const ul = this.shadowRoot.querySelector("ul");
         ul.style.backgroundColor = this._config.color ?? "#9e9e9e";

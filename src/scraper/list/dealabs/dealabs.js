@@ -52,21 +52,23 @@ const getToken = async function () {
 };
 
 const extractDate = function (ago) {
-    const hourMinute = (/([0-9]+) h et ([0-9]+) min$/u).exec(ago);
-    const minute     = (/([0-9]+) min$/u).exec(ago);
-    const dateMonth  = (/([0-9]+) ([a-z]+)$/u).exec(ago);
+    let result = (/(?<hours>[0-9]+) h et (?<minutes>[0-9]+) min$/u).exec(ago);
+    if (null !== result) {
+        return Date.now() -
+               3_600_000 * Number.parseInt(result.groups.hours, 10) -
+               60_000 * Number.parseInt(result.groups.minutes, 10);
+    }
 
-    if (null !== hourMinute) {
-        return Date.now() - 3_600_000 * Number.parseInt(hourMinute[1], 10) -
-                               60_000 * Number.parseInt(hourMinute[2], 10);
+    result = (/(?<minutes>[0-9]+) min$/u).exec(ago);
+    if (null !== result) {
+        return Date.now() - 60_000 * Number.parseInt(result.groups.minutes, 10);
     }
-    if (null !== minute) {
-        return Date.now() - 60_000 * Number.parseInt(minute[1], 10);
-    }
-    if (null !== dateMonth) {
+
+    result = (/(?<date>[0-9]+) (?<month>[a-z]+)$/u).exec(ago);
+    if (null !== result) {
         const now = new Date();
-        const date = Number.parseInt(dateMonth[1], 10);
-        const month = MONTHS.indexOf(dateMonth[2]);
+        const date = Number.parseInt(result.groups.date, 10);
+        const month = MONTHS.indexOf(result.groups.month);
         const year = now.getFullYear() - (now.getMonth() < month ? 0 : 1);
         return new Date(
             year,
@@ -81,17 +83,17 @@ const extractDate = function (ago) {
     return null;
 };
 
-export const Scraper = class {
+export default class {
 
-    constructor({ filters = {}, icon }) {
-        this.filters = { ...DEFAULT_FILTERS, ...filters };
-        this.icon    = icon;
+    constructor({ filters, complements }) {
+        this._filters = { ...DEFAULT_FILTERS, ...filters };
+        this._complements = complements;
     }
 
     async extract(max) {
         const body = new URLSearchParams();
         body.append("_token", await getToken());
-        for (const [name, value] of Object.entries(this.filters)) {
+        for (const [name, value] of Object.entries(this._filters)) {
             if (Array.isArray(value)) {
                 for (const subvalue of value) {
                     body.append(name, subvalue);
@@ -105,23 +107,22 @@ export const Scraper = class {
         const response = await fetch(URL_SEARCH, init);
         const text = await response.text();
         const doc = new DOMParser().parseFromString(text, "text/html");
-        const selector = `article.thread:nth-child(-n+${max})`;
+        const selector = `article.thread:nth-of-type(-n+${max})`;
         return Array.from(doc.querySelectorAll(selector))
                     .map((article) => ({
-            price: article.querySelector(".thread-price").textContent,
+            price: article.querySelector(".thread-price")?.textContent,
             title: article.querySelector(".thread-title").textContent,
             link:  article.querySelector(".thread-link").href,
             img:   article.querySelector(".thread-image").src,
-            ago:   article.querySelector(".threadGrid-headerMeta" +
-                                         ".hide--fromW3:last-of-type")
-                                                                   .textContent,
+            ago:   article.querySelector(".threadGrid-headerMeta .hide--fromW3")
+                          .textContent,
         })).map((item) => ({
             date:  extractDate(item.ago),
             guid:  item.link,
-            icon:  this.icon,
             img:   item.img,
             link:  item.link,
-            title: ("" === item.price ? "" : item.price + " / ") + item.title,
-        }));
+            title: (undefined === item.price ? "" : item.price + " | ") +
+                   item.title,
+        })).map((i) => ({ ...this._complements, ...i }));
     }
-};
+}

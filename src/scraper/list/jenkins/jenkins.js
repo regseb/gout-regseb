@@ -2,7 +2,7 @@
  * @module
  */
 
-export const Scraper = class {
+export default class {
 
     constructor({ url, jobs = {}, complements }) {
         this._host = url;
@@ -68,4 +68,4 @@ export const Scraper = class {
         }
         return items.map((i) => ({ ...this._complements, ...i }));
     }
-};
+}

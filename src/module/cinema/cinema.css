@@ -18,25 +18,18 @@ li.empty {
     font-style: italic;
 }
 
-li > img,
-span {
+img {
     height: 12px;
     margin-right: 4px;
-}
-li > img:first-child {
     opacity: 80%;
+    width: 12px;
 }
-span {
-    display: flex;
-    white-space: nowrap;
-}
-span:empty {
+img[src=""] {
     display: none;
 }
 
 a {
     color: white;
-    flex-grow: 1;
     overflow: hidden;
     text-decoration: none;
     text-overflow: ellipsis;
@@ -49,13 +42,10 @@ a[href]:hover {
     text-decoration: underline;
 }
 
-.culture        { background-color: #cddc39; }
-.jeunesse       { background-color: #ff9800; }
-.magazine       { background-color: #607d8b; }
-.sport          { background-color: #4caf50; }
-.film           { background-color: #f44336; }
-.serie          { background-color: #00bcd4; }
-.divertissement { background-color: #aa00ff; }
-.documentaire   { background-color: #9c27b0; }
-.telefilm       { background-color: #f91f63; }
-.divers         { background-color: black; }
+span a {
+    margin-left: 4px;
+    opacity: 80%;
+}
+span a:hover {
+    opacity: 100%;
+}

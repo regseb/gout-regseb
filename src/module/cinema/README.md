@@ -13,6 +13,10 @@ propriété suivante :
   du cadre (au format hexadécimale, régulier RGB ou avec des mots-clefs
   prédéfinis).
 
+**25** est une taille raisonnable pour la largeur du cadre. La hauteur dépend
+du nombre de chaines qu'il faut afficher dans le cadre. Si vous souhaitez avoir
+*N* chaines de télévision : il faut fixer la hauteur à *N + 1*.
+
 ## Scraper
 
 TODO.

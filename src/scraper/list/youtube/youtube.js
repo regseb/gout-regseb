@@ -2,9 +2,9 @@
  * @module
  */
 
-const API_URL = "https://www.googleapis.com/youtube/v3/";
+const API_URL = "https://www.googleapis.com/youtube/v3";
 
-export const Scraper = class {
+export default class {
 
     constructor({ user, playlist, key, complements }) {
         this._user = user;
@@ -15,10 +15,10 @@ export const Scraper = class {
     }
 
     async _findPlaylist(channelId, pageToken) {
-        const url = API_URL + "playlists?part=id,snippet&channelId=" +
-                    channelId + "&maxResults=50" +
-                    (undefined === pageToken ? "" : "&pageToken=" + pageToken) +
-                    "&key=" + this._key;
+        const url = `${API_URL}/playlists?part=id,snippet` +
+                    `&channelId=${channelId}&maxResults=50` +
+                    (undefined === pageToken ? "" : `&pageToken=${pageToken}`) +
+                    `&key=${this._key}`;
         const response = await fetch(url);
         const json = await response.json();
         for (const item of json.items) {
@@ -29,7 +29,7 @@ export const Scraper = class {
         if ("nextPageToken" in json) {
             return this._findPlaylist(channelId, json.nextPageToken);
         }
-        throw new Error(this._playlist + " is not found");
+        throw new Error(`${this._playlist} is not found`);
     }
 
     async _init() {
@@ -37,9 +37,8 @@ export const Scraper = class {
             return this._id;
         }
 
-        const url = API_URL + "channels?part=id,contentDetails" +
-                    "&forUsername=" + this._user + "&maxResults=1&key=" +
-                    this._key;
+        const url = `${API_URL}/channels?part=id,contentDetails` +
+                    `&forUsername=${this._user}&maxResults=1&key=${this._key}`;
         const response = await fetch(url);
         const json = await response.json();
         if (undefined === this._playlist) {
@@ -51,19 +50,18 @@ export const Scraper = class {
 
     async extract(max) {
         const playlistId = await this._init();
-        const url = API_URL + "playlistItems?key=" + this._key +
-                    "&part=snippet&playlistId=" + playlistId +
-                    "&maxResults=" + max;
+        const url = `${API_URL}/playlistItems?key=${this._key}&part=snippet` +
+                    `&playlistId=${playlistId}&maxResults=${max}`;
         const response = await fetch(url);
         const json = await response.json();
         return json.items.map((item) => ({
             date:  new Date(item.snippet.publishedAt).getTime(),
             desc:  item.snippet.description,
             guid:  item.snippet.resourceId.videoId,
-            img:   item.snippet?.thumbnails.high.url,
+            img:   item.snippet.thumbnails?.high?.url,
             link:  "https://www.youtube.com/watch?v=" +
                    item.snippet.resourceId.videoId,
             title: item.snippet.title,
         })).map((i) => ({ ...this._complements, ...i }));
     }
-};
+}

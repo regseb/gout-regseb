@@ -4,7 +4,7 @@
 
 const DATE_REGEXP = /(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})-[^-]+$/u;
 
-export const Scraper = class {
+export default class {
 
     constructor({ podcast, complements }) {
         this._podcast = podcast;
@@ -46,4 +46,4 @@ export const Scraper = class {
             };
         }).map(async (i) => ({ ...this._complements, ...await i })));
     }
-};
+}

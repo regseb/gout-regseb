@@ -4,7 +4,7 @@
 
 const BASE_URI = "https://loadingartist.com";
 
-export const Scraper = class {
+export default class {
 
     constructor({ complements }) {
         this._complements = complements;
@@ -30,4 +30,4 @@ export const Scraper = class {
             title: a.querySelector("img").title,
         })).reverse().map((i) => ({ ...this._complements, ...i }));
     }
-};
+}

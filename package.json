@@ -1,6 +1,6 @@
 {
     "name": "gout-regseb",
-    "version": "0.9.0",
+    "version": "0.9.1",
     "description": "Composants pour Gout",
     "keywords": [
         "gout",
@@ -18,7 +18,7 @@
     "scripts": {
         "lint": "metalint",
         "jsdocs": "typedoc --tsconfig tsconfig_typedoc.json --out jsdocs/ src/",
-        "server": "http-server -c-1 src/",
+        "server": "http-server -p60071 -c-1 --cors",
         "release": "standard-version",
         "clean": "node .script/clean.js"
     },

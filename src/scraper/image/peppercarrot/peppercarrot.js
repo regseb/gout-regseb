@@ -2,10 +2,10 @@
  * @module
  */
 
-export const Scraper = class {
+export default class {
 
-    constructor({ lang = "fr", complements }) {
-        this._lang = lang;
+    constructor({ lang, complements }) {
+        this._lang = lang ?? "fr";
         this._complements = complements;
     }
 
@@ -24,4 +24,4 @@ export const Scraper = class {
             title: a.title,
         })).map((i) => ({ ...this._complements, ...i }));
     }
-};
+}

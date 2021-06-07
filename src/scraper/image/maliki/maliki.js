@@ -2,7 +2,7 @@
  * @module
  */
 
-export const Scraper = class {
+export default class {
 
     constructor({ complements }) {
         this._complements = complements;
@@ -25,4 +25,4 @@ export const Scraper = class {
            .slice(0, max)
            .map((i) => ({ ...this._complements, ...i }));
     }
-};
+}

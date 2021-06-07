@@ -1,10 +1,10 @@
 <template>
   <template>
     <li>
-      <p><strong></strong><img alt="" /></p>
+      <p><strong></strong><img /></p>
       <p>
         <span class="temp"></span>
-        <span class="wind"><img alt="" /></span>
+        <span class="wind"><img /></span>
       </p>
     </li>
   </template>

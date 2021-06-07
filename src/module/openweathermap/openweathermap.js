@@ -4,7 +4,7 @@
 
 import { Cron } from "https://cdn.jsdelivr.net/npm/cronnor@1";
 
-const BASE_URL = import.meta.url.slice(0, import.meta.url.lastIndexOf("/") + 1);
+const BASE_URI = import.meta.url.slice(0, import.meta.url.lastIndexOf("/"));
 
 const API_URL = "https://api.openweathermap.org/data/2.5/";
 
@@ -60,7 +60,7 @@ const extract = async function (city, appid, kind) {
     }));
 };
 
-export const Module = class extends HTMLElement {
+export default class extends HTMLElement {
 
     constructor(config, scrapers) {
         super();
@@ -68,7 +68,7 @@ export const Module = class extends HTMLElement {
         this._scrapers = scrapers;
     }
 
-    display(item) {
+    _display(item) {
         const li = this.shadowRoot.querySelector("template")
                                   .content.querySelector("li")
                                   .cloneNode(true);
@@ -80,7 +80,7 @@ export const Module = class extends HTMLElement {
         strong.textContent = date.toLocaleString("fr-FR", { weekday: "long" });
 
         let img = li.querySelector("p:first-of-type img");
-        img.src = BASE_URL + "img/" + item.icon + ".svg";
+        img.src = `${BASE_URI}/img/${item.icon}.svg`;
         img.alt = item.desc;
         img.title = item.help;
         img.width = 32;
@@ -91,7 +91,7 @@ export const Module = class extends HTMLElement {
 
         const dir = COMPASS_ROSE.find((c) => c[0] > item.wind.deg)[1];
         img = li.querySelector(".wind img");
-        img.src = BASE_URL + "img/wind.svg";
+        img.src = `${BASE_URI}/img/wind.svg`;
         img.alt = "^";
         img.title = dir;
         img.style = "transform: rotate(" + item.wind.deg + "deg)";
@@ -102,7 +102,7 @@ export const Module = class extends HTMLElement {
         ul.append(li);
     }
 
-    async update() {
+    async _update() {
         // Si la page est cachée : ne pas actualiser les données et indiquer
         // qu'il faudra mettre à jour les données quand l'utilisateur reviendra
         // sur la page.
@@ -111,31 +111,28 @@ export const Module = class extends HTMLElement {
             return;
         }
 
-        const ul = this.shadowRoot.querySelector("ul");
-        while (null !== ul.firstChild) {
-            ul.firstChild.remove();
-        }
+        this.shadowRoot.querySelector("ul").replaceChildren();
 
         // Récupérer la météo du jour.
         const weather = await extract(this._city, this._appid, "weather");
-        this.display(weather);
+        this._display(weather);
 
         // Récupérer les prévisions.
         const forecasts = await extract(this._city, this._appid, "forecast");
-        forecasts.forEach(this.display.bind(this));
+        forecasts.forEach(this._display.bind(this));
     }
 
-    wake() {
+    _wake() {
         if (!this._cron.active) {
             this._cron.start();
-            this.update();
+            this._update();
         }
     }
 
     async connectedCallback() {
         this.attachShadow({ mode: "open" });
 
-        const response = await fetch(BASE_URL + "openweathermap.tpl");
+        const response = await fetch(`${BASE_URI}/openweathermap.tpl`);
         const text = await response.text();
         const template = new DOMParser().parseFromString(text, "text/html")
                                         .querySelector("template");
@@ -143,11 +140,11 @@ export const Module = class extends HTMLElement {
 
         const link = document.createElement("link");
         link.rel = "stylesheet";
-        link.href = BASE_URL + "openweathermap.css";
+        link.href = `${BASE_URI}/openweathermap.css`;
         this.shadowRoot.append(link);
 
         this._cron = new Cron(this._config.cron ?? "@hourly",
-                              this.update.bind(this));
+                              this._update.bind(this));
         this._city = this._config.city;
         this._appid = this._config.appid;
 
@@ -155,7 +152,7 @@ export const Module = class extends HTMLElement {
         this.shadowRoot.querySelector("h1").textContent =
                                  this._config.title ?? this._city.split(",")[0];
 
-        document.addEventListener("visibilitychange", this.wake.bind(this));
-        this.update();
+        document.addEventListener("visibilitychange", this._wake.bind(this));
+        this._update();
     }
-};
+}

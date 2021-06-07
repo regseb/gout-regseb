@@ -1,7 +1,6 @@
 export default {
     patterns: [
         "!/.git/",
-        "!/coverage/",
         "!/jsdocs/",
         "!/node_modules/",
         "**",
@@ -11,15 +10,6 @@ export default {
             patterns: "/src/**/*.js",
             linters: {
                 eslint: ["eslint.config.js", "eslint_browser.config.js"],
-            },
-        }, {
-            patterns: "/test/**/*.js",
-            linters: {
-                eslint: [
-                    "eslint.config.js",
-                    "eslint_node.config.js",
-                    "eslint_test.config.js",
-                ],
             },
         }, {
             patterns: "/.script/**/*.js",

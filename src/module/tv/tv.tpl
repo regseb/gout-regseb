@@ -1,10 +1,10 @@
 <template>
   <template>
     <li>
-      <img class="channel" alt="" />
-      <img class="type" alt="" />
+      <img class="channel" />
+      <img class="type" />
       <span></span>
-      <a></a>
+      <a rel="noopener noreferrer"></a>
     </li>
   </template>
 

@@ -4,7 +4,8 @@
 
 const API_URL = "https://api.dailymotion.com/";
 
-export const Scraper = class {
+export default class {
+
     constructor({ user, complements }) {
         this._user = user;
         this._complements = complements;
@@ -26,4 +27,4 @@ export const Scraper = class {
             title: item.title,
         })).map((i) => ({ ...this._complements, ...i }));
     }
-};
+}

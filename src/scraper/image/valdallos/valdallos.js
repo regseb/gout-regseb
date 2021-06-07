@@ -11,7 +11,7 @@ const WEBCAMS_ID = {
     observatoire:     "PRESTATAIRE-WEBCAMS-AIGUILLE",
 };
 
-export const Scraper = class {
+export default class {
 
     constructor({ webcams, complements }) {
         this._webcams = webcams;
@@ -41,4 +41,4 @@ export const Scraper = class {
           .slice(0, max)
           .map((i) => ({ ...this._complements, ...i }));
     }
-};
+}

@@ -13,7 +13,7 @@ const TYPES = {
     "magazine-sportif": "sport",
 };
 
-export const Scraper = class {
+export default class {
 
     constructor({ broadcasts, complements }) {
         this._broadcasts = broadcasts;
@@ -66,4 +66,4 @@ export const Scraper = class {
             return previous.concat(current);
         });
     }
-};
+}

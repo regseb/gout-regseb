@@ -2,7 +2,7 @@
  * @module
  */
 
-export const Scraper = class {
+export default class {
 
     constructor({ complements }) {
         this._complements = complements;
@@ -14,8 +14,7 @@ export const Scraper = class {
         const text = await response.text();
         const xml = new DOMParser().parseFromString(text, "application/xml");
 
-        return Array.from(xml.querySelectorAll("item"))
-                    .slice(0, max)
+        return Array.from(xml.querySelectorAll(`item:nth-of-type(-n+${max})`))
                     .map((item) => {
             const description = item.querySelector("description").textContent;
             const doc = new DOMParser().parseFromString(description,
@@ -31,4 +30,4 @@ export const Scraper = class {
             };
         }).map((i) => ({ ...this._complements, ...i }));
     }
-};
+}
