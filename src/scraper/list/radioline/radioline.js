@@ -30,7 +30,7 @@ export default class {
                                   Number.parseInt(matches[3], 10),
                                   Number.parseInt(matches[4], 10),
                                   Number.parseInt(matches[5], 10),
-                                  Number.parseInt(matches[5], 10));
+                                  Number.parseInt(matches[5], 10)).getTime();
 
             const suburl = "https://fr-fr.radioline.co/Pillow/" +
                            link.slice(1).replaceAll("-", "_") + "/play";
