@@ -30,7 +30,7 @@ export default class {
 
             return channels.map((channel) => {
                 const item = doc.querySelector(`.broadcastItem` +
-                                                   ` a[href$="-${channel}/"]`);
+                                                    ` a[href*="/${channel}-"]`);
                 const name = item.title;
 
                 const show = item.closest(".broadcastItem");
