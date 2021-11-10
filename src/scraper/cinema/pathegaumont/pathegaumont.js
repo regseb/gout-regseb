@@ -6,44 +6,64 @@ const API_URL = "https://www.cinemaspathegaumont.com/api";
 
 export default class {
 
+    #cinema;
+
+    #versions;
+
+    #includes;
+
+    #excludes;
+
+    #complements;
+
     constructor({ cinema, versions, tags, complements }) {
-        this._cinema   = cinema;
-        this._versions = versions ?? ["vf", "vost", "vo", "vfst"];
-        this._includes = tags.includes ?? [];
-        this._excludes = tags.excludes ?? [];
-        this._complements = complements;
+        this.#cinema = cinema;
+        this.#versions = versions ?? ["vf", "vost", "vo", "vfst"];
+        this.#includes = tags.includes ?? [];
+        this.#excludes = tags.excludes ?? [];
+        this.#complements = complements;
     }
 
-    _filter(showtime) {
+    #filter(showtime) {
         return "available" === showtime.status &&
-               this._versions.includes(showtime.version) &&
-               this._includes.every((t) => showtime.tags.includes(t)) &&
-               !showtime.tags.some((t) => this._excludes.includes(t));
+               this.#versions.includes(showtime.version) &&
+               this.#includes.every((t) => showtime.tags.includes(t)) &&
+               !showtime.tags.some((t) => this.#excludes.includes(t));
     }
 
-    async extract(max) {
-        let response = await fetch(`${API_URL}/cinema/${this._cinema}`);
-        const { citySlug } = await response.json();
-
-        response = await fetch(`${API_URL}/zone/${citySlug}`);
+    async extract(max = Number.MAX_SAFE_INTEGER) {
+        const response = await fetch(`${API_URL}/cinema/${this.#cinema}/shows`);
         const { shows } = await response.json();
 
         const today = new Date().toISOString().slice(0, 10);
-        const promises = shows.map(async ({ slug }) => {
+        const promises = Object.entries(shows)
+                               .filter(([, s]) => today in s.days)
+                               .map(async ([slug]) => {
             let subresponse = await fetch(`${API_URL}/show/${slug}`);
             const { title } = await subresponse.json();
 
             subresponse = await fetch(`${API_URL}/show/${slug}/showtimes` +
-                                      `/${this._cinema}/${today}`);
+                                      `/${this.#cinema}/${today}`);
             const showtimes = await subresponse.json();
-            const showings = showtimes.filter(this._filter.bind(this))
-                                      .map((showtime) => ({
-                title: showtime.time.slice(11, 16),
-                link:  showtime.refCmd,
-            }));
+            const showings = showtimes.filter(this.#filter.bind(this))
+                                      .map((showtime) => {
+                let tags = showtime.tags.filter((t) => "DEFAULT" !== t)
+                                        .join(", ");
+                if ("" !== tags) {
+                    tags = ` (${tags})`;
+                }
+
+                return {
+                    // Récupérer l'heure et les minutes de la date de la séance.
+                    title: showtime.time.slice(11, 16),
+                    link:  showtime.refCmd,
+                    desc:  showtime.version.toUpperCase() + tags,
+                };
+            });
+
             return {
                 title,
-                link:  `https://www.cinemaspathegaumont.com/films/${slug}`,
+                link: `https://www.cinemaspathegaumont.com/films/${slug}`,
                 showings,
             };
         });
@@ -51,6 +71,6 @@ export default class {
         const movies = await Promise.all(promises);
         return movies.filter((m) => 0 !== m.showings.length)
                      .slice(0, max)
-                     .map((m) => ({ ...this._complements, ...m }));
+                     .map((m) => ({ ...this.#complements, ...m }));
     }
 }

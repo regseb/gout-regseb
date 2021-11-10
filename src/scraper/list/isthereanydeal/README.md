@@ -1,22 +1,22 @@
-# Scraper *list/isthereanydeal*
+# Scraper _list/isthereanydeal_
 
 Ce scraper récupère les offres d'un jeu vidéo listées sur
-**[IsThereAnyDeal](https://isthereanydeal.com/)**.
+[**IsThereAnyDeal**](https://isthereanydeal.com/).
 
 ## Configuration
 
 La configuration contient un objet
 [JSON](https://www.json.org/json-fr.html "JavaScript Object Notation") avec les
-propriétés :
+propriétés suivantes :
 
 - `"game`" : le nom du jeu ;
 - `"stores`" : les plateformes retournées.
 
 ## Exemple
 
-Cet exemple affiche les offres du jeu
-[*Doom*](https://isthereanydeal.com/game/doom/info/) sur les plateformes *Steam*
-et *Humble Store*.
+Ce widget affiche les offres du jeu
+[Doom](https://isthereanydeal.com/game/doom/info/) sur les plateformes Steam et
+Humble Store.
 
 ```JSON
 {

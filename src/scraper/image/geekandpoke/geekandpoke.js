@@ -4,30 +4,38 @@
 
 export default class {
 
+    #complements;
+
     constructor({ complements }) {
-        this._complements = complements;
+        this.#complements = complements;
     }
 
-    async extract(max) {
+    async extract(max = Number.MAX_SAFE_INTEGER) {
         const response = await fetch("https://feeds.feedburner.com" +
                                                                 "/GeekAndPoke");
         const text = await response.text();
         const xml = new DOMParser().parseFromString(text, "application/xml");
 
-        return Array.from(xml.querySelectorAll(`item:nth-of-type(-n+${max})`))
-                    .map((item) => {
-            const description = item.querySelector("description").textContent;
-            const doc = new DOMParser().parseFromString(description,
+        return Array.from(xml.querySelectorAll("item"))
+                    .map((item) => ({
+            description: item.querySelector("description").textContent,
+            guid:        item.querySelector("guid").textContent,
+            link:        item.querySelector("link").textContent,
+            pubDate:     item.querySelector("pubDate").textContent,
+            title:       item.querySelector("title").textContent,
+        })).map((item) => {
+            const doc = new DOMParser().parseFromString(item.description,
                                                         "text/html");
 
             return {
-                date:  new Date(item.querySelector("pubDate").textContent)
-                                                                     .getTime(),
-                guid:  item.querySelector("guid").textContent,
+                date:  new Date(item.pubDate).getTime(),
+                guid:  item.guid,
                 img:   doc.querySelector("img").dataset.image + "?format=300w",
-                link:  item.querySelector("link").textContent,
-                title: item.querySelector("title").textContent,
+                link:  item.link,
+                title: item.title,
             };
-        }).map((i) => ({ ...this._complements, ...i }));
+        }).sort((i1, i2) => i2.date - i1.date)
+          .slice(0, max)
+          .map((i) => ({ ...this.#complements, ...i }));
     }
 }

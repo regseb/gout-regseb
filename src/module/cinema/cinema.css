@@ -35,7 +35,7 @@ a {
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-a:visited {
+a:visited, li.empty a {
     color: black;
 }
 a[href]:hover {

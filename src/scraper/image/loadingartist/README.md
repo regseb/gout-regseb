@@ -1,27 +1,56 @@
-# community/regseb/image/loadingartist
+# Scraper _image/loadingartist_
+
+> Mots-clés : gout, gout-scraper, gout-scraper-image-loadingartist,
+> gout-module-image.
 
 Ce scraper recupère la liste des derniers dessins publiés sur le site
-**[Loading Artist](https://loadingartist.com/)**.
+[**Loading Artist**](https://loadingartist.com/).
+
+Il peut être utilisé avec le module
+[_image_](https://github.com/regseb/gout/tree/HEAD/src/module/image#readme).
 
 ## Configuration
 
-Il n'y a pas de configuration.
+La configuration contient un objet
+[JSON](https://www.json.org/json-fr.html "JavaScript Object Notation") avec la
+propriété suivante :
+
+<table>
+  <tr>
+    <th>Nom</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><code>"complements"</code></td>
+    <td><code>object</code></td>
+    <td>
+      <p>
+        Des propriétés qui seront ajoutées dans les éléments retournés. Par
+        défaut aucune propriété est ajoutée.
+      </p>
+      <p>
+        Exemple : <code>{ "target": "_top" }</code>.
+      </p>
+    </td>
+  </tr>
+</table>
 
 ## Exemple
 
-Cet exemple affiche le dernier dessin publié le jeudi.
+Ce widget affiche le dernier dessin.
 
 ```JSON
 {
-    "module": "core/image",
-    "files": {
-        "config.json": {
-            "max": 1,
-            "cron": "0 19 * * thu"
+    "module": {
+        "url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/image/image.js",
+        "config": {
+            "cron": "@daily",
+            "max": 1
         }
     },
-    "scrapers": [
-        { "scraper": "community/regseb/image/loadingartist" }
-    ]
+    "scrapers": [{
+        "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/image/loadingartist/loadingartist.js"
+    }]
 }
 ```

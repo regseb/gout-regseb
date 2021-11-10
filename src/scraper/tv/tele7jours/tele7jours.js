@@ -11,39 +11,49 @@ const CHANNELS = {
 
 export default class {
 
-    constructor({ broadcast, channels }) {
-        this._broadcast = broadcast ?? "tnt";
-        this._channels  = channels;
+    #broadcast;
+
+    #channels;
+
+    #complements;
+
+    constructor({ broadcast, channels, complements }) {
+        this.#broadcast = broadcast ?? "tnt";
+        this.#channels = channels;
+        this.#complements = complements;
     }
 
-    async extract() {
-        const url = "http://www.programme-television.org/?bouquet=" +
-                    this._broadcast;
+    async extract(max = Number.MAX_SAFE_INTEGER) {
+        const url = "https://www.programme-television.org/?bouquet=" +
+                    this.#broadcast;
         const response = await fetch(url);
         const text = await response.text();
         const doc = new DOMParser().parseFromString(text, "text/html");
-        return this._channels.map((channel) => {
-            const div = doc.querySelector("#prime-broadcasts" +
-                                          ` a[href="/chaines-tv/${channel}"]`)
-                           .closest("div.bloc_cnt");
-            return {
-                channel,
-                chaine:      div.querySelector(".logo a"),
-                note:        div.querySelector(".note2"),
-                titre:       div.querySelector(".texte_titre a"),
-                description: div.querySelector(".texte_description"),
-                categorie:   div.querySelector(".texte_cat a"),
-            };
-        }).map((data) => {
-            const name = data.chaine.textContent.replace("Programme ", "");
+        return Array.from(doc.querySelectorAll("#prime-broadcasts .bloc_cnt"))
+                    .filter((item) => {
+            if (undefined === this.#channels) {
+                return true;
+            }
+            const a = item.querySelector(".logo a");
+            const channel = a.getAttribute("href").slice(12);
+            return this.#channels.includes(channel);
+        }).slice(0, max).map((item) => ({
+            chaine:      item.querySelector(".logo a"),
+            note:        item.querySelector(".note2"),
+            titre:       item.querySelector(".texte_titre a"),
+            description: item.querySelector(".texte_description"),
+            categorie:   item.querySelector(".texte_cat a"),
+        })).map((item) => {
+            const channel = item.chaine.getAttribute("href").slice(12);
+            const name = item.chaine.textContent.replace("Programme ", "");
 
-            const title = data.titre.textContent;
-            const subtitle = data.description?.textContent;
-            const link = "http://www.programme-television.org" +
-                         data.titre.getAttribute("href");
+            const title = item.titre.textContent;
+            const subtitle = item.description?.textContent;
+            const link = "https://www.programme-television.org" +
+                         item.titre.getAttribute("href");
 
-            const category = data.categorie.textContent;
-            let type = (/[^/]+/u).exec(data.categorie.getAttribute("href"))[0];
+            const category = item.categorie.textContent;
+            let type = (/[^/]+/u).exec(item.categorie.getAttribute("href"))[0];
             switch (type) {
                 case "films-telefilms":
                     type = category.includes("Téléfilm") ? "telefilm"
@@ -56,10 +66,11 @@ export default class {
                     // Garder le type de Télé 7 Jours.
             }
 
-            const mark = data.note?.textContent?.length ?? 0;
+            const mark = item.note?.textContent?.length ?? 0;
 
             return {
-                channel: CHANNELS[data.channel] ?? data.channel,
+                ...this.#complements,
+                channel: CHANNELS[channel] ?? channel,
                 name,
                 title,
                 subtitle,

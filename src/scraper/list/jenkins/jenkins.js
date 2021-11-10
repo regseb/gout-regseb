@@ -4,14 +4,20 @@
 
 export default class {
 
+    #host;
+
+    #filters;
+
+    #complements;
+
     constructor({ url, jobs = {}, complements }) {
-        this._host = url;
-        this._filters = jobs;
-        this._complements = complements;
+        this.#host = url;
+        this.#filters = jobs;
+        this.#complements = complements;
     }
 
-    async extract(max) {
-        const url = this._host +
+    async extract(max = Number.MAX_SAFE_INTEGER) {
+        const url = this.#host +
                     "/api/json?tree=jobs[name,url,displayName," +
                                         "lastBuild[number,result]," +
                                         "modules[name,url,displayName," +
@@ -23,12 +29,12 @@ export default class {
         for (const job of json.jobs) {
             // S'il y a des filtres et que le nom du job ne correspond à aucune
             // filtre : ignorer ce job.
-            if (0 !== Object.keys(this._filters).length &&
-                    !(job.name in this._filters)) {
+            if (0 !== Object.keys(this.#filters).length &&
+                    !(job.name in this.#filters)) {
                 continue;
             }
 
-            if (null === this._filters[job.name]) {
+            if (null === this.#filters[job.name]) {
                 if (null === job.lastBuild ||
                         "FAILURE" !== job.lastBuild.result &&
                         "ABORTED" !== job.lastBuild.result) {
@@ -45,8 +51,8 @@ export default class {
                 }
             } else {
                 for (const module of job.modules) {
-                    if (0 !== this._filters[job.name].length &&
-                            !this._filters[job.name].includes(module.name)) {
+                    if (0 !== this.#filters[job.name].length &&
+                            !this.#filters[job.name].includes(module.name)) {
                         continue;
                     }
                     if (null === module.lastBuild ||
@@ -66,6 +72,6 @@ export default class {
                 }
             }
         }
-        return items.map((i) => ({ ...this._complements, ...i }));
+        return items.map((i) => ({ ...this.#complements, ...i }));
     }
 }

@@ -4,12 +4,14 @@
 
 export default class {
 
+    #complements;
+
     constructor({ complements }) {
-        this._complements = complements;
+        this.#complements = complements;
     }
 
-    async extract(max) {
-        const response = await fetch("http://www.urtikan.net/dessin-du-jour/");
+    async extract(max = Number.MAX_SAFE_INTEGER) {
+        const response = await fetch("https://www.urtikan.net/dessin-du-jour/");
         const text = await response.text();
         const doc = new DOMParser().parseFromString(text, "text/html");
 
@@ -20,6 +22,6 @@ export default class {
             img:   img.src,
             link:  img.parentElement.href,
             title: img.alt,
-        })).map((i) => ({ ...this._complements, ...i }));
+        })).map((i) => ({ ...this.#complements, ...i }));
     }
 }

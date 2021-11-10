@@ -1,10 +1,13 @@
-# Scraper *cinema/pathegaumont*
+# Scraper _cinema/pathegaumont_
 
-Ce scraper retourne les scéances du jour d'un cinéma
-[Pathé Gaumont](https://www.cinemaspathegaumont.com/).
+> Mots-clés : gout, gout-scraper, gout-scraper-cinema-pathegaumont,
+> gout-module-cinema.
+
+Ce scraper retourne les séances du jour d'un cinéma [**Pathé
+Gaumont**](https://www.cinemaspathegaumont.com/).
 
 Il peut être utilisé avec le module
-[*cinema*](https://github.com/regseb/gout-regseb/tree/master/src/module/cinema#readme).
+[_cinema_](https://github.com/regseb/gout-regseb/tree/HEAD/src/module/cinema#readme).
 
 ## Configuration
 
@@ -12,12 +15,69 @@ La configuration contient un objet
 [JSON](https://www.json.org/json-fr.html "JavaScript Object Notation") avec les
 propriétés suivantes :
 
-- `"cinema"` : le code du cinéma où récupérer les séances ;
-- `"versions"` (optionnel - par défaut toutes les version) : la liste des
-  versions souhaitées (`"vf"`, `"vost"`, `"vo"` et `"vfst"`) ;
-- `"tags"` (optionnel - par défaut aucun filtre) : le filtre sur les étiquettes
-  avec les propriétés `"includes"` et `"excludes"` (`"3d"`, `"4dx"`, `"atmos"`,
-  `"cinekids"`, `"duo"`, `"imax"`, `"pathe+"` et `"pmr"`).
+<table>
+  <tr>
+    <th>Nom</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><code>"cinema"</code></td>
+    <td><code>string</code></td>
+    <td>
+      <p>
+        Le code du cinéma où récupérer les séances. La liste des codes est
+        disponible en dessous.
+      </p>
+      <p>
+        Exemple : <code>"cinema-pathe-plan-de-campagne"</code>.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td><code>"complements"</code></td>
+    <td><code>object</code></td>
+    <td>
+      <p>
+        Des propriétés qui seront ajoutées dans les éléments retournés. Par
+        défaut aucune propriété est ajoutée.
+      </p>
+      <p>
+        Exemple : <code>{ "target": "_top" }</code>.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td><code>"tags"</code></td>
+    <td><code>object</code></td>
+    <td>
+      <p>
+        Les filtres sur les étiquettes avec les propriétés
+        <code>"includes"</code> et <code>"excludes"</code> ayant chacun une
+        liste d'étiquettes : <code>"3d"</code>, <code>"4dx"</code>,
+        <code>"atmos"</code>, <code>"cinekids"</code>, <code>"duo"</code>,
+        <code>"imax"</code>, <code>"pathe+"</code> et <code>"pmr"</code>.
+      </p>
+      <p>
+        Exemple :
+        <code>"tags": { "includes": ["imax"], "excludes": ["3d"] }</code>.
+    </td>
+  </tr>
+  <tr>
+    <td><code>"versions"</code></td>
+    <td><code>string[]</code></td>
+    <td>
+      <p>
+        La liste des versions souhaitées (<code>"vf"</code>,
+        <code>"vost"</code>, <code>"vo"</code> et <code>"vfst"</code>).
+        Par défaut toutes les versions sont retournées.
+      </p>
+      <p>
+        Exemple : <code>"vf"</code>.
+      </p>
+    </td>
+  </tr>
+</table>
 
 ## Liste des cinémas
 
@@ -89,15 +149,15 @@ Voici les codes des cinémas Pathé Gaumont :
 
 ## Exemple
 
-Cet configuration affiche les séances en français sauf celles en 3D et Pathé+
-dans une salle avec un accès pour les personnes à mobilité réduite dans le
-cinéma [Pathé Plan de
+Ce widget affiche les séances en français sauf celles en 3D et 4DX dans une
+salle avec un accès pour les personnes à mobilité réduite (PMR) dans le cinéma
+[Pathé Plan de
 Campagne](https://www.cinemaspathegaumont.com/cinemas/cinema-pathe-plan-de-campagne).
 
 ```JSON
 {
     "module": {
-        "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/module/cinema/cinema.js",
+        "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/module/cinema/cinema.js"
     },
     "scrapers": [{
         "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/cinema/pathegaumont/pathegaumont.js",
@@ -106,7 +166,7 @@ Campagne](https://www.cinemaspathegaumont.com/cinemas/cinema-pathe-plan-de-campa
             "versions": ["vf", "vfst"],
             "tags": {
                 "includes": ["pmr"],
-                "excludes": ["3d", "pathe+"]
+                "excludes": ["3d", "4dx"]
             }
         }
     }]

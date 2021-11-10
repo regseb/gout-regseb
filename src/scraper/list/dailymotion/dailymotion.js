@@ -6,13 +6,17 @@ const API_URL = "https://api.dailymotion.com/";
 
 export default class {
 
+    #user;
+
+    #complements;
+
     constructor({ user, complements }) {
-        this._user = user;
-        this._complements = complements;
+        this.#user = user;
+        this.#complements = complements;
     }
 
-    async extract(max) {
-        const url = API_URL + `user/${this._user}/videos` +
+    async extract(max = Number.MAX_SAFE_INTEGER) {
+        const url = API_URL + `user/${this.#user}/videos` +
                     "?fields=created_time,description,id,thumbnail_url," +
                             "title,url" +
                     `&limit=${max}`;
@@ -25,6 +29,6 @@ export default class {
             img:   item.thumbnail_url,
             link:  item.url,
             title: item.title,
-        })).map((i) => ({ ...this._complements, ...i }));
+        })).map((i) => ({ ...this.#complements, ...i }));
     }
 }

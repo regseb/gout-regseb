@@ -2,29 +2,42 @@
  * @module
  */
 
-const BASE_URI = import.meta.url.slice(0, import.meta.url.lastIndexOf("/"));
+/**
+ * Résous un chemin relatif à partir du module.
+ *
+ * @param {string} specifier Le chemin relatif vers un fichier.
+ * @returns {string} L'URL absolue vers le fichier.
+ * @see https://github.com/whatwg/html/issues/3871
+ */
+const resolve = function (specifier) {
+    return new URL(specifier, import.meta.url).href;
+};
 
 export default class {
 
+    #lang;
+
+    #complements;
+
     constructor({ lang, complements }) {
-        this._lang = lang ?? "fr";
-        this._complements = {
+        this.#lang = lang ?? "fr";
+        this.#complements = {
             color: "#607d8b",
-            icon:  `${BASE_URI}/img/articleauhasard.svg`,
+            icon:  resolve("./img/articleauhasard.svg"),
             ...complements,
         };
     }
 
-    async extract(size = 1) {
-        const url = `https://${this._lang}.wikipedia.org/w/api.php` +
+    async extract(max = Number.MAX_SAFE_INTEGER) {
+        const url = `https://${this.#lang}.wikipedia.org/w/api.php` +
                     "?action=query&list=random&rnnamespace=0&format=json" +
-                    `&rnlimit=${size}`;
+                    `&rnlimit=${max}`;
         const response = await fetch(url);
         const json = await response.json();
         return json.query.random.map((random) => ({
             guid:  random.id,
-            link:  `https://${this._lang}.wikipedia.org/wiki/` + random.title,
+            link:  `https://${this.#lang}.wikipedia.org/wiki/` + random.title,
             title: random.title,
-        })).map((i) => ({ ...this._complements, ...i }));
+        })).map((i) => ({ ...this.#complements, ...i }));
     }
 }

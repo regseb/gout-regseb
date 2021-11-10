@@ -2,9 +2,18 @@
  * @module
  */
 
-import { Cron } from "https://cdn.jsdelivr.net/npm/cronnor@1";
+import Cron from "https://cdn.jsdelivr.net/npm/cronnor@1";
 
-const BASE_URI = import.meta.url.slice(0, import.meta.url.lastIndexOf("/"));
+/**
+ * Résous un chemin relatif à partir du module.
+ *
+ * @param {string} specifier Le chemin relatif vers un fichier.
+ * @returns {string} L'URL absolue vers le fichier.
+ * @see https://github.com/whatwg/html/issues/3871
+ */
+const resolve = function (specifier) {
+    return new URL(specifier, import.meta.url).href;
+};
 
 const API_URL = "https://api.openweathermap.org/data/2.5/";
 
@@ -62,13 +71,20 @@ const extract = async function (city, appid, kind) {
 
 export default class extends HTMLElement {
 
-    constructor(config, scrapers) {
+    #config;
+
+    #cron;
+
+    #city;
+
+    #appid;
+
+    constructor(config) {
         super();
-        this._config   = config;
-        this._scrapers = scrapers;
+        this.#config = config;
     }
 
-    _display(item) {
+    #display(item) {
         const li = this.shadowRoot.querySelector("template")
                                   .content.querySelector("li")
                                   .cloneNode(true);
@@ -80,7 +96,7 @@ export default class extends HTMLElement {
         strong.textContent = date.toLocaleString("fr-FR", { weekday: "long" });
 
         let img = li.querySelector("p:first-of-type img");
-        img.src = `${BASE_URI}/img/${item.icon}.svg`;
+        img.src = resolve(`./img/${item.icon}.svg`);
         img.alt = item.desc;
         img.title = item.help;
         img.width = 32;
@@ -91,7 +107,7 @@ export default class extends HTMLElement {
 
         const dir = COMPASS_ROSE.find((c) => c[0] > item.wind.deg)[1];
         img = li.querySelector(".wind img");
-        img.src = `${BASE_URI}/img/wind.svg`;
+        img.src = resolve("./img/wind.svg");
         img.alt = "^";
         img.title = dir;
         img.style = "transform: rotate(" + item.wind.deg + "deg)";
@@ -102,57 +118,57 @@ export default class extends HTMLElement {
         ul.append(li);
     }
 
-    async _update() {
+    async #update() {
         // Si la page est cachée : ne pas actualiser les données et indiquer
         // qu'il faudra mettre à jour les données quand l'utilisateur reviendra
         // sur la page.
         if (document.hidden) {
-            this._cron.stop();
+            this.#cron.stop();
             return;
         }
 
         this.shadowRoot.querySelector("ul").replaceChildren();
 
         // Récupérer la météo du jour.
-        const weather = await extract(this._city, this._appid, "weather");
-        this._display(weather);
+        const weather = await extract(this.#city, this.#appid, "weather");
+        this.#display(weather);
 
         // Récupérer les prévisions.
-        const forecasts = await extract(this._city, this._appid, "forecast");
-        forecasts.forEach(this._display.bind(this));
+        const forecasts = await extract(this.#city, this.#appid, "forecast");
+        forecasts.forEach(this.#display.bind(this));
     }
 
-    _wake() {
-        if (!this._cron.active) {
-            this._cron.start();
-            this._update();
+    #wake() {
+        if (!this.#cron.active) {
+            this.#cron.start();
+            this.#update();
         }
     }
 
     async connectedCallback() {
-        this.attachShadow({ mode: "open" });
-
-        const response = await fetch(`${BASE_URI}/openweathermap.tpl`);
+        const response = await fetch(resolve("./openweathermap.tpl"));
         const text = await response.text();
         const template = new DOMParser().parseFromString(text, "text/html")
                                         .querySelector("template");
+
+        this.attachShadow({ mode: "open" });
         this.shadowRoot.append(template.content.cloneNode(true));
 
         const link = document.createElement("link");
         link.rel = "stylesheet";
-        link.href = `${BASE_URI}/openweathermap.css`;
+        link.href = resolve("./openweathermap.css");
         this.shadowRoot.append(link);
 
-        this._cron = new Cron(this._config.cron ?? "@hourly",
-                              this._update.bind(this));
-        this._city = this._config.city;
-        this._appid = this._config.appid;
+        this.#cron = new Cron(this.#config.cron ?? "@hourly",
+                              this.#update.bind(this));
+        this.#city = this.#config.city;
+        this.#appid = this.#config.appid;
 
-        this.style.backgroundColor = this._config.color ?? "#03a9f4";
+        this.style.backgroundColor = this.#config.color ?? "#03a9f4";
         this.shadowRoot.querySelector("h1").textContent =
-                                 this._config.title ?? this._city.split(",")[0];
+                                 this.#config.title ?? this.#city.split(",")[0];
 
-        document.addEventListener("visibilitychange", this._wake.bind(this));
-        this._update();
+        document.addEventListener("visibilitychange", this.#wake.bind(this));
+        this.#update();
     }
 }

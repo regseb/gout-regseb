@@ -2,35 +2,45 @@
  * @module
  */
 
-const DATE_REGEXP = /(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})-[^-]+$/u;
+const DATE_REGEXP = new RegExp(
+    "(?<year>\\d{4})(?<month>\\d{2})(?<day>\\d{2})" +
+    "(?<hours>\\d{2})(?<minutes>\\d{2})(?<seconds>\\d{2})-[^-]+$",
+    "u",
+);
 
 export default class {
 
+    #podcast;
+
+    #complements;
+
     constructor({ podcast, complements }) {
-        this._podcast = podcast;
-        this._complements = complements;
+        this.#podcast = podcast;
+        this.#complements = complements;
     }
 
-    async extract(max) {
-        const url = `https://fr-fr.radioline.co/${this._podcast}`;
+    async extract(max = Number.MAX_SAFE_INTEGER) {
+        const url = `https://fr-fr.radioline.co/${this.#podcast}`;
         const response = await fetch(url);
         const text = await response.text();
         const doc = new DOMParser().parseFromString(text, "text/html");
 
-        return Promise.all(Array.from(doc.querySelectorAll("#chapters li"))
-                                .slice(0, max)
+        const selector = `#chapters li:nth-of-type(-n+${max})`;
+        return Promise.all(Array.from(doc.querySelectorAll(selector))
                                 .map(async (li) => {
             const link = li.querySelector("h2 a").getAttribute("href");
             const img = li.querySelector("img").src;
             const title = li.querySelector("h2 a").textContent;
 
-            const matches = DATE_REGEXP.exec(link);
-            const date = new Date(Number.parseInt(matches[1], 10),
-                                  Number.parseInt(matches[2], 10) - 1,
-                                  Number.parseInt(matches[3], 10),
-                                  Number.parseInt(matches[4], 10),
-                                  Number.parseInt(matches[5], 10),
-                                  Number.parseInt(matches[5], 10)).getTime();
+            const result = DATE_REGEXP.exec(link);
+            const date = new Date(
+                Number.parseInt(result.groups.year, 10),
+                Number.parseInt(result.groups.month, 10) - 1,
+                Number.parseInt(result.groups.day, 10),
+                Number.parseInt(result.groups.hours, 10),
+                Number.parseInt(result.groups.minutes, 10),
+                Number.parseInt(result.groups.seconds, 10),
+            ).getTime();
 
             const suburl = "https://fr-fr.radioline.co/Pillow/" +
                            link.slice(1).replaceAll("-", "_") + "/play";
@@ -44,6 +54,6 @@ export default class {
                 link:  url + link,
                 title,
             };
-        }).map(async (i) => ({ ...this._complements, ...await i })));
+        }).map(async (i) => ({ ...this.#complements, ...await i })));
     }
 }

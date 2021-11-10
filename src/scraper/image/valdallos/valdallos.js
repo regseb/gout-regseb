@@ -13,17 +13,21 @@ const WEBCAMS_ID = {
 
 export default class {
 
+    #webcams;
+
+    #complements;
+
     constructor({ webcams, complements }) {
-        this._webcams = webcams;
-        this._complements = complements;
+        this.#webcams = webcams ?? Object.keys(WEBCAMS_ID);
+        this.#complements = complements;
     }
 
-    async extract(max) {
+    async extract(max = Number.MAX_SAFE_INTEGER) {
         const response = await fetch("https://www.valdallos.com/webcams.html");
         const text = await response.text();
         const doc = new DOMParser().parseFromString(text, "text/html");
 
-        return this._webcams.map((webcam) => {
+        return this.#webcams.map((webcam) => {
             const div = doc.querySelector(`#${WEBCAMS_ID[webcam]}` +
                                           " .cadre_photo_principale");
             if (null === div) {
@@ -39,6 +43,6 @@ export default class {
             };
         }).filter((i) => null !== i)
           .slice(0, max)
-          .map((i) => ({ ...this._complements, ...i }));
+          .map((i) => ({ ...this.#complements, ...i }));
     }
 }

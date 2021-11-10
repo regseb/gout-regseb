@@ -9,61 +9,80 @@ const CHANNELS = {
 };
 
 const TYPES = {
-    autre:              "divers",
-    "magazine-sportif": "sport",
+    Autre:               "divers",
+    Concert:             "culture",
+    "Dessin Animé":      "jeunesse",
+    Documentaire:        "documentaire",
+    "Emission Sportive": "sport",
+    Film:                "film",
+    Magazine:            "magazine",
+    "Magazine Sportif":  "magazine",
+    Opéra:               "culture",
+    Série:               "serie",
+    Spectacle:           "culture",
+    Théâtre:             "culture",
+    Téléfilm:            "telefilm",
 };
 
 export default class {
 
-    constructor({ broadcasts, complements }) {
-        this._broadcasts = broadcasts;
-        this._complements = complements;
+    #broadcast;
+
+    #channels;
+
+    #complements;
+
+    constructor({ broadcast, channels, complements }) {
+        this.#broadcast = broadcast ?? "programme-tnt";
+        this.#channels = channels;
+        this.#complements = complements;
     }
 
-    async extract() {
-        const promises = Object.entries(this._broadcasts)
-                               .map(async ([broadcast, channels]) => {
-            const url = `https://www.programme.tv/${broadcast}/`;
-            const response = await fetch(url);
-            const text = await response.text();
-            const doc = new DOMParser().parseFromString(text, "text/html");
+    async extract(max = Number.MAX_SAFE_INTEGER) {
+        const url = `https://www.programme.tv/${this.#broadcast}/`;
+        const response = await fetch(url);
+        const text = await response.text();
+        const doc = new DOMParser().parseFromString(text, "text/html");
+        return Array.from(doc.querySelectorAll(".bouquet-gridItem"))
+                    .filter((item) => {
+            if (undefined === this.#channels) {
+                return true;
+            }
+            const a = item.querySelector(".channelHeading-logo");
+            const href = a.getAttribute("href");
+            const channel = href.slice(8, href.lastIndexOf("-"));
+            return this.#channels.includes(channel);
+        }).slice(0, max).map((item) => {
+            const a = item.querySelector(".channelHeading-logo");
+            const href = a.getAttribute("href");
+            const channel = href.slice(8, href.lastIndexOf("-"));
+            const name = a.title;
 
-            return channels.map((channel) => {
-                const item = doc.querySelector(`.broadcastItem` +
-                                                    ` a[href*="/${channel}-"]`);
-                const name = item.title;
+            const title = item.querySelector(".broadcastCard-link")
+                               .textContent;
+            const subtitle = item.querySelector(".broadcastCard-subtitle")
+                                 ?.textContent?.trim();
+            const link = item.querySelector(".broadcastCard-link").href;
+            const desc = item.querySelector(".broadcastCard-synopsis")
+                             .textContent.trim();
 
-                const show = item.closest(".broadcastItem");
-                const title = show.querySelector(".broadcastItem-link")
-                                  .textContent;
-                const subtitle = show.querySelector(".broadcastItem-subtitle")
-                                     .textContent.trim();
-                const link = show.querySelector(".broadcastItem-link").href;
-                const desc = show.querySelector(".broadcastItem-text")
-                                 .textContent.trim();
+            const category = item.querySelector(".broadcastCard-format")
+                                 .textContent;
 
-                const category = show.querySelector(".categoryTag").textContent;
-                const type = show.querySelector(".categoryTag").className
-                                                               .slice(12);
+            const mark = item.querySelectorAll(".rating .active").length;
 
-                const mark = show.querySelectorAll(".rating .active").length;
-
-                return {
-                    channel: CHANNELS[channel] ?? channel,
-                    name,
-                    title,
-                    subtitle,
-                    link,
-                    desc,
-                    category,
-                    type:    TYPES[type] ?? type,
-                    mark,
-                };
-            });
-        });
-        const broadcasts = await Promise.all(promises);
-        return broadcasts.reduce((previous, current) => {
-            return previous.concat(current);
+            return {
+                ...this.#complements,
+                channel: CHANNELS[channel] ?? channel,
+                name,
+                title,
+                subtitle,
+                link,
+                desc,
+                category,
+                type:    TYPES[category] ?? category,
+                mark,
+            };
         });
     }
 }

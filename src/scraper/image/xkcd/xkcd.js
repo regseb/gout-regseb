@@ -4,11 +4,13 @@
 
 export default class {
 
+    #complements;
+
     constructor({ complements }) {
-        this._complements = complements;
+        this.#complements = complements;
     }
 
-    async extract(max) {
+    async extract(max = Number.MAX_SAFE_INTEGER) {
         const response = await fetch("https://xkcd.com/rss.xml");
         const text = await response.text();
         const xml = new DOMParser().parseFromString(text, "application/xml");
@@ -26,6 +28,6 @@ export default class {
                 link:  item.querySelector("link").textContent,
                 title: item.querySelector("title").textContent,
             };
-        }).map((i) => ({ ...this._complements, ...i }));
+        }).map((i) => ({ ...this.#complements, ...i }));
     }
 }

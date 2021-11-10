@@ -4,24 +4,28 @@
 
 export default class {
 
+    #lang;
+
+    #complements;
+
     constructor({ lang, complements }) {
-        this._lang = lang ?? "fr";
-        this._complements = complements;
+        this.#lang = lang ?? "fr";
+        this.#complements = complements;
     }
 
-    async extract(max) {
+    async extract(max = Number.MAX_SAFE_INTEGER) {
         const response = await fetch("https://www.peppercarrot.com" +
-                                     `/${this._lang}/`);
+                                     `/${this.#lang}/webcomics/index.html`);
         const text = await response.text();
         const doc = new DOMParser().parseFromString(text, "text/html");
 
-        return Array.from(doc.querySelectorAll(".homecontent figure > a"))
+        return Array.from(doc.querySelectorAll("figure > a"))
                     .slice(0, max)
                     .map((a) => ({
             guid:  a.href,
             img:   a.querySelector("img").src,
             link:  a.href,
-            title: a.title,
-        })).map((i) => ({ ...this._complements, ...i }));
+            title: a.querySelector("img").title,
+        })).map((i) => ({ ...this.#complements, ...i }));
     }
 }

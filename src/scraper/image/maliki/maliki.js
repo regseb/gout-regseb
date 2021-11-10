@@ -4,11 +4,13 @@
 
 export default class {
 
+    #complements;
+
     constructor({ complements }) {
-        this._complements = complements;
+        this.#complements = complements;
     }
 
-    async extract(max) {
+    async extract(max = Number.MAX_SAFE_INTEGER) {
         const response = await fetch("https://maliki.com/strips/");
         const text = await response.text();
         const doc = new DOMParser().parseFromString(text, "text/html");
@@ -20,9 +22,9 @@ export default class {
             guid:  a.href,
             img:   a.querySelector("img").src,
             link:  a.href,
-            title: a.querySelector("h3").innerHTML,
+            title: a.querySelector("h3").textContent,
         })).filter((i) => !i.title.startsWith("Protégé&nbsp;: "))
            .slice(0, max)
-           .map((i) => ({ ...this._complements, ...i }));
+           .map((i) => ({ ...this.#complements, ...i }));
     }
 }

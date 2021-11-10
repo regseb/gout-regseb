@@ -1,48 +1,297 @@
-# community/regseb/tv
+# Module _cinema_
 
-Ce module donne le **programme télévisé** du soir.
+> Mots-clés : gout, gout-module, gout-module-cinema.
+
+Ce module affiche les séances de films dans des cinémas.
 
 ## Configuration
 
-Le répertoire du widget doit avoir un fichier ***config.json*** contenant un
-objet
-[JSON](https://www.json.org/json-fr.html "JavaScript Object Notation") avec la
-propriété suivante :
+La configuration contient un objet
+[JSON](https://www.json.org/json-fr.html "JavaScript Object Notation") avec les
+propriétés suivantes :
 
-- `"color"` (optionnel - valeur par défaut : `"#9e9e9e"`) : la couleur de fond
-  du cadre (au format hexadécimale, régulier RGB ou avec des mots-clefs
-  prédéfinis).
-
-**25** est une taille raisonnable pour la largeur du cadre. La hauteur dépend
-du nombre de chaines qu'il faut afficher dans le cadre. Si vous souhaitez avoir
-*N* chaines de télévision : il faut fixer la hauteur à *N + 1*.
+<table>
+  <tr>
+    <th>Nom</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><code>"color"</code></td>
+    <td><code>string</code></td>
+    <td>
+      <p>
+        La
+        <a href="https://developer.mozilla.org/fr/docs/Web/CSS/color_value">couleur</a>
+        de fond du cadre. Par défaut la couleur grise (<code>"#9e9e9e"</code>)
+        est utilisée.
+      </p>
+      <p>
+        Exemples : <code>"#673ab7"</code>, <code>"chocolate"</code>.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td><code>"cron"</code></td>
+    <td><code>string</code><br /><code>string[]</code></td>
+    <td>
+      <p>
+        La ou les
+        <a href="https://www.npmjs.com/package/cronnor#expression-cron">expressions
+        <em>cron</em></a> indiquant la fréquence de mise à jour. Sans cette
+        propriété, les données sont mises à jour une fois par jour.
+      </p>
+      <p>
+        Exemple : <code>"0 0 * * 5-7"</code>.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td><code>"empty"</code></td>
+    <td><code>object</code></td>
+    <td>
+      <p>
+        Les données affichées quand les scrapers n'ont retourné aucune donnée.
+        Ce doit être un objet avec les mêmes propriétés qu'un élément retourné
+        par les scrapers. Si cette propriété n'est pas renseignée, le module
+        affiche <em>(aucune séance)</em>.
+      </p>
+      <p>
+        Exemple : <code>{}</code>.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td><code>"icon"</code></td>
+    <td><code>string</code></td>
+    <td>
+      <p>
+        L'URL de l'icône qui sera affichée en fond. Il est conseillé que l'image
+        soit carrée et que le dessin occupe toute la zone de l'image. Si le
+        dessin n'est pas carré, il faut le centrer verticalement et l'aligner à
+        droite. Seule la couleur noire doit être utilisée et elle doit avoir une
+        opacité de <code>0.2</code>. Par défaut, aucune icône n'est affichée.
+      </p>
+      <p>
+        Exemple : <code>"https://example.com/foo/bar.svg"</code>.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td><code>"max"</code></td>
+    <td><code>number</code></td>
+    <td>
+      <p>
+        Le nombre maximum d'éléments affichés dans le module. Sans maximum, tous
+        les films retournés par les scrapers sont affichés.
+      </p>
+      <p>
+        Exemple : <code>5</code>.
+      </p>
+    </td>
+  </tr>
+</table>
 
 ## Scraper
 
-TODO.
+Les scrapers associés à ce module doivent définir une méthode `extract()` qui
+prend en paramètre un entier indiquant le nombre maximum de films à retourner.
+La méthode doit retourner une
+[promesse](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+contenant un tableau dont chaque élément est un objet ayant les propriétés :
+
+<table>
+  <tr>
+    <th>Nom</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><code>"date"</code></td>
+    <td><code>number</code></td>
+    <td>
+      <p>
+        Le nombre de millisecondes depuis le 1er janvier 1970 à 00:00:00 UTC
+        (cf.
+        <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Date/getTime"><code>Date.prototype.getTime()</code></a>).
+        Cette valeur est utilisée pour trier les éléments du plus récent au plus
+        ancien. Par défaut, le nombre <code>0</code> est utilisé.
+      </p>
+      <p>
+        Exemple : <code>900277200000</code>.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td><code>"desc"</code></td>
+    <td><code>string</code></td>
+    <td>
+      <p>
+        La description de l'élément qui sera affichée dans l'info-bulle. Par
+        défaut, aucune info-bulle n'est affichée.
+      </p>
+      <p>
+        Exemple : <code>"Ce top10 des choses incroyables est incroyable"</code>.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td><code>"guid"</code></td>
+    <td><code>string</code></td>
+    <td>
+      <p>
+        Un identifiant de l'élément (<em>globally unique identifier</em>) qui
+        sera utilisé pour savoir s'il faut mettre à jour un élément ou en
+        insérer un nouveau. Par défaut, il est calculé à partir des autres
+        propriétés.
+      </p>
+      <p>
+        Exemple : <code>"example.com:12345"</code>.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td><code>"icon"</code></td>
+    <td><code>string</code></td>
+    <td>
+      <p>
+        L'URL de l'icône qui préfixera le titre. Par défaut, aucune icône n'est
+        affichée.
+      </p>
+      <p>
+        Exemple : <code>"https://example.com/foo/bar.svg"</code>.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td><code>"link"</code></td>
+    <td><code>string</code></td>
+    <td>
+      <p>
+        Le lien vers le film. Par défaut, il n'y a pas de lien (mais le titre du
+        film est affiché).
+      </p>
+      <p>
+        Exemple : <code>"https://example.com/foo/bar.html"</code>.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td><code>"showings"</code></td>
+    <td><code>object[]</code></td>
+    <td>
+      <p>
+        La liste des séances pour le film. Pour plus de détails, consultez le
+        tableau suivant.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td><code>"target"</code></td>
+    <td><code>string</code></td>
+    <td>
+      <p>
+        L'emplacement où sera ouvert le lien (cf. l'attribut
+        <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/a#attr-target"><code>target</code></a>
+        des liens HTML). Par défaut, les liens s'ouvrent dans un nouvel onglet.
+      </p>
+      <p>
+        Exemple : <code>"_top"</code>.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td><code>"title"</code></td>
+    <td><code>string</code></td>
+    <td>
+      <p>
+        Le titre du film affiché dans la ligne.
+      </p>
+      <p>
+        Exemple : <code>"Matrix"</code>.
+      </p>
+    </td>
+  </tr>
+</table>
+
+Chaque élément a une propriété <code>"showing"</code> qui contient la liste des
+séances pour un film. C'est un tableau d'objet JSON ayant les propriétés :
+
+<table>
+  <tr>
+    <th>Nom</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><code>"desc"</code></td>
+    <td><code>string</code></td>
+    <td>
+      <p>
+        La description de la séance qui sera affichée dans l'info-bulle. Par
+        défaut, aucune info-bulle n'est affichée.
+      </p>
+      <p>
+        Exemple : <code>"3D IMAX"</code>.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td><code>"link"</code></td>
+    <td><code>string</code></td>
+    <td>
+      <p>
+        Le lien de la séance. Par défaut, il n'y a pas de lien (mais le titre de
+        la séance est affiché).
+      </p>
+      <p>
+        Exemple : <code>"https://example.com/foo/bar.html"</code>.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td><code>"target"</code></td>
+    <td><code>string</code></td>
+    <td>
+      <p>
+        L'emplacement où sera ouvert le lien (cf. l'attribut
+        <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/a#attr-target"><code>target</code></a>
+        des liens HTML). Par défaut, les liens s'ouvrent dans un nouvel onglet.
+      </p>
+      <p>
+        Exemple : <code>"_top"</code>.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td><code>"title"</code></td>
+    <td><code>string</code></td>
+    <td>
+      <p>
+        Le titre de la séance (qui peut être l'heure de début).
+      </p>
+      <p>
+        Exemple : <code>"21:00"</code>.
+      </p>
+    </td>
+  </tr>
+</table>
 
 ## Exemple
 
-Cet exemple donne le programme télévisé de toutes les chaines de la TNT sauf
-Canal+, BFM TV, CNews et Franceinfo.
+Ce widget affiche les séances du jour du cinéma [Pathé Plan de
+Campagne](https://www.cinemaspathegaumont.com/cinemas/cinema-pathe-plan-de-campagne).
 
 ```JSON
 {
-    "module": "community/regseb/tv",
-    "files": { "config.json": {} },
-    "scrapers": [
-        {
-            "scraper": "community/regseb/tv/tele2semaines",
-            "config": {
-                "tnt": [
-                    "tf1", "france-2", "france-3", "france-5", "m6", "arte",
-                    "c8", "w9", "tmc", "nt1", "nrj-12",
-                    "la-chaine-parlementaire-public-senat", "france-4",
-                    "cstar", "gulli", "france-o", "hd1", "l-equipe", "6ter",
-                    "numero-23", "rmc-decouverte", "cherie-25"
-                ]
-            }
+    "module": {
+        "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/module/cinema/cinema.js"
+    },
+    "scrapers": [{
+        "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/cinema/pathegaumont/pathegaumont.js",
+        "config": {
+            "cinema": "cinema-pathe-plan-de-campagne"
         }
-    ]
+    }]
 }
 ```

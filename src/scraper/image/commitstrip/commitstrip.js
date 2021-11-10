@@ -4,11 +4,13 @@
 
 export default class {
 
+    #complements;
+
     constructor({ complements }) {
-        this._complements = complements;
+        this.#complements = complements;
     }
 
-    async extract(max) {
+    async extract(max = Number.MAX_SAFE_INTEGER) {
         const response = await fetch("https://www.commitstrip.com/fr/");
         const text = await response.text();
         const doc = new DOMParser().parseFromString(text, "text/html");
@@ -25,6 +27,6 @@ export default class {
                 link,
                 title: a.querySelector("strong").textContent,
             };
-        }).map((i) => ({ ...this._complements, ...i }));
+        }).map((i) => ({ ...this.#complements, ...i }));
     }
 }

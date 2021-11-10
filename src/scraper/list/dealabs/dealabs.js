@@ -52,19 +52,19 @@ const getToken = async function () {
 };
 
 const extractDate = function (ago) {
-    let result = (/(?<hours>[0-9]+) h et (?<minutes>[0-9]+) min$/u).exec(ago);
+    let result = (/(?<hours>\d{1,2}) h et (?<minutes>\d{1,2}) min$/u).exec(ago);
     if (null !== result) {
         return Date.now() -
                3_600_000 * Number.parseInt(result.groups.hours, 10) -
                60_000 * Number.parseInt(result.groups.minutes, 10);
     }
 
-    result = (/(?<minutes>[0-9]+) min$/u).exec(ago);
+    result = (/(?<minutes>\d{1,2}) min$/u).exec(ago);
     if (null !== result) {
         return Date.now() - 60_000 * Number.parseInt(result.groups.minutes, 10);
     }
 
-    result = (/(?<date>[0-9]+) (?<month>[a-z]+)$/u).exec(ago);
+    result = (/(?<date>\d{1,2}) (?<month>[a-z]+)$/u).exec(ago);
     if (null !== result) {
         const now = new Date();
         const date = Number.parseInt(result.groups.date, 10);
@@ -85,15 +85,19 @@ const extractDate = function (ago) {
 
 export default class {
 
+    #filters;
+
+    #complements;
+
     constructor({ filters, complements }) {
-        this._filters = { ...DEFAULT_FILTERS, ...filters };
-        this._complements = complements;
+        this.#filters = { ...DEFAULT_FILTERS, ...filters };
+        this.#complements = complements;
     }
 
-    async extract(max) {
+    async extract(max = Number.MAX_SAFE_INTEGER) {
         const body = new URLSearchParams();
         body.append("_token", await getToken());
-        for (const [name, value] of Object.entries(this._filters)) {
+        for (const [name, value] of Object.entries(this.#filters)) {
             if (Array.isArray(value)) {
                 for (const subvalue of value) {
                     body.append(name, subvalue);
@@ -123,6 +127,6 @@ export default class {
             link:  item.link,
             title: (undefined === item.price ? "" : item.price + " | ") +
                    item.title,
-        })).map((i) => ({ ...this._complements, ...i }));
+        })).map((i) => ({ ...this.#complements, ...i }));
     }
 }

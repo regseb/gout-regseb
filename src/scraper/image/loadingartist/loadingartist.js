@@ -2,32 +2,33 @@
  * @module
  */
 
-const BASE_URI = "https://loadingartist.com";
-
 export default class {
 
+    #complements;
+
     constructor({ complements }) {
-        this._complements = complements;
+        this.#complements = complements;
     }
 
-    async extract(max) {
-        const response = await fetch(`${BASE_URI}/archives/`);
+    async extract(max = Number.MAX_SAFE_INTEGER) {
+        const response = await fetch("https://loadingartist.com/index.xml");
         const text = await response.text();
-        const doc = new DOMParser().parseFromString(text, "text/html");
+        const xml = new DOMParser().parseFromString(text, "application/xml");
 
-        const url = BASE_URI + doc.querySelector(".archive-thumbs a")
-                                  .getAttribute("href");
-        const subresponse = await fetch(url);
-        const subtext = await subresponse.text();
-        const subdoc = new DOMParser().parseFromString(subtext, "text/html");
-
-        return Array.from(subdoc.querySelectorAll(".archive-thumbs a"))
-                    .slice(-max)
-                    .map((a) => ({
-            guid:  BASE_URI + a.getAttribute("href"),
-            img:   BASE_URI + a.querySelector("img").getAttribute("src"),
-            link:  BASE_URI + a.getAttribute("href"),
-            title: a.querySelector("img").title,
-        })).reverse().map((i) => ({ ...this._complements, ...i }));
+        return Array.from(xml.querySelectorAll("item"))
+                    .map((item) => ({
+            guid:    item.querySelector("guid").textContent,
+            link:    item.querySelector("link").textContent,
+            pubDate: item.querySelector("pubDate").textContent,
+            title:   item.querySelector("title").textContent,
+        })).map((item) => ({
+            date:  new Date(item.pubDate).getTime(),
+            guid:  item.guid,
+            img:   `${item.link}thumb.png`,
+            link:  item.link,
+            title: item.title,
+        })).sort((i1, i2) => i2.date - i1.date)
+           .slice(0, max)
+           .map((i) => ({ ...this.#complements, ...i }));
     }
 }

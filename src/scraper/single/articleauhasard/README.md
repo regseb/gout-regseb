@@ -1,7 +1,7 @@
-# community/regseb/single/articleauhasard
+# Scraper _single/articleauhasard_
 
 Ce scraper donne un lien vers un article au hasard de
-**[Wikipédia](https://fr.wikipedia.org/)**.
+[**Wikipédia**](https://fr.wikipedia.org/).
 
 ## Configuration
 
@@ -15,19 +15,19 @@ propriété suivante :
 
 ## Exemple
 
-Cet exemple affiche un lien vers un article en français.
+Ce widget affiche un lien vers un article en français.
 
 ```JSON
 {
-    "module": "core/single",
-    "files": {
-        "config.json": {
+    "module": {
+        "url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/single/single.js",
+        "config": {
             "color": "#607d8b",
             "cron": "*/5 * * * *"
         }
     },
     "scrapers": [
-        { "scraper": "community/regseb/single/articleauhasard" }
+        "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/single/articleauhasard/articleauhasard.js"
     ]
 }
 ```

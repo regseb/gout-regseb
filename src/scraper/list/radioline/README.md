@@ -1,7 +1,7 @@
-# community/regseb/feed/radioline
+# Scraper _list/radioline_
 
 Ce scraper récupère la liste des derniers épisodes d'un podcast sur
-**[Radioline](https://fr-fr.radioline.co/)**.
+[**Radioline**](https://fr-fr.radioline.co/).
 
 ## Configuration
 
@@ -15,25 +15,24 @@ propriétés suivantes :
 
 ## Exemple
 
-Cet exemple affiche les dernières chroniques de l'émission
-*[Par Jupiter !](https://fr-fr.radioline.co/podcast-france-inter-par-jupiter)*.
+Ce widget affiche les dernières chroniques de l'émission [Par
+Jupiter !](https://fr-fr.radioline.co/podcast-france-inter-par-jupiter).
 
 ```JSON
 {
-    "module": "core/podcast",
-    "files": {
-        "config.json": {
+{
+    "module": {
+        "url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/podcast/podcast.js",
+        "config": {
             "color": "#f44336",
             "cron": "@daily",
             "max": 5
         }
     },
     "scrapers": [
-        {
-            "scraper": "community/regseb/feed/radioline",
-            "config": {
-                "podcast": "podcast-france-inter-par-jupiter"
-            }
+        "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/list/radioline/radioline.js",
+        "config": {
+            "podcast": "podcast-france-inter-par-jupiter"
         }
     ]
 }

@@ -3,6 +3,7 @@ export default {
         "!/.git/",
         "!/jsdocs/",
         "!/node_modules/",
+        "!*.swp",
         "**",
     ],
     checkers: [
@@ -22,7 +23,7 @@ export default {
                 eslint: ["eslint.config.js", "eslint_config.config.js"],
             },
         }, {
-            patterns: "/src/dashboard/**/*.html",
+            patterns: "*.html",
             linters: {
                 htmlhint: [
                     "htmlhint.config.js",
@@ -49,9 +50,6 @@ export default {
         }, {
             patterns: "*.yml",
             linters: { "yaml-lint": null },
-        }, {
-            patterns: "/package.json",
-            linters: "david",
         },
     ],
 };
