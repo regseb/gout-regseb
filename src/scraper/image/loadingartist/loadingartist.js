@@ -16,6 +16,8 @@ export default class {
         const xml = new DOMParser().parseFromString(text, "application/xml");
 
         return Array.from(xml.querySelectorAll("item"))
+                    .filter((i) => "comic" ===
+                                        i.querySelector("category").textContent)
                     .map((item) => ({
             guid:    item.querySelector("guid").textContent,
             link:    item.querySelector("link").textContent,
