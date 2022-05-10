@@ -4,9 +4,12 @@
 
 export default class {
 
+    #password;
+
     #complements;
 
-    constructor({ complements }) {
+    constructor({ password, complements }) {
+        this.#password = password ?? true;
         this.#complements = complements;
     }
 
@@ -18,12 +21,13 @@ export default class {
         const selector = ".archiveStrips--content > * > .row a";
         return Array.from(doc.querySelectorAll(selector))
                     .map((a) => ({
-            date:  new Date(a.querySelector("time").dateTime),
+            date:  new Date(a.querySelector("time").dateTime).getTime(),
             guid:  a.href,
             img:   a.querySelector("img").src,
             link:  a.href,
             title: a.querySelector("h3").textContent,
-        })).filter((i) => !i.title.startsWith("Protégé&nbsp;: "))
+        })).filter((i) => this.#password ||
+                                         !i.title.startsWith("Protégé\u00A0: "))
            .slice(0, max)
            .map((i) => ({ ...this.#complements, ...i }));
     }

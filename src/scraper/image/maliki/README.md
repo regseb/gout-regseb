@@ -1,7 +1,6 @@
 # Scraper _image/maliki_
 
-> Mots-clés : gout, gout-scraper, gout-scraper-image-commitstrip,
-> gout-module-image.
+> Mots-clés : gout, gout-scraper, gout-scraper-image-maliki, gout-module-image.
 
 Ce scraper recupère la liste des derniers dessins publiés sur le site
 [**Maliki**](https://maliki.com/strips/).
@@ -12,8 +11,8 @@ Il peut être utilisé avec le module
 ## Configuration
 
 La configuration contient un objet
-[JSON](https://www.json.org/json-fr.html "JavaScript Object Notation") avec la
-propriété suivante :
+[JSON](https://www.json.org/json-fr.html "JavaScript Object Notation") avec les
+propriétés suivantes :
 
 <table>
   <tr>
@@ -31,6 +30,19 @@ propriété suivante :
       </p>
       <p>
         Exemple : <code>{ "target": "_top" }</code>.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td><code>"password"</code></td>
+    <td><code>boolean</code></td>
+    <td>
+      <p>
+        La marque indiquant s'il faut remonter les dessins protégés par un mot
+        de passe. Par défaut ils sont remontés.
+      </p>
+      <p>
+        Exemple : <code>{ "password": false }</code>.
       </p>
     </td>
   </tr>
