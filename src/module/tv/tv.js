@@ -4,16 +4,19 @@
 
 import Cron from "https://cdn.jsdelivr.net/npm/cronnor@1";
 
-/**
- * Résous un chemin relatif à partir du module.
- *
- * @param {string} specifier Le chemin relatif vers un fichier.
- * @returns {string} L'URL absolue vers le fichier.
- * @see https://github.com/whatwg/html/issues/3871
- */
-const resolve = function (specifier) {
-    return new URL(specifier, import.meta.url).href;
-};
+if (undefined === import.meta.resolve) {
+
+    /**
+     * Résous un chemin relatif à partir du module.
+     *
+     * @param {string} specifier Le chemin relatif vers un fichier.
+     * @returns {string} L'URL absolue vers le fichier.
+     * @see https://github.com/whatwg/html/issues/3871
+     */
+    import.meta.resolve = (specifier) => {
+        return new URL(specifier, import.meta.url).href;
+    };
+}
 
 const hashCode = function (item) {
     return Math.abs(Array.from(item.guid ?? JSON.stringify(item))
@@ -64,12 +67,12 @@ export default class extends HTMLElement {
         }
 
         const imgChannel = li.querySelector("img.channel");
-        imgChannel.src = resolve(`./img/${item.channel}.svg`);
+        imgChannel.src = import.meta.resolve(`./img/${item.channel}.svg`);
         imgChannel.alt = item.channel;
         imgChannel.title = item.name;
 
         const imgType = li.querySelector("img.type");
-        imgType.src = resolve(`./img/${item.type}.svg`);
+        imgType.src = import.meta.resolve(`./img/${item.type}.svg`);
         imgType.alt = item.type;
         imgType.title = item.category;
         imgType.classList.add(item.type);
@@ -77,7 +80,7 @@ export default class extends HTMLElement {
         const span = li.querySelector("span");
         for (let i = 0; i < item.mark; ++i) {
             const img = document.createElement("img");
-            img.src = resolve("./img/star.svg");
+            img.src = import.meta.resolve("./img/star.svg");
             img.alt = "*";
             span.append(img);
         }
@@ -149,7 +152,7 @@ export default class extends HTMLElement {
     }
 
     async connectedCallback() {
-        const response = await fetch(resolve("./tv.tpl"));
+        const response = await fetch(import.meta.resolve("./tv.tpl"));
         const text = await response.text();
         const template = new DOMParser().parseFromString(text, "text/html")
                                         .querySelector("template");
@@ -159,7 +162,7 @@ export default class extends HTMLElement {
 
         const link = document.createElement("link");
         link.rel = "stylesheet";
-        link.href = resolve("./tv.css");
+        link.href = import.meta.resolve("./tv.css");
         this.shadowRoot.append(link);
 
         // Par défaut, mettre à jour les données tous les jours à 1h.

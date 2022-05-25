@@ -4,16 +4,19 @@
 
 import Cron from "https://cdn.jsdelivr.net/npm/cronnor@1";
 
-/**
- * Résous un chemin relatif à partir du module.
- *
- * @param {string} specifier Le chemin relatif vers un fichier.
- * @returns {string} L'URL absolue vers le fichier.
- * @see https://github.com/whatwg/html/issues/3871
- */
-const resolve = function (specifier) {
-    return new URL(specifier, import.meta.url).href;
-};
+if (undefined === import.meta.resolve) {
+
+    /**
+     * Résous un chemin relatif à partir du module.
+     *
+     * @param {string} specifier Le chemin relatif vers un fichier.
+     * @returns {string} L'URL absolue vers le fichier.
+     * @see https://github.com/whatwg/html/issues/3871
+     */
+    import.meta.resolve = (specifier) => {
+        return new URL(specifier, import.meta.url).href;
+    };
+}
 
 const API_URL = "https://api.openweathermap.org/data/2.5/";
 
@@ -96,7 +99,7 @@ export default class extends HTMLElement {
         strong.textContent = date.toLocaleString("fr-FR", { weekday: "long" });
 
         let img = li.querySelector("p:first-of-type img");
-        img.src = resolve(`./img/${item.icon}.svg`);
+        img.src = import.meta.resolve(`./img/${item.icon}.svg`);
         img.alt = item.desc;
         img.title = item.help;
         img.width = 32;
@@ -107,7 +110,7 @@ export default class extends HTMLElement {
 
         const dir = COMPASS_ROSE.find((c) => c[0] > item.wind.deg)[1];
         img = li.querySelector(".wind img");
-        img.src = resolve("./img/wind.svg");
+        img.src = import.meta.resolve("./img/wind.svg");
         img.alt = "^";
         img.title = dir;
         img.style = "transform: rotate(" + item.wind.deg + "deg)";
@@ -146,7 +149,9 @@ export default class extends HTMLElement {
     }
 
     async connectedCallback() {
-        const response = await fetch(resolve("./openweathermap.tpl"));
+        const response = await fetch(
+            import.meta.resolve("./openweathermap.tpl"),
+        );
         const text = await response.text();
         const template = new DOMParser().parseFromString(text, "text/html")
                                         .querySelector("template");
@@ -156,7 +161,7 @@ export default class extends HTMLElement {
 
         const link = document.createElement("link");
         link.rel = "stylesheet";
-        link.href = resolve("./openweathermap.css");
+        link.href = import.meta.resolve("./openweathermap.css");
         this.shadowRoot.append(link);
 
         this.#cron = new Cron(this.#config.cron ?? "@hourly",
