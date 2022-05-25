@@ -48,7 +48,7 @@ const getToken = async function () {
             return input.value;
         }
     }
-    return null;
+    return undefined;
 };
 
 const extractDate = function (ago) {
@@ -80,7 +80,7 @@ const extractDate = function (ago) {
             now.getMilliseconds(),
         ).getTime();
     }
-    return null;
+    return undefined;
 };
 
 export default class {

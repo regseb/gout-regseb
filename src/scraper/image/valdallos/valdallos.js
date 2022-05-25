@@ -31,7 +31,7 @@ export default class {
             const div = doc.querySelector(`#${WEBCAMS_ID[webcam]}` +
                                           " .cadre_photo_principale");
             if (null === div) {
-                return null;
+                return undefined;
             }
 
             return {
@@ -41,7 +41,7 @@ export default class {
                 link:  div.querySelector("a").href,
                 title: div.querySelector("img").title,
             };
-        }).filter((i) => null !== i)
+        }).filter((i) => undefined !== i)
           .slice(0, max)
           .map((i) => ({ ...this.#complements, ...i }));
     }

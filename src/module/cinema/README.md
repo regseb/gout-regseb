@@ -42,6 +42,11 @@ propriétés suivantes :
         propriété, les données sont mises à jour une fois par jour.
       </p>
       <p>
+        <!-- Ne pas vérifier les espaces dans les éléments d'emphase car cette
+             règle s'applique dans les éléments <code> et il y a des
+             faux-positifs avec les expressions cron.
+             https://github.com/DavidAnson/markdownlint/issues/427 -->
+        <!-- markdownlint-disable-next-line no-space-in-emphasis -->
         Exemple : <code>"0 0 * * 5-7"</code>.
       </p>
     </td>
