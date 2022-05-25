@@ -18,8 +18,8 @@
     "type": "module",
     "scripts": {
         "lint": "metalint",
-        "lint:types": "tsc",
-        "jsdocs": "typedoc --tsconfig tsconfig_typedoc.json --out jsdocs/ src/",
+        "lint:types": "tsc --project .tsconfig_lint.json",
+        "jsdocs": "typedoc --tsconfig .tsconfig_jsdocs.json --out jsdocs/ src/",
         "server": "http-server -p60071 -c-1 --cors",
         "release": "standard-version",
         "clean": "node .script/clean.js"
