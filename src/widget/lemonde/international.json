@@ -1,0 +1,8 @@
+{
+    "$extend": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/lemonde/une.json",
+    "$scrapers[0]": {
+        "config": {
+            "url": "https://www.lemonde.fr/international/rss_full.xml"
+        }
+    }
+}
