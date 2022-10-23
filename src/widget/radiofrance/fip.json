@@ -1,0 +1,17 @@
+{
+    "module": {
+        "url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/audio/audio.js"
+    },
+    "scrapers": [{
+        "url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/repeater/repeater.js",
+        "config": {
+            "extract": [{
+                "audio": "https://direct.radiofrance.fr/live/fip-hifi.aac",
+                "color": "#e2007a",
+                "link": "https://www.radiofrance.fr/fip",
+                "title": "Fip",
+                "icon": "http://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/radiofrance/radiofrance_white.svg"
+            }]
+        }
+    }]
+}
