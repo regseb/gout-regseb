@@ -53,10 +53,11 @@ propriétés suivantes :
     <td>
       <p>
         Les filtres sur les étiquettes avec les propriétés
-        <code>"includes"</code> et <code>"excludes"</code> ayant chacun une
+        <code>"includes"</code> et <code>"excludes"</code> ayant chacune une
         liste d'étiquettes : <code>"3d"</code>, <code>"4dx"</code>,
         <code>"atmos"</code>, <code>"cinekids"</code>, <code>"duo"</code>,
-        <code>"imax"</code>, <code>"pathe+"</code> et <code>"pmr"</code>.
+        <code>"imax"</code>, <code>"pathe+"</code> et <code>"pmr"</code>. Par
+        défaut, aucun filtre n'est appliqué.
       </p>
       <p>
         Exemple :
@@ -73,7 +74,7 @@ propriétés suivantes :
         Par défaut toutes les versions sont retournées.
       </p>
       <p>
-        Exemple : <code>"vf"</code>.
+        Exemple : <code>["vf"]</code>.
       </p>
     </td>
   </tr>

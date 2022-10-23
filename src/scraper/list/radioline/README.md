@@ -1,5 +1,7 @@
 # Scraper _list/radioline_
 
+> Mots-clés : gout, gout-scraper, gout-scraper-list-radioline, gout-module-list.
+
 Ce scraper récupère la liste des derniers épisodes d'un podcast sur
 [**Radioline**](https://fr-fr.radioline.co/).
 
@@ -19,7 +21,6 @@ Ce widget affiche les dernières chroniques de l'émission [Par
 Jupiter !](https://fr-fr.radioline.co/podcast-france-inter-par-jupiter).
 
 ```JSON
-{
 {
     "module": {
         "url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/podcast/podcast.js",

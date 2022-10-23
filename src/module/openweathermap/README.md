@@ -51,9 +51,9 @@ propriétés suivantes :
     <td>
       <p>
         La
-        <a href="https://developer.mozilla.org/fr/docs/Web/CSS/color_value">couleur</a>
-        de fond du cadre. Par défaut la couleur bleue (<code>"#03a9f4"</code>)
-        est utilisée.
+        <a href="https://developer.mozilla.org/CSS/color_value">couleur</a> de
+        fond du cadre. Par défaut la couleur bleue (<code>"#03a9f4"</code>) est
+        utilisée.
       </p>
       <p>
         Exemples : <code>"#673ab7"</code>, <code>"chocolate"</code>.
@@ -68,7 +68,7 @@ propriétés suivantes :
         La ou les
         <a href="https://www.npmjs.com/package/cronnor#expression-cron">expressions
         <em>cron</em></a> indiquant la fréquence de mise à jour. Sans cette
-        propriété, les données sont mises toutes les heures.
+        propriété, les données sont mises à jour toutes les heures.
       </p>
       <p>
         Exemple : <code>"@daily"</code>.
@@ -80,8 +80,8 @@ propriétés suivantes :
     <td><code>string</code></td>
     <td>
       <p>
-        Le nom de ville affiché dans le widget. Par défaut, c'est le nom de la
-        propriété <code>"city"</code> qui est utilisé.
+        Le nom de la ville affiché dans le widget. Par défaut, c'est le nom de
+        la propriété <code>"city"</code> qui est utilisé.
       </p>
       <p>
         Exemples : <code>"Aix"</code>.

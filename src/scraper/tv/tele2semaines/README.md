@@ -26,8 +26,10 @@ propriétés suivantes :
     <td><code>string</code></td>
     <td>
       <p>
-        Le bouquet utilisé : `"programme-tnt"` (par défaut), `"free"`, `"sfr"`,
-        `"canal"`, `"canal-plus"`, `"orange"` ou `"bouygues"`.
+        Le bouquet utilisé : <code>"programme-tnt"</code> (par défaut),
+        <code>"free"</code>, <code>"sfr"</code>, <code>"canal"</code>,
+        <code>"canal-plus"</code>, <code>"orange"</code> ou
+        <code>"bouygues"</code>.
       </p>
       <p>
         Exemple : <code>"orange"</code>.

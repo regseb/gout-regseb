@@ -50,7 +50,7 @@ Ce widget affiche les deux derniers dessins.
         }
     },
     "scrapers": [{
-        "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/image/geelandpoke/geekandpoke.js"
+        "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/image/geekandpoke/geekandpoke.js"
     }]
 }
 ```

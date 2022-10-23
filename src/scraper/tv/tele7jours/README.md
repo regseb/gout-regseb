@@ -1,7 +1,13 @@
 # Scraper _tv/tele7jours_
 
+> Mots-clés : gout, gout-scraper, gout-regseb-scraper-tv-tele7jours,
+> gout-regseb-module-tv
+
 Ce scraper donne le programme télévisé du soir par [**Télé 7
 Jours**](https://www.programme-television.org/).
+
+Il peut être utilisé avec le module :
+[_tv_](https://github.com/regseb/gout-regseb/tree/HEAD/src/module/tv#readme).
 
 ## Configuration
 
@@ -20,7 +26,7 @@ propriétés suivantes :
   [`"alice"`](https://www.programme-television.org/?bouquet=alice),
   [`"darty"`](https://www.programme-television.org/?bouquet=darty),
   [`"bis-televisions"`](
-                 https://www.programme-television.org/?bouquet=bis-televisions))
+                  https://www.programme-television.org/?bouquet=bis-televisions)
   ou [`"mycanal"`](https://www.programme-television.org/?bouquet=mycanal)) ;
 - `"channels"` : la liste des chaines affichées (voir en-dessous pour connaitre
   les codes) ;

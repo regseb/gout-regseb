@@ -1,5 +1,7 @@
 # Scraper _list/jenkins_
 
+> Mots-clés : gout, gout-scraper, gout-scraper-list-jenkins, gout-module-list.
+
 Ce scraper récupère les jobs et les modules **Jenkins** en erreur.
 
 ## Configuration
@@ -21,7 +23,6 @@ ainsi que le job Tomcat-7.x de la fondation
 [Apache](https://builds.apache.org/).
 
 ```JSON
-{
 {
     "module": {
         "url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/list/list.js",

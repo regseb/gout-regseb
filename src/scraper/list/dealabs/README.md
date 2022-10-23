@@ -43,7 +43,7 @@ propriétés suivantes :
       <ul>
         <li>
           <code>"q"</code> : la chaine de caractères contenant le terme cherché
-          par défaut aucun filtre sur du texte) ;
+          (par défaut aucun filtre sur du texte) ;
         </li>
         <li>
           <code>"search_fields[]"</code> contient la liste des identifiants des
@@ -57,27 +57,25 @@ propriétés suivantes :
         </li>
         <li>
           <code>"hide_expired"</code> : <code>0</code> (par défaut) pour
-          remonter les <em>deals</em> expirés ; <code>1</code> pour les
-          masquer ;
+          remonter les deals expirés ; <code>1</code> pour les masquer ;
         </li>
         <li>
            <code>"hide_local"</code> : <code>0</code> (par défaut) pour afficher
-           les <em>deals</em> locaux ; <code>1</code> pour les masquer ;
+           les deals locaux ; <code>1</code> pour les masquer ;
         </li>
         <li>
           <code>"hot_only"</code> : <code>0</code> (par défaut) pour afficher
-          tous les <em>deals</em> ; <code>1</code> pour garder uniquement les
-          <em>deals</em> <em>hot</em> ;
+          tous les deals ; <code>1</code> pour garder uniquement les deals
+          <em>hot</em> ;
         </li>
         <li>
           <code>"temperatureFrom"</code> et <code>"temperatureTo"</code> : la
-          température minimum et maximum pour les <em>deals</em> (par défaut
-          aucun filtre sur la température) ;
+          température minimum et maximum pour les deals (par défaut aucun filtre
+          sur la température) ;
         </li>
         <li>
           <code>"priceFrom"</code> et <code>"priceTo"</code> : le prix minimum
-          et maximum pour les <em>deals</em> (par défaut aucun filtre sur le
-          prix).
+          et maximum pour les deals (par défaut aucun filtre sur le prix).
         </li>
       </ul>
       <p>

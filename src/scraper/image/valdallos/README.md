@@ -3,8 +3,8 @@
 > Mots-clés : gout, gout-scraper, gout-scraper-image-valdallos,
 > gout-module-image.
 
-Ce scraper recupère les webcams du
-[**Val d'Allos**](https://www.valdallos.com/webcams.html).
+Ce scraper recupère les webcams du [**Val
+d'Allos**](https://www.valdallos.com/webcams.html).
 
 Il peut être utilisé avec le module
 [_image_](https://github.com/regseb/gout/tree/HEAD/src/module/image#readme).
@@ -42,9 +42,14 @@ propriétés suivantes :
         La liste des webcams qui seront affichées. Les valeurs possibles sont :
       </p>
       <ul>
-        <li>Allos : `"village"` et `"parc-loisirs"` ;</li>
-        <li>Seignus : `"seignus-bas"` et `"seignus-haut"` ;</li>
-        <li>Foux d'Allos : `"front-de-neige"` et `"observatoire"`.</li>
+        <li>Allos : <code>"village"</code> et <code>"parc-loisirs"</code> ;</li>
+        <li>
+          Seignus : <code>"seignus-bas"</code> et <code>"seignus-haut"</code> ;
+        </li>
+        <li>
+          Foux d'Allos : <code>"front-de-neige"</code> et
+          <code>"observatoire"</code>.
+        </li>
       </ul>
       <p>
        Par défaut, toutes les webcams sont retournées.
