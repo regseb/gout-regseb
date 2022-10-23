@@ -56,32 +56,23 @@ export default class {
             const a = item.querySelector(".channelHeading-logo");
             const href = a.getAttribute("href");
             const channel = href.slice(8, href.lastIndexOf("-"));
-            const name = a.title;
-
-            const title = item.querySelector(".broadcastCard-link")
-                               .textContent;
-            const subtitle = item.querySelector(".broadcastCard-subtitle")
-                                 ?.textContent?.trim();
-            const link = item.querySelector(".broadcastCard-link").href;
-            const desc = item.querySelector(".broadcastCard-synopsis")
-                             .textContent.trim();
-
             const category = item.querySelector(".broadcastCard-format")
                                  .textContent;
 
-            const mark = item.querySelectorAll(".rating .active").length;
-
             return {
                 ...this.#complements,
-                channel: CHANNELS[channel] ?? channel,
-                name,
-                title,
-                subtitle,
-                link,
-                desc,
+                channel:  CHANNELS[channel] ?? channel,
+                name:     a.title,
+                title:    item.querySelector(".broadcastCard-link")
+                              .textContent,
+                subtitle: item.querySelector(".broadcastCard-subtitle")
+                              ?.textContent?.trim(),
+                link:     item.querySelector(".broadcastCard-link").href,
+                desc:     item.querySelector(".broadcastCard-synopsis")
+                              .textContent.trim(),
                 category,
-                type:    TYPES[category] ?? category,
-                mark,
+                type:     TYPES[category] ?? category,
+                mark:     item.querySelectorAll(".rating .active").length,
             };
         });
     }

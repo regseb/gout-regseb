@@ -35,10 +35,9 @@ export default class {
                           (0 === this.#stores.length ||
                            this.#stores.includes(i.store)))
            .filter((item, _index, items) => {
-            const duplicates = items.filter((i) => item.price === i.price)
-                                    .map((i) => this.#stores.indexOf(i.store));
-            return 1 >= duplicates.length ||
-                   Math.min(...duplicates) === this.#stores.indexOf(item.store);
+               return !items.some((i) => item.price === i.price &&
+                                         this.#stores.indexOf(item.store) >
+                                                 this.#stores.indexOf(i.store));
         }).slice(0, max).map((item) => ({
             guid:  item.link,
             link:  item.link,

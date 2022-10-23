@@ -25,8 +25,8 @@ export default class {
         const text = await response.text();
         const doc = new DOMParser().parseFromString(text, "text/html");
 
-        const selector = `#chapters li:nth-of-type(-n+${max})`;
-        return Promise.all(Array.from(doc.querySelectorAll(selector))
+        return Promise.all(Array.from(doc.querySelectorAll("#chapters li"))
+                                .slice(0, max)
                                 .map(async (li) => {
             const link = li.querySelector("h2 a").getAttribute("href");
             const img = li.querySelector("img").src;

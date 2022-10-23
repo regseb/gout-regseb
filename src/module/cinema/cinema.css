@@ -32,6 +32,8 @@ a {
     color: white;
     overflow: hidden;
     text-decoration: none;
+    /* Utiliser une ellipse en attendant que le fondu soit implémenté.
+      https://bugzil.la/1688566 */
     text-overflow: ellipsis;
     white-space: nowrap;
 }

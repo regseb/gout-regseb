@@ -111,8 +111,8 @@ export default class {
         const response = await fetch(URL_SEARCH, init);
         const text = await response.text();
         const doc = new DOMParser().parseFromString(text, "text/html");
-        const selector = `article.thread:nth-of-type(-n+${max})`;
-        return Array.from(doc.querySelectorAll(selector))
+        return Array.from(doc.querySelectorAll("article.thread"))
+                    .slice(0, max)
                     .map((article) => ({
             price: article.querySelector(".thread-price")?.textContent,
             title: article.querySelector(".thread-title").textContent,

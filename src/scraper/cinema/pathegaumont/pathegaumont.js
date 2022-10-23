@@ -19,8 +19,8 @@ export default class {
     constructor({ cinema, versions, tags, complements }) {
         this.#cinema = cinema;
         this.#versions = versions ?? ["vf", "vost", "vo", "vfst"];
-        this.#includes = tags.includes ?? [];
-        this.#excludes = tags.excludes ?? [];
+        this.#includes = tags?.includes ?? [];
+        this.#excludes = tags?.excludes ?? [];
         this.#complements = complements;
     }
 
@@ -47,17 +47,14 @@ export default class {
             const showtimes = await subresponse.json();
             const showings = showtimes.filter(this.#filter.bind(this))
                                       .map((showtime) => {
-                let tags = showtime.tags.filter((t) => "DEFAULT" !== t)
-                                        .join(", ");
-                if ("" !== tags) {
-                    tags = ` (${tags})`;
-                }
-
+                const tags = showtime.tags.filter((t) => "DEFAULT" !== t);
                 return {
                     // Récupérer l'heure et les minutes de la date de la séance.
                     title: showtime.time.slice(11, 16),
                     link:  showtime.refCmd,
-                    desc:  showtime.version.toUpperCase() + tags,
+                    desc:  showtime.version.toUpperCase() +
+                           (0 === tags.length ? ""
+                                              : ` (${tags.join(", ")})`),
                 };
             });
 

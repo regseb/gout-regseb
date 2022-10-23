@@ -15,7 +15,8 @@ export default class {
         const text = await response.text();
         const xml = new DOMParser().parseFromString(text, "application/xml");
 
-        return Array.from(xml.querySelectorAll(`item:nth-of-type(-n+${max})`))
+        return Array.from(xml.querySelectorAll("item"))
+                    .slice(0, max)
                     .map((item) => {
             const description = item.querySelector("description").textContent;
             const doc = new DOMParser().parseFromString(description,

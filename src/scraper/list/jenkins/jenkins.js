@@ -27,7 +27,7 @@ export default class {
         const json = await response.json();
         const items = [];
         for (const job of json.jobs) {
-            // S'il y a des filtres et que le nom du job ne correspond à aucune
+            // S'il y a des filtres et que le nom du job ne correspond à aucun
             // filtre : ignorer ce job.
             if (0 !== Object.keys(this.#filters).length &&
                     !(job.name in this.#filters)) {

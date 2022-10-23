@@ -24,13 +24,13 @@ export default class {
         const json = await response.json();
 
         return json.response.posts.filter((p) => "image" === p.content[0]?.type)
+                                  .slice(0, max)
                                   .map((post) => ({
             date:  post.timestamp * 1000,
             guid:  post.short_url,
             img:   post.content[0].media[0].url,
             link:  post.post_url,
             title: post.summary,
-        })).slice(0, max)
-           .map((i) => ({ ...this.#complements, ...i }));
+        })).map((i) => ({ ...this.#complements, ...i }));
     }
 }
