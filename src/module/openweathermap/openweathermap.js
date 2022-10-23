@@ -4,20 +4,6 @@
 
 import Cron from "https://cdn.jsdelivr.net/npm/cronnor@2/+esm";
 
-if (undefined === import.meta.resolve) {
-
-    /**
-     * Résous un chemin relatif à partir du module.
-     *
-     * @param {string} specifier Le chemin relatif vers un fichier.
-     * @returns {string} L'URL absolue vers le fichier.
-     * @see https://github.com/whatwg/html/issues/3871
-     */
-    import.meta.resolve = (specifier) => {
-        return new URL(specifier, import.meta.url).href;
-    };
-}
-
 const API_URL = "https://api.openweathermap.org/data/2.5/";
 
 const COMPASS_ROSE = [
@@ -36,15 +22,15 @@ const extract = async function (city, appid, kind) {
     // Si c'est la météo du jour qui est demandée.
     if ("weather" === kind) {
         const response = await fetch(`${API_URL}weather?q=${city}` +
-                                     `&units=metrics&lang=fr&APPID=${appid}`);
+                                     `&units=metric&lang=fr&APPID=${appid}`);
         const json = await response.json();
         return {
             icon: json.weather[0].icon,
             desc: json.weather[0].description,
             help: json.weather[0].main,
             temp: {
-                min: Math.round(json.main["temp_min"] - 273.15),
-                max: Math.round(json.main["temp_max"] - 273.15),
+                min: Math.round(json.main["temp_min"]),
+                max: Math.round(json.main["temp_max"]),
             },
             wind: {
                 speed: Math.round(json.wind.speed * 3.6),
@@ -54,7 +40,7 @@ const extract = async function (city, appid, kind) {
     }
     // Sinon : c'est les prévisions.
     const response = await fetch(`${API_URL}forecast/daily?q=${city}` +
-                                 "&units=metrics&lang=fr&cnt=2" +
+                                 "&units=metric&lang=fr&cnt=2" +
                                  `&APPID=${appid}`);
     const json = await response.json();
     return json.list.map((item) => ({
@@ -62,8 +48,8 @@ const extract = async function (city, appid, kind) {
         desc: item.weather[0].description,
         help: item.weather[0].main,
         temp: {
-            min: Math.round(item.temp.min - 273.15),
-            max: Math.round(item.temp.max - 273.15),
+            min: Math.round(item.temp.min),
+            max: Math.round(item.temp.max),
         },
         wind: {
             speed: Math.round(item.speed * 3.6),
@@ -105,17 +91,19 @@ export default class extends HTMLElement {
         img.width = 32;
         img.height = 32;
 
-        li.querySelector("span.temp").textContent =
-                                  item.temp.min + " / " + item.temp.max + " °C";
+        img = li.querySelector(".temp img");
+        img.src = import.meta.resolve("./img/temp.svg");
+
+        li.querySelector("span.temp").append(`${item.temp.min} / ` +
+                                             `${item.temp.max}  °C`);
 
         const dir = COMPASS_ROSE.find((c) => c[0] > item.wind.deg)[1];
         img = li.querySelector(".wind img");
         img.src = import.meta.resolve("./img/wind.svg");
-        img.alt = "^";
         img.title = dir;
-        img.style = "transform: rotate(" + item.wind.deg + "deg)";
+        img.style = `transform: rotate(${item.wind.deg}deg)`;
 
-        li.querySelector("span.wind").append(item.wind.speed + " km/h");
+        li.querySelector("span.wind").append(`${item.wind.speed} km/h`);
 
         const ul = this.shadowRoot.querySelector("ul");
         ul.append(li);

@@ -1,53 +1,33 @@
-:host {
+div {
     color: white;
-    display: block;
     font-family: Verdana, sans-serif;
     font-size: 12px;
     line-height: 1.4em;
     padding: 0.7em;
 }
-:host h1 {
+h1 {
     margin: 0;
     opacity: 80%;
 }
 
-:host ul {
+ul {
     margin-bottom: 0;
     margin-top: 0.7em;
     padding-left: 0;
 }
-:host li {
+li {
     overflow: auto;
 }
-:host li p {
+li p {
     float: left;
     margin-bottom: 0;
     margin-top: 0;
 }
-:host li strong {
+li strong {
     display: block;
     text-transform: capitalize;
     width: 60px;
 }
-:host li span {
+li span {
     display: block;
-}
-:host .temp {
-    background-image: url("img/temp.svg");
-    background-position: 0 center;
-    background-repeat: no-repeat;
-    padding-left: 10px;
-}
-:host .wind::before {
-    background-image: url("img/wind.svg");
-    background-position: 0 center;
-    background-repeat: no-repeat;
-    content: "";
-    height: 200%;
-    left: -50%;
-    position: absolute;
-    top: -50%;
-    transform: rotate(-30deg);
-    width: 200%;
-    z-index: -1;
 }
