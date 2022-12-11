@@ -10,12 +10,14 @@
         "target": "ESNext"
     },
     "include": [
-        "**/*"
+        "**/*",
+        "**/.*",
+        "**/.*/**/*",
+        "**/.*/**/.*"
     ],
     "exclude": [
         ".git/",
         "jsdocs/",
-        "node_modules/",
-        "**/*.swp"
+        "node_modules/"
     ]
 }
