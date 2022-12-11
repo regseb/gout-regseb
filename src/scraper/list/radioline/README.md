@@ -12,7 +12,7 @@ La configuration contient un objet
 propriétés suivantes :
 
 - `"podcast"` : l'identifiant du podcast (le chemin dans l'URL) ;
-- `"icon"` (optionnel - par défaut aucune icône est affichée) : l'URL d'une
+- `"icon"` (optionnel - par défaut aucune icône n'est affichée) : l'URL d'une
   icône qui préfixera le titre.
 
 ## Exemple

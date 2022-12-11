@@ -27,7 +27,7 @@ propriété suivante :
     <td>
       <p>
         Des propriétés qui seront ajoutées dans les éléments retournés. Par
-        défaut aucune propriété est ajoutée.
+        défaut aucune propriété n'est ajoutée.
       </p>
       <p>
         Exemple : <code>{ "target": "_top" }</code>.

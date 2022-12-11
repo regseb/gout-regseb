@@ -13,7 +13,7 @@ propriétés suivantes :
 - `"url"`: l'URL du serveur Jenkins ;
 - `"jobs"` (optionnel - par défaut tous les jobs sont affichés) : les filtres
   des jobs à afficher ;
-- `"icon"` (optionnel - par défaut aucune icône est affichée) : l'URL d'une
+- `"icon"` (optionnel - par défaut aucune icône n'est affichée) : l'URL d'une
   icône qui préfixera le titre.
 
 ## Exemple
