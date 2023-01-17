@@ -286,7 +286,7 @@ séances pour un film. C'est un tableau d'objet ayant les propriétés suivantes
 ## Exemple
 
 Ce widget affiche les séances du jour du cinéma [Pathé Plan de
-Campagne](https://www.cinemaspathegaumont.com/cinemas/cinema-pathe-plan-de-campagne).
+Campagne](https://www.pathe.fr/cinemas/cinema-pathe-plan-de-campagne).
 
 ```JSON
 {
@@ -294,7 +294,7 @@ Campagne](https://www.cinemaspathegaumont.com/cinemas/cinema-pathe-plan-de-campa
         "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/module/cinema/cinema.js"
     },
     "scrapers": [{
-        "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/cinema/pathegaumont/pathegaumont.js",
+        "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/cinema/pathe/pathe.js",
         "config": {
             "cinema": "cinema-pathe-plan-de-campagne"
         }

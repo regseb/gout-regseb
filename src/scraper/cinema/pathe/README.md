@@ -1,10 +1,9 @@
-# Scraper _cinema/pathegaumont_
+# Scraper _cinema/pathe_
 
-> Mots-clés : gout, gout-scraper, gout-scraper-cinema-pathegaumont,
-> gout-module-cinema.
+> Mots-clés : gout, gout-scraper, gout-scraper-cinema-pathe, gout-module-cinema.
 
-Ce scraper retourne les séances du jour d'un cinéma [**Pathé
-Gaumont**](https://www.cinemaspathegaumont.com/).
+Ce scraper retourne les séances du jour d'un cinéma
+[**Pathé**](https://www.pathe.fr/).
 
 Il peut être utilisé avec le module
 [_cinema_](https://github.com/regseb/gout-regseb/tree/HEAD/src/module/cinema#readme).
@@ -82,78 +81,92 @@ propriétés suivantes :
 
 ## Liste des cinémas
 
-Voici les codes des cinémas Pathé Gaumont :
+Voici les codes des cinémas Pathé :
 
-- Gaumont Amiens : `"cinema-gaumont-amiens"` ;
-- Gaumont Amnéville : `"cinema-gaumont-amneville"` ;
-- Gaumont Angers Multiplexe : `"cinema-gaumont-angers-multiplexe"` ;
-- Pathé Annecy : `"cinema-decavision-annecy"` ;
-- Gaumont Archamps : `"cinema-gaumont-archamps"` ;
-- Pathé Avignon Cap Sud : `"cinema-pathe-avignon-cap-sud"` ;
-- Pathé Belfort : `"cinema-pathe-belfort"` ;
-- Pathé Les Rives de l'Orne : `"cinema-pathe-les-rives-de-l-orne"` ;
-- Gaumont Coquelles : `"cinema-gaumont-coquelles"` ;
-- Pathé Chambéry Les Halles : `"cinema-pathe-les-halles"` ;
-- Pathé Evreux : `"cinema-pathe-evreux-ex-cine-zenith"` ;
-- Pathé Chavant : `"cinema-pathe-chavant"` ;
-- Pathé Echirolles : `"cinema-pathe-echirolles"` ;
-- Gaumont Docks Vauban - Le Havre : `"cinema-gaumont-docks-vauban-le-havre"` ;
-- Pathé Le Mans Quinconces : `"cinema-pathe-le-mans-quinconces"` ;
-- Pathé Liévin : `"cinema-pathe-lievin"` ;
-- Pathé Carré de Soie : `"cinema-pathe-carre-de-soie"` ;
-- Pathé Bellecour : `"cinema-lyon-pathe-bellecour"` ;
+<!--
+const response = await fetch("https://www.pathe.fr/api/cinemas?language=fr");
+const json = await response.json();
+console.log(json.map((c) => `- ${c.name} : \`"${c.slug}"\` ;`).join("\n"));
+-->
+- Pathé Angers : `"cinema-pathe-angers"` ;
+- Pathé Grenoble : `"cinema-pathe-grenoble"` ;
 - Pathé Vaise : `"cinema-pathe-vaise"` ;
+- Pathé Belfort : `"cinema-pathe-belfort"` ;
+- Pathé Rennes : `"cinema-pathe-rennes"` ;
+- Pathé Carré de Soie : `"cinema-pathe-carre-de-soie"` ;
+- Pathé Docks 76 : `"cinema-pathe-docks-76"` ;
+- Pathé Docks Vauban : `"cinema-pathe-docks-vauban"` ;
+- Pathé Évreux : `"cinema-pathe-evreux"` ;
+- Pathé Dammarie : `"cinema-pathe-dammarie"` ;
+- Pathé Saran : `"cinema-pathe-saran"` ;
+- Pathé Chambéry : `"cinema-pathe-chambery"` ;
+- Pathé Archamps : `"cinema-pathe-archamps"` ;
+- Pathé Cap Sud : `"cinema-pathe-cap-sud"` ;
+- Pathé Cité Europe : `"cinema-pathe-cite-europe"` ;
+- Pathé Conflans : `"cinema-pathe-conflans"` ;
+- Pathé Échirolles : `"cinema-pathe-echirolles"` ;
+- Pathé Liévin : `"cinema-pathe-lievin"` ;
+- Pathé Bellecour : `"cinema-pathe-bellecour"` ;
 - Pathé Madeleine : `"cinema-pathe-madeleine"` ;
 - Pathé Plan de Campagne : `"cinema-pathe-plan-de-campagne"` ;
+- Gaumont Amnéville : `"cinema-gaumont-amneville"` ;
 - Pathé Montataire : `"cinema-pathe-montataire"` ;
-- Gaumont Comédie : `"cinema-gaumont-comedie"` ;
 - Gaumont Montpellier Multiplexe : `"cinema-gaumont-montpellier-multiplexe"` ;
+- Gaumont Comédie : `"cinema-gaumont-comedie"` ;
 - Gaumont Nantes : `"cinema-gaumont-nantes"` ;
 - Pathé Atlantis : `"cinema-pathe-atlantis"` ;
-- Pathé Gare du Sud : `"pathe-gare-du-sud"` ;
 - Pathé Lingostière : `"cinema-pathe-lingostiere"` ;
-- Pathé Nice : `"cinema-pathe-nice"` ;
-- Pathé Orléans Place de Loire : `"cinema-pathe-orleans"` ;
-- Gaumont Opéra : `"cinema-gaumont-opera"` ;
-- Gaumont Champs Elysées : `"cinema-gaumont-champs-elysees"` ;
-- Gaumont Les Fauvettes : `"cinema-gaumont-les-fauvettes"` ;
-- Gaumont Alésia : `"cinema-gaumont-alesia"` ;
-- Gaumont Parnasse : `"cinema-gaumont-parnasse"` ;
+- Pathé Masséna : `"cinema-pathe-massena"` ;
+- Pathé Alésia : `"cinema-pathe-alesia"` ;
 - Gaumont Aquaboulevard : `"cinema-gaumont-aquaboulevard"` ;
-- Gaumont Convention : `"cinema-gaumont-convention"` ;
-- Pathé Beaugrenelle : `"cinema-pathe-beaugrenelle"` ;
-- Pathé Wepler : `"cinema-pathe-wepler"` ;
-- Pathé La Villette : `"cinema-pathe-la-villette"` ;
-- Gaumont Carré Sénart : `"cinema-gaumont-carre-senart"` ;
+- Pathé Convention : `"cinema-pathe-convention"` ;
+- Pathé Les Fauvettes : `"cinema-pathe-les-fauvettes"` ;
+- Gaumont Champs-Élysées : `"cinema-gaumont-champs-elysees"` ;
 - Gaumont Disney Village : `"cinema-gaumont-disney-village"` ;
 - Gaumont Saint-Denis : `"cinema-gaumont-saint-denis"` ;
-- Pathé Belle Epine : `"cinema-pathe-belle-epine"` ;
+- Pathé Belle Épine : `"cinema-pathe-belle-epine"` ;
 - Pathé Boulogne : `"cinema-pathe-boulogne"` ;
-- Pathé Conflans : `"cinema-pathe-conflans"` ;
-- Pathé Dammarie : `"cinema-pathe-dammarie"` ;
-- Pathé Levallois : `"cinema-pathe-levallois"` ;
-- Pathé Massy : `"cinema-pathe-massy"` ;
 - Pathé Quai d'Ivry : `"cinema-pathe-quai-d-ivry"` ;
-- Pathé Saran : `"cinema-pathe-saran"` ;
 - Gaumont Parc Millésime : `"cinema-gaumont-parc-millesime"` ;
-- Gaumont Rennes : `"cinema-gaumont-rennes"` ;
-- Europacorp Aéroville : `"cinema-europacorp-aeroville"` ;
 - Gaumont Grand Quevilly : `"cinema-gaumont-grand-quevilly"` ;
-- Pathé Docks 76 : `"cinema-pathe-docks-76"` ;
 - Pathé Brumath : `"cinema-pathe-brumath"` ;
-- Pathé La Valette : `"cinema-pathe-la-valette"` ;
-- Pathé Liberté : `"cinema-pathe-liberte"` ;
 - Gaumont Labège : `"cinema-gaumont-labege"` ;
-- Gaumont Wilson : `"cinema-gaumont-wilson"` ;
 - Pathé Valence : `"cinema-pathe-valence"` ;
-- Gaumont Valenciennes : `"cinema-gaumont-valenciennes"`.
+- Gaumont Valenciennes : `"cinema-gaumont-valenciennes"` ;
+- Pathé Carré Sénart : `"cinema-pathe-carre-senart"` ;
+- Pathé Orléans : `"cinema-pathe-orleans"` ;
+- Pathé Wilson : `"cinema-pathe-wilson"` ;
+- Pathé Toulon : `"cinema-pathe-toulon"` ;
+- Pathé Amiens : `"cinema-pathe-amiens"` ;
+- Pathé Les Rives de l'Orne : `"cinema-pathe-les-rives-de-l-orne"` ;
+- Pathé Annecy : `"cinema-pathe-annecy"` ;
+- Pathé Beaugrenelle : `"cinema-pathe-beaugrenelle"` ;
+- Pathé Opéra : `"cinema-pathe-opera"` ;
+- Pathé Parnasse : `"cinema-pathe-parnasse"` ;
+- Pathé Levallois : `"cinema-pathe-levallois"` ;
+- Pathé Le Mans : `"cinema-pathe-le-mans"` ;
+- Pathé Wepler : `"cinema-pathe-wepler"` ;
+- Pathé La Villette : `"cinema-pathe-la-villette"` ;
+- Pathé La Valette : `"cinema-pathe-la-valette"` ;
+- Pathé Aéroville : `"cinema-pathe-aeroville"` ;
+- Pathé Massy : `"cinema-pathe-massy"` ;
+- Pathé Gare du Sud : `"cinema-pathe-gare-du-sud"` ;
+- Pathé La Joliette : `"cinema-pathe-la-joliette"` ;
+- Ciné Cap Vert : `"cinema-cine-cap-vert"` ;
+- Ciné Dôme : `"cinema-cine-dome"` ;
+- Pathé Mâcon : `"cinema-pathe-macon"` ;
+- Multiplexe Liberté : `"cinema-multiplexe-liberte"` ;
+- Pathé Tours : `"cinema-pathe-tours"` ;
+- Gaumont Montparnos : `"cinema-gaumont-montparnos"` ;
+- Pathé Dijon : `"cinema-pathe-dijon"` ;
+- Les 7 Batignolles : `"cinema-pathe-les-7-batignolles"`.
 
 ## Exemple
 
 Ce widget affiche les séances en français sauf celles en 3D et 4DX dans une
 salle avec un accès pour les personnes à mobilité réduite (PMR) dans le cinéma
 [Pathé Plan de
-Campagne](https://www.cinemaspathegaumont.com/cinemas/cinema-pathe-plan-de-campagne).
+Campagne](https://www.pathe.fr/cinemas/cinema-pathe-plan-de-campagne).
 
 ```JSON
 {
@@ -161,7 +174,7 @@ Campagne](https://www.cinemaspathegaumont.com/cinemas/cinema-pathe-plan-de-campa
         "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/module/cinema/cinema.js"
     },
     "scrapers": [{
-        "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/cinema/pathegaumont/pathegaumont.js",
+        "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/cinema/pathe/pathe.js",
         "config": {
             "cinema": "cinema-pathe-plan-de-campagne",
             "versions": ["vf", "vfst"],

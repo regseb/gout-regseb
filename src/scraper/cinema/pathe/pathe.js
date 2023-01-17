@@ -2,9 +2,9 @@
  * @module
  */
 
-const API_URL = "https://www.cinemaspathegaumont.com/api";
+const API_URL = "https://www.pathe.fr/api";
 
-export default class {
+export default class Pathe {
 
     #cinema;
 
@@ -60,7 +60,7 @@ export default class {
 
             return {
                 title,
-                link: `https://www.cinemaspathegaumont.com/films/${slug}`,
+                link: `https://www.pathe.fr/films/${slug}`,
                 showings,
             };
         });
