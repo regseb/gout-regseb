@@ -2,7 +2,7 @@
  * @module
  */
 
-export default class {
+export default class Maliki {
 
     #password;
 
@@ -19,10 +19,10 @@ export default class {
         const doc = new DOMParser().parseFromString(text, "text/html");
 
         const selector = ".archiveStrips--content > * > .row a";
-        return Array.from(doc.querySelectorAll(selector))
-                    .map((a) => ({
+        return Array.from(doc.querySelectorAll(selector), (a) => ({
             date:  new Date(a.querySelector("time").dateTime).getTime(),
             guid:  a.href,
+            icon:  import.meta.resolve("./img/maliki_white.svg"),
             img:   a.querySelector("img").src,
             link:  a.href,
             title: a.querySelector("h3").textContent,

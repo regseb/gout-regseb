@@ -1,7 +1,7 @@
 {
     "$extend": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/linuxfr/news.json",
     "$scrapers[0]": {
-        "config": {
+        "options": {
             "url": "https://linuxfr.org/liens.atom"
         }
     }

@@ -2,7 +2,7 @@
  * @module
  */
 
-export default class {
+export default class GeekAndPoke {
 
     #complements;
 
@@ -16,8 +16,8 @@ export default class {
         const text = await response.text();
         const xml = new DOMParser().parseFromString(text, "application/xml");
 
-        return Array.from(xml.querySelectorAll("item"))
-                    .map((item) => ({
+        // eslint-disable-next-line array-func/from-map
+        return Array.from(xml.querySelectorAll("item"), (item) => ({
             description: item.querySelector("description").textContent,
             guid:        item.querySelector("guid").textContent,
             link:        item.querySelector("link").textContent,

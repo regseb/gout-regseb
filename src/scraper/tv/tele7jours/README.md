@@ -9,9 +9,9 @@ Jours**](https://www.programme-television.org/).
 Il peut être utilisé avec le module :
 [_tv_](https://github.com/regseb/gout-regseb/tree/HEAD/src/module/tv#readme).
 
-## Configuration
+## Options
 
-La configuration contient un objet
+Les options sont dans un objet
 [JSON](https://www.json.org/json-fr.html "JavaScript Object Notation") avec les
 propriétés suivantes :
 
@@ -159,7 +159,7 @@ Franceinfo).
     },
     "scrapers": [{
         "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/tv/tele7jours/tele7jours.js",
-        "config": {
+        "options": {
             "channels": [
                 "tf1", "france-2", "france-3", "france-5", "m6", "arte", "c8",
                 "w9", "tmc", "nt1", "nrj12", "lcp-public-senat", "france-4",

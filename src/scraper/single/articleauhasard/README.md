@@ -3,9 +3,9 @@
 Ce scraper donne un lien vers un article au hasard de
 [**Wikipédia**](https://fr.wikipedia.org/).
 
-## Configuration
+## Options
 
-La configuration contient un objet
+Les options sont dans un objet
 [JSON](https://www.json.org/json-fr.html "JavaScript Object Notation") avec la
 propriété suivante :
 
@@ -21,7 +21,7 @@ Ce widget affiche un lien vers un article en français.
 {
     "module": {
         "url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/single/single.js",
-        "config": {
+        "options": {
             "color": "#607d8b",
             "cron": "*/5 * * * *"
         }

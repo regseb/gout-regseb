@@ -1,7 +1,7 @@
 {
     "module": {
         "url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/list/list.js",
-        "config": {
+        "options": {
             "color": "#ffc300",
             "cron": "@daily",
             "max": 5,
@@ -10,7 +10,7 @@
     },
     "scrapers": [{
         "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCJldRgT_D7Am-ErRHQZ90uw",
-        "config": {
+        "options": {
             "url": "https://www.youtube.com/feeds/videos.xml?channel_id=franceinfo",
             "complements": {
                 "icon": "http://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/radiofrance/franceinfo_white.svg"

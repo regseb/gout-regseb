@@ -24,6 +24,7 @@ const DEFAULT_FILTERS = {
     q:                 "",
     "search_fields[]": [1, 2, 3],
     sort_by:           "new",
+    time_frame:        0,
     hide_expired:      0,
     hide_local:        0,
     merchant_id:       "",
@@ -55,19 +56,19 @@ const extractDate = function (ago) {
     let result = (/(?<hours>\d{1,2}) h et (?<minutes>\d{1,2}) min$/u).exec(ago);
     if (null !== result) {
         return Date.now() -
-               3_600_000 * Number.parseInt(result.groups.hours, 10) -
-               60_000 * Number.parseInt(result.groups.minutes, 10);
+               3_600_000 * Number(result.groups.hours) -
+               60_000 * Number(result.groups.minutes);
     }
 
     result = (/(?<minutes>\d{1,2}) min$/u).exec(ago);
     if (null !== result) {
-        return Date.now() - 60_000 * Number.parseInt(result.groups.minutes, 10);
+        return Date.now() - 60_000 * Number(result.groups.minutes);
     }
 
     result = (/(?<date>\d{1,2}) (?<month>[a-z]+)$/u).exec(ago);
     if (null !== result) {
         const now = new Date();
-        const date = Number.parseInt(result.groups.date, 10);
+        const date = Number(result.groups.date);
         const month = MONTHS.indexOf(result.groups.month);
         const year = now.getFullYear() - (now.getMonth() < month ? 0 : 1);
         return new Date(
@@ -83,7 +84,7 @@ const extractDate = function (ago) {
     return undefined;
 };
 
-export default class {
+export default class Dealabs {
 
     #filters;
 

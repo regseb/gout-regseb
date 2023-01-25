@@ -9,9 +9,9 @@ d'Allos**](https://www.valdallos.com/webcams.html).
 Il peut être utilisé avec le module
 [_image_](https://github.com/regseb/gout/tree/HEAD/src/module/image#readme).
 
-## Configuration
+## Options
 
-La configuration contient un objet
+Les options sont dans un objet
 [JSON](https://www.json.org/json-fr.html "JavaScript Object Notation") avec les
 propriétés suivantes :
 
@@ -70,13 +70,13 @@ les actualisant une fois par jour à midi.
 {
     "module": {
         "url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/image/image.js",
-        "config": {
+        "options": {
             "cron": "0 12 * * *"
         }
     },
     "scrapers": [{
         "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/image/valdallos/valdallos.js",
-        "config": {
+        "options": {
             "webcams": ["seignus-haut", "seignus-bas", "village"]
         }
     }]

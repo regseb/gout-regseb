@@ -24,7 +24,7 @@ const TYPES = {
     Téléfilm:            "telefilm",
 };
 
-export default class {
+export default class Tele2Semaines {
 
     #broadcast;
 

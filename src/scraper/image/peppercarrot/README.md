@@ -9,9 +9,9 @@ Ce scraper recupère la liste des derniers épisodes publiés sur le site
 Il peut être utilisé avec le module
 [_image_](https://github.com/regseb/gout/tree/HEAD/src/module/image#readme).
 
-## Configuration
+## Options
 
-La configuration contient un objet
+Les options sont dans un objet
 [JSON](https://www.json.org/json-fr.html "JavaScript Object Notation") avec les
 propriétés suivantes :
 
@@ -125,7 +125,7 @@ Ce widget affiche le dernier dessin.
 {
     "module": {
         "url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/image/image.js",
-        "config": {
+        "options": {
             "cron": "@daily",
             "max": 1
         }

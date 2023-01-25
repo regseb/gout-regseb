@@ -8,9 +8,9 @@ Ce scraper recupère la liste des derniers dessins publiés sur un blog
 Il peut être utilisé avec le module
 [_image_](https://github.com/regseb/gout/tree/HEAD/src/module/image#readme).
 
-## Configuration
+## Options
 
-La configuration contient un objet
+Les options sont dans un objet
 [JSON](https://www.json.org/json-fr.html "JavaScript Object Notation") avec les
 propriétés suivantes :
 
@@ -56,14 +56,14 @@ Comics](https://pizzacakecomic.com/).
 {
     "module": {
         "url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/image/image.js",
-        "config": {
+        "options": {
             "cron": "@daily",
             "max": 2
         }
     },
     "scrapers": [{
         "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/image/tumblr/tumblr.js",
-        "config": {
+        "options": {
             "user": "pizzacakecomics"
         }
     }]

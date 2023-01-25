@@ -5,9 +5,9 @@
 Ce scraper récupère la liste des derniers épisodes d'un podcast sur
 [**Radioline**](https://fr-fr.radioline.co/).
 
-## Configuration
+## Options
 
-La configuration contient un objet
+Les options sont dans un objet
 [JSON](https://www.json.org/json-fr.html "JavaScript Object Notation") avec les
 propriétés suivantes :
 
@@ -24,7 +24,7 @@ Jupiter !](https://fr-fr.radioline.co/podcast-france-inter-par-jupiter).
 {
     "module": {
         "url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/podcast/podcast.js",
-        "config": {
+        "options": {
             "color": "#f44336",
             "cron": "@daily",
             "max": 5
@@ -32,7 +32,7 @@ Jupiter !](https://fr-fr.radioline.co/podcast-france-inter-par-jupiter).
     },
     "scrapers": [
         "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/list/radioline/radioline.js",
-        "config": {
+        "options": {
             "podcast": "podcast-france-inter-par-jupiter"
         }
     ]

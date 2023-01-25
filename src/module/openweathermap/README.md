@@ -5,9 +5,9 @@
 Ce module affiche la météo d'une ville. Les prévisions sont récupérées du
 service [**OpenWeatherMap**](https://openweathermap.org/).
 
-## Configuration
+## Options
 
-La configuration contient un objet
+Les options sont dans un objet
 [JSON](https://www.json.org/json-fr.html "JavaScript Object Notation") avec les
 propriétés suivantes :
 
@@ -102,7 +102,7 @@ Ce widget affiche la météo d'Aix-en-Provence.
 {
     "module": {
         "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/module/openweathermap/openweathermap.js"
-        "config": {
+        "options": {
             "appid": "123456789abcdef... (une clé de ce style)",
             "city": "Aix-en-Provence,FR",
             "title": "Aix"

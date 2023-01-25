@@ -4,9 +4,9 @@
 
 Ce module affiche les séances de films dans des cinémas.
 
-## Configuration
+## Options
 
-La configuration contient un objet
+Les options sont dans un objet
 [JSON](https://www.json.org/json-fr.html "JavaScript Object Notation") avec les
 propriétés suivantes :
 
@@ -295,7 +295,7 @@ Campagne](https://www.pathe.fr/cinemas/cinema-pathe-plan-de-campagne).
     },
     "scrapers": [{
         "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/cinema/pathe/pathe.js",
-        "config": {
+        "options": {
             "cinema": "cinema-pathe-plan-de-campagne"
         }
     }]

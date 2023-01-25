@@ -3,7 +3,14 @@
 > Mots-clés : gout, gout-widget.
 
 Ce répertoire regroupe des widgets du groupe [**Radio
-France**](https://www.radiofrance.fr/).
+France**](https://www.radiofrance.fr/). Pour ajouter un widget dans votre
+dashboard, insérez le code suivant (en remplaçant `{widget}` par le widget
+voulu) :
+
+```HTML
+<script type="application/json"
+        src="https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/radiofrance/{widget}.json"></script>
+```
 
 ## Radios
 

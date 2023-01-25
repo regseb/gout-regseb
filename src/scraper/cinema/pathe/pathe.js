@@ -40,7 +40,7 @@ export default class Pathe {
                                .filter(([, s]) => today in s.days)
                                .map(async ([slug]) => {
             let subresponse = await fetch(`${API_URL}/show/${slug}`);
-            const { title } = await subresponse.json();
+            const show = await subresponse.json();
 
             subresponse = await fetch(`${API_URL}/show/${slug}/showtimes` +
                                       `/${this.#cinema}/${today}`);
@@ -59,8 +59,10 @@ export default class Pathe {
             });
 
             return {
-                title,
-                link: `https://www.pathe.fr/films/${slug}`,
+                title: show.title,
+                link:  `https://www.pathe.fr/films/${slug}`,
+                ...show.isNew ? { icon: import.meta.resolve("./img/new.svg") }
+                              : {},
                 showings,
             };
         });

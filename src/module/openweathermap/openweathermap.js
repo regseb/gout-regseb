@@ -58,9 +58,9 @@ const extract = async function (city, appid, kind) {
     }));
 };
 
-export default class extends HTMLElement {
+export default class OpenWeatherMap extends HTMLElement {
 
-    #config;
+    #options;
 
     #cron;
 
@@ -68,9 +68,9 @@ export default class extends HTMLElement {
 
     #appid;
 
-    constructor(config) {
+    constructor(options) {
         super();
-        this.#config = config;
+        this.#options = options;
     }
 
     #display(item) {
@@ -152,14 +152,14 @@ export default class extends HTMLElement {
         link.href = import.meta.resolve("./openweathermap.css");
         this.shadowRoot.append(link);
 
-        this.#city = this.#config.city;
-        this.#appid = this.#config.appid;
+        this.#city = this.#options.city;
+        this.#appid = this.#options.appid;
 
-        this.style.backgroundColor = this.#config.color ?? "#03a9f4";
+        this.style.backgroundColor = this.#options.color ?? "#03a9f4";
         this.shadowRoot.querySelector("h1").textContent =
-                                 this.#config.title ?? this.#city.split(",")[0];
+            this.#options.title ?? this.#city.split(",")[0];
 
-        this.#cron = new Cron(this.#config.cron ?? "@hourly",
+        this.#cron = new Cron(this.#options.cron ?? "@hourly",
                               this.#update.bind(this));
         document.addEventListener("visibilitychange", this.#wake.bind(this));
         this.#update(true);

@@ -3,14 +3,14 @@
 > Mots-clés : gout, gout-scraper, gout-scraper-list-dealabs, gout-module-list.
 
 Ce scraper récupère la liste des derniers deals postés sur
-[**Dealabs.com**](https://www.dealabs.com/) selon des filtres.
+[**Dealabs**](https://www.dealabs.com/) selon des filtres.
 
 Il peut être utilisé avec le module
 [_list_](https://github.com/regseb/gout/tree/HEAD/src/module/list#readme).
 
-## Configuration
+## Options
 
-La configuration contient un objet
+Les options sont dans un objet
 [JSON](https://www.json.org/json-fr.html "JavaScript Object Notation") avec les
 propriétés suivantes :
 
@@ -94,14 +94,14 @@ entre 200 et 400 euros.
 {
     "module": {
         "url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/list/list.js",
-        "config": {
+        "options": {
             "color": "#00bcd4",
             "cron": "@hourly"
         }
     },
     "scrapers": [{
         "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/list/dealabs/dealabs.js"
-        "config": {
+        "options": {
             "filters": {
                 "q": "smartphone",
                 "hide_expired": 1,

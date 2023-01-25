@@ -4,7 +4,7 @@
     },
     "scrapers": [{
         "url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/repeater/repeater.js",
-        "config": {
+        "options": {
             "extract": [{
                 "audio": "https://direct.radiofrance.fr/live/fip-hifi.aac",
                 "color": "#e2007a",

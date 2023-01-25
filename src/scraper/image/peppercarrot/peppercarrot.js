@@ -2,7 +2,7 @@
  * @module
  */
 
-export default class {
+export default class PepperCarrot {
 
     #lang;
 
@@ -23,6 +23,7 @@ export default class {
                     .slice(0, max)
                     .map((a) => ({
             guid:  a.href,
+            icon:  import.meta.resolve("./img/peppercarrot_white.svg"),
             img:   a.querySelector("img").src,
             link:  a.href,
             title: a.querySelector("img").title,

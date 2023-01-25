@@ -4,7 +4,7 @@
 
 const API_URL = "https://api.dailymotion.com";
 
-export default class {
+export default class Dailymotion {
 
     #user;
 

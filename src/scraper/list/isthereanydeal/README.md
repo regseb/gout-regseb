@@ -9,9 +9,9 @@ Ce scraper récupère les offres d'un jeu vidéo listées sur
 Il peut être utilisé avec le module
 [_list_](https://github.com/regseb/gout/tree/HEAD/src/module/list#readme).
 
-## Configuration
+## Options
 
-La configuration contient un objet
+Les options sont dans un objet
 [JSON](https://www.json.org/json-fr.html "JavaScript Object Notation") avec les
 propriétés suivantes :
 
@@ -62,14 +62,14 @@ Humble Store.
 {
     "module": {
         "url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/list/list.js",
-        "config": {
+        "options": {
             "color": "#9e9e9e",
             "cron": "@daily"
         }
     },
     "scrapers": [
         "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/list/isthereanydeal/isthereanydeal.js",
-        "config": {
+        "options": {
             "game": "doom"
             "stores": ["Steam", "Humble Store"]
         }

@@ -9,9 +9,9 @@ Ce scraper recupère la liste des dernières vidéos postées sur
 Il peut être utilisé avec le module
 [_list_](https://github.com/regseb/gout/tree/HEAD/src/module/list#readme).
 
-## Configuration
+## Options
 
-La configuration contient un objet
+Les options sont dans un objet
 [JSON](https://www.json.org/json-fr.html "JavaScript Object Notation") avec les
 propriétés suivantes :
 
@@ -57,14 +57,14 @@ l'Info](https://www.dailymotion.com/lesguignols).
 {
     "module": {
         "url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/list/list.js",
-        "config": {
+        "options": {
             "cron": "@daily",
             "max": 5
         }
     },
     "scrapers": [{
         "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/list/dailymotion/dailymotion.js",
-        "config": {
+        "options": {
             "user": "lesguignols"
         }
     }]

@@ -3,7 +3,14 @@
 > Mots-clés : gout, gout-widget.
 
 Ce répertoire regroupe des widgets pour les flux RSS du site
-[**Le Monde**](https://www.lemonde.fr/).
+[**Le Monde**](https://www.lemonde.fr/). Pour ajouter un widget dans votre
+dashboard, insérez le code suivant (en remplaçant `{widget}` par le widget
+voulu) :
+
+```HTML
+<script type="application/json"
+        src="https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/lemonde/{widget}.json"></script>
+```
 
 - À la une :
   [`https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/lemonde/une.json`](https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/lemonde/une.json)
@@ -19,7 +26,7 @@ changeant `{rss}` par l'URL du flux RSS.
 {
     "$extend": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/lemonde/une.json",
     "$scrapers[0]": {
-        "config": {
+        "options": {
             "url": "{rss}"
         }
     }

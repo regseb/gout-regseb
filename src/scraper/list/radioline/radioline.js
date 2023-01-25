@@ -8,7 +8,7 @@ const DATE_REGEXP = new RegExp(
     "u",
 );
 
-export default class {
+export default class Radioline {
 
     #podcast;
 
@@ -34,12 +34,12 @@ export default class {
 
             const result = DATE_REGEXP.exec(link);
             const date = new Date(
-                Number.parseInt(result.groups.year, 10),
-                Number.parseInt(result.groups.month, 10) - 1,
-                Number.parseInt(result.groups.day, 10),
-                Number.parseInt(result.groups.hours, 10),
-                Number.parseInt(result.groups.minutes, 10),
-                Number.parseInt(result.groups.seconds, 10),
+                Number(result.groups.year),
+                Number(result.groups.month) - 1,
+                Number(result.groups.day),
+                Number(result.groups.hours),
+                Number(result.groups.minutes),
+                Number(result.groups.seconds),
             ).getTime();
 
             const suburl = "https://fr-fr.radioline.co/Pillow/" +

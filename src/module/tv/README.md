@@ -4,9 +4,9 @@
 
 Ce module donne le **programme télévisé**.
 
-## Configuration
+## Options
 
-La configuration contient un objet
+Les options sont dans un objet
 [JSON](https://www.json.org/json-fr.html "JavaScript Object Notation") avec les
 propriétés suivantes :
 
@@ -30,7 +30,7 @@ Canal+ et les chaines d'information (BFMTV, CNEWS, LCI et Franceinfo).
     },
     "scrapers": [{
         "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/tv/tele2semaines/tele2semaines.js",
-        "config": {
+        "options": {
             "channels": [
                 "tf1", "france-2", "france-3", "france-5", "m6", "arte", "c8",
                 "w9", "tmc", "tfx", "nrj-12", "la-chaine-parlementaire",

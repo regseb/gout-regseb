@@ -8,9 +8,9 @@ Ce scraper retourne les séances du jour d'un cinéma
 Il peut être utilisé avec le module
 [_cinema_](https://github.com/regseb/gout-regseb/tree/HEAD/src/module/cinema#readme).
 
-## Configuration
+## Options
 
-La configuration contient un objet
+Les options sont dans un objet
 [JSON](https://www.json.org/json-fr.html "JavaScript Object Notation") avec les
 propriétés suivantes :
 
@@ -175,7 +175,7 @@ Campagne](https://www.pathe.fr/cinemas/cinema-pathe-plan-de-campagne).
     },
     "scrapers": [{
         "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/cinema/pathe/pathe.js",
-        "config": {
+        "options": {
             "cinema": "cinema-pathe-plan-de-campagne",
             "versions": ["vf", "vfst"],
             "tags": {

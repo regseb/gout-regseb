@@ -1,13 +1,13 @@
 {
     "module": {
         "url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/iframe/iframe.js",
-        "config": {
+        "options": {
             "height": 180
         }
     },
     "scrapers": [{
         "url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/repeater/repeater.js",
-        "config": {
+        "options": {
             "extract": [{
                 "link": "https://www.dailymotion.com/embed/video/x17qw0a"
             }]

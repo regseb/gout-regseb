@@ -4,7 +4,7 @@
 
 const GAME_URL = "https://isthereanydeal.com/game";
 
-export default class {
+export default class IsThereAnyDeal {
 
     #game;
 
@@ -24,8 +24,9 @@ export default class {
         const doc = new DOMParser().parseFromString(text, "text/html");
 
         const title = doc.querySelector("#gameTitle").textContent;
-        return Array.from(doc.querySelectorAll(".priceTable__shop"))
-                    .map((td) => td.parentNode)
+        // eslint-disable-next-line array-func/from-map
+        return Array.from(doc.querySelectorAll(".priceTable__shop"),
+                          (td) => td.parentNode)
                     .map((tr) => ({
             store: tr.querySelector("a").textContent.trim(),
             link:  tr.querySelector("a").href,

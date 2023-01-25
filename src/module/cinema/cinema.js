@@ -11,9 +11,9 @@ const hashCode = function (item) {
     }, 0)).toString(36);
 };
 
-export default class extends HTMLElement {
+export default class Cinema extends HTMLElement {
 
-    #config;
+    #options;
 
     #scrapers;
 
@@ -23,9 +23,9 @@ export default class extends HTMLElement {
 
     #empty;
 
-    constructor(config, scrapers) {
+    constructor(options, scrapers) {
         super();
-        this.#config = config;
+        this.#options = options;
         this.#scrapers = scrapers;
     }
 
@@ -87,8 +87,7 @@ export default class extends HTMLElement {
             let pos = 0;
             // Trouver la future position chronologique de l'élément.
             for (const other of ul.children) {
-                if (Number.parseInt(li.dataset.date, 10) <=
-                                      Number.parseInt(other.dataset.date, 10)) {
+                if (Number(li.dataset.date) <= Number(other.dataset.date)) {
                     ++pos;
                 }
             }
@@ -149,17 +148,17 @@ export default class extends HTMLElement {
         link.href = import.meta.resolve("./cinema.css");
         this.shadowRoot.append(link);
 
-        this.#max = this.#config.max ?? Number.MAX_SAFE_INTEGER;
-        this.#empty = this.#config.empty ?? { title: "(aucune séance)" };
+        this.#max = this.#options.max ?? Number.MAX_SAFE_INTEGER;
+        this.#empty = this.#options.empty ?? { title: "(aucune séance)" };
 
         const ul = this.shadowRoot.querySelector("ul");
-        ul.style.backgroundColor = this.#config.color ?? "#9e9e9e";
-        if (undefined !== this.#config.icon) {
-            ul.style.backgroundImage = `url("${this.#config.icon}")`;
+        ul.style.backgroundColor = this.#options.color ?? "#9e9e9e";
+        if (undefined !== this.#options.icon) {
+            ul.style.backgroundImage = `url("${this.#options.icon}")`;
         }
 
         // Par défaut, mettre à jour les données tous les jours à 1h.
-        this.#cron = new Cron(this.#config.cron ?? "0 1 * * *",
+        this.#cron = new Cron(this.#options.cron ?? "0 1 * * *",
                               this.#update.bind(this));
         document.addEventListener("visibilitychange", this.#wake.bind(this));
         this.#update(true);
