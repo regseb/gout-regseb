@@ -1,8 +1,8 @@
 {
-    "$extend": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/linuxfr/news.json",
-    "$scrapers[0]": {
-        "options": {
-            "url": "https://linuxfr.org/forums.atom"
-        }
+  "$extend": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/linuxfr/news.json",
+  "$scrapers[0]": {
+    "options": {
+      "url": "https://linuxfr.org/forums.atom"
     }
+  }
 }

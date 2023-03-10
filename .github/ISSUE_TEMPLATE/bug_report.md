@@ -1,10 +1,9 @@
 ---
 name: Bug report
 about: Create a report to help us improve.
-title: ''
+title: ""
 labels: bug
-assignees: ''
-
+assignees: ""
 ---
 
 ### Describe the bug
@@ -30,7 +29,7 @@ Steps to reproduce the behavior:
 ### Environment
 
 - Gout extension version<!-- e.g. 0.9.1 -->:
-- Browser version<!-- e.g. Chrome 101.0.4951.64, Firefox 100.0 -->:
+- Browser version<!-- e.g. Chrome 110.0.5481.100, Firefox 110.0 -->:
 
 ### Additional context
 

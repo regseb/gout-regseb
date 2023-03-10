@@ -1,20 +1,22 @@
 {
-    "module": {
-        "url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/list/list.js",
-        "options": {
-            "color": "#ffc300",
-            "cron": "@daily",
-            "max": 5,
-            "icon": "http://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/radiofrance/franceinfo_black.svg"
+  "module": {
+    "url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/list/list.js",
+    "options": {
+      "color": "#ffc300",
+      "cron": "@daily",
+      "max": 5,
+      "icon": "http://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/radiofrance/franceinfo_black.svg"
+    }
+  },
+  "scrapers": [
+    {
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCJldRgT_D7Am-ErRHQZ90uw",
+      "options": {
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=franceinfo",
+        "complements": {
+          "icon": "http://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/radiofrance/franceinfo_white.svg"
         }
-    },
-    "scrapers": [{
-        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCJldRgT_D7Am-ErRHQZ90uw",
-        "options": {
-            "url": "https://www.youtube.com/feeds/videos.xml?channel_id=franceinfo",
-            "complements": {
-                "icon": "http://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/radiofrance/franceinfo_white.svg"
-            }
-        }
-    }]
+      }
+    }
+  ]
 }

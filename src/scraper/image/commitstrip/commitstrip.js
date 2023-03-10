@@ -3,7 +3,6 @@
  */
 
 export default class CommitStrip {
-
     #complements;
 
     constructor({ complements }) {
@@ -16,17 +15,18 @@ export default class CommitStrip {
         const doc = new DOMParser().parseFromString(text, "text/html");
 
         return Array.from(doc.querySelectorAll(".excerpts a"))
-                    .slice(0, max)
-                    .map((a) => {
-            const link = a.href;
-            const parts = link.split("/");
-            return {
-                date:  new Date(parts[3], parts[4], parts[5]).getTime(),
-                guid:  link,
-                img:   a.querySelector("img").src,
-                link,
-                title: a.querySelector("strong").textContent,
-            };
-        }).map((i) => ({ ...this.#complements, ...i }));
+            .slice(0, max)
+            .map((a) => {
+                const link = a.href;
+                const parts = link.split("/");
+                return {
+                    date: new Date(parts[3], parts[4], parts[5]).getTime(),
+                    guid: link,
+                    img: a.querySelector("img").src,
+                    link,
+                    title: a.querySelector("strong").textContent,
+                };
+            })
+            .map((i) => ({ ...this.#complements, ...i }));
     }
 }

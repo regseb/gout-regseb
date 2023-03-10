@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100">
   <g transform="translate(6,0)" opacity="0.2">
     <path d="M 10,100 H 85 L 94,80 89,73 68,83 11,64 0,80 Z" />

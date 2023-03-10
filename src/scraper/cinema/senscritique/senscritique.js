@@ -35,9 +35,10 @@ const QUERY = `
 `;
 
 const simplify = function (value) {
-    return value?.normalize("NFKD")
-                .toLowerCase()
-                .replaceAll(/[^a-z]+/gu, "");
+    return value
+        ?.normalize("NFKD")
+        .toLowerCase()
+        .replaceAll(/[^a-z]+/gu, "");
 };
 
 const compare = function (first, second) {
@@ -45,7 +46,6 @@ const compare = function (first, second) {
 };
 
 export default class SensCritique {
-
     /**
      * Le nom d'un utilisateur SensCritique.
      *
@@ -69,47 +69,55 @@ export default class SensCritique {
         const results = await Promise.all(
             this.#scrapers.map((s) => s.extract(max)),
         );
-        const movies = results.flat()
-                              .sort((i1, i2) => (i2.date ?? 0) - (i1.date ?? 0))
-                              .slice(0, max);
+        const movies = results
+            .flat()
+            .sort((i1, i2) => (i2.date ?? 0) - (i1.date ?? 0))
+            .slice(0, max);
 
-        return Promise.all(movies.map(async (movie) => {
-            const response = await fetch("https://apollo.senscritique.com/", {
-                method:  "POST",
-                headers: { "content-type": "application/json" },
-                body:    JSON.stringify([{
-                    operationName: "UserCollection",
-                    variables:     {
-                        username: this.#user,
-                        universe: "movie",
-                        keywords: movie.title,
-                        limit:    1,
-                        offset:   0,
-                        order:    "DATE_RELEASE_DESC",
+        return Promise.all(
+            movies.map(async (movie) => {
+                const response = await fetch(
+                    "https://apollo.senscritique.com/",
+                    {
+                        method: "POST",
+                        headers: { "content-type": "application/json" },
+                        body: JSON.stringify([
+                            {
+                                operationName: "UserCollection",
+                                variables: {
+                                    username: this.#user,
+                                    universe: "movie",
+                                    keywords: movie.title,
+                                    limit: 1,
+                                    offset: 0,
+                                    order: "DATE_RELEASE_DESC",
+                                },
+                                query: QUERY,
+                            },
+                        ]),
                     },
-                    query: QUERY,
-                }]),
-            });
-            const json = await response.json();
-            const product = json[0].data.user.collection.products?.[0];
+                );
+                const json = await response.json();
+                const product = json[0].data.user.collection.products?.[0];
 
-            let icon;
-            if (compare(movie.title, product?.title)) {
-                if (product.otherUserInfos.isRecommended) {
-                    icon = "recommended";
-                } else if (product.otherUserInfos.isDone) {
-                    icon = "done";
-                } else if (product.otherUserInfos.isWished) {
-                    icon = "wished";
+                let icon;
+                if (compare(movie.title, product?.title)) {
+                    if (product.otherUserInfos.isRecommended) {
+                        icon = "recommended";
+                    } else if (product.otherUserInfos.isDone) {
+                        icon = "done";
+                    } else if (product.otherUserInfos.isWished) {
+                        icon = "wished";
+                    }
                 }
-            }
 
-            return {
-                ...movie,
-                ...undefined === icon
-                    ? {}
-                    : { icon: import.meta.resolve(`./img/${icon}.svg`) },
-            };
-        }));
+                return {
+                    ...movie,
+                    ...(undefined === icon
+                        ? {}
+                        : { icon: import.meta.resolve(`./img/${icon}.svg`) }),
+                };
+            }),
+        );
     }
 }

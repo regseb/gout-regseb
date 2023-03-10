@@ -25,8 +25,7 @@ propriétés suivantes :
   [`"bouygues"`](https://www.programme-television.org/?bouquet=bouygues),
   [`"alice"`](https://www.programme-television.org/?bouquet=alice),
   [`"darty"`](https://www.programme-television.org/?bouquet=darty),
-  [`"bis-televisions"`](
-                  https://www.programme-television.org/?bouquet=bis-televisions)
+  [`"bis-televisions"`](https://www.programme-television.org/?bouquet=bis-televisions)
   ou [`"mycanal"`](https://www.programme-television.org/?bouquet=mycanal)) ;
 - `"channels"` : la liste des chaines affichées (voir en-dessous pour connaitre
   les codes) ;

@@ -5,7 +5,6 @@
 const API_URL = "https://www.pathe.fr/api";
 
 export default class Pathe {
-
     #cinema;
 
     #versions;
@@ -25,10 +24,12 @@ export default class Pathe {
     }
 
     #filter(showtime) {
-        return "available" === showtime.status &&
-               this.#versions.includes(showtime.version) &&
-               this.#includes.every((t) => showtime.tags.includes(t)) &&
-               !showtime.tags.some((t) => this.#excludes.includes(t));
+        return (
+            "available" === showtime.status &&
+            this.#versions.includes(showtime.version) &&
+            this.#includes.every((t) => showtime.tags.includes(t)) &&
+            !showtime.tags.some((t) => this.#excludes.includes(t))
+        );
     }
 
     async extract(max = Number.MAX_SAFE_INTEGER) {
@@ -37,39 +38,49 @@ export default class Pathe {
 
         const today = new Date().toISOString().slice(0, 10);
         const promises = Object.entries(shows)
-                               .filter(([, s]) => today in s.days)
-                               .map(async ([slug]) => {
-            let subresponse = await fetch(`${API_URL}/show/${slug}`);
-            const show = await subresponse.json();
+            .filter(([, s]) => today in s.days)
+            .map(async ([slug]) => {
+                let subresponse = await fetch(`${API_URL}/show/${slug}`);
+                const show = await subresponse.json();
 
-            subresponse = await fetch(`${API_URL}/show/${slug}/showtimes` +
-                                      `/${this.#cinema}/${today}`);
-            const showtimes = await subresponse.json();
-            const showings = showtimes.filter(this.#filter.bind(this))
-                                      .map((showtime) => {
-                const tags = showtime.tags.filter((t) => "DEFAULT" !== t);
+                subresponse = await fetch(
+                    `${API_URL}/show/${slug}/showtimes` +
+                        `/${this.#cinema}/${today}`,
+                );
+                const showtimes = await subresponse.json();
+                const showings = showtimes
+                    .filter(this.#filter.bind(this))
+                    .map((showtime) => {
+                        const tags = showtime.tags.filter(
+                            (t) => "DEFAULT" !== t,
+                        );
+                        return {
+                            // Récupérer l'heure et les minutes de la date de la
+                            // séance.
+                            title: showtime.time.slice(11, 16),
+                            link: showtime.refCmd,
+                            desc:
+                                showtime.version.toUpperCase() +
+                                (0 === tags.length
+                                    ? ""
+                                    : ` (${tags.join(", ")})`),
+                        };
+                    });
+
                 return {
-                    // Récupérer l'heure et les minutes de la date de la séance.
-                    title: showtime.time.slice(11, 16),
-                    link:  showtime.refCmd,
-                    desc:  showtime.version.toUpperCase() +
-                           (0 === tags.length ? ""
-                                              : ` (${tags.join(", ")})`),
+                    title: show.title,
+                    link: `https://www.pathe.fr/films/${slug}`,
+                    ...(show.isNew
+                        ? { icon: import.meta.resolve("./img/new.svg") }
+                        : {}),
+                    showings,
                 };
             });
 
-            return {
-                title: show.title,
-                link:  `https://www.pathe.fr/films/${slug}`,
-                ...show.isNew ? { icon: import.meta.resolve("./img/new.svg") }
-                              : {},
-                showings,
-            };
-        });
-
         const movies = await Promise.all(promises);
-        return movies.filter((m) => 0 !== m.showings.length)
-                     .slice(0, max)
-                     .map((m) => ({ ...this.#complements, ...m }));
+        return movies
+            .filter((m) => 0 !== m.showings.length)
+            .slice(0, max)
+            .map((m) => ({ ...this.#complements, ...m }));
     }
 }

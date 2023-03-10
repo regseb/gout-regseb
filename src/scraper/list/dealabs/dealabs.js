@@ -21,19 +21,19 @@ const MONTHS = [
 
 const DEFAULT_FILTERS = {
     /* eslint-disable camelcase */
-    q:                 "",
+    q: "",
     "search_fields[]": [1, 2, 3],
-    sort_by:           "new",
-    time_frame:        0,
-    hide_expired:      0,
-    hide_local:        0,
-    merchant_id:       "",
-    merchant:          "",
-    hot_only:          0,
-    temperatureFrom:   "",
-    temperatureTo:     "",
-    priceFrom:         "",
-    priceTo:           "",
+    sort_by: "new",
+    time_frame: 0,
+    hide_expired: 0,
+    hide_local: 0,
+    merchant_id: "",
+    merchant: "",
+    hot_only: 0,
+    temperatureFrom: "",
+    temperatureTo: "",
+    priceFrom: "",
+    priceTo: "",
     /* eslint-enable camelcase */
 };
 
@@ -42,8 +42,10 @@ const getToken = async function () {
     const text = await response.text();
     const doc = new DOMParser().parseFromString(text, "text/html");
     for (const script of doc.querySelectorAll(`script[type="text/html"]`)) {
-        const subdoc = new DOMParser().parseFromString(script.text,
-                                                       "text/html");
+        const subdoc = new DOMParser().parseFromString(
+            script.text,
+            "text/html",
+        );
         const input = subdoc.querySelector(`input[name="_token"]`);
         if (null !== input) {
             return input.value;
@@ -53,19 +55,21 @@ const getToken = async function () {
 };
 
 const extractDate = function (ago) {
-    let result = (/(?<hours>\d{1,2}) h et (?<minutes>\d{1,2}) min$/u).exec(ago);
+    let result = /(?<hours>\d{1,2}) h et (?<minutes>\d{1,2}) min$/u.exec(ago);
     if (null !== result) {
-        return Date.now() -
-               3_600_000 * Number(result.groups.hours) -
-               60_000 * Number(result.groups.minutes);
+        return (
+            Date.now() -
+            3_600_000 * Number(result.groups.hours) -
+            60_000 * Number(result.groups.minutes)
+        );
     }
 
-    result = (/(?<minutes>\d{1,2}) min$/u).exec(ago);
+    result = /(?<minutes>\d{1,2}) min$/u.exec(ago);
     if (null !== result) {
         return Date.now() - 60_000 * Number(result.groups.minutes);
     }
 
-    result = (/(?<date>\d{1,2}) (?<month>[a-z]+)$/u).exec(ago);
+    result = /(?<date>\d{1,2}) (?<month>[a-z]+)$/u.exec(ago);
     if (null !== result) {
         const now = new Date();
         const date = Number(result.groups.date);
@@ -85,7 +89,6 @@ const extractDate = function (ago) {
 };
 
 export default class Dealabs {
-
     #filters;
 
     #complements;
@@ -113,21 +116,25 @@ export default class Dealabs {
         const text = await response.text();
         const doc = new DOMParser().parseFromString(text, "text/html");
         return Array.from(doc.querySelectorAll("article.thread"))
-                    .slice(0, max)
-                    .map((article) => ({
-            price: article.querySelector(".thread-price")?.textContent,
-            title: article.querySelector(".thread-title").textContent,
-            link:  article.querySelector(".thread-link").href,
-            img:   article.querySelector(".thread-image").src,
-            ago:   article.querySelector(".threadGrid-headerMeta .hide--fromW3")
-                          .textContent,
-        })).map((item) => ({
-            date:  extractDate(item.ago),
-            guid:  item.link,
-            img:   item.img,
-            link:  item.link,
-            title: (undefined === item.price ? "" : item.price + " | ") +
-                   item.title,
-        })).map((i) => ({ ...this.#complements, ...i }));
+            .slice(0, max)
+            .map((article) => ({
+                price: article.querySelector(".thread-price")?.textContent,
+                title: article.querySelector(".thread-title").textContent,
+                link: article.querySelector(".thread-link").href,
+                img: article.querySelector(".thread-image").src,
+                ago: article.querySelector(
+                    ".threadGrid-headerMeta .hide--fromW3",
+                ).textContent,
+            }))
+            .map((item) => ({
+                date: extractDate(item.ago),
+                guid: item.link,
+                img: item.img,
+                link: item.link,
+                title:
+                    (undefined === item.price ? "" : item.price + " | ") +
+                    item.title,
+            }))
+            .map((i) => ({ ...this.#complements, ...i }));
     }
 }

@@ -68,10 +68,11 @@ l'agrégateur d'Internet **[Gout](https://github.com/regseb/gout)**.
 - [_linuxfr_](src/widget/linuxfr#readme) :
 - [_radiofrance_](src/widget/radiofrance#readme) :
 
-[img-build]:https://img.shields.io/github/actions/workflow/status/regseb/gout-regseb/ci.yml?branch=main&logo=github&logoColor=white
+[img-build]: https://img.shields.io/github/actions/workflow/status/regseb/gout-regseb/ci.yml?branch=main&logo=github&logoColor=white
+
 <!-- Attendre que le logo de Stryker soit accepté.
      https://github.com/simple-icons/simple-icons/pull/7388 -->
-[img-coverage]:https://img.shields.io/endpoint?label=coverage&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fregseb%2Fgout-regseb%2Fmain
 
-[link-build]:https://github.com/regseb/gout-regseb/actions/workflows/ci.yml?query=branch%3Amain
-[link-coverage]:https://dashboard.stryker-mutator.io/reports/github.com/regseb/gout-regseb/main
+[img-coverage]: https://img.shields.io/endpoint?label=coverage&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fregseb%2Fgout-regseb%2Fmain
+[link-build]: https://github.com/regseb/gout-regseb/actions/workflows/ci.yml?query=branch%3Amain
+[link-coverage]: https://dashboard.stryker-mutator.io/reports/github.com/regseb/gout-regseb/main

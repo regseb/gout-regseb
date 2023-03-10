@@ -3,7 +3,6 @@
  */
 
 export default class Maliki {
-
     #password;
 
     #complements;
@@ -20,15 +19,17 @@ export default class Maliki {
 
         const selector = ".archiveStrips--content > * > .row a";
         return Array.from(doc.querySelectorAll(selector), (a) => ({
-            date:  new Date(a.querySelector("time").dateTime).getTime(),
-            guid:  a.href,
-            icon:  import.meta.resolve("./img/maliki_white.svg"),
-            img:   a.querySelector("img").src,
-            link:  a.href,
+            date: new Date(a.querySelector("time").dateTime).getTime(),
+            guid: a.href,
+            icon: import.meta.resolve("./img/maliki_white.svg"),
+            img: a.querySelector("img").src,
+            link: a.href,
             title: a.querySelector("h3").textContent,
-        })).filter((i) => this.#password ||
-                                         !i.title.startsWith("Protégé\u00A0: "))
-           .slice(0, max)
-           .map((i) => ({ ...this.#complements, ...i }));
+        }))
+            .filter(
+                (i) => this.#password || !i.title.startsWith("Protégé\u00A0: "),
+            )
+            .slice(0, max)
+            .map((i) => ({ ...this.#complements, ...i }));
     }
 }

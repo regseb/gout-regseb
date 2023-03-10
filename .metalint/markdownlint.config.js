@@ -1,3 +1,12 @@
+/**
+ * @module
+ * @license MIT
+ * @author Sébastien Règne
+ */
+
+/**
+ * @type {import("markdownlint").Configuration}
+ */
 export default {
     "heading-increment": true,
     "heading-style": { style: "atx" },
@@ -9,7 +18,7 @@ export default {
     "no-reversed-links": true,
     "no-multiple-blanks": true,
     // eslint-disable-next-line camelcase
-    "line-length": { code_blocks: false, headings: false, stern: false },
+    "line-length": { code_blocks: false, headings: false },
     "commonds-show-output": true,
     "no-missing-space-atx": true,
     "no-multiple-space-atx": true,
@@ -34,7 +43,19 @@ export default {
     "no-space-in-emphasis": true,
     "no-space-in-code": true,
     "no-space-in-links": true,
-    "fenced-code-language": true,
+    "fenced-code-language": {
+        // eslint-disable-next-line camelcase
+        allowed_languages: [
+            "CSS",
+            "HTML",
+            "JavaScript",
+            "JSON",
+            "Markdown",
+            "Shell",
+        ],
+        // eslint-disable-next-line camelcase
+        language_only: true,
+    },
     "first-line-heading": true,
     "no-empty-links": true,
     "required-headings": true,

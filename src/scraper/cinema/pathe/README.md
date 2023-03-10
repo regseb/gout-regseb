@@ -88,6 +88,7 @@ const response = await fetch("https://www.pathe.fr/api/cinemas?language=fr");
 const json = await response.json();
 console.log(json.map((c) => `- ${c.name} : \`"${c.slug}"\` ;`).join("\n"));
 -->
+
 - Pathé Angers : `"cinema-pathe-angers"` ;
 - Pathé Grenoble : `"cinema-pathe-grenoble"` ;
 - Pathé Vaise : `"cinema-pathe-vaise"` ;

@@ -5,7 +5,6 @@
 const GAME_URL = "https://isthereanydeal.com/game";
 
 export default class IsThereAnyDeal {
-
     #game;
 
     #stores;
@@ -25,24 +24,36 @@ export default class IsThereAnyDeal {
 
         const title = doc.querySelector("#gameTitle").textContent;
         // eslint-disable-next-line array-func/from-map
-        return Array.from(doc.querySelectorAll(".priceTable__shop"),
-                          (td) => td.parentNode)
-                    .map((tr) => ({
-            store: tr.querySelector("a").textContent.trim(),
-            link:  tr.querySelector("a").href,
-            cut:   tr.querySelector(".priceTable__cut").textContent,
-            price: tr.querySelector(".priceTable__new").textContent,
-        })).filter((i) => "0%" !== i.cut &&
-                          (0 === this.#stores.length ||
-                           this.#stores.includes(i.store)))
-           .filter((item, _index, items) => {
-               return !items.some((i) => item.price === i.price &&
-                                         this.#stores.indexOf(item.store) >
-                                                 this.#stores.indexOf(i.store));
-        }).slice(0, max).map((item) => ({
-            guid:  item.link,
-            link:  item.link,
-            title: `${title} : ${item.price} (${item.cut})`,
-        })).map((i) => ({ ...this.#complements, ...i }));
+        return Array.from(
+            doc.querySelectorAll(".priceTable__shop"),
+            (td) => td.parentNode,
+        )
+            .map((tr) => ({
+                store: tr.querySelector("a").textContent.trim(),
+                link: tr.querySelector("a").href,
+                cut: tr.querySelector(".priceTable__cut").textContent,
+                price: tr.querySelector(".priceTable__new").textContent,
+            }))
+            .filter(
+                (i) =>
+                    "0%" !== i.cut &&
+                    (0 === this.#stores.length ||
+                        this.#stores.includes(i.store)),
+            )
+            .filter((item, _index, items) => {
+                return !items.some(
+                    (i) =>
+                        item.price === i.price &&
+                        this.#stores.indexOf(item.store) >
+                            this.#stores.indexOf(i.store),
+                );
+            })
+            .slice(0, max)
+            .map((item) => ({
+                guid: item.link,
+                link: item.link,
+                title: `${title} : ${item.price} (${item.cut})`,
+            }))
+            .map((i) => ({ ...this.#complements, ...i }));
     }
 }

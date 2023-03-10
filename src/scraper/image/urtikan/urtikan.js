@@ -3,7 +3,6 @@
  */
 
 export default class Urtikan {
-
     #complements;
 
     constructor({ complements }) {
@@ -16,12 +15,13 @@ export default class Urtikan {
         const doc = new DOMParser().parseFromString(text, "text/html");
 
         return Array.from(doc.querySelectorAll("#posts-dessin li img"))
-                    .slice(0, max)
-                    .map((img) => ({
-            guid:  img.src,
-            img:   img.src,
-            link:  img.parentElement.href,
-            title: img.alt,
-        })).map((i) => ({ ...this.#complements, ...i }));
+            .slice(0, max)
+            .map((img) => ({
+                guid: img.src,
+                img: img.src,
+                link: img.parentElement.href,
+                title: img.alt,
+            }))
+            .map((i) => ({ ...this.#complements, ...i }));
     }
 }

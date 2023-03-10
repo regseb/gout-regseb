@@ -1,3 +1,9 @@
+/**
+ * @module
+ * @license MIT
+ * @author Sébastien Règne
+ */
+
 export default {
     rules: {
         // Require node rules.
@@ -73,13 +79,23 @@ export default {
         "no-repeated-dependencies": "error",
 
         "no-absolute-version-dependencies": "off",
-        "no-archive-dependencies": "error",
-        "no-caret-version-dependencies": "error",
-        "no-file-dependencies": "error",
-        "no-git-dependencies": "error",
+        // Ne pas activer cette règle car la règle
+        // prefer-absolute-version-dependencies oblige les versions absolues.
+        "no-archive-dependencies": "off",
+        // Ne pas activer cette règle car la règle
+        // prefer-absolute-version-dependencies oblige les versions absolues.
+        "no-caret-version-dependencies": "off",
+        // Ne pas activer cette règle car la règle
+        // prefer-absolute-version-dependencies oblige les versions absolues.
+        "no-file-dependencies": "off",
+        // Ne pas activer cette règle car la règle
+        // prefer-absolute-version-dependencies oblige les versions absolues.
+        "no-git-dependencies": "off",
         "no-restricted-dependencies": "off",
         "no-restricted-pre-release-dependencies": "off",
-        "no-tilde-version-dependencies": "error",
+        // Ne pas activer cette règle car la règle
+        // prefer-absolute-version-dependencies oblige les versions absolues.
+        "no-tilde-version-dependencies": "off",
         "prefer-absolute-version-dependencies": "error",
         "prefer-alphabetical-dependencies": "error",
         "prefer-caret-version-dependencies": "off",
@@ -87,13 +103,23 @@ export default {
         "prefer-tilde-version-dependencies": "off",
 
         "no-absolute-version-devDependencies": "off",
-        "no-archive-devDependencies": "error",
-        "no-caret-version-devDependencies": "error",
-        "no-file-devDependencies": "error",
-        "no-git-devDependencies": "error",
+        // Ne pas activer cette règle car la règle
+        // prefer-absolute-version-devDependencies oblige les versions absolues.
+        "no-archive-devDependencies": "off",
+        // Ne pas activer cette règle car la règle
+        // prefer-absolute-version-devDependencies oblige les versions absolues.
+        "no-caret-version-devDependencies": "off",
+        // Ne pas activer cette règle car la règle
+        // prefer-absolute-version-devDependencies oblige les versions absolues.
+        "no-file-devDependencies": "off",
+        // Ne pas activer cette règle car la règle
+        // prefer-absolute-version-devDependencies oblige les versions absolues.
+        "no-git-devDependencies": "off",
         "no-restricted-devDependencies": "off",
         "no-restricted-pre-release-devDependencies": "off",
-        "no-tilde-version-devDependencies": "error",
+        // Ne pas activer cette règle car la règle
+        // prefer-absolute-version-devDependencies oblige les versions absolues.
+        "no-tilde-version-devDependencies": "off",
         "prefer-absolute-version-devDependencies": "error",
         "prefer-alphabetical-devDependencies": "error",
         "prefer-caret-version-devDependencies": "off",
@@ -111,10 +137,13 @@ export default {
         "prefer-scripts": "off",
 
         // Format rules.
-        "description-format": ["error", {
-            requireCapitalFirstLetter: true,
-            requireEndingPeriod: true,
-        }],
+        "description-format": [
+            "error",
+            {
+                requireCapitalFirstLetter: true,
+                requireEndingPeriod: true,
+            },
+        ],
         "name-format": "error",
         "version-format": "error",
 
