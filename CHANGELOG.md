@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.7](https://github.com/regseb/gout-regseb/compare/v0.9.6...v0.9.7) (2023-03-10)
+
+
+### Bug Fixes
+
+* Renommer "Configuration" en "Options". ([7d0673d](https://github.com/regseb/gout-regseb/commit/7d0673deaf9b34cac1a691fc03f3dbf1d421b947))
+* Renommer PatheGaumont en Pathe. ([b1cbfc8](https://github.com/regseb/gout-regseb/commit/b1cbfc866ad357f4659a2f86b65c09d5c7bc2631))
+
 ### [0.9.6](https://github.com/regseb/gout-regseb/compare/v0.9.5...v0.9.6) (2022-12-11)
 
 ### [0.9.5](https://github.com/regseb/gout-regseb/compare/v0.9.4...v0.9.5) (2022-10-23)
