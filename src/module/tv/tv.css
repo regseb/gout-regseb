@@ -44,20 +44,41 @@ a {
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-a:visited, li.empty a {
+a:visited,
+li.empty a {
     color: black;
 }
 a[href]:hover {
     text-decoration: underline;
 }
 
-.culture        { background-color: #cddc39; }
-.jeunesse       { background-color: #ff9800; }
-.magazine       { background-color: #607d8b; }
-.sport          { background-color: #4caf50; }
-.film           { background-color: #f44336; }
-.serie          { background-color: #00bcd4; }
-.divertissement { background-color: #aa00ff; }
-.documentaire   { background-color: #9c27b0; }
-.telefilm       { background-color: #f91f63; }
-.divers         { background-color: black; }
+.culture {
+    background-color: #cddc39;
+}
+.jeunesse {
+    background-color: #ff9800;
+}
+.magazine {
+    background-color: #607d8b;
+}
+.sport {
+    background-color: #4caf50;
+}
+.film {
+    background-color: #f44336;
+}
+.serie {
+    background-color: #00bcd4;
+}
+.divertissement {
+    background-color: #aa00ff;
+}
+.documentaire {
+    background-color: #9c27b0;
+}
+.telefilm {
+    background-color: #f91f63;
+}
+.divers {
+    background-color: black;
+}

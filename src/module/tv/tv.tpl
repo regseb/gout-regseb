@@ -1,8 +1,8 @@
 <template>
   <template>
     <li>
-      <img class="channel">
-      <img class="type">
+      <img class="channel" />
+      <img class="type" />
       <span></span>
       <a rel="noopener noreferrer"></a>
     </li>
