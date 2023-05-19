@@ -2,7 +2,7 @@
  * @module
  */
 
-import Cron from "https://cdn.jsdelivr.net/npm/cronnor@2/+esm";
+import Cron from "https://cdn.jsdelivr.net/npm/cronnor@2";
 
 const hashCode = function (item) {
     return Math.abs(

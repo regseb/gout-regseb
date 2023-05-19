@@ -1,14 +1,13 @@
 {
   "compilerOptions": {
-    "module": "ESNext",
-    "moduleResolution": "node",
+    "module": "nodenext",
 
     "allowJs": true,
 
     "esModuleInterop": true,
 
-    "target": "ESNext"
+    "target": "esnext"
   },
   "include": ["**/*", "**/.*", "**/.*/**/*", "**/.*/**/.*"],
-  "exclude": [".git/", "jsdocs/", "node_modules/"]
+  "exclude": [".git/", "jsdocs/", "node_modules/", ".vscode/"]
 }

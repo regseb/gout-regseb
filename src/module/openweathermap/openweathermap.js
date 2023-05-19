@@ -2,7 +2,7 @@
  * @module
  */
 
-import Cron from "https://cdn.jsdelivr.net/npm/cronnor@2/+esm";
+import Cron from "https://cdn.jsdelivr.net/npm/cronnor@2";
 
 const API_URL = "https://api.openweathermap.org/data/2.5/";
 

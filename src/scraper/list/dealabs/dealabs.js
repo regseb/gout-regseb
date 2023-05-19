@@ -41,12 +41,12 @@ const getToken = async function () {
     const response = await fetch("https://www.dealabs.com/");
     const text = await response.text();
     const doc = new DOMParser().parseFromString(text, "text/html");
-    for (const script of doc.querySelectorAll(`script[type="text/html"]`)) {
+    for (const script of doc.querySelectorAll('script[type="text/html"]')) {
         const subdoc = new DOMParser().parseFromString(
             script.text,
             "text/html",
         );
-        const input = subdoc.querySelector(`input[name="_token"]`);
+        const input = subdoc.querySelector('input[name="_token"]');
         if (null !== input) {
             return input.value;
         }
