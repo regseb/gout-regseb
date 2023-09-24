@@ -45,7 +45,7 @@ const compare = function (first, second) {
     return simplify(first) === simplify(second);
 };
 
-export default class SensCritique {
+export default class SensCritiqueScraper {
     /**
      * Le nom d'un utilisateur SensCritique.
      *

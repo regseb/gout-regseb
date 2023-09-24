@@ -2,7 +2,7 @@
  * @module
  */
 
-export default class GeekAndPoke {
+export default class GeekAndPokeScraper {
     #complements;
 
     constructor({ complements }) {

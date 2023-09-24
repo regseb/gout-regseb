@@ -2,7 +2,7 @@
  * @module
  */
 
-export default class CommitStrip {
+export default class CommitStripScraper {
     #complements;
 
     constructor({ complements }) {

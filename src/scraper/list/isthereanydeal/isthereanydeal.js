@@ -4,7 +4,7 @@
 
 const GAME_URL = "https://isthereanydeal.com/game";
 
-export default class IsThereAnyDeal {
+export default class IsThereAnyDealScraper {
     #game;
 
     #stores;

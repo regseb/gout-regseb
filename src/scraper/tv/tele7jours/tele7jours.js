@@ -9,7 +9,7 @@ const CHANNELS = {
     omtv: "om-tv",
 };
 
-export default class Tele7Jours {
+export default class Tele7JoursScraper {
     #broadcast;
 
     #channels;

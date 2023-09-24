@@ -2,7 +2,7 @@
  * @module
  */
 
-export default class Jenkins {
+export default class JenkinsScraper {
     #host;
 
     #filters;

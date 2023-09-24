@@ -2,7 +2,7 @@
  * @module
  */
 
-export default class Xkcd {
+export default class XkcdScraper {
     #complements;
 
     constructor({ complements }) {

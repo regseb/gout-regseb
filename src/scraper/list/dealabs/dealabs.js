@@ -88,7 +88,7 @@ const extractDate = function (ago) {
     return undefined;
 };
 
-export default class Dealabs {
+export default class DealabsScraper {
     #filters;
 
     #complements;

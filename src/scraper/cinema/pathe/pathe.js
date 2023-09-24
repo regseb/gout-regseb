@@ -4,7 +4,7 @@
 
 const API_URL = "https://www.pathe.fr/api";
 
-export default class Pathe {
+export default class PatheScraper {
     #cinema;
 
     #versions;

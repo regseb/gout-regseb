@@ -8,7 +8,7 @@ const DATE_REGEXP = new RegExp(
     "u",
 );
 
-export default class Radioline {
+export default class RadiolineScraper {
     #podcast;
 
     #complements;

@@ -15,7 +15,7 @@ const hashCode = function (item) {
     ).toString(36);
 };
 
-export default class TV extends HTMLElement {
+export default class TVModule extends HTMLElement {
     #options;
 
     #scrapers;

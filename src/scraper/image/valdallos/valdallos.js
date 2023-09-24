@@ -11,7 +11,7 @@ const WEBCAMS_ID = {
     observatoire: "PRESTATAIRE-WEBCAMS-AIGUILLE",
 };
 
-export default class ValDAllos {
+export default class ValDAllosScraper {
     #webcams;
 
     #complements;

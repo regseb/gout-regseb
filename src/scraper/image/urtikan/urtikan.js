@@ -2,7 +2,7 @@
  * @module
  */
 
-export default class Urtikan {
+export default class UrtikanScraper {
     #complements;
 
     constructor({ complements }) {

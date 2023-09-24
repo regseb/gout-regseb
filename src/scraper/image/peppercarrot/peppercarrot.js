@@ -2,7 +2,7 @@
  * @module
  */
 
-export default class PepperCarrot {
+export default class PepperCarrotScraper {
     #lang;
 
     #complements;

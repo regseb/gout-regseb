@@ -60,7 +60,7 @@ const extract = async function (city, appid, kind) {
     }));
 };
 
-export default class OpenWeatherMap extends HTMLElement {
+export default class OpenWeatherMapModule extends HTMLElement {
     #options;
 
     #cron;

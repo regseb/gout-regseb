@@ -2,7 +2,7 @@
  * @module
  */
 
-export default class Maliki {
+export default class MalikiScraper {
     #password;
 
     #complements;

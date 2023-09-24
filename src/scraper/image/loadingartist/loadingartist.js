@@ -2,7 +2,7 @@
  * @module
  */
 
-export default class LoadingArtist {
+export default class LoadingArtistScraper {
     #complements;
 
     constructor({ complements }) {

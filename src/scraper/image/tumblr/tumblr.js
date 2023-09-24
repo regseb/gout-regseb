@@ -6,7 +6,7 @@ const API_URL = "https://api.tumblr.com/v2";
 
 const TOKEN = "aIcXSOoTtqrzR8L8YEIOmBeW94c3FmbSNSWAUbxsny9KKx5VFh";
 
-export default class Tumblr {
+export default class TumblrScraper {
     #user;
 
     #complements;

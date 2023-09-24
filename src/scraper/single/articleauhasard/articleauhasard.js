@@ -2,7 +2,7 @@
  * @module
  */
 
-export default class ArticleAuHasard {
+export default class ArticleAuHasardScraper {
     #lang;
 
     #complements;
