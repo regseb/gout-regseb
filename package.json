@@ -22,7 +22,6 @@
     "lint:types": "tsc --project .tsconfig_lint.json",
     "jsdocs": "typedoc --tsconfig .tsconfig_jsdocs.json",
     "server": "http-server -p60071 -c-1 --cors",
-    "release": "standard-version",
     "clean": "node .script/clean.js"
   },
   "devDependencies": {
@@ -45,7 +44,6 @@
     "metalint": "0.12.0",
     "npm-package-json-lint": "6.4.0",
     "prettier": "2.8.8",
-    "standard-version": "9.5.0",
     "stylelint": "15.6.2",
     "stylelint-order": "6.0.3",
     "typedoc": "0.24.7",
