@@ -29,6 +29,7 @@ export default {
         "color-no-invalid-hex": true,
         "function-calc-no-unspaced-operator": true,
         "keyframe-declaration-no-important": true,
+        "media-query-no-invalid": true,
         "named-grid-areas-no-invalid": true,
         "no-invalid-double-slash-comments": true,
         "no-invalid-position-at-import-rule": true,
@@ -41,7 +42,7 @@ export default {
         "custom-property-no-missing-var-function": true,
         "font-family-no-missing-generic-family-keyword": true,
 
-        // Non-stantard.
+        // Non-standard.
         "function-linear-gradient-no-nonstandard-direction": true,
 
         // Overrides
@@ -56,6 +57,7 @@ export default {
         "declaration-property-value-no-unknown": true,
         "function-no-unknown": true,
         "media-feature-name-no-unknown": true,
+        "media-feature-name-value-no-unknown": true,
         "no-unknown-animations": true,
         "no-unknown-custom-properties": true,
         "property-no-unknown": true,

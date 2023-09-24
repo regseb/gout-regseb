@@ -9,5 +9,5 @@
     "target": "esnext"
   },
   "include": ["**/*", "**/.*", "**/.*/**/*", "**/.*/**/.*"],
-  "exclude": [".git/", "jsdocs/", "node_modules/", ".vscode/"]
+  "exclude": [".git/", "jsdocs/", "node_modules/", ".vscode/", ".idea/"]
 }
