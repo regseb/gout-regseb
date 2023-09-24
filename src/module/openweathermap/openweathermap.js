@@ -122,14 +122,13 @@ export default class OpenWeatherMapModule extends HTMLElement {
             return;
         }
 
-        this.shadowRoot.querySelector("ul").replaceChildren();
-
-        // Récupérer la météo du jour.
+        // Récupérer la météo du jour et les prévisions.
         const weather = await extract(this.#city, this.#appid, "weather");
-        this.#display(weather);
-
-        // Récupérer les prévisions.
         const forecasts = await extract(this.#city, this.#appid, "forecast");
+
+        // Remplacer les données affichées.
+        this.shadowRoot.querySelector("ul").replaceChildren();
+        this.#display(weather);
         forecasts.forEach(this.#display.bind(this));
     }
 
