@@ -5,7 +5,7 @@
       "color": "#757778",
       "cron": "*/5 * * * *",
       "max": 5,
-      "icon": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/lemonde/lemonde_black.js"
+      "icon": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/lemonde/lemonde_black.svg"
     }
   },
   "scrapers": [
@@ -14,7 +14,7 @@
       "options": {
         "url": "https://www.lemonde.fr/rss/une.xml",
         "complements": {
-          "icon": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/lemonde/lemonde_white.js"
+          "icon": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/lemonde/lemonde_white.svg"
         }
       }
     }
