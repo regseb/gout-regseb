@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.9.8](https://github.com/regseb/gout-regseb/compare/v0.9.7...v0.9.8) (2023-09-24)
+
+
+### Bug Fixes
+
+* Afficher l'icône pour Le Monde. ([bbb0280](https://github.com/regseb/gout-regseb/commit/bbb0280f079acb4b568fb1bc3c1db397bab3686c))
+* Améliorer l'actualisation de la météo. ([0c6c5ff](https://github.com/regseb/gout-regseb/commit/0c6c5ff59a7378575750abbe4011e7228d645743))
+* Corriger le nom des classes. ([632fb0c](https://github.com/regseb/gout-regseb/commit/632fb0c4349055cf352423e881f3a792c0facf16))
+
 ### [0.9.7](https://github.com/regseb/gout-regseb/compare/v0.9.6...v0.9.7) (2023-03-10)
 
 
