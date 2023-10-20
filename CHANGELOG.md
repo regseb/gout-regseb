@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.10.0](https://github.com/regseb/gout-regseb/compare/v0.9.8...v0.10.0) (2023-10-20)
+
+
+### Features
+
+* Ajouter un scraper pour Twitch. ([6fd4a61](https://github.com/regseb/gout-regseb/commit/6fd4a613a12b2c47efc692ecaf78ed743c81d80a))
+
 ## [0.9.8](https://github.com/regseb/gout-regseb/compare/v0.9.7...v0.9.8) (2023-09-24)
 
 
