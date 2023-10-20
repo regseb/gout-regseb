@@ -52,6 +52,8 @@ l'agrégateur d'Internet **[Gout](https://github.com/regseb/gout)**.
     modules Jenkins en erreur.
   - [_radioline_](src/scraper/list/radioline#readme) : Récupérer la liste des
     derniers épisodes d'un podcast sur Radioline.
+  - [_twitch_](src/scraper/list/twitch#readme) : Récupérer la liste des
+    dernières diffusions récentes sur Twitch d'une chaine.
 - _single_ :
   - [_articleauhasard_](src/scraper/single/articleauhasard#readme) : Donner un
     lien vers un article au hasard de Wikipédia.
