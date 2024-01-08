@@ -26,9 +26,7 @@ export default class ArticleAuHasardScraper {
         return json.query.random
             .map((random) => ({
                 guid: random.id,
-                link: `https://${this.#lang}.wikipedia.org/wiki/${
-                    random.title
-                }`,
+                link: `https://${this.#lang}.wikipedia.org/wiki/${random.title}`,
                 title: random.title,
             }))
             .map((i) => ({ ...this.#complements, ...i }));
