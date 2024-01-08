@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.10.1](https://github.com/regseb/gout-regseb/compare/v0.10.0...v0.10.1) (2024-01-08)
+
+
+### Bug Fixes
+
+* Corriger les icônes du widget LinuxFr. ([104cdf8](https://github.com/regseb/gout-regseb/commit/104cdf8d95010174d790c6ac3660e967cd95628b))
+
 ## [0.10.0](https://github.com/regseb/gout-regseb/compare/v0.9.8...v0.10.0) (2023-10-20)
 
 
