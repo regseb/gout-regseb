@@ -5,7 +5,7 @@
       "color": "#b95e00",
       "cron": "*/10 * * * *",
       "max": 5,
-      "icon": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/linuxfr/linuxfr_black.js"
+      "icon": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/linuxfr/linuxfr_black.svg"
     }
   },
   "scrapers": [
@@ -14,7 +14,7 @@
       "options": {
         "url": "https://linuxfr.org/news.atom",
         "complements": {
-          "icon": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/linuxfr/linuxfr_white.js"
+          "icon": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/linuxfr/linuxfr_white.svg"
         }
       }
     }
