@@ -7,9 +7,8 @@
 export default {
     patterns: [
         "**",
-        // Ignorer les répertoires et les fichiers générés.
+        // Ignorer les répertoires générés.
         "!/.git/**",
-        "!/CHANGELOG.md",
         "!/jsdocs/**",
         "!/node_modules/**",
         // Ignorer les fichiers de configuration de Visual Studio Code.
@@ -63,6 +62,10 @@ export default {
         {
             patterns: "*.md",
             linters: ["prettier", "markdownlint"],
+            overrides: {
+                patterns: "/CHANGELOG.md",
+                linters: "markdownlint_changelog",
+            },
         },
         {
             patterns: "*.json",
