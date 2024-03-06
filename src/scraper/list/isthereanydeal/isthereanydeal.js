@@ -4,19 +4,20 @@
  * @author Sébastien Règne
  */
 
+import ComplementsScraper from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/tools/complements/complements.js";
+import FilterScraper from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/tools/filter/filter.js";
+import chain from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/utils/scraper/chain.js";
+
 const GAME_URL = "https://isthereanydeal.com/game";
 
-export default class IsThereAnyDealScraper {
+const IsThereAnyDealScraper = class {
     #game;
 
     #stores;
 
-    #complements;
-
-    constructor({ game, stores, complements }) {
+    constructor({ game, stores }) {
         this.#game = game;
         this.#stores = stores ?? [];
-        this.#complements = complements;
     }
 
     async extract(max = Number.MAX_SAFE_INTEGER) {
@@ -55,7 +56,15 @@ export default class IsThereAnyDealScraper {
                 guid: item.link,
                 link: item.link,
                 title: `${title} : ${item.price} (${item.cut})`,
-            }))
-            .map((i) => ({ ...this.#complements, ...i }));
+            }));
     }
-}
+};
+
+// eslint-disable-next-line import/no-anonymous-default-export
+export default chain(FilterScraper, ComplementsScraper, IsThereAnyDealScraper, {
+    dispatch: ({ filter, complements, ...others }) => [
+        { filter },
+        { complements },
+        others,
+    ],
+});

@@ -4,20 +4,21 @@
  * @author Sébastien Règne
  */
 
+import ComplementsScraper from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/tools/complements/complements.js";
+import FilterScraper from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/tools/filter/filter.js";
+import chain from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/utils/scraper/chain.js";
+
 const DATE_REGEXP = new RegExp(
     "(?<year>\\d{4})(?<month>\\d{2})(?<day>\\d{2})" +
         "(?<hours>\\d{2})(?<minutes>\\d{2})(?<seconds>\\d{2})-[^-]+$",
     "u",
 );
 
-export default class RadiolineScraper {
+const RadiolineScraper = class {
     #podcast;
 
-    #complements;
-
-    constructor({ podcast, complements }) {
+    constructor({ podcast }) {
         this.#podcast = podcast;
-        this.#complements = complements;
     }
 
     async extract(max = Number.MAX_SAFE_INTEGER) {
@@ -58,8 +59,16 @@ export default class RadiolineScraper {
                         link: url + link,
                         title,
                     };
-                })
-                .map(async (i) => ({ ...this.#complements, ...(await i) })),
+                }),
         );
     }
-}
+};
+
+// eslint-disable-next-line import/no-anonymous-default-export
+export default chain(FilterScraper, ComplementsScraper, RadiolineScraper, {
+    dispatch: ({ filter, complements, ...others }) => [
+        { filter },
+        { complements },
+        others,
+    ],
+});

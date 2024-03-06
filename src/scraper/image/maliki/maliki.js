@@ -1,15 +1,18 @@
 /**
  * @module
+ * @license MIT
+ * @author Sébastien Règne
  */
 
-export default class MalikiScraper {
+import ComplementsScraper from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/tools/complements/complements.js";
+import FilterScraper from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/tools/filter/filter.js";
+import chain from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/utils/scraper/chain.js";
+
+const MalikiScraper = class {
     #password;
 
-    #complements;
-
-    constructor({ password, complements }) {
+    constructor({ password }) {
         this.#password = password ?? true;
-        this.#complements = complements;
     }
 
     async extract(max = Number.MAX_SAFE_INTEGER) {
@@ -29,7 +32,15 @@ export default class MalikiScraper {
             .filter(
                 (i) => this.#password || !i.title.startsWith("Protégé\u00A0: "),
             )
-            .slice(0, max)
-            .map((i) => ({ ...this.#complements, ...i }));
+            .slice(0, max);
     }
-}
+};
+
+// eslint-disable-next-line import/no-anonymous-default-export
+export default chain(FilterScraper, ComplementsScraper, MalikiScraper, {
+    dispatch: ({ filter, complements, ...others }) => [
+        { filter },
+        { complements },
+        others,
+    ],
+});

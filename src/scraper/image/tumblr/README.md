@@ -21,18 +21,6 @@ propriétés suivantes :
     <th>Description</th>
   </tr>
   <tr>
-    <td><code>"complements"</code></td>
-    <td><code>object</code></td>
-    <td>
-      <p>
-        Des propriétés qui seront ajoutées dans les éléments retournés. Par
-        défaut aucune propriété n'est ajoutée.
-      </p>
-      <p>
-        Exemple : <code>{ "target": "_top" }</code>.
-      </p>
-    </td>
-  <tr>
     <td><code>"user"</code></td>
     <td><code>string</code></td>
     <td>
@@ -44,6 +32,34 @@ propriétés suivantes :
       </p>
     </td>
   </tr>
+  <tr>
+    <td><code>"complements"</code></td>
+    <td><code>object</code></td>
+    <td>
+      <p>
+        Des propriétés qui seront ajoutées dans les éléments retournés. Par
+        défaut aucune propriété n'est ajoutée. Pour plus de détails, voir le
+        scraper
+        <a href="https://github.com/regseb/gout/tree/HEAD/src/scraper/tools/complements#readme"><em>tools/complements</em></a>.
+      </p>
+      <p>
+        Exemple : <code>{ "target": "_top" }</code>.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td><code>"filter"</code></td>
+    <td><code>string</code></td>
+    <td>
+      <p>
+        Le filtre qui sera appliqué sur les éléments retournées. Par défaut
+        aucun filtre n'est appliqué. Pour plus de détails, voir le scraper
+        <a href="https://github.com/regseb/gout/tree/HEAD/src/scraper/tools/filter#readme"><em>tools/filter</em></a>.
+      </p>
+      <p>
+        Exemple : <code>"title != 'foo'"</code>.
+      </p>
+    </td>
   </tr>
 </table>
 

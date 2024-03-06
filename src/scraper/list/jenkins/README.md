@@ -20,20 +20,7 @@ propriétés suivantes :
     <th>Description</th>
   </tr>
   <tr>
-    <td><code>"complements"</code></td>
-    <td><code>object</code></td>
-    <td>
-      <p>
-        Des propriétés qui seront ajoutées dans les éléments retournés. Par
-        défaut aucune propriété n'est ajoutée.
-      </p>
-      <p>
-        Exemple : <code>{ "target": "_top" }</code>.
-      </p>
-    </td>
-  </tr>
-  <tr>
-    <td><code>"filters"</code></td>
+    <td><code>"jobs"</code></td>
     <td><code>string</code></td>
     <td>
       <p>
@@ -43,11 +30,40 @@ propriétés suivantes :
     </td>
   </tr>
   <tr>
-    <td><code>"host"</code></td>
+    <td><code>"url"</code></td>
     <td><code>string</code></td>
     <td>
       <p>L'URL du serveur Jenkins.</p>
       <p>Exemple : <code>"https://builds.apache.org/"</code></p>
+    </td>
+  </tr>
+  <tr>
+    <td><code>"complements"</code></td>
+    <td><code>object</code></td>
+    <td>
+      <p>
+        Des propriétés qui seront ajoutées dans les éléments retournés. Par
+        défaut aucune propriété n'est ajoutée. Pour plus de détails, voir le
+        scraper
+        <a href="https://github.com/regseb/gout/tree/HEAD/src/scraper/tools/complements#readme"><em>tools/complements</em></a>.
+      </p>
+      <p>
+        Exemple : <code>{ "target": "_top" }</code>.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td><code>"filter"</code></td>
+    <td><code>string</code></td>
+    <td>
+      <p>
+        Le filtre qui sera appliqué sur les éléments retournées. Par défaut
+        aucun filtre n'est appliqué. Pour plus de détails, voir le scraper
+        <a href="https://github.com/regseb/gout/tree/HEAD/src/scraper/tools/filter#readme"><em>tools/filter</em></a>.
+      </p>
+      <p>
+        Exemple : <code>"title != 'foo'"</code>.
+      </p>
     </td>
   </tr>
 </table>

@@ -12,8 +12,8 @@ Il peut être utilisé avec le module
 ## Options
 
 Les options sont dans un objet
-[JSON](https://www.json.org/json-fr.html "JavaScript Object Notation") avec la
-propriété suivante :
+[JSON](https://www.json.org/json-fr.html "JavaScript Object Notation") avec les
+propriétés suivantes :
 
 <table>
   <tr>
@@ -27,10 +27,26 @@ propriété suivante :
     <td>
       <p>
         Des propriétés qui seront ajoutées dans les éléments retournés. Par
-        défaut aucune propriété n'est ajoutée.
+        défaut aucune propriété n'est ajoutée. Pour plus de détails, voir le
+        scraper
+        <a href="https://github.com/regseb/gout/tree/HEAD/src/scraper/tools/complements#readme"><em>tools/complements</em></a>.
       </p>
       <p>
         Exemple : <code>{ "target": "_top" }</code>.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td><code>"filter"</code></td>
+    <td><code>string</code></td>
+    <td>
+      <p>
+        Le filtre qui sera appliqué sur les éléments retournées. Par défaut
+        aucun filtre n'est appliqué. Pour plus de détails, voir le scraper
+        <a href="https://github.com/regseb/gout/tree/HEAD/src/scraper/tools/filter#readme"><em>tools/filter</em></a>.
+      </p>
+      <p>
+        Exemple : <code>"title != 'foo'"</code>.
       </p>
     </td>
   </tr>

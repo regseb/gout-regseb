@@ -4,6 +4,10 @@
  * @author Sébastien Règne
  */
 
+import ComplementsScraper from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/tools/complements/complements.js";
+import FilterScraper from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/tools/filter/filter.js";
+import chain from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/utils/scraper/chain.js";
+
 const CHANNELS = {
     lequipe: "l-equipe",
     "lci-la-chaine-info": "lci",
@@ -26,17 +30,14 @@ const TYPES = {
     Téléfilm: "telefilm",
 };
 
-export default class Tele2SemainesScraper {
+const Tele2SemainesScraper = class {
     #broadcast;
 
     #channels;
 
-    #complements;
-
-    constructor({ broadcast, channels, complements }) {
+    constructor({ broadcast, channels }) {
         this.#broadcast = broadcast ?? "programme-tnt";
         this.#channels = channels;
-        this.#complements = complements;
     }
 
     async extract(max = Number.MAX_SAFE_INTEGER) {
@@ -64,7 +65,6 @@ export default class Tele2SemainesScraper {
                 ).textContent;
 
                 return {
-                    ...this.#complements,
                     channel: CHANNELS[channel] ?? channel,
                     name: a.title,
                     title: item.querySelector(".broadcastCard-link")
@@ -82,4 +82,13 @@ export default class Tele2SemainesScraper {
                 };
             });
     }
-}
+};
+
+// eslint-disable-next-line import/no-anonymous-default-export
+export default chain(FilterScraper, ComplementsScraper, Tele2SemainesScraper, {
+    dispatch: ({ filter, complements, ...others }) => [
+        { filter },
+        { complements },
+        others,
+    ],
+});

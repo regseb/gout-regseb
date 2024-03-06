@@ -4,6 +4,10 @@
  * @author Sébastien Règne
  */
 
+import ComplementsScraper from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/tools/complements/complements.js";
+import FilterScraper from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/tools/filter/filter.js";
+import chain from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/utils/scraper/chain.js";
+
 const CHANNELS = {
     canal: "canalplus",
     "canal-sport": "canalplus-sport",
@@ -11,17 +15,14 @@ const CHANNELS = {
     omtv: "om-tv",
 };
 
-export default class Tele7JoursScraper {
+const Tele7JoursScraper = class {
     #broadcast;
 
     #channels;
 
-    #complements;
-
-    constructor({ broadcast, channels, complements }) {
+    constructor({ broadcast, channels }) {
         this.#broadcast = broadcast ?? "tnt";
         this.#channels = channels;
-        this.#complements = complements;
     }
 
     async extract(max = Number.MAX_SAFE_INTEGER) {
@@ -83,7 +84,6 @@ export default class Tele7JoursScraper {
                 const mark = item.note?.textContent?.length ?? 0;
 
                 return {
-                    ...this.#complements,
                     channel: CHANNELS[channel] ?? channel,
                     name,
                     title,
@@ -95,4 +95,13 @@ export default class Tele7JoursScraper {
                 };
             });
     }
-}
+};
+
+// eslint-disable-next-line import/no-anonymous-default-export
+export default chain(FilterScraper, ComplementsScraper, Tele7JoursScraper, {
+    dispatch: ({ filter, complements, ...others }) => [
+        { filter },
+        { complements },
+        others,
+    ],
+});

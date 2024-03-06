@@ -4,6 +4,10 @@
  * @author Sébastien Règne
  */
 
+import ComplementsScraper from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/tools/complements/complements.js";
+import FilterScraper from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/tools/filter/filter.js";
+import chain from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/utils/scraper/chain.js";
+
 const URL_SEARCH = "https://www.dealabs.com/search/advanced";
 
 const MONTHS = [
@@ -90,14 +94,11 @@ const extractDate = function (ago) {
     return undefined;
 };
 
-export default class DealabsScraper {
+const DealabsScraper = class {
     #filters;
 
-    #complements;
-
-    constructor({ filters, complements }) {
+    constructor({ filters }) {
         this.#filters = { ...DEFAULT_FILTERS, ...filters };
-        this.#complements = complements;
     }
 
     async extract(max = Number.MAX_SAFE_INTEGER) {
@@ -136,7 +137,15 @@ export default class DealabsScraper {
                 title:
                     (undefined === item.price ? "" : item.price + " | ") +
                     item.title,
-            }))
-            .map((i) => ({ ...this.#complements, ...i }));
+            }));
     }
-}
+};
+
+// eslint-disable-next-line import/no-anonymous-default-export
+export default chain(FilterScraper, ComplementsScraper, DealabsScraper, {
+    dispatch: ({ filter, complements, ...others }) => [
+        { filter },
+        { complements },
+        others,
+    ],
+});

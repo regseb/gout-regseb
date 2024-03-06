@@ -4,16 +4,17 @@
  * @author Sébastien Règne
  */
 
+import ComplementsScraper from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/tools/complements/complements.js";
+import FilterScraper from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/tools/filter/filter.js";
+import chain from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/utils/scraper/chain.js";
+
 const API_URL = "https://api.dailymotion.com";
 
-export default class DailymotionScraper {
+const DailymotionScraper = class {
     #user;
 
-    #complements;
-
-    constructor({ user, complements }) {
+    constructor({ user }) {
         this.#user = user;
-        this.#complements = complements;
     }
 
     async extract(max = Number.MAX_SAFE_INTEGER) {
@@ -24,15 +25,22 @@ export default class DailymotionScraper {
         const response = await fetch(url);
         const json = await response.json();
 
-        return json.list
-            .map((item) => ({
-                date: item.created_time * 1000,
-                desc: item.description,
-                guid: item.id,
-                img: item.thumbnail_url,
-                link: item.url,
-                title: item.title,
-            }))
-            .map((i) => ({ ...this.#complements, ...i }));
+        return json.list.map((item) => ({
+            date: item.created_time * 1000,
+            desc: item.description,
+            guid: item.id,
+            img: item.thumbnail_url,
+            link: item.url,
+            title: item.title,
+        }));
     }
-}
+};
+
+// eslint-disable-next-line import/no-anonymous-default-export
+export default chain(FilterScraper, ComplementsScraper, DailymotionScraper, {
+    dispatch: ({ filter, complements, ...others }) => [
+        { filter },
+        { complements },
+        others,
+    ],
+});

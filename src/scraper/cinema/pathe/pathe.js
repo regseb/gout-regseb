@@ -4,9 +4,13 @@
  * @author Sébastien Règne
  */
 
+import ComplementsScraper from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/tools/complements/complements.js";
+import FilterScraper from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/tools/filter/filter.js";
+import chain from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/utils/scraper/chain.js";
+
 const API_URL = "https://www.pathe.fr/api";
 
-export default class PatheScraper {
+const PatheScraper = class {
     #cinema;
 
     #versions;
@@ -15,14 +19,11 @@ export default class PatheScraper {
 
     #excludes;
 
-    #complements;
-
-    constructor({ cinema, versions, tags, complements }) {
+    constructor({ cinema, versions, tags }) {
         this.#cinema = cinema;
         this.#versions = versions ?? ["vf", "vost", "vo", "vfst"];
         this.#includes = tags?.includes ?? [];
         this.#excludes = tags?.excludes ?? [];
-        this.#complements = complements;
     }
 
     #filter(showtime) {
@@ -80,9 +81,15 @@ export default class PatheScraper {
             });
 
         const movies = await Promise.all(promises);
-        return movies
-            .filter((m) => 0 !== m.showings.length)
-            .slice(0, max)
-            .map((m) => ({ ...this.#complements, ...m }));
+        return movies.filter((m) => 0 !== m.showings.length).slice(0, max);
     }
-}
+};
+
+// eslint-disable-next-line import/no-anonymous-default-export
+export default chain(FilterScraper, ComplementsScraper, PatheScraper, {
+    dispatch: ({ filter, complements, ...others }) => [
+        { filter },
+        { complements },
+        others,
+    ],
+});

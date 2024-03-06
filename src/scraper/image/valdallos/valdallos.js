@@ -4,6 +4,10 @@
  * @author Sébastien Règne
  */
 
+import ComplementsScraper from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/tools/complements/complements.js";
+import FilterScraper from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/tools/filter/filter.js";
+import chain from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/utils/scraper/chain.js";
+
 const WEBCAMS_ID = {
     village: "PRESTATAIRE-WEBCAMS-GENERAL",
     "parc-loisirs": "PRESTATAIRE-WEBCAMS-VILLAGE",
@@ -13,14 +17,11 @@ const WEBCAMS_ID = {
     observatoire: "PRESTATAIRE-WEBCAMS-AIGUILLE",
 };
 
-export default class ValDAllosScraper {
+const ValDAllosScraper = class {
     #webcams;
 
-    #complements;
-
-    constructor({ webcams, complements }) {
+    constructor({ webcams }) {
         this.#webcams = webcams ?? Object.keys(WEBCAMS_ID);
-        this.#complements = complements;
     }
 
     async extract(max = Number.MAX_SAFE_INTEGER) {
@@ -47,7 +48,15 @@ export default class ValDAllosScraper {
                 };
             })
             .filter((i) => undefined !== i)
-            .slice(0, max)
-            .map((i) => ({ ...this.#complements, ...i }));
+            .slice(0, max);
     }
-}
+};
+
+// eslint-disable-next-line import/no-anonymous-default-export
+export default chain(FilterScraper, ComplementsScraper, ValDAllosScraper, {
+    dispatch: ({ filter, complements, ...others }) => [
+        { filter },
+        { complements },
+        others,
+    ],
+});

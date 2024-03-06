@@ -1,18 +1,21 @@
 /**
  * @module
+ * @license MIT
+ * @author Sébastien Règne
  */
 
-export default class JenkinsScraper {
+import ComplementsScraper from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/tools/complements/complements.js";
+import FilterScraper from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/tools/filter/filter.js";
+import chain from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/utils/scraper/chain.js";
+
+const JenkinsScraper = class {
     #host;
 
     #filters;
 
-    #complements;
-
-    constructor({ url, jobs = {}, complements }) {
+    constructor({ url, jobs = {} }) {
         this.#host = url;
         this.#filters = jobs;
-        this.#complements = complements;
     }
 
     async extract(max = Number.MAX_SAFE_INTEGER) {
@@ -78,6 +81,15 @@ export default class JenkinsScraper {
                 }
             }
         }
-        return items.map((i) => ({ ...this.#complements, ...i }));
+        return items;
     }
-}
+};
+
+// eslint-disable-next-line import/no-anonymous-default-export
+export default chain(FilterScraper, ComplementsScraper, JenkinsScraper, {
+    dispatch: ({ filter, complements, ...others }) => [
+        { filter },
+        { complements },
+        others,
+    ],
+});

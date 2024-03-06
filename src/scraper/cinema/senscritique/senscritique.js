@@ -4,6 +4,10 @@
  * @author Sébastien Règne
  */
 
+import ComplementsScraper from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/tools/complements/complements.js";
+import FilterScraper from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/tools/filter/filter.js";
+import chain from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/utils/scraper/chain.js";
+
 /**
  * La requête pour récupérer les oeuvres d'un utilisateur SensCritique pour un
  * univers (films, séries, jeux...) et en fonction de mots clés.
@@ -47,7 +51,7 @@ const compare = function (first, second) {
     return simplify(first) === simplify(second);
 };
 
-export default class SensCritiqueScraper {
+const SensCritiqueScraper = class {
     /**
      * Le nom d'un utilisateur SensCritique.
      *
@@ -56,7 +60,7 @@ export default class SensCritiqueScraper {
     #user;
 
     /**
-     * Les scrapers du module <em>cinema</em>.
+     * Des scrapers du module <em>cinema</em>.
      *
      * @type {Object[]}
      */
@@ -122,4 +126,13 @@ export default class SensCritiqueScraper {
             }),
         );
     }
-}
+};
+
+// eslint-disable-next-line import/no-anonymous-default-export
+export default chain(FilterScraper, ComplementsScraper, SensCritiqueScraper, {
+    dispatch: ({ filter, complements, ...others }) => [
+        { filter },
+        { complements },
+        others,
+    ],
+});
