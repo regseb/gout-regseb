@@ -54,15 +54,15 @@ Ce widget affiche les deux derniers dessins.
 
 ```JSON
 {
-    "module": {
-        "url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/image/image.js",
-        "options": {
-            "cron": "@daily",
-            "max": 2
-        }
-    },
-    "scrapers": [{
-        "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/image/maliki/maliki.js"
-    }]
+  "module": {
+    "url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/image/image.js",
+    "options": {
+      "cron": "@daily",
+      "max": 2
+    }
+  },
+  "scrapers": [{
+    "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/image/maliki/maliki.js"
+  }]
 }
 ```

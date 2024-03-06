@@ -171,19 +171,19 @@ Campagne](https://www.pathe.fr/cinemas/cinema-pathe-plan-de-campagne).
 
 ```JSON
 {
-    "module": {
-        "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/module/cinema/cinema.js"
-    },
-    "scrapers": [{
-        "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/cinema/pathe/pathe.js",
-        "options": {
-            "cinema": "cinema-pathe-plan-de-campagne",
-            "versions": ["vf", "vfst"],
-            "tags": {
-                "includes": ["pmr"],
-                "excludes": ["3d", "4dx"]
-            }
-        }
-    }]
+  "module": {
+    "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/module/cinema/cinema.js"
+  },
+  "scrapers": [{
+    "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/cinema/pathe/pathe.js",
+    "options": {
+      "cinema": "cinema-pathe-plan-de-campagne",
+      "versions": ["vf", "vfst"],
+      "tags": {
+        "includes": ["pmr"],
+        "excludes": ["3d", "4dx"]
+      }
+    }
+  }]
 }
 ```

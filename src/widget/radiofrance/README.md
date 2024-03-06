@@ -1,6 +1,6 @@
 # Widgets de Radio France
 
-> Mots-clés : gout, gout-widget.
+> Mots-clés : gout, gout-widget, gout-widget-radiofrance.
 
 Ce répertoire regroupe des widgets du groupe [**Radio
 France**](https://www.radiofrance.fr/). Pour ajouter un widget dans votre

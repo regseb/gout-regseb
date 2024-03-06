@@ -55,18 +55,18 @@ l'Info](https://www.dailymotion.com/lesguignols).
 
 ```JSON
 {
-    "module": {
-        "url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/list/list.js",
-        "options": {
-            "cron": "@daily",
-            "max": 5
-        }
-    },
-    "scrapers": [{
-        "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/list/dailymotion/dailymotion.js",
-        "options": {
-            "user": "lesguignols"
-        }
-    }]
+  "module": {
+    "url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/list/list.js",
+    "options": {
+      "cron": "@daily",
+      "max": 5
+    }
+  },
+  "scrapers": [{
+    "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/list/dailymotion/dailymotion.js",
+    "options": {
+      "user": "lesguignols"
+    }
+  }]
 }
 ```

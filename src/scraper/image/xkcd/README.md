@@ -41,15 +41,15 @@ Ce widget affiche les deux dernières planches.
 
 ```JSON
 {
-    "module": {
-        "url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/image/image.js",
-        "options": {
-            "cron": "@daily",
-            "max": 2
-        }
-    },
-    "scrapers": [{
-        "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/image/xkcd/xkcd.js"
-    }]
+  "module": {
+    "url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/image/image.js",
+    "options": {
+      "cron": "@daily",
+      "max": 2
+    }
+  },
+  "scrapers": [{
+    "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/image/xkcd/xkcd.js"
+  }]
 }
 ```

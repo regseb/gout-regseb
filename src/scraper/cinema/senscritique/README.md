@@ -51,25 +51,25 @@ les status de l'utilisateur NoobMaster69 de SensCritique.
 
 ```JSON
 {
-    "module": {
-        "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/module/cinema/cinema.js"
+  "module": {
+    "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/module/cinema/cinema.js"
+  },
+  "scrapers": [{
+    "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/cinema/senscritique/senscritique.js",
+    "options": {
+      "user": "NoobMaster69",
     },
     "scrapers": [{
-        "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/cinema/senscritique/senscritique.js",
-        "options": {
-            "user": "NoobMaster69",
-        },
-        "scrapers": [{
-            "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/cinema/pathe/pathe.js",
-            "options": {
-                "cinema": "cinema-pathe-plan-de-campagne",
-                "versions": ["vf", "vfst"],
-                "tags": {
-                    "includes": ["pmr"],
-                    "excludes": ["3d", "4dx"]
-                }
-            }
-        }]
+      "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/cinema/pathe/pathe.js",
+      "options": {
+        "cinema": "cinema-pathe-plan-de-campagne",
+        "versions": ["vf", "vfst"],
+        "tags": {
+          "includes": ["pmr"],
+          "excludes": ["3d", "4dx"]
+        }
+      }
     }]
+  }]
 }
 ```

@@ -68,17 +68,17 @@ les actualisant une fois par jour à midi.
 
 ```JSON
 {
-    "module": {
-        "url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/image/image.js",
-        "options": {
-            "cron": "0 12 * * *"
-        }
-    },
-    "scrapers": [{
-        "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/image/valdallos/valdallos.js",
-        "options": {
-            "webcams": ["seignus-haut", "seignus-bas", "village"]
-        }
-    }]
+  "module": {
+    "url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/image/image.js",
+    "options": {
+      "cron": "0 12 * * *"
+    }
+  },
+  "scrapers": [{
+    "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/image/valdallos/valdallos.js",
+    "options": {
+      "webcams": ["seignus-haut", "seignus-bas", "village"]
+    }
+  }]
 }
 ```

@@ -153,19 +153,19 @@ Franceinfo).
 
 ```JSON
 {
-    "module": {
-        "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/module/tv/tv.js"
-    },
-    "scrapers": [{
-        "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/tv/tele7jours/tele7jours.js",
-        "options": {
-            "channels": [
-                "tf1", "france-2", "france-3", "france-5", "m6", "arte", "c8",
-                "w9", "tmc", "nt1", "nrj12", "lcp-public-senat", "france-4",
-                "cstar", "gulli", "france-o", "hd1", "l-equipe", "6ter",
-                "numero-23", "rmc-decouverte", "cherie-25"
-            ]
-        }
-    }]
+  "module": {
+    "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/module/tv/tv.js"
+  },
+  "scrapers": [{
+    "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/tv/tele7jours/tele7jours.js",
+    "options": {
+      "channels": [
+        "tf1", "france-2", "france-3", "france-5", "m6", "arte", "c8", "w9",
+        "tmc", "nt1", "nrj12", "lcp-public-senat", "france-4", "cstar", "gulli",
+        "france-o", "hd1", "l-equipe", "6ter", "numero-23", "rmc-decouverte",
+        "cherie-25"
+      ]
+    }
+  }]
 }
 ```

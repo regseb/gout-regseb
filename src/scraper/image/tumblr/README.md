@@ -54,18 +54,18 @@ Comics](https://pizzacakecomic.com/).
 
 ```JSON
 {
-    "module": {
-        "url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/image/image.js",
-        "options": {
-            "cron": "@daily",
-            "max": 2
-        }
-    },
-    "scrapers": [{
-        "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/image/tumblr/tumblr.js",
-        "options": {
-            "user": "pizzacakecomics"
-        }
-    }]
+  "module": {
+    "url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/image/image.js",
+    "options": {
+      "cron": "@daily",
+      "max": 2
+    }
+  },
+  "scrapers": [{
+    "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/image/tumblr/tumblr.js",
+    "options": {
+      "user": "pizzacakecomics"
+    }
+  }]
 }
 ```

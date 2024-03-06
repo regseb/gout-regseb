@@ -54,18 +54,18 @@ joue](https://www.twitch.tv/silenceonjoue).
 
 ```JSON
 {
-    "module": {
-        "url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/list/list.js",
-        "options": {
-            "cron": "@daily",
-            "max": 3
-        }
-    },
-    "scrapers": [{
-        "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/list/twitch/twitch.js",
-        "options": {
-            "channel": "silenceonjoue"
-        }
-    }]
+  "module": {
+    "url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/list/list.js",
+    "options": {
+      "cron": "@daily",
+      "max": 3
+    }
+  },
+  "scrapers": [{
+    "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/list/twitch/twitch.js",
+    "options": {
+      "channel": "silenceonjoue"
+    }
+  }]
 }
 ```

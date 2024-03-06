@@ -92,24 +92,24 @@ entre 200 et 400 euros.
 
 ```JSON
 {
-    "module": {
-        "url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/list/list.js",
-        "options": {
-            "color": "#00bcd4",
-            "cron": "@hourly"
-        }
-    },
-    "scrapers": [{
-        "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/list/dealabs/dealabs.js"
-        "options": {
-            "filters": {
-                "q": "smartphone",
-                "hide_expired": 1,
-                "hide_local": 1,
-                "priceFrom": 200,
-                "priceTo": 400
-            }
-        }
-    }]
+  "module": {
+    "url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/list/list.js",
+    "options": {
+      "color": "#00bcd4",
+      "cron": "@hourly"
+    }
+  },
+  "scrapers": [{
+    "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/list/dealabs/dealabs.js",
+    "options": {
+      "filters": {
+        "q": "smartphone",
+        "hide_expired": 1,
+        "hide_local": 1,
+        "priceFrom": 200,
+        "priceTo": 400
+      }
+    }
+  }]
 }
 ```

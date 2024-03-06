@@ -17,24 +17,24 @@ propriétés suivantes :
 
 ## Exemple
 
-Ce widget affiche les dernières chroniques de l'émission [Par
-Jupiter !](https://fr-fr.radioline.co/podcast-france-inter-par-jupiter).
+Ce widget affiche les deux dernières émissions du [Meilleur des
+mondes](https://www.radioline.co/fr/podcasts/le_meilleur_des_mondes).
 
 ```JSON
 {
-    "module": {
-        "url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/podcast/podcast.js",
-        "options": {
-            "color": "#f44336",
-            "cron": "@daily",
-            "max": 5
-        }
-    },
-    "scrapers": [
-        "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/list/radioline/radioline.js",
-        "options": {
-            "podcast": "podcast-france-inter-par-jupiter"
-        }
-    ]
+  "module": {
+    "url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/podcast/podcast.js",
+    "options": {
+      "color": "#a256b1",
+      "cron": "@daily",
+      "max": 2
+    }
+  },
+  "scrapers": [{
+    "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/list/radioline/radioline.js",
+    "options": {
+      "podcast": "le_meilleur_des_mondes"
+    }
+  }]
 }
 ```

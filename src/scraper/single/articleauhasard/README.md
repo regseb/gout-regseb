@@ -19,15 +19,15 @@ Ce widget affiche un lien vers un article en français.
 
 ```JSON
 {
-    "module": {
-        "url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/single/single.js",
-        "options": {
-            "color": "#607d8b",
-            "cron": "*/5 * * * *"
-        }
-    },
-    "scrapers": [
-        "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/single/articleauhasard/articleauhasard.js"
-    ]
+  "module": {
+    "url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/single/single.js",
+    "options": {
+      "color": "#607d8b",
+      "cron": "*/5 * * * *"
+    }
+  },
+  "scrapers": [{
+    "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/single/articleauhasard/articleauhasard.js"
+  }]
 }
 ```

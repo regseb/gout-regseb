@@ -1,6 +1,6 @@
 # Widgets de LinuxFr.org
 
-> Mots-clés : gout, gout-widget.
+> Mots-clés : gout, gout-widget, gout-widget-linuxfr.
 
 Ce répertoire regroupe des widgets pour les flux RSS du site
 [**LinuxFr.org**](https://linuxfr.org/). Pour ajouter un widget dans votre

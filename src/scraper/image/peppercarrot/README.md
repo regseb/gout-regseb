@@ -123,15 +123,15 @@ Ce widget affiche le dernier dessin.
 
 ```JSON
 {
-    "module": {
-        "url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/image/image.js",
-        "options": {
-            "cron": "@daily",
-            "max": 1
-        }
-    },
-    "scrapers": [{
-        "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/image/peppercarrot/peppercarrot.js"
-    }]
+  "module": {
+    "url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/image/image.js",
+    "options": {
+      "cron": "@daily",
+      "max": 1
+    }
+  },
+  "scrapers": [{
+    "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/image/peppercarrot/peppercarrot.js"
+  }]
 }
 ```

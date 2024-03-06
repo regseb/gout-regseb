@@ -1,5 +1,7 @@
 /**
  * @module
+ * @license MIT
+ * @author Sébastien Règne
  */
 
 const URL_SEARCH = "https://www.dealabs.com/search/advanced";

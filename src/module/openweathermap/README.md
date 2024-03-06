@@ -7,6 +7,10 @@ service [**OpenWeatherMap**](https://openweathermap.org/).
 
 ## Options
 
+> [!NOTE]
+> Ce chapitre est utile principalement pour le développement de scrapers
+> compatibles avec ce module.
+
 Les options sont dans un objet
 [JSON](https://www.json.org/json-fr.html "JavaScript Object Notation") avec les
 propriétés suivantes :
@@ -100,13 +104,13 @@ Ce widget affiche la météo d'Aix-en-Provence.
 
 ```JSON
 {
-    "module": {
-        "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/module/openweathermap/openweathermap.js"
-        "options": {
-            "appid": "123456789abcdef... (une clé de ce style)",
-            "city": "Aix-en-Provence,FR",
-            "title": "Aix"
-        }
+  "module": {
+    "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/module/openweathermap/openweathermap.js",
+    "options": {
+      "appid": "123456789abcdef... (une clé de ce style)",
+      "city": "Aix-en-Provence,FR",
+      "title": "Aix"
     }
+  }
 }
 ```

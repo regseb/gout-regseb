@@ -1,6 +1,6 @@
 # Widgets du Monde
 
-> Mots-clés : gout, gout-widget.
+> Mots-clés : gout, gout-widget, gout-widget-lemonde.
 
 Ce répertoire regroupe des widgets pour les flux RSS du site
 [**Le Monde**](https://www.lemonde.fr/). Pour ajouter un widget dans votre
@@ -24,11 +24,11 @@ changeant `{rss}` par l'URL du flux RSS.
 
 ```JSON
 {
-    "$extend": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/lemonde/une.json",
-    "$scrapers[0]": {
-        "options": {
-            "url": "{rss}"
-        }
+  "$extend": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/lemonde/une.json",
+  "$scrapers[0]": {
+    "options": {
+      "url": "{rss}"
     }
+  }
 }
 ```

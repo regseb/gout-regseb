@@ -99,6 +99,10 @@ propriétés suivantes :
 
 ## Scraper
 
+> [!NOTE]
+> Ce chapitre est utile principalement pour le développement de scrapers
+> compatibles avec ce module.
+
 Les scrapers associés à ce module doivent définir une méthode `extract()` qui
 prend en paramètre un entier indiquant le nombre maximum de films à retourner.
 La méthode doit retourner une
@@ -290,14 +294,14 @@ Campagne](https://www.pathe.fr/cinemas/cinema-pathe-plan-de-campagne).
 
 ```JSON
 {
-    "module": {
-        "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/module/cinema/cinema.js"
-    },
-    "scrapers": [{
-        "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/cinema/pathe/pathe.js",
-        "options": {
-            "cinema": "cinema-pathe-plan-de-campagne"
-        }
-    }]
+  "module": {
+    "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/module/cinema/cinema.js"
+  },
+  "scrapers": [{
+    "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/cinema/pathe/pathe.js",
+    "options": {
+      "cinema": "cinema-pathe-plan-de-campagne"
+    }
+  }]
 }
 ```
