@@ -70,12 +70,21 @@ const PatheScraper = class {
                         };
                     });
 
+                let icon;
+                if (show.isNew) {
+                    icon = "new";
+                } else if (show.tags.includes("avp-equipe")) {
+                    icon = "crew";
+                } else if (show.tags.includes("AVP")) {
+                    icon = "premiere";
+                }
+
                 return {
                     title: show.title,
                     link: `https://www.pathe.fr/films/${slug}`,
-                    ...(show.isNew
-                        ? { icon: import.meta.resolve("./img/new.svg") }
-                        : {}),
+                    ...(undefined === icon
+                        ? {}
+                        : { icon: import.meta.resolve(`./img/${icon}.svg`) }),
                     showings,
                 };
             });
