@@ -10,10 +10,16 @@ export default {
     },
 
     rules: {
+        // Plugin eslint-plugin-import.
+        // Static analysis.
         "import/no-unresolved": [
             "error",
             {
-                ignore: ["^https:\\/\\/esm\\.sh\\/"],
+                ignore: [
+                    "^https://esm\\.sh/",
+                    "^https://cdn\\.jsdelivr\\.net/",
+                ],
+                caseSensitiveStrict: true,
             },
         ],
     },
