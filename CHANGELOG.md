@@ -2,12 +2,11 @@
 
 ## [0.11.0](https://github.com/regseb/gout-regseb/compare/v0.10.1...v0.11.0) (2024-03-07)
 
-
 ### Features
 
-* Ajouter FilterScraper et ComplementScraper. ([e746993](https://github.com/regseb/gout-regseb/commit/e746993a2ccd3401fcf5cda9fd8958e6112c44ac))
-* Ajouter un scraper pour les giveaway de GOG. ([28e5973](https://github.com/regseb/gout-regseb/commit/28e597399a2e110acd0aac10d0311efb0e953a0e))
-* **scraper/pathe:** Ajouter des icônes les avant-premières. ([b4e4c4d](https://github.com/regseb/gout-regseb/commit/b4e4c4d7584ef5a26f535ee8d5c6b73a9e0f7877))
+- Ajouter FilterScraper et ComplementScraper. ([e746993](https://github.com/regseb/gout-regseb/commit/e746993a2ccd3401fcf5cda9fd8958e6112c44ac))
+- Ajouter un scraper pour les giveaway de GOG. ([28e5973](https://github.com/regseb/gout-regseb/commit/28e597399a2e110acd0aac10d0311efb0e953a0e))
+- **scraper/pathe:** Ajouter des icônes les avant-premières. ([b4e4c4d](https://github.com/regseb/gout-regseb/commit/b4e4c4d7584ef5a26f535ee8d5c6b73a9e0f7877))
 
 ## [0.10.1](https://github.com/regseb/gout-regseb/compare/v0.10.0...v0.10.1) (2024-01-08)
 
