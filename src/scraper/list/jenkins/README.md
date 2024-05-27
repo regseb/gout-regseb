@@ -74,30 +74,24 @@ Ce widget affiche les modules Maven Core et Maven Artifact du job maven-3.x,
 ainsi que le job Tomcat-7.x de la fondation
 [Apache](https://builds.apache.org/).
 
-```JSON
-{
-  "module": {
-    "url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/list/list.js",
-    "options": {
-      "color": "#9e9e9e",
-      "cron": "0 */4 * * *",
-      "empty": {
-        "link": "https://builds.apache.org",
-        "title": "(Aucun job en erreur)"
-      },
-    }
-  },
-  "scrapers": [{
-    "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/list/jenkins/jenkins.js",
-    "options": {
-      "url": "https://builds.apache.org",
-      "jobs": {
-        "maven-3.x": [
-          "org.apache.maven:maven-core", "org.apache.maven:maven-artifact"
-        ],
-        "Tomcat-7.x": null
-      }
-    }
-  }]
-}
+```html
+<script type="application/yaml">
+  module:
+    url: "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/list/list.js"
+    options:
+      color: "#9e9e9e"
+      cron: "0 */4 * * *"
+      empty:
+        link: "https://builds.apache.org"
+        title: "(Aucun job en erreur)"
+    scrapers:
+      - url: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/list/jenkins/jenkins.js"
+        options:
+          url: "https://builds.apache.org"
+          jobs:
+            "maven-3.x":
+              - "org.apache.maven:maven-core"
+              - "org.apache.maven:maven-artifact"
+            "Tomcat-7.x": null
+</script>
 ```

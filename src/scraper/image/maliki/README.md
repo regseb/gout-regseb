@@ -11,8 +11,8 @@ Il peut être utilisé avec le module
 ## Options
 
 Les options sont dans un objet
-[JSON](https://www.json.org/json-fr.html "JavaScript Object Notation") avec les
-propriétés suivantes :
+[YAML](https://yaml.org/ "YAML Ain't Markup Language") avec les propriétés
+suivantes :
 
 <table>
   <tr>
@@ -21,7 +21,7 @@ propriétés suivantes :
     <th>Description</th>
   </tr>
   <tr>
-    <td><code>"password"</code></td>
+    <td><code>password</code></td>
     <td><code>boolean</code></td>
     <td>
       <p>
@@ -29,12 +29,12 @@ propriétés suivantes :
         de passe. Par défaut ils sont remontés.
       </p>
       <p>
-        Exemple : <code>{ "password": false }</code>.
+        Exemple : <code>false</code>.
       </p>
     </td>
   </tr>
   <tr>
-    <td><code>"complements"</code></td>
+    <td><code>complements</code></td>
     <td><code>object</code></td>
     <td>
       <p>
@@ -44,12 +44,12 @@ propriétés suivantes :
         <a href="https://github.com/regseb/gout/tree/HEAD/src/scraper/tools/complements#readme"><em>tools/complements</em></a>.
       </p>
       <p>
-        Exemple : <code>{ "target": "_top" }</code>.
+        Exemple : <code>target: "_top"</code>.
       </p>
     </td>
   </tr>
   <tr>
-    <td><code>"filter"</code></td>
+    <td><code>filter</code></td>
     <td><code>string</code></td>
     <td>
       <p>
@@ -68,17 +68,14 @@ propriétés suivantes :
 
 Ce widget affiche les deux derniers dessins.
 
-```JSON
-{
-  "module": {
-    "url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/image/image.js",
-    "options": {
-      "cron": "@daily",
-      "max": 2
-    }
-  },
-  "scrapers": [{
-    "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/image/maliki/maliki.js"
-  }]
-}
+```html
+<script type="application/yaml">
+  module:
+    url: "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/image/image.js"
+    options:
+      cron: "@daily"
+      max: 2
+    scrapers:
+      - url: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/image/maliki/maliki.js"
+</script>
 ```

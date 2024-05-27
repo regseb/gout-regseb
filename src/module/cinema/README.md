@@ -7,8 +7,8 @@ Ce module affiche les séances de films dans des cinémas.
 ## Options
 
 Les options sont dans un objet
-[JSON](https://www.json.org/json-fr.html "JavaScript Object Notation") avec les
-propriétés suivantes :
+[YAML](https://yaml.org/ "YAML Ain't Markup Language") avec les propriétés
+suivantes :
 
 <table>
   <tr>
@@ -17,7 +17,7 @@ propriétés suivantes :
     <th>Description</th>
   </tr>
   <tr>
-    <td><code>"color"</code></td>
+    <td><code>color</code></td>
     <td><code>string</code></td>
     <td>
       <p>
@@ -32,7 +32,7 @@ propriétés suivantes :
     </td>
   </tr>
   <tr>
-    <td><code>"cron"</code></td>
+    <td><code>cron</code></td>
     <td><code>string</code><br /><code>string[]</code></td>
     <td>
       <p>
@@ -52,7 +52,7 @@ propriétés suivantes :
     </td>
   </tr>
   <tr>
-    <td><code>"empty"</code></td>
+    <td><code>empty</code></td>
     <td><code>object</code></td>
     <td>
       <p>
@@ -61,13 +61,10 @@ propriétés suivantes :
         par les scrapers. Si cette propriété n'est pas renseignée, le module
         affiche <em>(aucune séance)</em>.
       </p>
-      <p>
-        Exemple : <code>{}</code>.
-      </p>
     </td>
   </tr>
   <tr>
-    <td><code>"icon"</code></td>
+    <td><code>icon</code></td>
     <td><code>string</code></td>
     <td>
       <p>
@@ -83,7 +80,7 @@ propriétés suivantes :
     </td>
   </tr>
   <tr>
-    <td><code>"max"</code></td>
+    <td><code>max</code></td>
     <td><code>number</code></td>
     <td>
       <p>
@@ -117,7 +114,7 @@ suivantes :
     <th>Description</th>
   </tr>
   <tr>
-    <td><code>"date"</code></td>
+    <td><code>date</code></td>
     <td><code>number</code></td>
     <td>
       <p>
@@ -133,7 +130,7 @@ suivantes :
     </td>
   </tr>
   <tr>
-    <td><code>"desc"</code></td>
+    <td><code>desc</code></td>
     <td><code>string</code></td>
     <td>
       <p>
@@ -146,7 +143,7 @@ suivantes :
     </td>
   </tr>
   <tr>
-    <td><code>"guid"</code></td>
+    <td><code>guid</code></td>
     <td><code>string</code></td>
     <td>
       <p>
@@ -161,7 +158,7 @@ suivantes :
     </td>
   </tr>
   <tr>
-    <td><code>"icon"</code></td>
+    <td><code>icon</code></td>
     <td><code>string</code></td>
     <td>
       <p>
@@ -174,7 +171,7 @@ suivantes :
     </td>
   </tr>
   <tr>
-    <td><code>"link"</code></td>
+    <td><code>link</code></td>
     <td><code>string</code></td>
     <td>
       <p>
@@ -187,7 +184,7 @@ suivantes :
     </td>
   </tr>
   <tr>
-    <td><code>"showings"</code></td>
+    <td><code>showings</code></td>
     <td><code>object[]</code></td>
     <td>
       <p>
@@ -197,7 +194,7 @@ suivantes :
     </td>
   </tr>
   <tr>
-    <td><code>"target"</code></td>
+    <td><code>target</code></td>
     <td><code>string</code></td>
     <td>
       <p>
@@ -211,7 +208,7 @@ suivantes :
     </td>
   </tr>
   <tr>
-    <td><code>"title"</code></td>
+    <td><code>title</code></td>
     <td><code>string</code></td>
     <td>
       <p>
@@ -224,7 +221,7 @@ suivantes :
   </tr>
 </table>
 
-Chaque élément a une propriété <code>"showing"</code> qui contient la liste des
+Chaque élément a une propriété <code>showing</code> qui contient la liste des
 séances pour un film. C'est un tableau d'objet ayant les propriétés suivantes :
 
 <table>
@@ -234,7 +231,7 @@ séances pour un film. C'est un tableau d'objet ayant les propriétés suivantes
     <th>Description</th>
   </tr>
   <tr>
-    <td><code>"desc"</code></td>
+    <td><code>desc</code></td>
     <td><code>string</code></td>
     <td>
       <p>
@@ -247,7 +244,7 @@ séances pour un film. C'est un tableau d'objet ayant les propriétés suivantes
     </td>
   </tr>
   <tr>
-    <td><code>"link"</code></td>
+    <td><code>link</code></td>
     <td><code>string</code></td>
     <td>
       <p>
@@ -260,7 +257,7 @@ séances pour un film. C'est un tableau d'objet ayant les propriétés suivantes
     </td>
   </tr>
   <tr>
-    <td><code>"target"</code></td>
+    <td><code>target</code></td>
     <td><code>string</code></td>
     <td>
       <p>
@@ -274,7 +271,7 @@ séances pour un film. C'est un tableau d'objet ayant les propriétés suivantes
     </td>
   </tr>
   <tr>
-    <td><code>"title"</code></td>
+    <td><code>title</code></td>
     <td><code>string</code></td>
     <td>
       <p>
@@ -292,16 +289,13 @@ séances pour un film. C'est un tableau d'objet ayant les propriétés suivantes
 Ce widget affiche les séances du jour du cinéma [Pathé Plan de
 Campagne](https://www.pathe.fr/cinemas/cinema-pathe-plan-de-campagne).
 
-```JSON
-{
-  "module": {
-    "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/module/cinema/cinema.js"
-  },
-  "scrapers": [{
-    "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/cinema/pathe/pathe.js",
-    "options": {
-      "cinema": "cinema-pathe-plan-de-campagne"
-    }
-  }]
-}
+```html
+<script type="application/yaml">
+  module:
+    url: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/module/cinema/cinema.js"
+    scrapers:
+      - url: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/cinema/pathe/pathe.js"
+        options:
+          cinema: "cinema-pathe-plan-de-campagne"
+</script>
 ```

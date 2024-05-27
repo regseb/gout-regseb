@@ -7,9 +7,11 @@ Ce répertoire regroupe des widgets pour les flux RSS du site
 dashboard, insérez le code suivant (en remplaçant `{widget}` par le widget
 voulu) :
 
-```HTML
-<script type="application/json"
-        src="https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/linuxfr/{widget}.json"></script>
+```html
+<script
+  type="application/json"
+  src="https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/linuxfr/{widget}.json"
+></script>
 ```
 
 - Dépêches (_news_) :

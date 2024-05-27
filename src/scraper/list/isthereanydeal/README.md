@@ -12,8 +12,8 @@ Il peut être utilisé avec le module
 ## Options
 
 Les options sont dans un objet
-[JSON](https://www.json.org/json-fr.html "JavaScript Object Notation") avec les
-propriétés suivantes :
+[YAML](https://yaml.org/ "YAML Ain't Markup Language") avec les propriétés
+suivantes :
 
 <table>
   <tr>
@@ -22,7 +22,7 @@ propriétés suivantes :
     <th>Description</th>
   </tr>
   <tr>
-    <td><code>"game"</code></td>
+    <td><code>game</code></td>
     <td><code>string</code></td>
     <td>
       <p>Le nom du jeu.</p>
@@ -30,7 +30,7 @@ propriétés suivantes :
     </td>
   </tr>
   <tr>
-    <td><code>"stores"</code></td>
+    <td><code>stores</code></td>
     <td><code>string[]</code></td>
     <td>
       <p>Les plateformes retournées.</p>
@@ -38,7 +38,7 @@ propriétés suivantes :
     </td>
   </tr>
   <tr>
-    <td><code>"complements"</code></td>
+    <td><code>complements</code></td>
     <td><code>object</code></td>
     <td>
       <p>
@@ -48,12 +48,12 @@ propriétés suivantes :
         <a href="https://github.com/regseb/gout/tree/HEAD/src/scraper/tools/complements#readme"><em>tools/complements</em></a>.
       </p>
       <p>
-        Exemple : <code>{ "target": "_top" }</code>.
+        Exemple : <code>target: "_top"</code>.
       </p>
     </td>
   </tr>
   <tr>
-    <td><code>"filter"</code></td>
+    <td><code>filter</code></td>
     <td><code>string</code></td>
     <td>
       <p>
@@ -74,21 +74,17 @@ Ce widget affiche les offres du jeu
 [Doom](https://isthereanydeal.com/game/doom/info/) sur les plateformes Steam et
 Humble Store.
 
-```JSON
-{
-  "module": {
-    "url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/list/list.js",
-    "options": {
-      "color": "#9e9e9e",
-      "cron": "@daily"
-    }
-  },
-  "scrapers": [{
-    "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/list/isthereanydeal/isthereanydeal.js",
-    "options": {
-      "game": "doom",
-      "stores": ["Steam", "Humble Store"]
-    }
-  }]
-}
+```html
+<script type="application/yaml">
+  module:
+    url: "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/list/list.js"
+    options:
+      color: "#9e9e9e"
+      cron: "@daily"
+    scrapers:
+      - url: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/list/isthereanydeal/isthereanydeal.js"
+        options:
+          game: "doom"
+          stores: ["Steam", "Humble Store"]
+</script>
 ```

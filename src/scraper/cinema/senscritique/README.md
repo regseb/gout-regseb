@@ -12,8 +12,8 @@ Il peut être utilisé avec le module
 ## Options
 
 Les options sont dans un objet
-[JSON](https://www.json.org/json-fr.html "JavaScript Object Notation") avec les
-propriétés suivantes :
+[YAML](https://yaml.org/ "YAML Ain't Markup Language") avec les propriétés
+suivantes :
 
 <table>
   <tr>
@@ -22,7 +22,7 @@ propriétés suivantes :
     <th>Description</th>
   </tr>
   <tr>
-    <td><code>"user"</code></td>
+    <td><code>user</code></td>
     <td><code>string</code></td>
     <td>
       <p>
@@ -34,7 +34,7 @@ propriétés suivantes :
     </td>
   </tr>
   <tr>
-    <td><code>"complements"</code></td>
+    <td><code>complements</code></td>
     <td><code>object</code></td>
     <td>
       <p>
@@ -49,7 +49,7 @@ propriétés suivantes :
     </td>
   </tr>
   <tr>
-    <td><code>"filter"</code></td>
+    <td><code>filter</code></td>
     <td><code>string</code></td>
     <td>
       <p>
@@ -78,27 +78,21 @@ salle avec un accès pour les personnes à mobilité réduite (PMR) dans le cin�
 Campagne](https://www.pathe.fr/cinemas/cinema-pathe-plan-de-campagne) et ajoute
 les status de l'utilisateur NoobMaster69 de SensCritique.
 
-```JSON
-{
-  "module": {
-    "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/module/cinema/cinema.js"
-  },
-  "scrapers": [{
-    "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/cinema/senscritique/senscritique.js",
-    "options": {
-      "user": "NoobMaster69",
-    },
-    "scrapers": [{
-      "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/cinema/pathe/pathe.js",
-      "options": {
-        "cinema": "cinema-pathe-plan-de-campagne",
-        "versions": ["vf", "vfst"],
-        "tags": {
-          "includes": ["pmr"],
-          "excludes": ["3d", "4dx"]
-        }
-      }
-    }]
-  }]
-}
+```html
+<script type="application/yaml">
+  module:
+    url: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/module/cinema/cinema.js"
+    scrapers:
+      - url: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/cinema/senscritique/senscritique.js"
+        options:
+          user: "NoobMaster69"
+        scrapers:
+          - url: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/cinema/pathe/pathe.js"
+            options:
+              cinema: "cinema-pathe-plan-de-campagne"
+              versions": ["vf", "vfst"]
+              tags":
+                includes": ["pmr"]
+                excludes": ["3d", "4dx"]
+</script>
 ```

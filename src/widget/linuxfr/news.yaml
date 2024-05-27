@@ -1,0 +1,13 @@
+module:
+  url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/list/list.js"
+  options":
+    color": "#b95e00"
+    cron": "*/10 * * * *"
+    max": 5
+    icon": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/linuxfr/linuxfr_black.svg"
+  scrapers:
+    - url: "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/list/rss/rss.js"
+      options:
+        url: "https://linuxfr.org/news.atom"
+        complements:
+          icon: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/linuxfr/linuxfr_white.svg"

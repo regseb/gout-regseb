@@ -12,10 +12,10 @@ Il peut être utilisé avec le module :
 ## Options
 
 Les options sont dans un objet
-[JSON](https://www.json.org/json-fr.html "JavaScript Object Notation") avec les
-propriétés suivantes :
+[YAML](https://yaml.org/ "YAML Ain't Markup Language") avec les propriétés
+suivantes :
 
-- `"broadcast"` (optionnel - valeur par défaut : `"tnt"`) : la source de
+- `broadcast` (optionnel - valeur par défaut : `"tnt"`) : la source de
   diffusion ([`"tnt"`](https://www.programme-television.org/?bouquet=tnt),
   [`"tnt-canal"`](https://www.programme-television.org/?bouquet=tnt-canal),
   [`"orange"`](https://www.programme-television.org/?bouquet=orange),
@@ -27,19 +27,44 @@ propriétés suivantes :
   [`"darty"`](https://www.programme-television.org/?bouquet=darty),
   [`"bis-televisions"`](https://www.programme-television.org/?bouquet=bis-televisions)
   ou [`"mycanal"`](https://www.programme-television.org/?bouquet=mycanal)) ;
-- `"channels"` : la liste des chaines affichées (voir en-dessous pour connaitre
+- `channels` : la liste des chaines affichées (voir en-dessous pour connaitre
   les codes) ;
-- `"color"` (optionnel - valeur par défaut : `"#9e9e9e"`) : la couleur de fond
+- `color` (optionnel - valeur par défaut : `"#9e9e9e"`) : la couleur de fond
   du cadre (au format hexadécimale, régulier RGB ou avec des mots-clefs
   prédéfinis).
 
 Voici le tableau des codes des chaines de la TNT :
 
-```JSON
-["tf1", "france-2", "france-3", "canal", "france-5", "m6", "arte", "c8", "w9",
- "tmc", "nt1", "nrj12", "lcp-public-senat", "france-4", "bfm-tv", "cnews",
- "cstar", "gulli", "france-o", "hd1", "l-equipe", "6ter", "numero-23",
- "rmc-decouverte", "cherie-25", "lci", "franceinfo"]
+```yaml
+[
+  "tf1",
+  "france-2",
+  "france-3",
+  "canal",
+  "france-5",
+  "m6",
+  "arte",
+  "c8",
+  "w9",
+  "tmc",
+  "nt1",
+  "nrj12",
+  "lcp-public-senat",
+  "france-4",
+  "bfm-tv",
+  "cnews",
+  "cstar",
+  "gulli",
+  "france-o",
+  "hd1",
+  "l-equipe",
+  "6ter",
+  "numero-23",
+  "rmc-decouverte",
+  "cherie-25",
+  "lci",
+  "franceinfo",
+]
 ```
 
 <!--
@@ -151,21 +176,35 @@ Ce widget affiche le programme télévisé de toutes les chaines de la TNT sauf
 Canal+ et les chaines d'information (BFMTV, CNEWS, LCI - La Chaîne Info et
 Franceinfo).
 
-```JSON
-{
-  "module": {
-    "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/module/tv/tv.js"
-  },
-  "scrapers": [{
-    "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/tv/tele7jours/tele7jours.js",
-    "options": {
-      "channels": [
-        "tf1", "france-2", "france-3", "france-5", "m6", "arte", "c8", "w9",
-        "tmc", "nt1", "nrj12", "lcp-public-senat", "france-4", "cstar", "gulli",
-        "france-o", "hd1", "l-equipe", "6ter", "numero-23", "rmc-decouverte",
-        "cherie-25"
-      ]
-    }
-  }]
-}
+```html
+<script type="application/yaml">
+  module:
+    url: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/module/tv/tv.js"
+    scrapers:
+      - url: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/tv/tele7jours/tele7jours.js"
+        options:
+          channels:
+            - "tf1"
+            - "france-2"
+            - "france-3"
+            - "france-5"
+            - "m6"
+            - "arte"
+            - "c8"
+            - "w9"
+            - "tmc"
+            - "nt1"
+            - "nrj12"
+            - "lcp-public-senat"
+            - "france-4"
+            - "cstar"
+            - "gulli"
+            - "france-o"
+            - "hd1"
+            - "l-equipe"
+            - "6ter"
+            - "numero-23"
+            - "rmc-decouverte"
+            - "cherie-25"
+</script>
 ```

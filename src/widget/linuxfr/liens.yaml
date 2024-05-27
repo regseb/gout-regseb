@@ -1,0 +1,5 @@
+"$extend": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/linuxfr/news.json"
+module:
+  "$scrapers[0]":
+    options":
+      url: "https://linuxfr.org/liens.atom"

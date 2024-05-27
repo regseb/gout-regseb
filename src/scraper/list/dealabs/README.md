@@ -11,8 +11,8 @@ Il peut être utilisé avec le module
 ## Options
 
 Les options sont dans un objet
-[JSON](https://www.json.org/json-fr.html "JavaScript Object Notation") avec les
-propriétés suivantes :
+[YAML](https://yaml.org/ "YAML Ain't Markup Language") avec les propriétés
+suivantes :
 
 <table>
   <tr>
@@ -21,7 +21,7 @@ propriétés suivantes :
     <th>Description</th>
   </tr>
   <tr>
-    <td><code>"filters"</code></td>
+    <td><code>filters</code></td>
     <td><code>object</code></td>
     <td>
       <p>
@@ -29,7 +29,7 @@ propriétés suivantes :
       </p>
       <ul>
         <li>
-          <code>"q"</code> : la chaine de caractères contenant le terme cherché
+          <code>q</code> : la chaine de caractères contenant le terme cherché
           (par défaut aucun filtre sur du texte) ;
         </li>
         <li>
@@ -43,35 +43,35 @@ propriétés suivantes :
           </ul>
         </li>
         <li>
-          <code>"hide_expired"</code> : <code>0</code> (par défaut) pour
+          <code>hide_expired</code> : <code>0</code> (par défaut) pour
           remonter les deals expirés ; <code>1</code> pour les masquer ;
         </li>
         <li>
-           <code>"hide_local"</code> : <code>0</code> (par défaut) pour afficher
+           <code>hide_local</code> : <code>0</code> (par défaut) pour afficher
            les deals locaux ; <code>1</code> pour les masquer ;
         </li>
         <li>
-          <code>"hot_only"</code> : <code>0</code> (par défaut) pour afficher
+          <code>hot_only</code> : <code>0</code> (par défaut) pour afficher
           tous les deals ; <code>1</code> pour garder uniquement les deals
           <em>hot</em> ;
         </li>
         <li>
-          <code>"temperatureFrom"</code> et <code>"temperatureTo"</code> : la
+          <code>temperatureFrom</code> et <code>temperatureTo</code> : la
           température minimum et maximum pour les deals (par défaut aucun filtre
           sur la température) ;
         </li>
         <li>
-          <code>"priceFrom"</code> et <code>"priceTo"</code> : le prix minimum
+          <code>priceFrom</code> et <code>priceTo</code> : le prix minimum
           et maximum pour les deals (par défaut aucun filtre sur le prix).
         </li>
       </ul>
       <p>
-        Exemple : <code>{ "q": "Raspberry Pi" }</code>.
+        Exemple : <code>q: "Raspberry Pi"</code>.
       </p>
     </td>
   </tr>
   <tr>
-    <td><code>"complements"</code></td>
+    <td><code>complements</code></td>
     <td><code>object</code></td>
     <td>
       <p>
@@ -81,12 +81,12 @@ propriétés suivantes :
         <a href="https://github.com/regseb/gout/tree/HEAD/src/scraper/tools/complements#readme"><em>tools/complements</em></a>.
       </p>
       <p>
-        Exemple : <code>{ "target": "_top" }</code>.
+        Exemple : <code>target: "_top"</code>.
       </p>
     </td>
   </tr>
   <tr>
-    <td><code>"filter"</code></td>
+    <td><code>filter</code></td>
     <td><code>string</code></td>
     <td>
       <p>
@@ -106,26 +106,21 @@ propriétés suivantes :
 Ce widget affiche les derniers deals nationaux non-expirés pour un smartphone
 entre 200 et 400 euros.
 
-```JSON
-{
-  "module": {
-    "url": "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/list/list.js",
-    "options": {
-      "color": "#00bcd4",
-      "cron": "@hourly"
-    }
-  },
-  "scrapers": [{
-    "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/list/dealabs/dealabs.js",
-    "options": {
-      "filters": {
-        "q": "smartphone",
-        "hide_expired": 1,
-        "hide_local": 1,
-        "priceFrom": 200,
-        "priceTo": 400
-      }
-    }
-  }]
-}
+```html
+<script type="application/yaml">
+  module:
+    url: "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/list/list.js"
+    options:
+      color: "#00bcd4"
+      cron: "@hourly"
+    scrapers:
+      - url: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/list/dealabs/dealabs.js"
+        options:
+          filters:
+            q: "smartphone"
+            hide_expired: 1
+            hide_local: 1
+            priceFrom: 200
+            priceTo: 400
+</script>
 ```

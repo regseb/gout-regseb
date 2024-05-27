@@ -12,8 +12,8 @@ Il peut être utilisé avec le module :
 ## Options
 
 Les options sont dans un objet
-[JSON](https://www.json.org/json-fr.html "JavaScript Object Notation") avec les
-propriétés suivantes :
+[YAML](https://yaml.org/ "YAML Ain't Markup Language") avec les propriétés
+suivantes :
 
 <table>
   <tr>
@@ -22,7 +22,7 @@ propriétés suivantes :
     <th>Description</th>
   </tr>
   <tr>
-    <td><code>"broadcast"</code></td>
+    <td><code>broadcast</code></td>
     <td><code>string</code></td>
     <td>
       <p>
@@ -37,7 +37,7 @@ propriétés suivantes :
     </td>
   </tr>
   <tr>
-    <td><code>"channels"</code></td>
+    <td><code>channels</code></td>
     <td><code>string[]</code></td>
     <td>
       <p>
@@ -50,7 +50,7 @@ propriétés suivantes :
     </td>
   </tr>
   <tr>
-    <td><code>"complements"</code></td>
+    <td><code>complements</code></td>
     <td><code>object</code></td>
     <td>
       <p>
@@ -65,7 +65,7 @@ propriétés suivantes :
     </td>
   </tr>
   <tr>
-    <td><code>"filter"</code></td>
+    <td><code>filter</code></td>
     <td><code>string</code></td>
     <td>
       <p>
@@ -362,21 +362,34 @@ Ce widget affiche le programme télévisé de toutes les chaines de la TNT sauf
 Canal+ et les chaines d'information (BFMTV, CNEWS, LCI - La Chaîne Info et
 Franceinfo).
 
-```JSON
-{
-  "module": {
-    "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/module/tv/tv.js"
-  },
-  "scrapers": [{
-    "url": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/tv/tele2semaines/tele2semaines.js",
-    "options": {
-      "channels": [
-        "tf1", "france-2", "france-3", "france-5", "m6", "arte", "c8", "w9",
-        "tmc", "tfx", "nrj-12", "la-chaine-parlementaire", "france-4", "cstar",
-        "gulli", "tf1-series-films", "lequipe", "6ter", "rmc-story",
-        "rmc-decouverte", "cherie-25"
-      ]
-    }
-  }]
-}
+```html
+<script type="application/yaml">
+  module:
+    url: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/module/tv/tv.js"
+    scrapers:
+      - url: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/tv/tele2semaines/tele2semaines.js"
+        options:
+          channels:
+            - "tf1"
+            - "france-2"
+            - "france-3"
+            - "france-5"
+            - "m6"
+            - "arte"
+            - "c8"
+            - "w9"
+            - "tmc"
+            - "tfx"
+            - "nrj-12"
+            - "la-chaine-parlementaire"
+            - "france-4"
+            - "cstar"
+            - "gulli"
+            - "tf1-series-films"
+            - "lequipe"
+            - "6ter"
+            - "rmc-story"
+            - "rmc-decouverte"
+            - "cherie-25"
+</script>
 ```
