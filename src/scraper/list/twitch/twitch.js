@@ -26,7 +26,8 @@ const TwitchScraper = class {
             doc.querySelectorAll('script[type="application/ld+json"]'),
         )
             .flatMap((s) =>
-                JSON.parse(s.text)
+                // prettier-ignore
+                JSON.parse(s.text)["@graph"]
                     .filter((p) => "ItemList" === p["@type"])
                     .flatMap((p) =>
                         p.itemListElement
