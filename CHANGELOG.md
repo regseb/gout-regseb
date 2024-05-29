@@ -2,16 +2,14 @@
 
 ## [0.12.0](https://github.com/regseb/gout-regseb/compare/v0.11.0...v0.12.0) (2024-05-29)
 
-
 ### Features
 
-* Ajouter des widgets pour AlloCiné. ([fcf18b8](https://github.com/regseb/gout-regseb/commit/fcf18b80ae639070b8b86509c6993bf83917a676))
-* Utiliser YAML pour les configurations. ([d07e5aa](https://github.com/regseb/gout-regseb/commit/d07e5aa5d97f2bebf5dd3f093d9650661610ca10))
-
+- Ajouter des widgets pour AlloCiné. ([fcf18b8](https://github.com/regseb/gout-regseb/commit/fcf18b80ae639070b8b86509c6993bf83917a676))
+- Utiliser YAML pour les configurations. ([d07e5aa](https://github.com/regseb/gout-regseb/commit/d07e5aa5d97f2bebf5dd3f093d9650661610ca10))
 
 ### Bug Fixes
 
-* Corriger le scraper de Twitch. ([627d5c8](https://github.com/regseb/gout-regseb/commit/627d5c8fe955bc15e43705adae1b7b79b4710186))
+- Corriger le scraper de Twitch. ([627d5c8](https://github.com/regseb/gout-regseb/commit/627d5c8fe955bc15e43705adae1b7b79b4710186))
 
 ## [0.11.0](https://github.com/regseb/gout-regseb/compare/v0.10.1...v0.11.0) (2024-03-07)
 
