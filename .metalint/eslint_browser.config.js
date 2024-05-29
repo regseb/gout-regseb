@@ -4,6 +4,9 @@
  * @author Sébastien Règne
  */
 
+/**
+ * @type {import("eslint").Linter.Config}
+ */
 export default {
     env: {
         browser: true,
@@ -16,8 +19,8 @@ export default {
             "error",
             {
                 ignore: [
-                    "^https://esm\\.sh/",
-                    "^https://cdn\\.jsdelivr\\.net/",
+                    String.raw`^https://esm\.sh/`,
+                    String.raw`^https://cdn\.jsdelivr\.net/`,
                 ],
                 caseSensitiveStrict: true,
             },

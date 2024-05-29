@@ -9,8 +9,8 @@ import FilterScraper from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper
 import chain from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/utils/scraper/chain.js";
 
 const DATE_REGEXP = new RegExp(
-    "(?<year>\\d{4})(?<month>\\d{2})(?<day>\\d{2})" +
-        "(?<hours>\\d{2})(?<minutes>\\d{2})(?<seconds>\\d{2})-[^-]+$",
+    String.raw`(?<year>\d{4})(?<month>\d{2})(?<day>\d{2})` +
+        String.raw`(?<hours>\d{2})(?<minutes>\d{2})(?<seconds>\d{2})-[^-]+$`,
     "u",
 );
 
