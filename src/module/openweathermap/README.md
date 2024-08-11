@@ -7,10 +7,6 @@ service [**OpenWeatherMap**](https://openweathermap.org/).
 
 ## Options
 
-> [!NOTE]
-> Ce chapitre est utile principalement pour le développement de scrapers
-> compatibles avec ce module.
-
 Les options sont dans un objet
 [YAML](https://yaml.org/ "YAML Ain't Markup Language") avec les propriétés
 suivantes :
@@ -32,7 +28,7 @@ suivantes :
         service</a>.
       </p>
       <p>
-        Exemples : <code>"123456789abcdef"</code>.
+        Exemples : <code>"123456789abcdef"</code>
       </p>
     </td>
   </tr>
@@ -45,7 +41,7 @@ suivantes :
         code du pays (séparé par une virgule).
       </p>
       <p>
-        Exemples : <code>"Aix-en-Provence,FR"</code>.
+        Exemples : <code>"Aix-en-Provence,FR"</code>
       </p>
     </td>
   </tr>
@@ -60,7 +56,7 @@ suivantes :
         utilisée.
       </p>
       <p>
-        Exemples : <code>"#673ab7"</code>, <code>"chocolate"</code>.
+        Exemples : <code>"#673ab7"</code>, <code>"chocolate"</code>
       </p>
     </td>
   </tr>
@@ -75,7 +71,7 @@ suivantes :
         propriété, les données sont mises à jour toutes les heures.
       </p>
       <p>
-        Exemple : <code>"@daily"</code>.
+        Exemple : <code>"@daily"</code>
       </p>
     </td>
   </tr>
@@ -88,7 +84,7 @@ suivantes :
         la propriété <code>"city"</code> qui est utilisé.
       </p>
       <p>
-        Exemples : <code>"Aix"</code>.
+        Exemples : <code>"Aix"</code>
       </p>
     </td>
   </tr>

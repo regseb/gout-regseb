@@ -3,7 +3,7 @@
 > Mots-clés : gout, gout-scraper, gout-scraper-list-dailymotion,
 > gout-module-list.
 
-Ce scraper recupère la liste des dernières vidéos postées sur
+Ce scraper récupère la liste des dernières vidéos postées sur
 [**Dailymotion**](https://www.dailymotion.com/fr) par un utilisateur.
 
 Il peut être utilisé avec le module
@@ -29,7 +29,7 @@ suivantes :
         L'identifiant du compte.
       </p>
       <p>
-        Exemple : <code>"franceinter"</code>.
+        Exemple : <code>"franceinter"</code>
       </p>
     </td>
   </tr>
@@ -44,7 +44,7 @@ suivantes :
         <a href="https://github.com/regseb/gout/tree/HEAD/src/scraper/tools/complements#readme"><em>tools/complements</em></a>.
       </p>
       <p>
-        Exemple : <code>target: "_top"</code>.
+        Exemple : <code>target: "_top"</code>
       </p>
     </td>
   </tr>
@@ -53,12 +53,12 @@ suivantes :
     <td><code>string</code></td>
     <td>
       <p>
-        Le filtre qui sera appliqué sur les éléments retournées. Par défaut
-        aucun filtre n'est appliqué. Pour plus de détails, voir le scraper
+        Le filtre qui sera appliqué sur les éléments retournés. Par défaut aucun
+        filtre n'est appliqué. Pour plus de détails, voir le scraper
         <a href="https://github.com/regseb/gout/tree/HEAD/src/scraper/tools/filter#readme"><em>tools/filter</em></a>.
       </p>
       <p>
-        Exemple : <code>"title != 'foo'"</code>.
+        Exemple : <code>"title != 'foo'"</code>
       </p>
     </td>
   </tr>
@@ -66,8 +66,8 @@ suivantes :
 
 ## Exemple
 
-Ce widget affiche les dernières vidéos des [Guignols de
-l'Info](https://www.dailymotion.com/lesguignols).
+Ce widget affiche les dernières vidéos des
+[Guignols de l'Info](https://www.dailymotion.com/lesguignols).
 
 ```html
 <script type="application/yaml">

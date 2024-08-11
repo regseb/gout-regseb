@@ -3,8 +3,8 @@
 > Mots-clés : gout, gout-scraper, gout-regseb-scraper-tv-tele7jours,
 > gout-regseb-module-tv
 
-Ce scraper donne le programme télévisé du soir par [**Télé 7
-Jours**](https://www.programme-television.org/).
+Ce scraper donne le programme télévisé du soir par
+[**Télé 7 Jours**](https://www.programme-television.org/).
 
 Il peut être utilisé avec le module :
 [_tv_](https://github.com/regseb/gout-regseb/tree/HEAD/src/module/tv#readme).
@@ -15,8 +15,8 @@ Les options sont dans un objet
 [YAML](https://yaml.org/ "YAML Ain't Markup Language") avec les propriétés
 suivantes :
 
-- `broadcast` (optionnel - valeur par défaut : `"tnt"`) : la source de
-  diffusion ([`"tnt"`](https://www.programme-television.org/?bouquet=tnt),
+- `broadcast` (optionnel - valeur par défaut : `"tnt"`) : la source de diffusion
+  ([`"tnt"`](https://www.programme-television.org/?bouquet=tnt),
   [`"tnt-canal"`](https://www.programme-television.org/?bouquet=tnt-canal),
   [`"orange"`](https://www.programme-television.org/?bouquet=orange),
   [`"free"`](https://www.programme-television.org/?bouquet=free),
@@ -29,9 +29,8 @@ suivantes :
   ou [`"mycanal"`](https://www.programme-television.org/?bouquet=mycanal)) ;
 - `channels` : la liste des chaines affichées (voir en-dessous pour connaitre
   les codes) ;
-- `color` (optionnel - valeur par défaut : `"#9e9e9e"`) : la couleur de fond
-  du cadre (au format hexadécimale, régulier RGB ou avec des mots-clefs
-  prédéfinis).
+- `color` (optionnel - valeur par défaut : `"#9e9e9e"`) : la couleur de fond du
+  cadre (au format hexadécimal, régulier RGB ou avec des mots-clefs prédéfinis).
 
 Voici le tableau des codes des chaines de la TNT :
 

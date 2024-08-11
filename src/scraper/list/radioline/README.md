@@ -41,7 +41,7 @@ suivantes :
         <a href="https://github.com/regseb/gout/tree/HEAD/src/scraper/tools/complements#readme"><em>tools/complements</em></a>.
       </p>
       <p>
-        Exemple : <code>icon: "https://example.com/foo/bar.svg"</code>.
+        Exemple : <code>icon: "https://example.com/foo/bar.svg"</code>
       </p>
     </td>
   </tr>
@@ -50,12 +50,12 @@ suivantes :
     <td><code>string</code></td>
     <td>
       <p>
-        Le filtre qui sera appliqué sur les éléments retournées. Par défaut
-        aucun filtre n'est appliqué. Pour plus de détails, voir le scraper
+        Le filtre qui sera appliqué sur les éléments retournés. Par défaut aucun
+        filtre n'est appliqué. Pour plus de détails, voir le scraper
         <a href="https://github.com/regseb/gout/tree/HEAD/src/scraper/tools/filter#readme"><em>tools/filter</em></a>.
       </p>
       <p>
-        Exemple : <code>"title != 'foo'"</code>.
+        Exemple : <code>"title != 'foo'"</code>
       </p>
     </td>
   </tr>
@@ -63,8 +63,8 @@ suivantes :
 
 ## Exemple
 
-Ce widget affiche les deux dernières émissions du [Meilleur des
-mondes](https://www.radioline.co/fr/podcasts/le_meilleur_des_mondes).
+Ce widget affiche les deux dernières émissions du
+[Meilleur des mondes](https://www.radioline.co/fr/podcasts/le_meilleur_des_mondes).
 
 ```html
 <script type="application/yaml">

@@ -2,7 +2,7 @@
 
 > Mots-clés : gout, gout-scraper, gout-scraper-list-twitch, gout-module-list.
 
-Ce scraper recupère la liste des dernières diffusions récentes sur
+Ce scraper récupère la liste des dernières diffusions récentes sur
 [**Twitch**](https://www.twitch.tv/) d'une chaine.
 
 Il peut être utilisé avec le module
@@ -28,7 +28,7 @@ suivantes :
         Le nom de la chaine.
       </p>
       <p>
-        Exemple : <code>"artefr"</code>.
+        Exemple : <code>"artefr"</code>
       </p>
     </td>
   </tr>
@@ -43,7 +43,7 @@ suivantes :
         <a href="https://github.com/regseb/gout/tree/HEAD/src/scraper/tools/complements#readme"><em>tools/complements</em></a>.
       </p>
       <p>
-        Exemple : <code>target: "_top"</code>.
+        Exemple : <code>target: "_top"</code>
       </p>
     </td>
   </tr>
@@ -52,12 +52,12 @@ suivantes :
     <td><code>string</code></td>
     <td>
       <p>
-        Le filtre qui sera appliqué sur les éléments retournées. Par défaut
-        aucun filtre n'est appliqué. Pour plus de détails, voir le scraper
+        Le filtre qui sera appliqué sur les éléments retournés. Par défaut aucun
+        filtre n'est appliqué. Pour plus de détails, voir le scraper
         <a href="https://github.com/regseb/gout/tree/HEAD/src/scraper/tools/filter#readme"><em>tools/filter</em></a>.
       </p>
       <p>
-        Exemple : <code>"title != 'foo'"</code>.
+        Exemple : <code>"title != 'foo'"</code>
       </p>
     </td>
   </tr>
@@ -65,8 +65,8 @@ suivantes :
 
 ## Exemple
 
-Ce widget affiche les dernières vidéos de [Silence on
-joue](https://www.twitch.tv/silenceonjoue).
+Ce widget affiche les dernières vidéos de
+[Silence on joue](https://www.twitch.tv/silenceonjoue).
 
 ```html
 <script type="application/yaml">

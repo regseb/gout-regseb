@@ -3,8 +3,8 @@
 > Mots-clés : gout, gout-scraper, gout-scraper-image-valdallos,
 > gout-module-image.
 
-Ce scraper recupère les webcams du [**Val
-d'Allos**](https://www.valdallos.com/webcams.html).
+Ce scraper récupère les webcams du
+[**Val d'Allos**](https://www.valdallos.com/webcams.html).
 
 Il peut être utilisé avec le module
 [_image_](https://github.com/regseb/gout/tree/HEAD/src/module/image#readme).
@@ -42,7 +42,7 @@ suivantes :
        Par défaut, toutes les webcams sont retournées.
       </p>
       <p>
-        Exemple : <code>["seignus-bas", "front-de-neige"]</code>.
+        Exemple : <code>["seignus-bas", "front-de-neige"]</code>
       </p>
     </td>
   </tr>
@@ -57,7 +57,7 @@ suivantes :
         <a href="https://github.com/regseb/gout/tree/HEAD/src/scraper/tools/complements#readme"><em>tools/complements</em></a>.
       </p>
       <p>
-        Exemple : <code>target: "_top"</code>.
+        Exemple : <code>target: "_top"</code>
       </p>
     </td>
   </tr>
@@ -66,12 +66,12 @@ suivantes :
     <td><code>string</code></td>
     <td>
       <p>
-        Le filtre qui sera appliqué sur les éléments retournées. Par défaut
-        aucun filtre n'est appliqué. Pour plus de détails, voir le scraper
+        Le filtre qui sera appliqué sur les éléments retournés. Par défaut aucun
+        filtre n'est appliqué. Pour plus de détails, voir le scraper
         <a href="https://github.com/regseb/gout/tree/HEAD/src/scraper/tools/filter#readme"><em>tools/filter</em></a>.
       </p>
       <p>
-        Exemple : <code>"title != 'foo'"</code>.
+        Exemple : <code>"title != 'foo'"</code>
       </p>
     </td>
   </tr>

@@ -29,7 +29,7 @@ suivantes :
         disponible en dessous.
       </p>
       <p>
-        Exemple : <code>"cinema-pathe-plan-de-campagne"</code>.
+        Exemple : <code>"cinema-pathe-plan-de-campagne"</code>
       </p>
     </td>
   </tr>
@@ -46,8 +46,12 @@ suivantes :
         défaut, aucun filtre n'est appliqué.
       </p>
       <p>
-        Exemple :
-        <code>"tags": { "includes": ["imax"], "excludes": ["3d"] }</code>.
+        Exemple : <pre><code>
+tags:
+  includes: ["imax"]
+  excludes": ["3d"]
+        </code></pre>
+      </p>
     </td>
   </tr>
   <tr>
@@ -60,7 +64,7 @@ suivantes :
         Par défaut toutes les versions sont retournées.
       </p>
       <p>
-        Exemple : <code>["vf"]</code>.
+        Exemple : <code>["vf"]</code>
       </p>
     </td>
   </tr>
@@ -75,7 +79,7 @@ suivantes :
         <a href="https://github.com/regseb/gout/tree/HEAD/src/scraper/tools/complements#readme"><em>tools/complements</em></a>.
       </p>
       <p>
-        Exemple : <code>{ "icon": "https://example.com/foo/bar.svg" }</code>.
+        Exemple : <code>icon: "https://example.com/foo/bar.svg"</code>
       </p>
     </td>
   </tr>
@@ -84,12 +88,12 @@ suivantes :
     <td><code>string</code></td>
     <td>
       <p>
-        Le filtre qui sera appliqué sur les éléments retournées. Par défaut
-        aucun filtre n'est appliqué. Pour plus de détails, voir le scraper
+        Le filtre qui sera appliqué sur les éléments retournés. Par défaut aucun
+        filtre n'est appliqué. Pour plus de détails, voir le scraper
         <a href="https://github.com/regseb/gout/tree/HEAD/src/scraper/tools/filter#readme"><em>tools/filter</em></a>.
       </p>
       <p>
-        Exemple : <code>"title != 'foo'"</code>.
+        Exemple : <code>"title != 'foo'"</code>
       </p>
     </td>
   </tr>
@@ -182,8 +186,7 @@ console.log(json.map((c) => `- ${c.name} : \`"${c.slug}"\` ;`).join("\n"));
 
 Ce widget affiche les séances en français sauf celles en 3D et 4DX dans une
 salle avec un accès pour les personnes à mobilité réduite (PMR) dans le cinéma
-[Pathé Plan de
-Campagne](https://www.pathe.fr/cinemas/cinema-pathe-plan-de-campagne).
+[Pathé Plan de Campagne](https://www.pathe.fr/cinemas/cinema-pathe-plan-de-campagne).
 
 ```html
 <script type="application/yaml">

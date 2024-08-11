@@ -3,8 +3,8 @@
 > Mots-clés : gout, gout-scraper, gout-regseb-scraper-tv-tele2semaines,
 > gout-regseb-module-tv
 
-Ce scraper donne le programme télévisé du soir par [**Télé 2
-Semaines**](https://www.programme.tv/).
+Ce scraper donne le programme télévisé du soir par
+[**Télé 2 Semaines**](https://www.programme.tv/).
 
 Il peut être utilisé avec le module :
 [_tv_](https://github.com/regseb/gout-regseb/tree/HEAD/src/module/tv#readme).
@@ -32,7 +32,7 @@ suivantes :
         <code>"bouygues"</code>.
       </p>
       <p>
-        Exemple : <code>"orange"</code>.
+        Exemple : <code>"orange"</code>
       </p>
     </td>
   </tr>
@@ -45,7 +45,7 @@ suivantes :
         sont affichées). Les codes de chaque chaine sont disponibles en dessous.
       </p>
       <p>
-        Exemple : <code>["tf1", "france-2", "france-3"]</code>.
+        Exemple : <code>["tf1", "france-2", "france-3"]</code>
       </p>
     </td>
   </tr>
@@ -60,7 +60,7 @@ suivantes :
         <a href="https://github.com/regseb/gout/tree/HEAD/src/scraper/tools/complements#readme"><em>tools/complements</em></a>.
       </p>
       <p>
-        Exemple : <code>{ "target": "_top" }</code>.
+        Exemple : <code>{ "target": "_top" }</code>
       </p>
     </td>
   </tr>
@@ -69,12 +69,12 @@ suivantes :
     <td><code>string</code></td>
     <td>
       <p>
-        Le filtre qui sera appliqué sur les éléments retournées. Par défaut
-        aucun filtre n'est appliqué. Pour plus de détails, voir le scraper
+        Le filtre qui sera appliqué sur les éléments retournés. Par défaut aucun
+        filtre n'est appliqué. Pour plus de détails, voir le scraper
         <a href="https://github.com/regseb/gout/tree/HEAD/src/scraper/tools/filter#readme"><em>tools/filter</em></a>.
       </p>
       <p>
-        Exemple : <code>"title != 'foo'"</code>.
+        Exemple : <code>"title != 'foo'"</code>
       </p>
     </td>
   </tr>

@@ -3,11 +3,13 @@
 > Mots-clés : gout, gout-scraper, gout-scraper-cinema-senscritique,
 > gout-module-cinema.
 
-Ce scraper retourne les séances du jour de cinémas en ajoutant des status issues
+Ce scraper retourne les séances du jour de cinémas en ajoutant des statuts issus
 de [**SensCritique**](https://www.senscritique.com/).
 
 Il peut être utilisé avec le module
 [_cinema_](https://github.com/regseb/gout-regseb/tree/HEAD/src/module/cinema#readme).
+Et il prend d'autres scrapers, compatibles avec le module _cinema_, en
+dépendance.
 
 ## Options
 
@@ -29,7 +31,7 @@ suivantes :
         Le nom d'un utilisateur SensCritique.
       </p>
       <p>
-        Exemple : <code>"NoobMaster69"</code>.
+        Exemple : <code>"NoobMaster69"</code>
       </p>
     </td>
   </tr>
@@ -44,7 +46,7 @@ suivantes :
         <a href="https://github.com/regseb/gout/tree/HEAD/src/scraper/tools/complements#readme"><em>tools/complements</em></a>.
       </p>
       <p>
-        Exemple : <code>{ "target": "_top" }</code>.
+        Exemple : <code>target: "_top"</code>
       </p>
     </td>
   </tr>
@@ -53,12 +55,12 @@ suivantes :
     <td><code>string</code></td>
     <td>
       <p>
-        Le filtre qui sera appliqué sur les éléments retournées. Par défaut
-        aucun filtre n'est appliqué. Pour plus de détails, voir le scraper
+        Le filtre qui sera appliqué sur les éléments retournés. Par défaut aucun
+        filtre n'est appliqué. Pour plus de détails, voir le scraper
         <a href="https://github.com/regseb/gout/tree/HEAD/src/scraper/tools/filter#readme"><em>tools/filter</em></a>.
       </p>
       <p>
-        Exemple : <code>"title != 'foo'"</code>.
+        Exemple : <code>"title != 'foo'"</code>
       </p>
     </td>
   </tr>
@@ -72,11 +74,9 @@ séances. Les sous-scrapers sont des scrapers combatibles avec le module
 
 ## Exemple
 
-Ce widget affiche les séances en français sauf celles en 3D et 4DX dans une
-salle avec un accès pour les personnes à mobilité réduite (PMR) dans le cinéma
-[Pathé Plan de
-Campagne](https://www.pathe.fr/cinemas/cinema-pathe-plan-de-campagne) et ajoute
-les status de l'utilisateur NoobMaster69 de SensCritique.
+Ce widget affiche les séances en français dans le cinéma
+[Pathé Plan de Campagne](https://www.pathe.fr/cinemas/cinema-pathe-plan-de-campagne)
+et ajoute les statuts de l'utilisateur _NoobMaster69_ de SensCritique.
 
 ```html
 <script type="application/yaml">
@@ -91,8 +91,5 @@ les status de l'utilisateur NoobMaster69 de SensCritique.
             options:
               cinema: "cinema-pathe-plan-de-campagne"
               versions": ["vf", "vfst"]
-              tags":
-                includes": ["pmr"]
-                excludes": ["3d", "4dx"]
 </script>
 ```

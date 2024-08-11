@@ -9,7 +9,7 @@ import FilterScraper from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper
 import chain from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/utils/scraper/chain.js";
 
 /**
- * La requête pour récupérer les oeuvres d'un utilisateur SensCritique pour un
+ * La requête pour récupérer les œuvres d'un utilisateur SensCritique pour un
  * univers (films, séries, jeux...) et en fonction de mots clés.
  *
  * @type {string}

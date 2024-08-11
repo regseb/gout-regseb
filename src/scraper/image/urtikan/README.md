@@ -1,9 +1,8 @@
 # Scraper _image/urtikan_
 
-> Mots-clés : gout, gout-scraper, gout-scraper-image-urtikan,
-> gout-module-image.
+> Mots-clés : gout, gout-scraper, gout-scraper-image-urtikan, gout-module-image.
 
-Ce scraper recupère la liste des derniers dessins publiés sur le site
+Ce scraper récupère la liste des derniers dessins publiés sur le site
 [**Urtikan**](https://www.urtikan.net/).
 
 Il peut être utilisé avec le module
@@ -32,7 +31,7 @@ suivantes :
         <a href="https://github.com/regseb/gout/tree/HEAD/src/scraper/tools/complements#readme"><em>tools/complements</em></a>.
       </p>
       <p>
-        Exemple : <code>target: "_top"</code>.
+        Exemple : <code>target: "_top"</code>
       </p>
     </td>
   </tr>
@@ -41,12 +40,12 @@ suivantes :
     <td><code>string</code></td>
     <td>
       <p>
-        Le filtre qui sera appliqué sur les éléments retournées. Par défaut
-        aucun filtre n'est appliqué. Pour plus de détails, voir le scraper
+        Le filtre qui sera appliqué sur les éléments retournés. Par défaut aucun
+        filtre n'est appliqué. Pour plus de détails, voir le scraper
         <a href="https://github.com/regseb/gout/tree/HEAD/src/scraper/tools/filter#readme"><em>tools/filter</em></a>.
       </p>
       <p>
-        Exemple : <code>"title != 'foo'"</code>.
+        Exemple : <code>"title != 'foo'"</code>
       </p>
     </td>
   </tr>

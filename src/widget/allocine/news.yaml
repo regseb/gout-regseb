@@ -1,9 +1,9 @@
 module:
   url: "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/list/list.js"
   options:
-    color: "#947200"
     cron: "*/5 * * * *"
     max: 5
+    color: "#947200"
     icon: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/allocine/allocine_black.js"
   scrapers:
     - url: "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/list/rss/rss.js"

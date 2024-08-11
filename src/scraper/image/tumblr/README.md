@@ -2,7 +2,7 @@
 
 > Mots-clés : gout, gout-scraper, gout-scraper-image-tumblr, gout-module-image.
 
-Ce scraper recupère la liste des derniers dessins publiés sur un blog
+Ce scraper récupère la liste des derniers dessins publiés sur un blog
 [**Tumblr**](https://www.tumblr.com/).
 
 Il peut être utilisé avec le module
@@ -25,10 +25,10 @@ suivantes :
     <td><code>string</code></td>
     <td>
       <p>
-        L'identifiant du compte.
+        L'identifiant du compte Tumblr.
       </p>
       <p>
-        Exemple : <code>"pizzacakecomics"</code>.
+        Exemple : <code>"pizzacakecomics"</code>
       </p>
     </td>
   </tr>
@@ -43,7 +43,7 @@ suivantes :
         <a href="https://github.com/regseb/gout/tree/HEAD/src/scraper/tools/complements#readme"><em>tools/complements</em></a>.
       </p>
       <p>
-        Exemple : <code>target: "_top"</code>.
+        Exemple : <code>target: "_top"</code>
       </p>
     </td>
   </tr>
@@ -52,12 +52,12 @@ suivantes :
     <td><code>string</code></td>
     <td>
       <p>
-        Le filtre qui sera appliqué sur les éléments retournées. Par défaut
-        aucun filtre n'est appliqué. Pour plus de détails, voir le scraper
+        Le filtre qui sera appliqué sur les éléments retournés. Par défaut aucun
+        filtre n'est appliqué. Pour plus de détails, voir le scraper
         <a href="https://github.com/regseb/gout/tree/HEAD/src/scraper/tools/filter#readme"><em>tools/filter</em></a>.
       </p>
       <p>
-        Exemple : <code>"title != 'foo'"</code>.
+        Exemple : <code>"title != 'foo'"</code>
       </p>
     </td>
   </tr>
@@ -65,8 +65,8 @@ suivantes :
 
 ## Exemple
 
-Ce widget affiche les deux derniers dessins du blog [Pizza Cake
-Comics](https://pizzacakecomic.com/).
+Ce widget affiche les deux derniers dessins du blog
+[Pizza Cake Comics](https://pizzacakecomic.com/).
 
 ```html
 <script type="application/yaml">

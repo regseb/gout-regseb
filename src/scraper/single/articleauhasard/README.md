@@ -21,10 +21,10 @@ suivantes :
     <td>
       <p>
         Le <a href="https://meta.wikimedia.org/wiki/List_of_Wikipedias/fr">code
-        de la langue</a> des pages. Par défaut, le française est utilisé.
+        de la langue</a> des pages. Par défaut, le français est utilisé.
       </p>
       <p>
-        Exemple : <code>"en"</code>.
+        Exemple : <code>"en"</code>
       </p>
     </td>
   </tr>
@@ -39,7 +39,7 @@ suivantes :
         <a href="https://github.com/regseb/gout/tree/HEAD/src/scraper/tools/complements#readme"><em>tools/complements</em></a>.
       </p>
       <p>
-        Exemple : <code>icon: "https://example.com/foo/bar.svg"</code>.
+        Exemple : <code>icon: "https://example.com/foo/bar.svg"</code>
       </p>
     </td>
   </tr>
@@ -48,12 +48,12 @@ suivantes :
     <td><code>string</code></td>
     <td>
       <p>
-        Le filtre qui sera appliqué sur les éléments retournées. Par défaut
-        aucun filtre n'est appliqué. Pour plus de détails, voir le scraper
+        Le filtre qui sera appliqué sur les éléments retournés. Par défaut aucun
+        filtre n'est appliqué. Pour plus de détails, voir le scraper
         <a href="https://github.com/regseb/gout/tree/HEAD/src/scraper/tools/filter#readme"><em>tools/filter</em></a>.
       </p>
       <p>
-        Exemple : <code>"title != 'foo'"</code>.
+        Exemple : <code>"title != 'foo'"</code>
       </p>
     </td>
   </tr>

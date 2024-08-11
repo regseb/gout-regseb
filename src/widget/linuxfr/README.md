@@ -9,16 +9,16 @@ voulu) :
 
 ```html
 <script
-  type="application/json"
-  src="https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/linuxfr/{widget}.json"
+  type="application/yaml"
+  src="https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/linuxfr/{widget}.yaml"
 ></script>
 ```
 
 - Dépêches (_news_) :
-  [`https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/linuxfr/news.json`](https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/linuxfr/news.json)
+  [`https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/linuxfr/news.yaml`](https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/linuxfr/news.yaml)
 - Journaux :
-  [`https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/linuxfr/journaux.json`](https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/linuxfr/journaux.json)
+  [`https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/linuxfr/journaux.yaml`](https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/linuxfr/journaux.yaml)
 - Liens :
-  [`https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/linuxfr/liens.json`](https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/linuxfr/liens.json)
+  [`https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/linuxfr/liens.yaml`](https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/linuxfr/liens.yaml)
 - Forums :
-  [`https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/linuxfr/forums.json`](https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/linuxfr/forums.json)
+  [`https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/linuxfr/forums.yaml`](https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/linuxfr/forums.yaml)
