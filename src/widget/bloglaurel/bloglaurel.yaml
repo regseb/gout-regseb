@@ -1,0 +1,13 @@
+module:
+  url: "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/list/list.js"
+  options:
+    cron: "@daily"
+    max: 3
+    color: "#7d6e90"
+    icon: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/bloglaurel/bloglaurel_black.js"
+  scrapers:
+    - url: "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/list/rss/rss.js"
+      options:
+        url: "https://bloglaurel.com/rss"
+        complements:
+          icon: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/bloglaurel/bloglaurel_white.js"
