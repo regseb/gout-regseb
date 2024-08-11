@@ -8,4 +8,4 @@ module:
             color: "#ffc300"
             link: "https://www.radiofrance.fr/franceinfo"
             title: "Franceinfo"
-            icon: "http://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/radiofrance/franceinfo_white.svg"
+            icon: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/radiofrance/franceinfo_white.svg"

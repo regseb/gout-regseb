@@ -8,4 +8,4 @@ module:
             color: "#5dffa6"
             link: "https://www.radiofrance.fr/mouv"
             title: "Mouv'"
-            icon: "http://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/radiofrance/radiofrance_white.svg"
+            icon: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/radiofrance/radiofrance_white.svg"

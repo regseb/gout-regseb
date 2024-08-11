@@ -2,9 +2,9 @@
 
 > Mots-clés : gout, gout-widget, gout-widget-radiofrance.
 
-Ce répertoire regroupe des widgets du groupe [**Radio
-France**](https://www.radiofrance.fr/). Pour ajouter un widget dans votre
-dashboard, insérez le code suivant (en remplaçant `{widget}` par le widget
+Ce répertoire regroupe des widgets du groupe
+[**Radio France**](https://www.radiofrance.fr/). Pour ajouter un widget dans
+votre dashboard, insérez le code suivant (en remplaçant `{widget}` par le widget
 voulu) :
 
 ```html
@@ -46,6 +46,26 @@ Les widgets suivants listent les dernières vidéos publiées sur YouTube.
 - Franceinfo :
   [`https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/radiofrance/franceinfo_youtube.yaml`](https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/radiofrance/franceinfo_youtube.yaml)
 
+## Replays des lives Twitch
+
+Les widgets suivants listent les dernières vidéos listées sur Twitch.
+
+- France Inter :
+  [`https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/radiofrance/franceinter_twitch.yaml`](https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/radiofrance/franceinter_twitch.yaml)
+- Franceinfo :
+  [`https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/radiofrance/franceinfo_twitch.yaml`](https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/radiofrance/franceinfo_twitch.yaml)
+- France Culture :
+  [`https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/radiofrance/franceculture_twitch.yaml`](https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/radiofrance/franceculture_twitch.yaml)
+
 ## Flux RSS
 
-TODO https://www.radiofrance.fr/rss
+- France Inter :
+  [`https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/radiofrance/franceinter_rss.yaml`](https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/radiofrance/franceinter_rss.yaml)
+- France Culture :
+  [`https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/radiofrance/franceculture_rss.yaml`](https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/radiofrance/franceculture_rss.yaml)
+- France Musique :
+  [`https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/radiofrance/francemusique_rss.yaml`](https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/radiofrance/francemusique_rss.yaml)
+- Fip :
+  [`https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/radiofrance/fip_rss.yaml`](https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/radiofrance/fip_rss.yaml)
+- Mouv' :
+  [`https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/radiofrance/mouv_rss.yaml`](https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/radiofrance/mouv_rss.yaml)

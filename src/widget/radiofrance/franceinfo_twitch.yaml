@@ -6,8 +6,8 @@ module:
     color: "#ffc300"
     icon: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/radiofrance/franceinfo_black.svg"
   scrapers:
-    - url: "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/list/rss/rss.js"
+    - url: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/list/twitch/twitch.js"
       options:
-        url: "https://www.youtube.com/feeds/videos.xml?channel_id=franceinfo"
+        channel: "franceinfo"
         complements:
           icon: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/radiofrance/franceinfo_white.svg"
