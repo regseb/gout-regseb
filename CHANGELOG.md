@@ -2,17 +2,19 @@
 
 ## [0.13.0](https://github.com/regseb/gout-regseb/compare/v0.12.0...v0.13.0) (2024-08-11)
 
-
 ### Features
 
-* Ajouter des widget pour Radio France. ([9ddbab0](https://github.com/regseb/gout-regseb/commit/9ddbab005a394046ae3f9fcc46397401f29a8c8e))
-* Ajouter des widgets pour Slate / Korii. ([094a19e](https://github.com/regseb/gout-regseb/commit/094a19e72b06ae047ee5a4b58d70aa6e21d9b619))
-* Ajouter un widget pour le blog de Laurel. ([66d4c77](https://github.com/regseb/gout-regseb/commit/66d4c77c21641398bf2746bf1fd477963050a502))
-
+- Ajouter des widget pour Radio France.
+  ([9ddbab0](https://github.com/regseb/gout-regseb/commit/9ddbab005a394046ae3f9fcc46397401f29a8c8e))
+- Ajouter des widgets pour Slate / Korii.
+  ([094a19e](https://github.com/regseb/gout-regseb/commit/094a19e72b06ae047ee5a4b58d70aa6e21d9b619))
+- Ajouter un widget pour le blog de Laurel.
+  ([66d4c77](https://github.com/regseb/gout-regseb/commit/66d4c77c21641398bf2746bf1fd477963050a502))
 
 ### Bug Fixes
 
-* Corriger les exemples. ([3eac6a0](https://github.com/regseb/gout-regseb/commit/3eac6a01479cbd4e357734cd8b39e645221f91f6))
+- Corriger les exemples.
+  ([3eac6a0](https://github.com/regseb/gout-regseb/commit/3eac6a01479cbd4e357734cd8b39e645221f91f6))
 
 ## [0.12.0](https://github.com/regseb/gout-regseb/compare/v0.11.0...v0.12.0) (2024-05-29)
 
