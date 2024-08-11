@@ -111,8 +111,8 @@ entre 200 et 400 euros.
   module:
     url: "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/list/list.js"
     options:
-      color: "#00bcd4"
       cron: "@hourly"
+      color: "#00bcd4"
     scrapers:
       - url: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/list/dealabs/dealabs.js"
         options:

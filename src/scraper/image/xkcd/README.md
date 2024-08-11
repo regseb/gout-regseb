@@ -60,7 +60,7 @@ Ce widget affiche les deux dernières planches.
   module:
     url: "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/image/image.js"
     options:
-      cron: "@daily",
+      cron: "@daily"
       max: 2
     scrapers:
       - url: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/image/xkcd/xkcd.js"

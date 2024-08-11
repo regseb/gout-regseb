@@ -65,8 +65,8 @@ Ce widget affiche éventuellement un lien vers le jeu offert.
   module:
     url: "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/single/single.js"
     options:
-      color: "#a343f4"
       cron: "0 0 * * *"
+      color: "#a343f4"
     scrapers:
       url: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/single/gog/giveaway.js"
 </script>

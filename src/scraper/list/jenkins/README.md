@@ -79,8 +79,8 @@ ainsi que le job Tomcat-7.x de la fondation
   module:
     url: "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/list/list.js"
     options:
-      color: "#9e9e9e"
       cron: "0 */4 * * *"
+      color: "#9e9e9e"
       empty:
         link: "https://builds.apache.org"
         title: "(Aucun job en erreur)"

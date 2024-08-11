@@ -30,6 +30,6 @@ changeant `{rss}` par l'URL du flux RSS.
   module:
     "$scrapers[0]":
       options":
-        url": "{rss}"
+        url: "{rss}"
 </script>
 ```

@@ -79,8 +79,8 @@ Humble Store.
   module:
     url: "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/list/list.js"
     options:
-      color: "#9e9e9e"
       cron: "@daily"
+      color: "#9e9e9e"
     scrapers:
       - url: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/list/isthereanydeal/isthereanydeal.js"
         options:

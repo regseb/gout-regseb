@@ -58,7 +58,7 @@ Ce widget affiche les trois dernières caricatures.
 
 ```html
 <script type="application/yaml">
-  module: {
+  module:
     url: "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/image/image.js"
     options:
       cron: "@daily"

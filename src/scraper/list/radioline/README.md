@@ -71,9 +71,9 @@ mondes](https://www.radioline.co/fr/podcasts/le_meilleur_des_mondes).
   module:
     url: "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/podcast/podcast.js"
     options:
-      color: "#a256b1"
       cron: "@daily"
       max: 2
+      color: "#a256b1"
     scrapers:
       - url: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/list/radioline/radioline.js"
         options:
