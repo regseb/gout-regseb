@@ -4,10 +4,8 @@ module:
     cron: "*/5 * * * *"
     max: 5
     color: "#947200"
-    icon: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/allocine/allocine_black.js"
+    icon: "https://cdn.simpleicons.org/allocine/0003"
   scrapers:
     - url: "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/list/rss/rss.js"
       options:
         url: "https://www.allocine.fr/rss/news.xml"
-        complements:
-          icon: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/allocine/allocine_white.js"

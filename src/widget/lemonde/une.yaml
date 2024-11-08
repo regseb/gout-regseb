@@ -4,10 +4,8 @@ module:
     cron: "*/5 * * * *"
     max: 5
     color: "#757778"
-    icon: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/lemonde/lemonde_black.svg"
+    icon: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/lemonde/lemonde_0003.svg"
   scrapers:
     - url: "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/list/rss/rss.js"
       options:
         url: "https://www.lemonde.fr/rss/une.xml"
-        complements:
-          icon: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/lemonde/lemonde_white.svg"

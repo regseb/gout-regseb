@@ -8,4 +8,4 @@ module:
             color: "#762b84"
             link: "https://www.radiofrance.fr/franceculture"
             title: "France Culture"
-            icon: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/radiofrance/radiofrance_white.svg"
+            icon: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/radiofrance/radiofrance_fff.svg"

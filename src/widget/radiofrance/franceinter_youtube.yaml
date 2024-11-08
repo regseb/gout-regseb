@@ -4,10 +4,8 @@ module:
     cron: "*/10 * * * *"
     max: 5
     color: "#e20134"
-    icon: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/radiofrance/franceinfo_black.svg"
+    icon: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/radiofrance/franceinfo_0003.svg"
   scrapers:
     - url: "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/list/rss/rss.js"
       options:
         url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCJldRgT_D7Am-ErRHQZ90uw"
-        complements:
-          icon: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/radiofrance/radiofrance_white.svg"

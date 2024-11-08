@@ -4,10 +4,8 @@ module:
     cron: "@hourly"
     max: 5
     color: "#762b84"
-    icon: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/radiofrance/radiofrance_black.svg"
+    icon: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/radiofrance/radiofrance_0003.svg"
   scrapers:
     - url: "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/list/rss/rss.js"
       options:
         url: "https://radiofrance.fr/franceculture/rss"
-        complements:
-          icon: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/radiofrance/radiofrance_white.svg"

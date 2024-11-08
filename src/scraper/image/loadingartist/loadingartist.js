@@ -26,7 +26,6 @@ const LoadingArtistScraper = class {
             .map((item) => ({
                 date: new Date(item.pubDate).getTime(),
                 guid: item.guid,
-                icon: import.meta.resolve("./img/loadingartist_white.svg"),
                 img: `${item.link}thumb.png`,
                 link: item.link,
                 title: item.title,

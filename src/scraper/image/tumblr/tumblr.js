@@ -31,7 +31,6 @@ const TumblrScraper = class {
             .map((post) => ({
                 date: post.timestamp * 1000,
                 guid: post.short_url,
-                icon: import.meta.resolve("./img/tumblr.svg"),
                 img: post.content[0].media[0].url,
                 link: post.post_url,
                 title: post.summary,

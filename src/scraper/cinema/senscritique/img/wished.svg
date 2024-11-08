@@ -1,8 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100">
-  <g transform="translate(11,0)" fill="white" opacity="1">
-    <path
-      d="M 66.857143,0 H 11.142857 C 5.014286,0 0.0557143,5 0.0557143,11.111111 L 0,100 39,83.333333 78,100 V 11.111111 C 78,5 72.985714,0 66.857143,0 Z"
-    />
-  </g>
+<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <path
+    d="M2.5 24V2.667q0-1.1.797-1.884Q4.095 0 5.214 0h13.572q1.12 0 1.917.783.797.784.797 1.884V24L12 20Z"
+    fill="#fff"
+  />
 </svg>

@@ -24,7 +24,6 @@ const MalikiScraper = class {
         return Array.from(doc.querySelectorAll(selector), (a) => ({
             date: new Date(a.querySelector("time").dateTime).getTime(),
             guid: a.href,
-            icon: import.meta.resolve("./img/maliki_white.svg"),
             img: a.querySelector("img").src,
             link: a.href,
             title: a.querySelector("h3").textContent,

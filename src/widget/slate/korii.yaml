@@ -4,10 +4,8 @@ module:
     cron: "*/10 * * * *"
     max: 5
     color: "#947200"
-    icon: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/slate/korii_black.svg"
+    icon: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/slate/korii_0003.svg"
   scrapers:
     - url: "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/list/rss/rss.js"
       options:
         url: "https://korii.slate.fr/rss.xml"
-        complements:
-          icon: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/slate/korii_white.svg"
