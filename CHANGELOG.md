@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.14.0](https://github.com/regseb/gout-regseb/compare/v0.13.0...v0.14.0) (2024-11-09)
+
+
+### Features
+
+* **openweathermap:** Ajouter l'option max. ([a9a7d40](https://github.com/regseb/gout-regseb/commit/a9a7d4018be125e5a68da456736e937a23614be0))
+* Simplifier les images SVG. ([35e4f99](https://github.com/regseb/gout-regseb/commit/35e4f995db08d04a79cb392963400055a02e0faa))
+
+
+### Bug Fixes
+
+* **twitch:** Utiliser l'API de Twitch. ([255f333](https://github.com/regseb/gout-regseb/commit/255f333d7a9a554265b7bb167be9aaf8840990a0))
+
 ## [0.13.0](https://github.com/regseb/gout-regseb/compare/v0.12.0...v0.13.0) (2024-08-11)
 
 ### Features
