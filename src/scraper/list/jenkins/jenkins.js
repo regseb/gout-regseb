@@ -24,7 +24,7 @@ const JenkinsScraper = class {
             "/api/json?tree=jobs[name,url,displayName," +
             "lastBuild[number,result]," +
             "modules[name,url,displayName,lastBuild[number,result]]]";
-        const response = await fetch(url);
+        const response = await fetch(url, { credentials: "include" });
         const json = await response.json();
         const items = [];
         for (const job of json.jobs) {

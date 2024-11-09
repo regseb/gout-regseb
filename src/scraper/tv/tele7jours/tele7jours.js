@@ -59,7 +59,7 @@ const Tele7JoursScraper = class {
                     item.titre.getAttribute("href");
 
                 const category = item.categorie.textContent;
-                let type = /[^/]+/u.exec(
+                let type = /[^\/]+/v.exec(
                     item.categorie.getAttribute("href"),
                 )[0];
                 switch (type) {

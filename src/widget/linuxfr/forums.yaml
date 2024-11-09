@@ -2,4 +2,4 @@
 module:
   "$scrapers[0]":
     options:
-      url": "https://linuxfr.org/forums.atom"
+      url: "https://linuxfr.org/forums.atom"

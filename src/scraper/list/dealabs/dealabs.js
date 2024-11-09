@@ -61,7 +61,7 @@ const getToken = async function () {
 };
 
 const extractDate = function (ago) {
-    let result = /(?<hours>\d{1,2}) h et (?<minutes>\d{1,2}) min$/u.exec(ago);
+    let result = /(?<hours>\d{1,2}) h et (?<minutes>\d{1,2}) min$/v.exec(ago);
     if (null !== result) {
         return (
             Date.now() -
@@ -70,12 +70,12 @@ const extractDate = function (ago) {
         );
     }
 
-    result = /(?<minutes>\d{1,2}) min$/u.exec(ago);
+    result = /(?<minutes>\d{1,2}) min$/v.exec(ago);
     if (null !== result) {
         return Date.now() - 60_000 * Number(result.groups.minutes);
     }
 
-    result = /(?<date>\d{1,2}) (?<month>[a-z]+)$/u.exec(ago);
+    result = /(?<date>\d{1,2}) (?<month>[a-z]+)$/v.exec(ago);
     if (null !== result) {
         const now = new Date();
         const date = Number(result.groups.date);

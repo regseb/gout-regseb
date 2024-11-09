@@ -65,11 +65,12 @@ l'agrégateur d'Internet **[Gout](https://github.com/regseb/gout)**.
 
 ### Widgets
 
-- [_allocine_](src/widget/allocine#readme) :
-- [_bloglaurel_](src/widget/bloglaurel#readme) :
-- [_lemonde_](src/widget/lemonde#readme) :
-- [_linuxfr_](src/widget/linuxfr#readme) :
-- [_radiofrance_](src/widget/radiofrance#readme) :
+- [_allocine_](src/widget/allocine#readme)
+- [_bloglaurel_](src/widget/bloglaurel#readme)
+- [_lemonde_](src/widget/lemonde#readme)
+- [_linuxfr_](src/widget/linuxfr#readme)
+- [_radiofrance_](src/widget/radiofrance#readme)
+- [_slate_](src/widget/slate#readme)
 
 [img-build]:
   https://img.shields.io/github/actions/workflow/status/regseb/gout-regseb/ci.yml?branch=main&logo=github&logoColor=whitesmoke

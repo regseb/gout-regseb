@@ -1,5 +1,8 @@
 # Scraper _single/articleauhasard_
 
+> Mots-clés : gout, gout-scraper, gout-scraper-single-articleauhasard,
+> gout-module-single.
+
 Ce scraper donne un lien vers un article au hasard de
 [**Wikipédia**](https://fr.wikipedia.org/).
 

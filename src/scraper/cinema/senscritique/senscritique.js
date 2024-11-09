@@ -44,7 +44,7 @@ const simplify = function (value) {
     return value
         ?.normalize("NFKD")
         .toLowerCase()
-        .replaceAll(/[^a-z]+/gu, "");
+        .replaceAll(/[^a-z]+/gv, "");
 };
 
 const compare = function (first, second) {
@@ -60,7 +60,7 @@ const SensCritiqueScraper = class {
     #user;
 
     /**
-     * Des scrapers du module <em>cinema</em>.
+     * Des scrapers du module _cinema_.
      *
      * @type {Object[]}
      */

@@ -2,7 +2,7 @@
 
 > Mots-clés : gout, gout-module, gout-module-tv.
 
-Ce module donne le **programme télévisé**.
+Ce module donne le **programme télévisé** du soir.
 
 ## Options
 
@@ -47,7 +47,7 @@ suivantes :
              faux-positifs avec les expressions cron.
              https://github.com/DavidAnson/markdownlint/issues/427 -->
         <!-- markdownlint-disable-next-line no-space-in-emphasis -->
-        Exemple : <code>"0 18 * * *"</code>
+        Exemple : <a href="https://crontab.guru/#0_18_*_*_*"><code>"0 18 * * *"</code></a>
       </p>
     </td>
   </tr>
@@ -85,8 +85,8 @@ suivantes :
     <td><code>number</code></td>
     <td>
       <p>
-        Le nombre maximum d'éléments affichés dans le module. Sans maximum, tous
-        les chaines retournés par les scrapers sont affichés.
+        Le nombre maximum d'éléments affichés dans le module. Sans maximum,
+        toutes les chaines retournées par les scrapers sont affichées.
       </p>
       <p>
         Exemple : <code>5</code>

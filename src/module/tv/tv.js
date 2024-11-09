@@ -138,10 +138,10 @@ export default class TVModule extends HTMLElement {
         }
     }
 
-    #wake() {
+    async #wake() {
         if (!this.#cron.active) {
             this.#cron.start();
-            this.#update();
+            await this.#update();
         }
     }
 
@@ -175,6 +175,6 @@ export default class TVModule extends HTMLElement {
             this.#update.bind(this),
         );
         document.addEventListener("visibilitychange", this.#wake.bind(this));
-        this.#update(true);
+        await this.#update(true);
     }
 }

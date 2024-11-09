@@ -1,4 +1,4 @@
-# Widgets du Monde
+# Widgets de Le Monde
 
 > Mots-clés : gout, gout-widget, gout-widget-lemonde.
 
@@ -25,10 +25,10 @@ changeant `{rss}` par l'URL du flux RSS.
 
 ```html
 <script type="application/yaml">
-  "$extend": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/lemonde/une.json"
+  "$extend": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/lemonde/une.yaml"
   module:
     "$scrapers[0]":
-      options":
+      options:
         url: "{rss}"
 </script>
 ```

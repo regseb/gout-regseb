@@ -10,8 +10,8 @@ import chain from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/utils/scraper/c
 
 const DATE_REGEXP = new RegExp(
     String.raw`(?<year>\d{4})(?<month>\d{2})(?<day>\d{2})` +
-        String.raw`(?<hours>\d{2})(?<minutes>\d{2})(?<seconds>\d{2})-[^-]+$`,
-    "u",
+        String.raw`(?<hours>\d{2})(?<minutes>\d{2})(?<seconds>\d{2})-[^\-]+$`,
+    "v",
 );
 
 const RadiolineScraper = class {

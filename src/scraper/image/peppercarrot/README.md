@@ -68,70 +68,83 @@ suivantes :
 Les codes des languages disponibles sont :
 
 <!--
+// https://www.peppercarrot.com/
 console.log(Array.from(document.querySelectorAll(".langmenu a"))
                  .map((a) => {
     return `- ${a.title.slice(0, a.title.indexOf(" ("))} : ` +
-           `\`"${a.href.slice(29, -1)}"\` ;`;
+           `\`"${a.href.slice(29, -1)}"\``;
 }).join("\n"));
 -->
 
-- العربية : `"ar"` ;
-- বাংলা : `"bn"` ;
-- Brezhoneg : `"br"` ;
-- Català : `"ca"` ;
-- 中文 : `"cn"` ;
-- Čeština : `"cs"` ;
-- Dansk : `"da"` ;
-- Deutsch : `"de"` ;
-- Ελληνικά : `"el"` ;
-- English : `"en"` ;
-- Esperanto : `"eo"` ;
-- Español : `"es"` ;
-- فارسی : `"fa"` ;
-- Suomi : `"fi"` ;
-- Français : `"fr"` ;
-- Globasa : `"gb"` ;
-- Gàidhlig : `"gd"` ;
-- Galo : `"go"` ;
-- עברית : `"he"` ;
-- हिन्दी : `"hi"` ;
-- Magyar : `"hu"` ;
-- Bahasa Indonesia : `"id"` ;
-- Interlingue : `"ie"` ;
-- Ido : `"io"` ;
-- Italiano : `"it"` ;
-- 日本語 : `"ja"` ;
-- la .lojban. : `"jb"` ;
-- Lojban : `"jz"` ;
-- 한국어 : `"kr"` ;
-- Kotava : `"kt"` ;
-- Kernewek : `"kw"` ;
-- Latina : `"la"` ;
-- മലയാളം : `"ml"` ;
-- Bahasa Melayu : `"ms"` ;
-- Español mexicano : `"mx"` ;
-- Nederlands : `"nl"` ;
-- Normaund : `"nm"` ;
-- Norsk : `"nn"` ;
-- Norsk : `"no"` ;
-- Plattdüütsch : `"ns"` ;
-- Filipino : `"ph"` ;
-- Polski : `"pl"` ;
-- Português : `"pt"` ;
-- Română : `"ro"` ;
-- Русский : `"ru"` ;
-- Sambahsa : `"sb"` ;
-- සිංහල : `"si"` ;
-- Slovenčina : `"sk"` ;
-- Slovenščina : `"sl"` ;
-- sitelen-pona : `"sp"` ;
-- Српски : `"sr"` ;
-- Svenska : `"sv"` ;
-- Ślůnski : `"sz"` ;
-- toki pona : `"tp"` ;
-- Türkçe : `"tr"` ;
-- Українська : `"uk"` ;
-- Tiếng Việt : `"vi"`.
+- <span dir="rtl">العربية</span> : `"ar"` ;
+- Asturianu : `"at"`
+- বাংলা : `"bn"`
+- Brezhoneg : `"br"`
+- Català : `"ca"`
+- 中文 : `"cn"`
+- Čeština : `"cs"`
+- Dansk : `"da"`
+- Deutsch : `"de"`
+- Ελληνικά : `"el"`
+- English : `"en"`
+- Esperanto : `"eo"`
+- Español : `"es"`
+- <span dir="rtl">فارسی</span> : `"fa"` ;
+- Suomi : `"fi"`
+- Français : `"fr"`
+- Occitan gascon : `"ga"`
+- Globasa : `"gb"`
+- Gàidhlig : `"gd"`
+- Galego : `"gl"`
+- Galo : `"go"`
+- <span dir="rtl">עברית</span> : `"he"` ;
+- हिन्दी : `"hi"`
+- Magyar : `"hu"`
+- Bahasa Indonesia : `"id"`
+- Interlingue : `"ie"`
+- Ido : `"io"`
+- Italiano : `"it"`
+- 日本語 : `"ja"`
+- la .lojban. : `"jb"`
+- Lojban : `"jz"`
+- 韓國語 : `"kh"`
+- 한국어 : `"kr"`
+- Kotava : `"kt"`
+- Kernewek : `"kw"`
+- Latina : `"la"`
+- Láadan : `"ld"`
+- Lingua Franca Nova : `"lf"`
+- Español Latino : `"ls"`
+- Lietuvių : `"lt"`
+- മലയാളം : `"ml"`
+- Bahasa Melayu : `"ms"`
+- Español mexicano : `"mx"`
+- Nederlands : `"nl"`
+- Normaund : `"nm"`
+- Norsk : `"nn"`
+- Norsk : `"no"`
+- Plattdüütsch : `"ns"`
+- Occitan lengadocian : `"oc"`
+- Filipino : `"ph"`
+- Polski : `"pl"`
+- Português : `"pt"`
+- Kréol Rényoné : `"rc"`
+- Română : `"ro"`
+- Русский : `"ru"`
+- Sambahsa : `"sb"`
+- සිංහල : `"si"`
+- Slovenčina : `"sk"`
+- Slovenščina : `"sl"`
+- sitelen-pona : `"sp"`
+- Српски : `"sr"`
+- basa Sunda : `"su"`
+- Svenska : `"sv"`
+- Ślůnski : `"sz"`
+- தமிழ் : `"ta"`
+- toki pona : `"tp"`
+- Türkçe : `"tr"`
+- Українська : `"uk"`
+- Tiếng Việt : `"vi"`
 
 ## Exemple
 

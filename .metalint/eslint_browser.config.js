@@ -3,12 +3,20 @@
  * @author Sébastien Règne
  */
 
+import globals from "globals";
+
 /**
- * @type {import("eslint").Linter.Config}
+ * @import { Linter } from "eslint"
+ */
+
+/**
+ * @type {Linter.Config}
  */
 export default {
-    env: {
-        browser: true,
+    languageOptions: {
+        globals: {
+            ...globals.browser,
+        },
     },
 
     rules: {
@@ -17,10 +25,17 @@ export default {
         "import/no-unresolved": [
             "error",
             {
+                // Utiliser des chaines de caractères, car les expressions
+                // rationnelles ne sont pas supportées.
+                // https://github.com/import-js/eslint-plugin-import/issues/3087
+                // Ne pas utiliser le drapeau "v", car la RegExp est créée sans
+                // drapeau (dans le eslint-plugin-import).
+                /* eslint-disable require-unicode-regexp */
                 ignore: [
-                    String.raw`^https://esm\.sh/`,
-                    String.raw`^https://cdn\.jsdelivr\.net/`,
+                    /^https:\/\/esm\.sh\//.source,
+                    /^https:\/\/cdn\.jsdelivr\.net\//.source,
                 ],
+                /* eslint-enable require-unicode-regexp */
                 caseSensitiveStrict: true,
             },
         ],

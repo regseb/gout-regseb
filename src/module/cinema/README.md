@@ -47,7 +47,7 @@ suivantes :
              faux-positifs avec les expressions cron.
              https://github.com/DavidAnson/markdownlint/issues/427 -->
         <!-- markdownlint-disable-next-line no-space-in-emphasis -->
-        Exemple : <code>"0 0 * * 5-7"</code>
+        Exemple : <a href="https://crontab.guru/#0_0_*_*_5-7"><code>"0 0 * * 5-7"</code></a>
       </p>
     </td>
   </tr>

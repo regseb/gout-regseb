@@ -50,12 +50,6 @@ export default {
         {
             patterns: "*.html",
             linters: ["prettier", "htmlhint"],
-            overrides: [
-                {
-                    patterns: "/template/dashboard/**",
-                    linters: "htmlhint_dashboard",
-                },
-            ],
         },
         {
             patterns: "*.tpl",

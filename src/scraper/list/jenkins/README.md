@@ -48,7 +48,7 @@ propriétés suivantes :
         <a href="https://github.com/regseb/gout/tree/HEAD/src/scraper/tools/complements#readme"><em>tools/complements</em></a>.
       </p>
       <p>
-        Exemple : <code>{ "target": "_top" }</code>
+        Exemple : <code>"target": "_top"</code>
       </p>
     </td>
   </tr>

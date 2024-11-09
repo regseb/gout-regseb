@@ -3,11 +3,10 @@
 > Mots-clés : gout, gout-scraper, gout-scraper-cinema-senscritique,
 > gout-module-cinema.
 
-Ce scraper retourne les séances du jour de cinémas en ajoutant des statuts issus
+Ce scraper retourne les séances du jour de cinéma en ajoutant des statuts issus
 de [**SensCritique**](https://www.senscritique.com/).
 
-Il peut être utilisé avec le module
-[_cinema_](https://github.com/regseb/gout-regseb/tree/HEAD/src/module/cinema#readme).
+Il peut être utilisé avec le module [_cinema_](../../../module/cinema#readme).
 Et il prend d'autres scrapers, compatibles avec le module _cinema_, en
 dépendance.
 
@@ -69,8 +68,8 @@ suivantes :
 ## Scrapers
 
 Ce scraper doit avoir d'autres scrapers en dépendance pour récupérer les
-séances. Les sous-scrapers sont des scrapers combatibles avec le module
-[_cinema_](https://github.com/regseb/gout-regseb/tree/HEAD/src/module/cinema#readme).
+séances. Les sous-scrapers sont des scrapers compatibles avec le module
+[_cinema_](../../../module/cinema#readme).
 
 ## Exemple
 

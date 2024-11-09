@@ -2,4 +2,4 @@
 module:
   "$scrapers[0]":
     options:
-      url": "https://www.allocine.fr/rss/news-cine.xml"
+      url: "https://www.allocine.fr/rss/news-cine.xml"
