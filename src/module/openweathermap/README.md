@@ -76,6 +76,19 @@ suivantes :
     </td>
   </tr>
   <tr>
+    <td><code>max</code></td>
+    <td><code>number</code></td>
+    <td>
+      <p>
+        Le nombre maximum d'éléments (météo du jour et prévisions) affichés dans
+        le module. Par défaut, seule la météo du jour est affichée.
+      </p>
+      <p>
+        Exemple : <code>3</code>
+      </p>
+    </td>
+  </tr>
+  <tr>
     <td><code>title</code></td>
     <td><code>string</code></td>
     <td>
