@@ -16,36 +16,38 @@ const TwitchScraper = class {
     }
 
     async extract(max = Number.MAX_SAFE_INTEGER) {
-        const response = await fetch(
-            `https://m.twitch.tv/${this.#channel}/videos?filter=all`,
-        );
-        const text = await response.text();
-        const doc = new DOMParser().parseFromString(text, "text/html");
+        const response = await fetch("https://gql.twitch.tv/gql", {
+            method: "POST",
+            headers: { "Client-Id": "kimne78kx3ncx6brgo4mv6wki5h1ko" },
+            body: JSON.stringify([
+                {
+                    operationName: "FilterableVideoTower_Videos",
+                    variables: {
+                        limit: Math.min(max, 100),
+                        channelOwnerLogin: this.#channel,
+                        videoSort: "TIME",
+                    },
+                    extensions: {
+                        persistedQuery: {
+                            sha256Hash:
+                                "acea7539a293dfd30f0b0b81a263134bb5d9a7175592" +
+                                "e14ac3f7c77b192de416",
+                        },
+                    },
+                },
+            ]),
+        });
 
-        return Array.from(
-            doc.querySelectorAll('script[type="application/ld+json"]'),
-        )
-            .flatMap((s) =>
-                // prettier-ignore
-                JSON.parse(s.text)["@graph"]
-                    .filter((p) => "ItemList" === p["@type"])
-                    .flatMap((p) =>
-                        p.itemListElement
-                            .filter((i) =>
-                                i.url.startsWith(
-                                    "https://www.twitch.tv/videos/",
-                                ),
-                            )
-                            .map((i) => ({
-                                date: new Date(i.uploadDate).getTime(),
-                                guid: i.url,
-                                img: i.thumbnailUrl.at(-1),
-                                link: i.url,
-                                title: i.name,
-                            })),
-                    ),
-            )
-            .slice(0, max);
+        const json = await response.json();
+        return json[0].data.user.videos.edges
+            .map((e) => e.node)
+            .map((n) => ({
+                date: new Date(n.publishedAt).getTime(),
+                guid: `https://www.twitch.tv/videos/${n.id}`,
+                img: n.previewThumbnailURL,
+                link: `https://www.twitch.tv/videos/${n.id}`,
+                title: n.title,
+            }));
     }
 };
 
