@@ -1,7 +1,10 @@
 # Scraper _tv/tele7jours_
 
-> Mots-clés : gout, gout-scraper, gout-regseb-scraper-tv-tele7jours,
-> gout-regseb-module-tv
+> Mots-clés :
+> [_gout_](https://github.com/search?q=_gout_+language%3AMarkdown&type=Code&l=Markdown),
+> [_gout-scraper_](https://github.com/search?q=_gout-scraper_+language%3AMarkdown&type=Code&l=Markdown),
+> [_gout-scraper-tv-tele7jours_](https://github.com/search?q=_gout-scraper-tv-tele7jours_+language%3AMarkdown&type=Code&l=Markdown),
+> [_gout-module-tv_](https://github.com/search?q=_gout-module-tv_+language%3AMarkdown&type=Code&l=Markdown).
 
 Ce scraper donne le programme télévisé du soir par
 [**Télé 7 Jours**](https://www.programme-television.org/).

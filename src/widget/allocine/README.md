@@ -1,6 +1,9 @@
 # Widgets de AlloCiné
 
-> Mots-clés : gout, gout-widget, gout-widget-allocine.
+> Mots-clés :
+> [_gout_](https://github.com/search?q=_gout_+language%3AMarkdown&type=Code&l=Markdown),
+> [_gout-widget_](https://github.com/search?q=_gout-widget_+language%3AMarkdown&type=Code&l=Markdown),
+> [_gout-widget-allocine_](https://github.com/search?q=_gout-widget-allocine_+language%3AMarkdown&type=Code&l=Markdown).
 
 Ce répertoire regroupe des widgets pour les flux RSS du site
 [**AlloCiné**](https://www.allocine.fr/). Pour ajouter un widget dans votre

@@ -1,6 +1,10 @@
 # Scraper _list/jenkins_
 
-> Mots-clés : gout, gout-scraper, gout-scraper-list-jenkins, gout-module-list.
+> Mots-clés :
+> [_gout_](https://github.com/search?q=_gout_+language%3AMarkdown&type=Code&l=Markdown),
+> [_gout-scraper_](https://github.com/search?q=_gout-scraper_+language%3AMarkdown&type=Code&l=Markdown),
+> [_gout-scraper-list-jenkins_](https://github.com/search?q=_gout-scraper-list-jenkins_+language%3AMarkdown&type=Code&l=Markdown),
+> [_gout-module-list_](https://github.com/search?q=_gout-module-list_+language%3AMarkdown&type=Code&l=Markdown).
 
 Ce scraper récupère les jobs et les modules **Jenkins** en erreur.
 

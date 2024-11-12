@@ -1,6 +1,10 @@
 # Scraper _cinema/pathe_
 
-> Mots-clés : gout, gout-scraper, gout-scraper-cinema-pathe, gout-module-cinema.
+> Mots-clés :
+> [_gout_](https://github.com/search?q=_gout_+language%3AMarkdown&type=Code&l=Markdown),
+> [_gout-scraper_](https://github.com/search?q=_gout-scraper_+language%3AMarkdown&type=Code&l=Markdown),
+> [_gout-scraper-cinema-pathe_](https://github.com/search?q=_gout-scraper-cinema-pathe_+language%3AMarkdown&type=Code&l=Markdown),
+> [_gout-module-cinema_](https://github.com/search?q=_gout-module-cinema_+language%3AMarkdown&type=Code&l=Markdown).
 
 Ce scraper retourne les séances du jour d'un cinéma
 [**Pathé**](https://www.pathe.fr/).

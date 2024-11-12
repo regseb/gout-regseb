@@ -1,6 +1,9 @@
 # Widgets de Slate
 
-> Mots-clés : gout, gout-widget, gout-widget-slate.
+> Mots-clés :
+> [_gout_](https://github.com/search?q=_gout_+language%3AMarkdown&type=Code&l=Markdown),
+> [_gout-widget_](https://github.com/search?q=_gout-widget_+language%3AMarkdown&type=Code&l=Markdown),
+> [_gout-widget-slate_](https://github.com/search?q=_gout-widget-slate_+language%3AMarkdown&type=Code&l=Markdown).
 
 Ce répertoire regroupe des widgets pour les flux RSS des sites
 [**Slate**](https://www.slate.fr/) et [**korii**](https://korii.slate.fr/). Pour

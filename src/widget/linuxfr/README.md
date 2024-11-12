@@ -1,6 +1,9 @@
 # Widgets de LinuxFr.org
 
-> Mots-clés : gout, gout-widget, gout-widget-linuxfr.
+> Mots-clés :
+> [_gout_](https://github.com/search?q=_gout_+language%3AMarkdown&type=Code&l=Markdown),
+> [_gout-widget_](https://github.com/search?q=_gout-widget_+language%3AMarkdown&type=Code&l=Markdown),
+> [_gout-widget-linuxfr_](https://github.com/search?q=_gout-widget-linuxfr_+language%3AMarkdown&type=Code&l=Markdown).
 
 Ce répertoire regroupe des widgets pour les flux RSS du site
 [**LinuxFr.org**](https://linuxfr.org/). Pour ajouter un widget dans votre

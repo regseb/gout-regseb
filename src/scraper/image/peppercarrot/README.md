@@ -1,7 +1,10 @@
 # Scraper _image/peppercarrot_
 
-> Mots-clés : gout, gout-scraper, gout-scraper-image-peppercarrot,
-> gout-module-image.
+> Mots-clés :
+> [_gout_](https://github.com/search?q=_gout_+language%3AMarkdown&type=Code&l=Markdown),
+> [_gout-scraper_](https://github.com/search?q=_gout-scraper_+language%3AMarkdown&type=Code&l=Markdown),
+> [_gout-scraper-image-peppercarrot_](https://github.com/search?q=_gout-scraper-image-peppercarrot_+language%3AMarkdown&type=Code&l=Markdown),
+> [_gout-module-image_](https://github.com/search?q=_gout-module-image_+language%3AMarkdown&type=Code&l=Markdown).
 
 Ce scraper récupère la liste des derniers épisodes publiés sur le site
 [**Pepper&Carrot**](https://www.peppercarrot.com/).

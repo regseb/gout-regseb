@@ -1,6 +1,9 @@
 # Widgets de Radio France
 
-> Mots-clés : gout, gout-widget, gout-widget-radiofrance.
+> Mots-clés :
+> [_gout_](https://github.com/search?q=_gout_+language%3AMarkdown&type=Code&l=Markdown),
+> [_gout-widget_](https://github.com/search?q=_gout-widget_+language%3AMarkdown&type=Code&l=Markdown),
+> [_gout-widget-radiofrance_](https://github.com/search?q=_gout-widget-radiofrance_+language%3AMarkdown&type=Code&l=Markdown).
 
 Ce répertoire regroupe des widgets du groupe
 [**Radio France**](https://www.radiofrance.fr/). Pour ajouter un widget dans

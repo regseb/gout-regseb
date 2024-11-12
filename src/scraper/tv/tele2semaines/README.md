@@ -1,7 +1,10 @@
 # Scraper _tv/tele2semaines_
 
-> Mots-clés : gout, gout-scraper, gout-regseb-scraper-tv-tele2semaines,
-> gout-regseb-module-tv
+> Mots-clés :
+> [_gout_](https://github.com/search?q=_gout_+language%3AMarkdown&type=Code&l=Markdown),
+> [_gout-scraper_](https://github.com/search?q=_gout-scraper_+language%3AMarkdown&type=Code&l=Markdown),
+> [_gout-scraper-tv-tele2semaines_](https://github.com/search?q=_gout-scraper-tv-tele2semaines_+language%3AMarkdown&type=Code&l=Markdown),
+> [_gout-module-tv_](https://github.com/search?q=_gout-module-tv_+language%3AMarkdown&type=Code&l=Markdown).
 
 Ce scraper donne le programme télévisé du soir par
 [**Télé 2 Semaines**](https://www.programme.tv/).

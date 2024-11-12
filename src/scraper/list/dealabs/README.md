@@ -1,6 +1,10 @@
 # Scraper _list/dealabs_
 
-> Mots-clés : gout, gout-scraper, gout-scraper-list-dealabs, gout-module-list.
+> Mots-clés :
+> [_gout_](https://github.com/search?q=_gout_+language%3AMarkdown&type=Code&l=Markdown),
+> [_gout-scraper_](https://github.com/search?q=_gout-scraper_+language%3AMarkdown&type=Code&l=Markdown),
+> [_gout-scraper-list-dealabs_](https://github.com/search?q=_gout-scraper-list-dealabs_+language%3AMarkdown&type=Code&l=Markdown),
+> [_gout-module-list_](https://github.com/search?q=_gout-module-list_+language%3AMarkdown&type=Code&l=Markdown).
 
 Ce scraper récupère la liste des derniers deals postés sur
 [**Dealabs**](https://www.dealabs.com/) selon des filtres.

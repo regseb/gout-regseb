@@ -1,7 +1,10 @@
 # Scraper _cinema/senscritique_
 
-> Mots-clés : gout, gout-scraper, gout-scraper-cinema-senscritique,
-> gout-module-cinema.
+> Mots-clés :
+> [_gout_](https://github.com/search?q=_gout_+language%3AMarkdown&type=Code&l=Markdown),
+> [_gout-scraper_](https://github.com/search?q=_gout-scraper_+language%3AMarkdown&type=Code&l=Markdown),
+> [_gout-scraper-cinema-senscritique_](https://github.com/search?q=_gout-scraper-cinema-senscritique_+language%3AMarkdown&type=Code&l=Markdown),
+> [_gout-module-cinema_](https://github.com/search?q=_gout-module-cinema_+language%3AMarkdown&type=Code&l=Markdown).
 
 Ce scraper retourne les séances du jour de cinéma en ajoutant des statuts issus
 de [**SensCritique**](https://www.senscritique.com/).

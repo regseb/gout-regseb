@@ -1,7 +1,10 @@
 # Scraper _single/articleauhasard_
 
-> Mots-clés : gout, gout-scraper, gout-scraper-single-articleauhasard,
-> gout-module-single.
+> Mots-clés :
+> [_gout_](https://github.com/search?q=_gout_+language%3AMarkdown&type=Code&l=Markdown),
+> [_gout-scraper_](https://github.com/search?q=_gout-scraper_+language%3AMarkdown&type=Code&l=Markdown),
+> [_gout-scraper-single-articleauhasard_](https://github.com/search?q=_gout-scraper-single-articleauhasard_+language%3AMarkdown&type=Code&l=Markdown),
+> [_gout-module-single_](https://github.com/search?q=_gout-module-single_+language%3AMarkdown&type=Code&l=Markdown).
 
 Ce scraper donne un lien vers un article au hasard de
 [**Wikipédia**](https://fr.wikipedia.org/).

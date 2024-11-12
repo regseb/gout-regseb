@@ -1,6 +1,10 @@
 # Scraper _image/xkcd_
 
-> Mots-clés : gout, gout-scraper, gout-scraper-image-xkcd, gout-module-image.
+> Mots-clés :
+> [_gout_](https://github.com/search?q=_gout_+language%3AMarkdown&type=Code&l=Markdown),
+> [_gout-scraper_](https://github.com/search?q=_gout-scraper_+language%3AMarkdown&type=Code&l=Markdown),
+> [_gout-scraper-image-xkcd_](https://github.com/search?q=_gout-scraper-image-xkcd_+language%3AMarkdown&type=Code&l=Markdown),
+> [_gout-module-image_](https://github.com/search?q=_gout-module-image_+language%3AMarkdown&type=Code&l=Markdown).
 
 Ce scraper récupère la liste des derniers dessins publiés sur le site
 [**xkcd**](https://xkcd.com/).

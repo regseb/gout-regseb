@@ -1,6 +1,9 @@
 # Widgets de Le Monde
 
-> Mots-clés : gout, gout-widget, gout-widget-lemonde.
+> Mots-clés :
+> [_gout_](https://github.com/search?q=_gout_+language%3AMarkdown&type=Code&l=Markdown),
+> [_gout-widget_](https://github.com/search?q=_gout-widget_+language%3AMarkdown&type=Code&l=Markdown),
+> [_gout-widget-lemonde_](https://github.com/search?q=_gout-widget-lemonde_+language%3AMarkdown&type=Code&l=Markdown).
 
 Ce répertoire regroupe des widgets pour les flux RSS du site
 [**Le Monde**](https://www.lemonde.fr/). Pour ajouter un widget dans votre

@@ -1,6 +1,9 @@
 # Module _openweathermap_
 
-> Mots-clés : gout, gout-module, gout-module-openweathermap.
+> Mots-clés :
+> [_gout_](https://github.com/search?q=_gout_+language%3AMarkdown&type=Code&l=Markdown),
+> [_gout-module_](https://github.com/search?q=_gout-module_+language%3AMarkdown&type=Code&l=Markdown),
+> [_gout-module-openweathermap_](https://github.com/search?q=_gout-module-openweathermap_+language%3AMarkdown&type=Code&l=Markdown).
 
 Ce module affiche la météo d'une ville. Les prévisions sont récupérées du
 service [**OpenWeatherMap**](https://openweathermap.org/).

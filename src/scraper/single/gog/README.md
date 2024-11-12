@@ -1,7 +1,10 @@
 # Scraper _single/gog_
 
-> Mots-clés : gout, gout-scraper, gout-scraper-single-gog, gout-module-list,
-> gout-module-single.
+> Mots-clés :
+> [_gout_](https://github.com/search?q=_gout_+language%3AMarkdown&type=Code&l=Markdown),
+> [_gout-scraper_](https://github.com/search?q=_gout-scraper_+language%3AMarkdown&type=Code&l=Markdown),
+> [_gout-scraper-single-gog_](https://github.com/search?q=_gout-scraper-single-gog_+language%3AMarkdown&type=Code&l=Markdown),
+> [_gout-module-single_](https://github.com/search?q=_gout-module-single_+language%3AMarkdown&type=Code&l=Markdown).
 
 Quand un jeu vidéo est offert sur [GOG.com](https://www.gog.com/), ce scraper
 retourne le lien vers le jeu.

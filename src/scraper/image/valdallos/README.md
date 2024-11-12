@@ -1,7 +1,10 @@
 # Scraper _image/valdallos_
 
-> Mots-clés : gout, gout-scraper, gout-scraper-image-valdallos,
-> gout-module-image.
+> Mots-clés :
+> [_gout_](https://github.com/search?q=_gout_+language%3AMarkdown&type=Code&l=Markdown),
+> [_gout-scraper_](https://github.com/search?q=_gout-scraper_+language%3AMarkdown&type=Code&l=Markdown),
+> [_gout-scraper-image-valdallos_](https://github.com/search?q=_gout-scraper-image-valdallos_+language%3AMarkdown&type=Code&l=Markdown),
+> [_gout-module-image_](https://github.com/search?q=_gout-module-image_+language%3AMarkdown&type=Code&l=Markdown).
 
 Ce scraper récupère les webcams du
 [**Val d'Allos**](https://www.valdallos.com/webcams.html).
