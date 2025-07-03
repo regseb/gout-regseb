@@ -1,11 +1,11 @@
 module:
-  url: "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/list/list.js"
+  url: https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/list/list.js
   options:
     cron: "*/5 * * * *"
     max: 5
     color: "#b95270"
-    icon: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/slate/slate_0003.svg"
+    icon: https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/slate/slate_0003.svg
   scrapers:
-    - url: "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/list/rss/rss.js"
+    - url: https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/list/rss/rss.js
       options:
-        url: "https://www.slate.fr/rss.xml"
+        url: https://www.slate.fr/rss.xml
