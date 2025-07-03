@@ -1,7 +1,9 @@
 ul {
+    background-color: var(--color);
     background-position: right 8px center;
     background-repeat: no-repeat;
     background-size: auto calc(100% - 16px);
+    color: color-mix(in oklch, white 80%, var(--color) 20%);
     font-family: sans-serif;
     font-size: 12px;
     line-height: 16px;
@@ -39,16 +41,20 @@ a {
 }
 a:visited,
 li.empty a {
-    color: black;
+    color: color-mix(in oklch, white 50%, var(--color) 50%);
 }
 a[href]:hover {
     text-decoration: underline;
 }
+a[href]:visited:hover,
+li.empty a[href]:hover {
+    color: color-mix(in oklch, white 80%, var(--color) 20%);
+}
 
 span a {
     margin-left: 4px;
-    opacity: 80%;
 }
-span a:hover {
-    opacity: 100%;
+
+.empty {
+    font-style: italic;
 }

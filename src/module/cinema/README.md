@@ -13,6 +13,7 @@ Les options sont dans un objet
 [YAML](https://yaml.org/ "YAML Ain't Markup Language") avec les propriétés
 suivantes :
 
+<!-- markdownlint-disable no-inline-html-->
 <table>
   <tr>
     <th>Nom</th>
@@ -30,7 +31,7 @@ suivantes :
         utilisée.
       </p>
       <p>
-        Exemples : <code>"#673ab7"</code>, <code>"chocolate"</code>
+        Exemples : <code>"#673ab7"</code>, <code>chocolate</code>
       </p>
     </td>
   </tr>
@@ -79,7 +80,7 @@ suivantes :
         affichée.
       </p>
       <p>
-        Exemple : <code>"https://example.com/foo/bar.svg"</code>
+        Exemple : <code>https://example.com/foo/bar.svg</code>
       </p>
     </td>
   </tr>
@@ -112,6 +113,7 @@ La méthode doit retourner une
 contenant un tableau dont chaque élément est un objet ayant les propriétés
 suivantes :
 
+<!-- markdownlint-disable no-inline-html-->
 <table>
   <tr>
     <th>Nom</th>
@@ -139,8 +141,8 @@ suivantes :
     <td><code>string</code></td>
     <td>
       <p>
-        La description de l'élément qui sera affichée dans l'info-bulle. Par
-        défaut, aucune info-bulle n'est affichée.
+        La description de l'élément qui sera affichée dans l'infobulle. Par
+        défaut, aucune infobulle n'est affichée.
       </p>
       <p>
         Exemple : <code>"Ce n'est pas un film, c'est une expérience."</code>
@@ -240,8 +242,8 @@ séances pour un film. C'est un tableau d'objet ayant les propriétés suivantes
     <td><code>string</code></td>
     <td>
       <p>
-        La description de la séance qui sera affichée dans l'info-bulle. Par
-        défaut, aucune info-bulle n'est affichée.
+        La description de la séance qui sera affichée dans l'infobulle. Par
+        défaut, aucune infobulle n'est affichée.
       </p>
       <p>
         Exemple : <code>"3D IMAX"</code>
@@ -297,10 +299,10 @@ Ce widget affiche les séances du jour du cinéma
 ```html
 <script type="application/yaml">
   module:
-    url: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/module/cinema/cinema.js"
+    url: https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/module/cinema/cinema.js
     scrapers:
-      - url: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/cinema/pathe/pathe.js"
+      - url: https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/cinema/pathe/pathe.js
         options:
-          cinema: "cinema-pathe-plan-de-campagne"
+          cinema: cinema-pathe-plan-de-campagne
 </script>
 ```

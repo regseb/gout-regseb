@@ -6,7 +6,9 @@
 
 import ComplementsScraper from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/tools/complements/complements.js";
 import FilterScraper from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/tools/filter/filter.js";
+import TransformsScraper from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/tools/transforms/transforms.js";
 import chain from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/utils/scraper/chain.js";
+import { merge } from "../../../module/cinema/cinema.js";
 
 /**
  * La requête pour récupérer les œuvres d'un utilisateur SensCritique pour un
@@ -75,10 +77,7 @@ const SensCritiqueScraper = class {
         const results = await Promise.all(
             this.#scrapers.map((s) => s.extract(max)),
         );
-        const movies = results
-            .flat()
-            .sort((i1, i2) => (i2.date ?? 0) - (i1.date ?? 0))
-            .slice(0, max);
+        const movies = merge(results.flat()).slice(0, max);
 
         return Promise.all(
             movies.map(async (movie) => {
@@ -129,10 +128,17 @@ const SensCritiqueScraper = class {
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export
-export default chain(FilterScraper, ComplementsScraper, SensCritiqueScraper, {
-    dispatch: ({ filter, complements, ...others }) => [
-        { filter },
-        { complements },
-        others,
-    ],
-});
+export default chain(
+    TransformsScraper,
+    FilterScraper,
+    ComplementsScraper,
+    SensCritiqueScraper,
+    {
+        dispatch: ({ transforms, filter, complements, ...others }) => [
+            { transforms },
+            { filter },
+            { complements },
+            others,
+        ],
+    },
+);

@@ -19,6 +19,7 @@ Les options sont dans un objet
 [YAML](https://yaml.org/ "YAML Ain't Markup Language") avec les propriétés
 suivantes :
 
+<!-- markdownlint-disable no-inline-html-->
 <table>
   <tr>
     <th>Nom</th>
@@ -33,7 +34,7 @@ suivantes :
         Le nom d'un utilisateur SensCritique.
       </p>
       <p>
-        Exemple : <code>"NoobMaster69"</code>
+        Exemple : <code>NoobMaster69</code>
       </p>
     </td>
   </tr>
@@ -48,7 +49,7 @@ suivantes :
         <a href="https://github.com/regseb/gout/tree/HEAD/src/scraper/tools/complements#readme"><em>tools/complements</em></a>.
       </p>
       <p>
-        Exemple : <code>target: "_top"</code>
+        Exemple : <code>target: _top</code>
       </p>
     </td>
   </tr>
@@ -63,6 +64,21 @@ suivantes :
       </p>
       <p>
         Exemple : <code>"title != 'foo'"</code>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td><code>transforms</code></td>
+    <td><code>object</code></td>
+    <td>
+      <p>
+        Les transformations qui seront appliquées sur les éléments retournés.
+        Par défaut aucune transformation n'est appliqué. Pour plus de détails,
+        voir le scraper
+        <a href="https://github.com/regseb/gout/tree/HEAD/src/scraper/tools/transforms#readme"><em>tools/transforms</em></a>.
+      </p>
+      <p>
+        Exemple : <code>title: "title.replace('®', '')"</code>
       </p>
     </td>
   </tr>
@@ -83,15 +99,15 @@ et ajoute les statuts de l'utilisateur _NoobMaster69_ de SensCritique.
 ```html
 <script type="application/yaml">
   module:
-    url: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/module/cinema/cinema.js"
+    url: https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/module/cinema/cinema.js
     scrapers:
-      - url: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/cinema/senscritique/senscritique.js"
+      - url: https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/cinema/senscritique/senscritique.js
         options:
-          user: "NoobMaster69"
+          user: NoobMaster69
         scrapers:
-          - url: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/cinema/pathe/pathe.js"
+          - url: https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/cinema/pathe/pathe.js
             options:
-              cinema: "cinema-pathe-plan-de-campagne"
-              versions": ["vf", "vfst"]
+              cinema: cinema-pathe-plan-de-campagne
+              versions: [vf, vfst]
 </script>
 ```

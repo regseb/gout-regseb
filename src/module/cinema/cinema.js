@@ -17,6 +17,27 @@ const hashCode = function (item) {
     ).toString(36);
 };
 
+export const merge = function (items) {
+    const merged = new Map();
+    for (const item of items) {
+        if (merged.has(item.title)) {
+            // Fusionner seulement les séances et garder les autres informations
+            // du premier élément.
+            const showings = merged.get(item.title).showings;
+            showings.push(...item.showings);
+            // Trier les séances (qui sont au format "HH:mm").
+            showings.sort((s1, s2) =>
+                (s1.title ?? "").localeCompare(s2.title ?? ""),
+            );
+        } else {
+            merged.set(item.title, item);
+        }
+    }
+    return Array.from(merged.values()).sort(
+        (i1, i2) => (i2.date ?? 0) - (i1.date ?? 0),
+    );
+};
+
 export default class CinemaModule extends HTMLElement {
     #options;
 
@@ -119,10 +140,7 @@ export default class CinemaModule extends HTMLElement {
         const results = await Promise.all(
             this.#scrapers.map((s) => s.extract(this.#max)),
         );
-        const items = results
-            .flat()
-            .sort((i1, i2) => (i2.date ?? 0) - (i1.date ?? 0))
-            .slice(0, this.#max);
+        const items = merge(results.flat()).slice(0, this.#max);
 
         if (0 === items.length) {
             this.#clean([this.#empty]);
@@ -152,6 +170,8 @@ export default class CinemaModule extends HTMLElement {
         this.attachShadow({ mode: "open" });
         this.shadowRoot.append(template.content.cloneNode(true));
 
+        this.style.setProperty("--color", this.#options.color ?? "#9e9e9e");
+
         const link = document.createElement("link");
         link.rel = "stylesheet";
         link.href = import.meta.resolve("./cinema.css");
@@ -160,10 +180,9 @@ export default class CinemaModule extends HTMLElement {
         this.#max = this.#options.max ?? Number.MAX_SAFE_INTEGER;
         this.#empty = this.#options.empty ?? { title: "(aucune séance)" };
 
-        const ul = this.shadowRoot.querySelector("ul");
-        ul.style.backgroundColor = this.#options.color ?? "#9e9e9e";
         if (undefined !== this.#options.icon) {
-            ul.style.backgroundImage = `url("${this.#options.icon}")`;
+            this.shadowRoot.querySelector("ul").style.backgroundImage =
+                `url("${this.#options.icon}")`;
         }
 
         // Par défaut, mettre à jour les données tous les jours à 1h.
