@@ -1,11 +1,11 @@
 module:
-  url: "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/audio/audio.js"
+  url: https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/audio/audio.js
   scrapers:
-    - url: "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/repeater/repeater.js"
+    - url: https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/repeater/repeater.js
       options:
         extract:
-          - audio: "https://direct.radiofrance.fr/live/franceinfo-hifi.aac"
+          - audio: https://direct.radiofrance.fr/live/franceinfo-hifi.aac
             color: "#ffc300"
-            link: "https://www.radiofrance.fr/franceinfo"
-            title: "Franceinfo"
-            icon: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/radiofrance/franceinfo_fff.svg"
+            link: https://www.radiofrance.fr/franceinfo
+            title: Franceinfo
+            icon: https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/radiofrance/franceinfo_fff.svg

@@ -1,11 +1,11 @@
 module:
-  url: "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/list/list.js"
+  url: https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/list/list.js
   options:
     cron: "@hourly"
     max: 5
-    color: "#5dffa6"
-    icon: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/radiofrance/franceinfo_0003.svg"
+    color: "#00893a"
+    icon: https://cdn.simpleicons.org/radiofrance/0003
   scrapers:
-    - url: "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/list/rss/rss.js"
+    - url: https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/list/rss/rss.js
       options:
-        url: "https://radiofrance.fr/mouv/rss"
+        url: https://radiofrance.fr/mouv/rss

@@ -1,11 +1,11 @@
 module:
-  url: "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/list/list.js"
+  url: https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/list/list.js
   options:
     cron: "@daily"
     max: 5
     color: "#ffc300"
-    icon: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/radiofrance/franceinfo_0003.svg"
+    icon: https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/radiofrance/franceinfo_0003.svg
   scrapers:
-    - url: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/list/twitch/twitch.js"
+    - url: https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/list/twitch/twitch.js
       options:
-        channel: "franceinfo"
+        channel: franceinfo
