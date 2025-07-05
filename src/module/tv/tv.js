@@ -60,12 +60,14 @@ export default class TVModule extends HTMLElement {
         }
 
         const imgChannel = li.querySelector("img.channel");
-        imgChannel.src = import.meta.resolve(`./img/${item.channel}.svg`);
+        imgChannel.src = import.meta.resolve(
+            `./img/channels/${item.channel}.svg`,
+        );
         imgChannel.alt = item.channel;
         imgChannel.title = item.name;
 
         const imgType = li.querySelector("img.type");
-        imgType.src = import.meta.resolve(`./img/${item.type}.svg`);
+        imgType.src = import.meta.resolve(`./img/types/${item.type}.svg`);
         imgType.alt = item.type;
         imgType.title = item.category;
         imgType.classList.add(item.type);
@@ -79,11 +81,7 @@ export default class TVModule extends HTMLElement {
         }
 
         const a = li.querySelector("a");
-        a.textContent =
-            item.title +
-            (undefined === item.subtitle || "" === item.subtitle
-                ? ""
-                : " - " + item.subtitle);
+        a.textContent = item.title;
         if (undefined === item.link) {
             a.removeAttribute("href");
         } else {
@@ -155,6 +153,8 @@ export default class TVModule extends HTMLElement {
         this.attachShadow({ mode: "open" });
         this.shadowRoot.append(template.content.cloneNode(true));
 
+        this.style.setProperty("--color", this.#options.color ?? "#9e9e9e");
+
         const link = document.createElement("link");
         link.rel = "stylesheet";
         link.href = import.meta.resolve("./tv.css");
@@ -163,10 +163,9 @@ export default class TVModule extends HTMLElement {
         this.#max = this.#options.max ?? Number.MAX_SAFE_INTEGER;
         this.#empty = this.#options.empty ?? {};
 
-        const ul = this.shadowRoot.querySelector("ul");
-        ul.style.backgroundColor = this.#options.color ?? "#9e9e9e";
         if (undefined !== this.#options.icon) {
-            ul.style.backgroundImage = `url("${this.#options.icon}")`;
+            this.shadowRoot.querySelector("ul").style.backgroundImage =
+                `url("${this.#options.icon}")`;
         }
 
         // Par défaut, mettre à jour les données tous les jours à 1h.

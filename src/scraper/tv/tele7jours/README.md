@@ -17,6 +17,7 @@ Les options sont dans un objet
 [YAML](https://yaml.org/ "YAML Ain't Markup Language") avec les propriétés
 suivantes :
 
+<!-- markdownlint-disable no-inline-html-->
 <table>
   <tr>
     <th>Nom</th>
@@ -28,23 +29,18 @@ suivantes :
     <td><code>string</code></td>
     <td>
       <p>
-        La source de diffusion : 
-        <a href="https://www.programme-television.org/?bouquet=tnt"><code>"tnt"</code></a>
+        Le bouquet : 
+        <a href="https://www.programme-television.org/tv/bouquets/tnt"><code>tnt</code></a>
         (par défaut),
-        <a href="https://www.programme-television.org/?bouquet=tnt-canal"><code>"tnt-canal"</code></a>,
-        <a href="https://www.programme-television.org/?bouquet=orange"><code>"orange"</code></a>,
-        <a href="https://www.programme-television.org/?bouquet=free"><code>"free"</code></a>,
-        <a href="https://www.programme-television.org/?bouquet=numericable"><code>"numericable"</code></a>,
-        <a href="https://www.programme-television.org/?bouquet=sfr"><code>"sfr"</code></a>,
-        <a href="https://www.programme-television.org/?bouquet=bouygues"><code>"bouygues"</code></a>,
-        <a href="https://www.programme-television.org/?bouquet=alice"><code>"alice"</code></a>,
-        <a href="https://www.programme-television.org/?bouquet=darty"><code>"darty"</code></a>,
-        <a href="https://www.programme-television.org/?bouquet=bis-televisions"><code>"bis-televisions"</code></a>
+        <a href="https://www.programme-television.org/tv/bouquets/canal"><code>canal</code></a>,
+        <a href="https://www.programme-television.org/tv/bouquets/orange"><code>orange</code></a>,
+        <a href="https://www.programme-television.org/tv/bouquets/free"><code>free</code></a>,
+        <a href="https://www.programme-television.org/tv/bouquets/sfr"><code>sfr</code></a>
         ou
-        <a href="https://www.programme-television.org/?bouquet=mycanal"><code>"mycanal"</code></a>.
+        <a href="https://www.programme-television.org/tv/bouquets/bouygues"><code>bouygues</code></a>.
       </p>
       <p>
-        Exemple : <code>"free"</code>
+        Exemple : <code>free</code>
       </p>
     </td>
   </tr>
@@ -58,39 +54,51 @@ suivantes :
       </p>
     <td>
   </tr>
+  <tr>
+    <td><code>transforms</code></td>
+    <td><code>object</code></td>
+    <td>
+      <p>
+        Les transformations qui seront appliquées sur les éléments retournés.
+        Par défaut aucune transformation n'est appliqué. Pour plus de détails,
+        voir le scraper
+        <a href="https://github.com/regseb/gout/tree/HEAD/src/scraper/tools/transforms#readme"><em>tools/transforms</em></a>.
+      </p>
+      <p>
+        Exemple : <code>title: "title.toUpperCase()"</code>
+      </p>
+    </td>
+  </tr>
 </table>
 
 Voici le tableau des codes des chaines de la TNT :
 
 ```yaml
 [
-  "tf1",
-  "france-2",
-  "france-3",
-  "canal",
-  "france-5",
-  "m6",
-  "arte",
-  "c8",
-  "w9",
-  "tmc",
-  "nt1",
-  "nrj12",
-  "lcp-public-senat",
-  "france-4",
-  "bfm-tv",
-  "cnews",
-  "cstar",
-  "gulli",
-  "france-o",
-  "hd1",
-  "l-equipe",
-  "6ter",
-  "numero-23",
-  "rmc-decouverte",
-  "cherie-25",
-  "lci",
-  "franceinfo",
+  tf1,
+  france-2,
+  france-3,
+  france-4,
+  france-5,
+  m6,
+  arte,
+  w9,
+  tmc,
+  tfx,
+  gulli,
+  lcp,
+  bfm-tv,
+  cnews,
+  lci,
+  franceinfo,
+  cstar,
+  t18,
+  tf1-series-films,
+  l-equipe,
+  6ter,
+  rmc-story,
+  rmc-decouverte,
+  cherie-25,
 ]
 ```
 
@@ -98,7 +106,7 @@ Voici le tableau des codes des chaines de la TNT :
 console.log(Array.from(document.querySelectorAll("#prime-broadcasts .logo a"))
                     .map((a) => {
     return `- _${a.querySelector("em").textContent.slice(10)}_ : ` +
-           `\`"${a.getAttribute("href").slice(12)}"\``;
+           `\`${a.getAttribute("href").slice(12)}\``;
 }).join("\n"));
 -->
 
@@ -199,39 +207,41 @@ Et la liste ci-dessous donne les codes pour toutes les chaines :
 
 ## Exemple
 
-Ce widget affiche le programme télévisé de toutes les chaines de la TNT sauf
-Canal+ et les chaines d'information (BFMTV, CNEWS, LCI - La Chaîne Info et
-Franceinfo).
+Ce widget affiche le programme télévisé de toutes les chaines de la TNT sauf les
+chaines d'information (BFM TV, CNews, LCI et Franceinfo).
 
 ```html
 <script type="application/yaml">
   module:
-    url: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/module/tv/tv.js"
+    url: https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/module/tv/tv.js
     scrapers:
-      - url: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/tv/tele7jours/tele7jours.js"
+      - url: https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/tv/tele7jours/tele7jours.js
         options:
           channels:
-            - "tf1"
-            - "france-2"
-            - "france-3"
-            - "france-5"
-            - "m6"
-            - "arte"
-            - "c8"
-            - "w9"
-            - "tmc"
-            - "nt1"
-            - "nrj12"
-            - "lcp-public-senat"
-            - "france-4"
-            - "cstar"
-            - "gulli"
-            - "france-o"
-            - "hd1"
-            - "l-equipe"
-            - "6ter"
-            - "numero-23"
-            - "rmc-decouverte"
-            - "cherie-25"
+            - tf1
+            - france-2
+            - france-3
+            - france-4
+            - france-5
+            - m6
+            - arte
+            - lcp
+            - w9
+            - tmc
+            - tfx
+            - gulli
+            - lcp
+            - bfm-tv
+            - cnews
+            - lci
+            - franceinfo
+            - cstar
+            - t18
+            - tf1-series-films
+            - l-equipe
+            - 6ter
+            - rmc-story
+            - rmc-decouverte
+            - cherie-25
 </script>
 ```
