@@ -1,5 +1,29 @@
 # Changelog
 
+## [0.15.0](https://github.com/regseb/gout-regseb/compare/v0.14.0...v0.15.0) (2025-07-05)
+
+### Features
+
+- Accepter plusieurs scrapers pour le module cinema.
+  ([7b50204](https://github.com/regseb/gout-regseb/commit/7b50204669ec14be920c19a93042a54bce42b29b))
+- Ajouter des options pour transformer les résultats.
+  ([0f8f8bf](https://github.com/regseb/gout-regseb/commit/0f8f8bf6fc8fddbdf9d2335515db74f9bea921bf))
+
+### Bug Fixes
+
+- Actualiser le programme télé.
+  ([bc55c20](https://github.com/regseb/gout-regseb/commit/bc55c20fd73195e8d131d2beae5511cb60787ff7))
+- Enlever le widget Korii.
+  ([73292e8](https://github.com/regseb/gout-regseb/commit/73292e85e7ddf69fbea3170e6a19e29de3df5bbe))
+- Supprimer le scraper image/commitstrip.
+  ([2811f41](https://github.com/regseb/gout-regseb/commit/2811f41e16ee11cdf66fe8c467cb2699164c8322))
+- Supprimer le scraper image/geekandpoke.
+  ([2f97e91](https://github.com/regseb/gout-regseb/commit/2f97e91c706c1eaee31a87571113c8f6cf392194))
+- Supprimer le scraper image/urtikan.
+  ([caa052a](https://github.com/regseb/gout-regseb/commit/caa052a98cad09b73f92c6ee2a0378a8a66973af))
+- Supprimer le scraper tv/tele2semaines.
+  ([586cda4](https://github.com/regseb/gout-regseb/commit/586cda4e579a3b040dd137b593ae4ff786cd1cc9))
+
 ## [0.14.0](https://github.com/regseb/gout-regseb/compare/v0.13.0...v0.14.0) (2024-11-09)
 
 ### Features
