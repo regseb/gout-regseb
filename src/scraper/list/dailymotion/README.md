@@ -18,6 +18,7 @@ Les options sont dans un objet
 [YAML](https://yaml.org/ "YAML Ain't Markup Language") avec les propriétés
 suivantes :
 
+<!-- markdownlint-disable no-inline-html-->
 <table>
   <tr>
     <th>Nom</th>
@@ -32,7 +33,7 @@ suivantes :
         L'identifiant du compte.
       </p>
       <p>
-        Exemple : <code>"franceinter"</code>
+        Exemple : <code>franceinter</code>
       </p>
     </td>
   </tr>
@@ -47,7 +48,7 @@ suivantes :
         <a href="https://github.com/regseb/gout/tree/HEAD/src/scraper/tools/complements#readme"><em>tools/complements</em></a>.
       </p>
       <p>
-        Exemple : <code>target: "_top"</code>
+        Exemple : <code>target: _top</code>
       </p>
     </td>
   </tr>
@@ -65,6 +66,21 @@ suivantes :
       </p>
     </td>
   </tr>
+  <tr>
+    <td><code>transforms</code></td>
+    <td><code>object</code></td>
+    <td>
+      <p>
+        Les transformations qui seront appliquées sur les éléments retournés.
+        Par défaut aucune transformation n'est appliqué. Pour plus de détails,
+        voir le scraper
+        <a href="https://github.com/regseb/gout/tree/HEAD/src/scraper/tools/transforms#readme"><em>tools/transforms</em></a>.
+      </p>
+      <p>
+        Exemple : <code>title: "title[0].toUpperCase() + title.slice(1)"</code>
+      </p>
+    </td>
+  </tr>
 </table>
 
 ## Exemple
@@ -75,13 +91,13 @@ Ce widget affiche les dernières vidéos des
 ```html
 <script type="application/yaml">
   module:
-    url: "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/list/list.js"
+    url: https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/list/list.js
     options:
       cron: "@daily"
       max: 5
     scrapers:
-      - url: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/list/dailymotion/dailymotion.js"
+      - url: https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/list/dailymotion/dailymotion.js
         options:
-          user: "lesguignols"
+          user: lesguignols
 </script>
 ```

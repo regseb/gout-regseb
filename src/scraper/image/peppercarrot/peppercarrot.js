@@ -6,6 +6,7 @@
 
 import ComplementsScraper from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/tools/complements/complements.js";
 import FilterScraper from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/tools/filter/filter.js";
+import TransformsScraper from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/tools/transforms/transforms.js";
 import chain from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/utils/scraper/chain.js";
 
 const PepperCarrotScraper = class {
@@ -17,7 +18,8 @@ const PepperCarrotScraper = class {
 
     async extract(max = Number.MAX_SAFE_INTEGER) {
         const response = await fetch(
-            `https://www.peppercarrot.com/${this.#lang}/webcomics/index.html`,
+            `https://www.peppercarrot.com/${this.#lang}/webcomics` +
+                "/peppercarrot.html",
         );
         const text = await response.text();
         const doc = new DOMParser().parseFromString(text, "text/html");
@@ -28,16 +30,25 @@ const PepperCarrotScraper = class {
                 guid: a.href,
                 img: a.querySelector("img").src,
                 link: a.href,
-                title: a.querySelector("img").title,
+                title: a
+                    .querySelector("img")
+                    .title.replace(" (cliquez pour ouvrir l'épisode)", ""),
             }));
     }
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export
-export default chain(FilterScraper, ComplementsScraper, PepperCarrotScraper, {
-    dispatch: ({ filter, complements, ...others }) => [
-        { filter },
-        { complements },
-        others,
-    ],
-});
+export default chain(
+    TransformsScraper,
+    FilterScraper,
+    ComplementsScraper,
+    PepperCarrotScraper,
+    {
+        dispatch: ({ transforms, filter, complements, ...others }) => [
+            { transforms },
+            { filter },
+            { complements },
+            others,
+        ],
+    },
+);

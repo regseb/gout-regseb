@@ -15,6 +15,7 @@ Les options sont dans un objet
 [YAML](https://yaml.org/ "YAML Ain't Markup Language") avec les propriétés
 suivantes :
 
+<!-- markdownlint-disable no-inline-html-->
 <table>
   <tr>
     <th>Nom</th>
@@ -30,7 +31,7 @@ suivantes :
         de la langue</a> des pages. Par défaut, le français est utilisé.
       </p>
       <p>
-        Exemple : <code>"en"</code>
+        Exemple : <code>en</code>
       </p>
     </td>
   </tr>
@@ -45,7 +46,7 @@ suivantes :
         <a href="https://github.com/regseb/gout/tree/HEAD/src/scraper/tools/complements#readme"><em>tools/complements</em></a>.
       </p>
       <p>
-        Exemple : <code>icon: "https://example.com/foo/bar.svg"</code>
+        Exemple : <code>icon: https://example.com/foo/bar.svg</code>
       </p>
     </td>
   </tr>
@@ -63,6 +64,21 @@ suivantes :
       </p>
     </td>
   </tr>
+  <tr>
+    <td><code>transforms</code></td>
+    <td><code>object</code></td>
+    <td>
+      <p>
+        Les transformations qui seront appliquées sur les éléments retournés.
+        Par défaut aucune transformation n'est appliqué. Pour plus de détails,
+        voir le scraper
+        <a href="https://github.com/regseb/gout/tree/HEAD/src/scraper/tools/transforms#readme"><em>tools/transforms</em></a>.
+      </p>
+      <p>
+        Exemple : <code>title: "title.toUpperCase()"</code>
+      </p>
+    </td>
+  </tr>
 </table>
 
 ## Exemple
@@ -72,11 +88,11 @@ Ce widget affiche un lien vers un article en français.
 ```html
 <script type="application/yaml">
   module:
-    url: "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/single/single.js"
+    url: https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/single/single.js
     options:
       cron: "*/5 * * * *"
       color: "#607d8b"
     scrapers:
-      - url: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/single/articleauhasard/articleauhasard.js"
+      - url: https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/single/articleauhasard/articleauhasard.js
 </script>
 ```

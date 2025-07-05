@@ -18,6 +18,7 @@ Les options sont dans un objet
 [YAML](https://yaml.org/ "YAML Ain't Markup Language") avec les propriétés
 suivantes :
 
+<!-- markdownlint-disable no-inline-html-->
 <table>
   <tr>
     <th>Nom</th>
@@ -32,20 +33,20 @@ suivantes :
         La liste des webcams qui seront affichées. Les valeurs possibles sont :
       </p>
       <ul>
-        <li>Allos : <code>"village"</code> et <code>"parc-loisirs"</code> ;</li>
+        <li>Allos : <code>village</code> et <code>parc-loisirs</code> ;</li>
         <li>
-          Seignus : <code>"seignus-bas"</code> et <code>"seignus-haut"</code> ;
+          Seignus : <code>seignus-bas</code> et <code>seignus-haut</code> ;
         </li>
         <li>
-          Foux d'Allos : <code>"front-de-neige"</code> et
-          <code>"observatoire"</code>.
+          Foux d'Allos : <code>front-de-neige</code> et
+          <code>observatoire</code>.
         </li>
       </ul>
       <p>
        Par défaut, toutes les webcams sont retournées.
       </p>
       <p>
-        Exemple : <code>["seignus-bas", "front-de-neige"]</code>
+        Exemple : <code>[seignus-bas, front-de-neige]</code>
       </p>
     </td>
   </tr>
@@ -60,7 +61,7 @@ suivantes :
         <a href="https://github.com/regseb/gout/tree/HEAD/src/scraper/tools/complements#readme"><em>tools/complements</em></a>.
       </p>
       <p>
-        Exemple : <code>target: "_top"</code>
+        Exemple : <code>target: _top</code>
       </p>
     </td>
   </tr>
@@ -78,6 +79,21 @@ suivantes :
       </p>
     </td>
   </tr>
+  <tr>
+    <td><code>transforms</code></td>
+    <td><code>object</code></td>
+    <td>
+      <p>
+        Les transformations qui seront appliquées sur les éléments retournés.
+        Par défaut aucune transformation n'est appliqué. Pour plus de détails,
+        voir le scraper
+        <a href="https://github.com/regseb/gout/tree/HEAD/src/scraper/tools/transforms#readme"><em>tools/transforms</em></a>.
+      </p>
+      <p>
+        Exemple : <code>title: "title.toUpperCase()"</code>
+      </p>
+    </td>
+  </tr>
 </table>
 
 ## Exemple
@@ -88,12 +104,12 @@ les actualisant une fois par jour à midi.
 ```html
 <script type="application/yaml">
   module:
-    url: "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/image/image.js"
+    url: https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/image/image.js
     options:
       cron: "0 12 * * *"
     scrapers:
-      - url: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/image/valdallos/valdallos.js"
+      - url: https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/image/valdallos/valdallos.js
         options:
-          webcams: ["seignus-haut", "seignus-bas", "village"]
+          webcams: [seignus-haut, seignus-bas, village]
 </script>
 ```

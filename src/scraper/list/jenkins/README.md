@@ -14,9 +14,10 @@ Il peut être utilisé avec le module
 ## Options
 
 Les options sont dans un objet
-[JSON](https://www.json.org/json-fr.html "JavaScript Object Notation") avec les
-propriétés suivantes :
+[YAML](https://yaml.org/ "YAML Ain't Markup Language") avec les propriétés
+suivantes :
 
+<!-- markdownlint-disable no-inline-html-->
 <table>
   <tr>
     <th>Nom</th>
@@ -24,25 +25,25 @@ propriétés suivantes :
     <th>Description</th>
   </tr>
   <tr>
-    <td><code>"jobs"</code></td>
-    <td><code>string</code></td>
+    <td><code>jobs</code></td>
+    <td><code>object</code></td>
     <td>
       <p>
         Les filtres des jobs à afficher. Par défaut tous les jobs sont affichés.
       </p>
-      <p>Exemple : <code>{ "AsterixDB": null }</code></p>
+      <p>Exemple : <code>AsterixDB: null</code></p>
     </td>
   </tr>
   <tr>
-    <td><code>"url"</code></td>
+    <td><code>url</code></td>
     <td><code>string</code></td>
     <td>
       <p>L'URL du serveur Jenkins.</p>
-      <p>Exemple : <code>"https://builds.apache.org/"</code></p>
+      <p>Exemple : <code>https://builds.apache.org/</code></p>
     </td>
   </tr>
   <tr>
-    <td><code>"complements"</code></td>
+    <td><code>complements</code></td>
     <td><code>object</code></td>
     <td>
       <p>
@@ -52,12 +53,12 @@ propriétés suivantes :
         <a href="https://github.com/regseb/gout/tree/HEAD/src/scraper/tools/complements#readme"><em>tools/complements</em></a>.
       </p>
       <p>
-        Exemple : <code>"target": "_top"</code>
+        Exemple : <code>"target": _top</code>
       </p>
     </td>
   </tr>
   <tr>
-    <td><code>"filter"</code></td>
+    <td><code>filter</code></td>
     <td><code>string</code></td>
     <td>
       <p>
@@ -67,6 +68,21 @@ propriétés suivantes :
       </p>
       <p>
         Exemple : <code>"title != 'foo'"</code>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td><code>transforms</code></td>
+    <td><code>object</code></td>
+    <td>
+      <p>
+        Les transformations qui seront appliquées sur les éléments retournés.
+        Par défaut aucune transformation n'est appliqué. Pour plus de détails,
+        voir le scraper
+        <a href="https://github.com/regseb/gout/tree/HEAD/src/scraper/tools/transforms#readme"><em>tools/transforms</em></a>.
+      </p>
+      <p>
+        Exemple : <code>title: "title.toUpperCase()"</code>
       </p>
     </td>
   </tr>
@@ -81,21 +97,21 @@ ainsi que le job Tomcat-7.x de la fondation
 ```html
 <script type="application/yaml">
   module:
-    url: "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/list/list.js"
+    url: https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/list/list.js
     options:
       cron: "0 */4 * * *"
       color: "#9e9e9e"
       empty:
-        link: "https://builds.apache.org"
-        title: "(Aucun job en erreur)"
+        link: https://builds.apache.org
+        title: (Aucun job en erreur)
     scrapers:
-      - url: "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/list/jenkins/jenkins.js"
+      - url: https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/scraper/list/jenkins/jenkins.js
         options:
-          url: "https://builds.apache.org"
+          url: https://builds.apache.org
           jobs:
             "maven-3.x":
-              - "org.apache.maven:maven-core"
-              - "org.apache.maven:maven-artifact"
+              - org.apache.maven:maven-core
+              - org.apache.maven:maven-artifact
             "Tomcat-7.x": null
 </script>
 ```

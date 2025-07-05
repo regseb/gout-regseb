@@ -6,6 +6,7 @@
 
 import ComplementsScraper from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/tools/complements/complements.js";
 import FilterScraper from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/tools/filter/filter.js";
+import TransformsScraper from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/tools/transforms/transforms.js";
 import chain from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/utils/scraper/chain.js";
 
 const GogGiveawayScraper = class {
@@ -31,7 +32,7 @@ const GogGiveawayScraper = class {
                 color: "#a343f4",
                 guid: link,
                 link,
-                icon: import.meta.resolve("./img/gog.svg"),
+                icon: "https://cdn.simpleicons.org/gog.com/fff",
                 title: title.textContent.trim().slice(10),
             },
         ].slice(0, max);
@@ -39,10 +40,17 @@ const GogGiveawayScraper = class {
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export
-export default chain(FilterScraper, ComplementsScraper, GogGiveawayScraper, {
-    dispatch: ({ filter, complements, ...others }) => [
-        { filter },
-        { complements },
-        others,
-    ],
-});
+export default chain(
+    TransformsScraper,
+    FilterScraper,
+    ComplementsScraper,
+    GogGiveawayScraper,
+    {
+        dispatch: ({ transforms, filter, complements, ...others }) => [
+            { transforms },
+            { filter },
+            { complements },
+            others,
+        ],
+    },
+);

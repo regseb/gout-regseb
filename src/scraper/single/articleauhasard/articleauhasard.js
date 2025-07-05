@@ -6,6 +6,7 @@
 
 import ComplementsScraper from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/tools/complements/complements.js";
 import FilterScraper from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/tools/filter/filter.js";
+import TransformsScraper from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/tools/transforms/transforms.js";
 import chain from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/utils/scraper/chain.js";
 
 const ArticleAuHasardScraper = class {
@@ -25,7 +26,7 @@ const ArticleAuHasardScraper = class {
         return json.query.random.map((random) => ({
             color: "#607d8b",
             guid: random.id,
-            icon: import.meta.resolve("./img/articleauhasard.svg"),
+            icon: "https://cdn.simpleicons.org/wikipedia/fff",
             link: `https://${this.#lang}.wikipedia.org/wiki/${random.title}`,
             title: random.title,
         }));
@@ -34,11 +35,13 @@ const ArticleAuHasardScraper = class {
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default chain(
+    TransformsScraper,
     FilterScraper,
     ComplementsScraper,
     ArticleAuHasardScraper,
     {
-        dispatch: ({ filter, complements, ...others }) => [
+        dispatch: ({ transforms, filter, complements, ...others }) => [
+            { transforms },
             { filter },
             { complements },
             others,
