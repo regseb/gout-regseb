@@ -1,13 +1,14 @@
 div {
+    background-color: var(--color);
     color: white;
-    font-family: Verdana, sans-serif;
+    font-family: sans-serif;
     font-size: 12px;
     line-height: 1.4em;
     padding: 0.7em;
 }
 h1 {
+    color: color-mix(in oklch, white 80%, var(--color) 20%);
     margin: 0;
-    opacity: 80%;
 }
 
 ul {

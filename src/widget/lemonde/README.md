@@ -28,10 +28,10 @@ changeant `{rss}` par l'URL du flux RSS.
 
 ```html
 <script type="application/yaml">
-  "$extend": "https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/lemonde/une.yaml"
+  "$extend": https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/lemonde/une.yaml
   module:
     "$scrapers[0]":
       options:
-        url: "{rss}"
+        url: {rss}
 </script>
 ```

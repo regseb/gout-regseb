@@ -1,11 +1,11 @@
 module:
-  url: "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/list/list.js"
+  url: https://cdn.jsdelivr.net/gh/regseb/gout@0/src/module/list/list.js
   options:
     cron: "*/5 * * * *"
     max: 5
     color: "#947200"
-    icon: "https://cdn.simpleicons.org/allocine/0003"
+    icon: https://cdn.simpleicons.org/allocine/0003
   scrapers:
-    - url: "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/list/rss/rss.js"
+    - url: https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/list/rss/rss.js
       options:
-        url: "https://www.allocine.fr/rss/news.xml"
+        url: https://www.allocine.fr/rss/news.xml

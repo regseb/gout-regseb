@@ -19,7 +19,8 @@ export default {
         "!/node_modules/**",
         // Ignorer les fichiers de configuration de Visual Studio Code.
         "!/.vscode/**",
-        // Ignorer les fichiers de configuration de IntelliJ IDEA.
+        // Ignorer les fichiers de configuration des IDEs de JetBrains :
+        // WebStorm, IntelliJ IDEA...
         "!/.idea/**",
         // Ignorer les fichiers temporaires de Vim.
         "!*.swp",
@@ -58,6 +59,12 @@ export default {
         {
             patterns: "*.css",
             linters: ["prettier", "prettier_css", "stylelint"],
+            overrides: [
+                {
+                    patterns: "/src/module/**",
+                    linters: "stylelint_module",
+                },
+            ],
         },
         {
             patterns: "*.md",

@@ -167,6 +167,8 @@ export default class OpenWeatherMapModule extends HTMLElement {
         this.attachShadow({ mode: "open" });
         this.shadowRoot.append(template.content.cloneNode(true));
 
+        this.style.setProperty("--color", this.#options.color ?? "#005891");
+
         const link = document.createElement("link");
         link.rel = "stylesheet";
         link.href = import.meta.resolve("./openweathermap.css");
@@ -178,7 +180,6 @@ export default class OpenWeatherMapModule extends HTMLElement {
         // prévisions dans la variable #max.
         this.#max = (this.#options.max ?? 1) - 1;
 
-        this.style.backgroundColor = this.#options.color ?? "#03a9f4";
         this.shadowRoot.querySelector("h1").textContent =
             this.#options.title ?? this.#city.split(",")[0];
 

@@ -14,7 +14,8 @@ jobs:
         uses: googleapis/release-please-action@v4
         id: release
         with:
-          release-type: node
+          config-file: .release-please/config.json
+          manifest-file: .release-please/manifest.json
 
       # Si la PR (pull request) a été créée ou modifiée : formatter les fichiers
       # modifiés par release-please, car ils ne respectent plus le formatage de
@@ -24,7 +25,11 @@ jobs:
         if: ${{ steps.release.outputs.pr }}
         uses: actions/checkout@v4
         with:
-          ref: ${{ fromJson(steps.release.outputs.pr).headBranchName }}
+          ref: ${{ fromJSON(steps.release.outputs.pr).headBranchName }}
+          # Récupérer deux commits sinon la réparation du commit (pour le
+          # formatage) rompt le lien entre la branche de la release et la
+          # branche main.
+          fetch-depth: 2
 
       - name: Configure Git user
         if: ${{ steps.release.outputs.pr }}
@@ -44,10 +49,12 @@ jobs:
 
       - name: Format files
         if: ${{ steps.release.outputs.pr }}
-        run: npm run lint:fix -- CHANGELOG.md package.json package-lock.json
+        run: >
+          npm run lint:fix -- .release-please/manifest.json CHANGELOG.md
+          package.json package-lock.json
 
       - name: Commit and push
         if: ${{ steps.release.outputs.pr }}
         run: |
-          git commit --all --message 'chore: format files'
-          git push
+          git commit --all --amend --no-edit
+          git push --force

@@ -22,11 +22,9 @@ l'agrégateur d'Internet **[Gout](https://github.com/regseb/gout)**.
 - _cinema_ :
   - [_pathe_](src/scraper/cinema/pathe#readme) : Retourner les séances du jour
     d'un cinéma Pathé.
+  - [_senscritique_](src/scraper/cinema/senscritique#readme) : Ajouter des
+    statuts issus de SensCritique à des séances de films.
 - _image_ :
-  - [_commitstrip_](src/scraper/image/commitstrip#readme) : Récupérer la liste
-    des derniers dessins publiés sur le site CommitStrip.
-  - [_geekandpoke_](src/scraper/image/geekandpoke#readme) : Récupérer la liste
-    des derniers dessins publiés sur le site GeekAndPoke.
   - [_loadingartist_](src/scraper/image/loadingartist#readme) : Récupérer la
     liste des derniers dessins publiés sur le site Loading Artist.
   - [_maliki_](src/scraper/image/maliki#readme) : Récupérer la liste des
@@ -35,8 +33,6 @@ l'agrégateur d'Internet **[Gout](https://github.com/regseb/gout)**.
     des derniers épisodes publiés sur le site Pepper&Carrot.
   - [_tumblr_](src/scraper/image/tumblr#readme) : Récupérer la liste des
     derniers dessins publiés sur un blog Tumblr.
-  - [_urtikan_](src/scraper/image/urtikan#readme) : Récupérer la liste des
-    derniers dessins publiés sur le site Urtikan.
   - [_valdallos_](src/scraper/image/valdallos#readme) : Récupérer les webcams du
     Val d'Allos.
   - [_xkcd_](src/scraper/image/xkcd#readme) : Récupérer la liste des derniers
@@ -57,9 +53,9 @@ l'agrégateur d'Internet **[Gout](https://github.com/regseb/gout)**.
 - _single_ :
   - [_articleauhasard_](src/scraper/single/articleauhasard#readme) : Donner un
     lien vers un article au hasard de Wikipédia.
+  - [_gog_](src/scraper/single/gog#readme) : Indiquer quand un jeu est offert
+    sur GOG.
 - _tv_ :
-  - [_tele2semaines_](src/scraper/single/tele2semaines#readme) : Donner le
-    programme télévisé du soir par Télé 2 Semaines.
   - [_tele7jours_](src/scraper/single/tele7jours#readme) : Donner le programme
     télévisé du soir par Télé 7 Jours.
 
