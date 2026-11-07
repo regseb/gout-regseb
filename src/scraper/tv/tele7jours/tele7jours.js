@@ -10,16 +10,17 @@ import TransformsScraper from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scr
 import chain from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/utils/scraper/chain.js";
 
 const TYPES = {
-    culture: /concerts|opéras/iv,
-    divers: /journal tv/iv,
-    divertissement: /jeux tv|spectacles/iv,
-    documentaire: /documentaires/iv,
-    film: /films|western/iv,
-    jeunesse: /dessins animés|manga/iv,
-    magazine: /[eé]missions|magazines|reportages/iv,
-    serie: /feuilletons|séries/iv,
-    sport: /athlétisme|cyclisme|football|golf|rugby|sports/iv,
-    telefilm: /téléfilms/iv,
+    culture: /concert|one man show|opéra/iv,
+    divers: /débat|journal tv|interview/iv,
+    divertissement: /divertissement|jeu|jeu tv|spectacle|téléréalité/iv,
+    documentaire: /documentaire|nature/iv,
+    film: /comédie|drame|film|western/iv,
+    jeunesse: /dessin animé|manga/iv,
+    magazine:
+        /[eé]missions|histoire|magazine|politique|reportages|sciences et technique|société/iv,
+    serie: /feuilleton|série/iv,
+    sport: /athlétisme|cyclisme|football|golf|rugby|sport/iv,
+    telefilm: /téléfilm/iv,
 };
 
 const CHANNELS = {
@@ -29,34 +30,13 @@ const CHANNELS = {
     omtv: "om-tv",
 };
 
-const slugify = (text) => {
-    return (
-        text
-            .toLowerCase()
-            // Enlever les diacritiques (accents, trémas, cédilles) et garder
-            // seulement les caractères ASCII affichables.
-            .normalize("NFKD")
-            .replaceAll(/[^\u{20}-\u{7E}]+/gv, "")
-
-            // Remplacer les caractères qui ne sont pas alphanumériques par un
-            // tiret.
-            .replaceAll(/[^0-9a-z]+/gv, "-")
-
-            // Enlever les tirets consécutifs.
-            .replaceAll(/-{2,}/gv, "-")
-
-            // Enlever les tirets en début et fin de chaîne.
-            .replaceAll(/^-|-$/gv, "")
-    );
-};
-
 const Tele7JoursScraper = class {
     #broadcast;
 
     #channels;
 
-    constructor({ broadcast, channels }) {
-        this.#broadcast = broadcast ?? "tnt";
+    constructor({ broadcast = "tnt", channels }) {
+        this.#broadcast = broadcast;
         this.#channels = channels;
     }
 
@@ -67,23 +47,24 @@ const Tele7JoursScraper = class {
         const response = await fetch(url);
         const text = await response.text();
         const doc = new DOMParser().parseFromString(text, "text/html");
-        return Array.from(doc.querySelectorAll(".tvgrid__item .channel"))
+        return Array.from(
+            doc.querySelectorAll(".tvpanel_1 .tvgrid-broadcast__wrapper"),
+        )
             .filter((item) => {
                 if (undefined === this.#channels) {
                     return true;
                 }
-                const channel = slugify(
-                    item.querySelector(".channel__label div:last-child")
-                        .textContent,
-                );
+                const channel = item
+                    .querySelector(".tvgrid-channel__link")
+                    .dataset.href.slice(12);
                 return this.#channels.includes(channel);
             })
             .slice(0, max)
             .map((item) => {
-                const name = item.querySelector(
-                    ".channel__label div:last-child",
-                ).textContent;
-                const channel = slugify(name);
+                const name = item.querySelector(".channel_name").textContent;
+                const channel = item
+                    .querySelector(".tvgrid-channel__link")
+                    .dataset.href.slice(12);
 
                 const title = item.querySelector(
                     ".tvgrid-broadcast__details-title span",
@@ -100,18 +81,18 @@ const Tele7JoursScraper = class {
                 const desc = item.querySelector(
                     ".tvgrid-broadcast__details-season",
                 )?.textContent;
-                const link =
+                const link = new URL(
                     item
                         .querySelector(".tvgrid-broadcast__wrapper--link")
-                        ?.getAttribute("href") ?? url;
+                        ?.getAttribute("href") ?? url,
+                    "https://www.programme-television.org/",
+                ).href;
 
                 const subdetails = item.querySelector(
                     ".tvgrid-broadcast__subdetails",
-                ).textContent;
+                ).textContent.trim();
 
-                const category = subdetails.slice(
-                    subdetails.indexOf(" | ") + 2,
-                );
+                const category = subdetails.match(/ mins \| (?<category>[^\|]+)(?: \||$)/v).groups.category;
                 const type =
                     Object.entries(TYPES).find(([_, r]) =>
                         r.test(category),
@@ -136,7 +117,6 @@ const Tele7JoursScraper = class {
     }
 };
 
-// eslint-disable-next-line import/no-anonymous-default-export
 export default chain(
     TransformsScraper,
     FilterScraper,
