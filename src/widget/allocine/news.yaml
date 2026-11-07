@@ -4,7 +4,7 @@ module:
     cron: "*/5 * * * *"
     max: 5
     color: "#947200"
-    icon: https://cdn.simpleicons.org/allocine/0003
+    icon: https://cdn.jsdelivr.net/gh/regseb/gout-regseb@0/src/widget/allocine/allocine_0003.svg
   scrapers:
     - url: https://cdn.jsdelivr.net/gh/regseb/gout@0/src/scraper/list/rss/rss.js
       options:
