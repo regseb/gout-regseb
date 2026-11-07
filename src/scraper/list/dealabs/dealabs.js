@@ -44,7 +44,7 @@ const DEFAULT_FILTERS = {
     /* eslint-enable camelcase */
 };
 
-const getToken = async function () {
+const getToken = async () => {
     const response = await fetch("https://www.dealabs.com/");
     const text = await response.text();
     const doc = new DOMParser().parseFromString(text, "text/html");
@@ -61,36 +61,31 @@ const getToken = async function () {
     return undefined;
 };
 
-const extractDate = function (ago) {
-    let result = /(?<hours>\d{1,2}) h et (?<minutes>\d{1,2}) min$/v.exec(ago);
+const extractDate = (ago) => {
+    let result = /(?<hour>\d{1,2}) h et (?<minute>\d{1,2}) min$/v.exec(ago);
     if (null !== result) {
         return (
-            Date.now() -
-            3_600_000 * Number(result.groups.hours) -
-            60_000 * Number(result.groups.minutes)
+            Temporal.Now.instant().epochMilliseconds -
+            3_600_000 * Number(result.groups.hour) -
+            60_000 * Number(result.groups.minute)
         );
     }
 
-    result = /(?<minutes>\d{1,2}) min$/v.exec(ago);
+    result = /(?<minute>\d{1,2}) min$/v.exec(ago);
     if (null !== result) {
-        return Date.now() - 60_000 * Number(result.groups.minutes);
+        return (
+            Temporal.Now.instant().epochMilliseconds -
+            60_000 * Number(result.groups.minute)
+        );
     }
 
-    result = /(?<date>\d{1,2}) (?<month>[a-z]+)$/v.exec(ago);
+    result = /(?<day>\d{1,2}) (?<month>[a-z]+)$/v.exec(ago);
     if (null !== result) {
-        const now = new Date();
-        const date = Number(result.groups.date);
+        const now = Temporal.Now.zonedDateTimeISO();
+        const day = Number(result.groups.day);
         const month = MONTHS.indexOf(result.groups.month);
-        const year = now.getFullYear() - (now.getMonth() < month ? 0 : 1);
-        return new Date(
-            year,
-            month,
-            date,
-            now.getHours(),
-            now.getMinutes(),
-            now.getSeconds(),
-            now.getMilliseconds(),
-        ).getTime();
+        const year = now.year - (now.month < month ? 0 : 1);
+        return now.with({ year, month, day }).epochMilliseconds;
     }
     return undefined;
 };
@@ -136,13 +131,12 @@ const DealabsScraper = class {
                 img: item.img,
                 link: item.link,
                 title:
-                    (undefined === item.price ? "" : item.price + " | ") +
+                    (undefined === item.price ? "" : `${item.price} | `) +
                     item.title,
             }));
     }
 };
 
-// eslint-disable-next-line import/no-anonymous-default-export
 export default chain(
     TransformsScraper,
     FilterScraper,

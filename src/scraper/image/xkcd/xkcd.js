@@ -26,6 +26,10 @@ const XkcdScraper = class {
                     "text/html",
                 );
                 return {
+                    // Utiliser l'ancienne classe Date, car Temporal ne peut pas
+                    // parser une date au format RFC 822
+                    // ("Sat, 07 Sep 2002 00:00:01 GMT").
+                    // eslint-disable-next-line unicorn/prefer-temporal
                     date: new Date(
                         item.querySelector("pubDate").textContent,
                     ).getTime(),
@@ -38,7 +42,6 @@ const XkcdScraper = class {
     }
 };
 
-// eslint-disable-next-line import/no-anonymous-default-export
 export default chain(
     TransformsScraper,
     FilterScraper,

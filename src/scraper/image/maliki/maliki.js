@@ -12,8 +12,8 @@ import chain from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/utils/scraper/c
 const MalikiScraper = class {
     #password;
 
-    constructor({ password }) {
-        this.#password = password ?? true;
+    constructor({ password = true }) {
+        this.#password = password;
     }
 
     async extract(max = Number.MAX_SAFE_INTEGER) {
@@ -23,20 +23,21 @@ const MalikiScraper = class {
 
         const selector = ".archiveStrips--content > * > .row a";
         return Array.from(doc.querySelectorAll(selector), (a) => ({
-            date: new Date(a.querySelector("time").dateTime).getTime(),
+            date: Temporal.PlainDate.from(
+                a.querySelector("time").dateTime,
+            ).toZonedDateTime(Temporal.Now.timeZoneId()).epochMilliseconds,
             guid: a.href,
             img: a.querySelector("img").src,
             link: a.href,
             title: a.querySelector("h3").textContent,
         }))
             .filter(
-                (i) => this.#password || !i.title.startsWith("Protégé\u00A0: "),
+                (i) => this.#password || !i.title.startsWith("Protégé\u{A0}: "),
             )
             .slice(0, max);
     }
 };
 
-// eslint-disable-next-line import/no-anonymous-default-export
 export default chain(
     TransformsScraper,
     FilterScraper,

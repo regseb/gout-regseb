@@ -12,7 +12,7 @@ import chain from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/utils/scraper/c
 const TYPES = {
     culture: /concert|one man show|opéra/iv,
     divers: /débat|journal tv|interview/iv,
-    divertissement: /divertissement|jeu|jeu tv|spectacle|téléréalité/iv,
+    divertissement: /divertissement|jeu|spectacle|téléréalité/iv,
     documentaire: /documentaire|nature/iv,
     film: /comédie|drame|film|western/iv,
     jeunesse: /dessin animé|manga/iv,
@@ -88,11 +88,13 @@ const Tele7JoursScraper = class {
                     "https://www.programme-television.org/",
                 ).href;
 
-                const subdetails = item.querySelector(
-                    ".tvgrid-broadcast__subdetails",
-                ).textContent.trim();
+                const subdetails = item
+                    .querySelector(".tvgrid-broadcast__subdetails")
+                    .textContent.trim();
 
-                const category = subdetails.match(/ mins \| (?<category>[^\|]+)(?: \||$)/v).groups.category;
+                const category = subdetails.match(
+                    / mins \| (?<category>[^\|]+)(?: \||$)/v,
+                ).groups.category;
                 const type =
                     Object.entries(TYPES).find(([_, r]) =>
                         r.test(category),

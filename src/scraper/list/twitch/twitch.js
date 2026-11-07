@@ -43,7 +43,7 @@ const TwitchScraper = class {
         return json[0].data.user.videos.edges
             .map((e) => e.node)
             .map((n) => ({
-                date: new Date(n.publishedAt).getTime(),
+                date: Temporal.Instant.from(n.publishedAt).epochMilliseconds,
                 guid: `https://www.twitch.tv/videos/${n.id}`,
                 img: n.previewThumbnailURL,
                 link: `https://www.twitch.tv/videos/${n.id}`,
@@ -52,7 +52,6 @@ const TwitchScraper = class {
     }
 };
 
-// eslint-disable-next-line import/no-anonymous-default-export
 export default chain(
     TransformsScraper,
     FilterScraper,

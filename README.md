@@ -56,7 +56,7 @@ l'agrégateur d'Internet **[Gout](https://github.com/regseb/gout)**.
   - [_gog_](src/scraper/single/gog#readme) : Indiquer quand un jeu est offert
     sur GOG.
 - _tv_ :
-  - [_tele7jours_](src/scraper/single/tele7jours#readme) : Donner le programme
+  - [_tele7jours_](src/scraper/tv/tele7jours#readme) : Donner le programme
     télévisé du soir par Télé 7 Jours.
 
 ### Widgets
@@ -69,6 +69,6 @@ l'agrégateur d'Internet **[Gout](https://github.com/regseb/gout)**.
 - [_slate_](src/widget/slate#readme)
 
 [img-build]:
-  https://img.shields.io/github/actions/workflow/status/regseb/gout-regseb/ci.yml?branch=main&logo=github&logoColor=whitesmoke
+  https://img.shields.io/github/actions/workflow/status/regseb/gout-regseb/ci.yml?branch=main&style=flat-square&logo=github&logoColor=whitesmoke
 [link-build]:
   https://github.com/regseb/gout-regseb/actions/workflows/ci.yml?query=branch%3Amain

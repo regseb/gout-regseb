@@ -11,7 +11,7 @@ import chain from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/utils/scraper/c
 
 const DATE_REGEXP = new RegExp(
     String.raw`(?<year>\d{4})(?<month>\d{2})(?<day>\d{2})` +
-        String.raw`(?<hours>\d{2})(?<minutes>\d{2})(?<seconds>\d{2})-[^\-]+$`,
+        String.raw`(?<hour>\d{2})(?<minute>\d{2})(?<second>\d{2})-[^\-]+$`,
     "v",
 );
 
@@ -37,14 +37,15 @@ const RadiolineScraper = class {
                     const title = li.querySelector("h2 a").textContent;
 
                     const result = DATE_REGEXP.exec(link);
-                    const date = new Date(
-                        Number(result.groups.year),
-                        Number(result.groups.month) - 1,
-                        Number(result.groups.day),
-                        Number(result.groups.hours),
-                        Number(result.groups.minutes),
-                        Number(result.groups.seconds),
-                    ).getTime();
+                    const date = Temporal.ZonedDateTime.from({
+                        year: Number(result.groups.year),
+                        month: Number(result.groups.month),
+                        day: Number(result.groups.day),
+                        hour: Number(result.groups.hour),
+                        minute: Number(result.groups.minute),
+                        second: Number(result.groups.second),
+                        timeZone: Temporal.Now.timeZoneId(),
+                    }).epochMilliseconds;
 
                     const suburl =
                         "https://fr-fr.radioline.co/Pillow/" +
@@ -65,7 +66,6 @@ const RadiolineScraper = class {
     }
 };
 
-// eslint-disable-next-line import/no-anonymous-default-export
 export default chain(
     TransformsScraper,
     FilterScraper,

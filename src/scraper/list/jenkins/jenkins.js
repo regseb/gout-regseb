@@ -33,7 +33,7 @@ const JenkinsScraper = class {
             // filtre : ignorer ce job.
             if (
                 0 !== Object.keys(this.#filters).length &&
-                !(job.name in this.#filters)
+                !Object.hasOwn(this.#filters, job.name)
             ) {
                 continue;
             }
@@ -58,12 +58,8 @@ const JenkinsScraper = class {
             } else {
                 for (const module of job.modules) {
                     if (
-                        0 !== this.#filters[job.name].length &&
-                        !this.#filters[job.name].includes(module.name)
-                    ) {
-                        continue;
-                    }
-                    if (
+                        (0 !== this.#filters[job.name].length &&
+                            !this.#filters[job.name].includes(module.name)) ||
                         null === module.lastBuild ||
                         ("FAILURE" !== module.lastBuild.result &&
                             "ABORTED" !== module.lastBuild.result)
@@ -86,7 +82,6 @@ const JenkinsScraper = class {
     }
 };
 
-// eslint-disable-next-line import/no-anonymous-default-export
 export default chain(
     TransformsScraper,
     FilterScraper,

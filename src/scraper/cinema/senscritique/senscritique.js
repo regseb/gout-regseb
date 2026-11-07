@@ -42,14 +42,14 @@ const QUERY = `
     }
 `;
 
-const simplify = function (value) {
+const simplify = (value) => {
     return value
         ?.normalize("NFKD")
         .toLowerCase()
         .replaceAll(/[^a-z]+/gv, "");
 };
 
-const compare = function (first, second) {
+const compare = (first, second) => {
     return simplify(first) === simplify(second);
 };
 
@@ -118,16 +118,15 @@ const SensCritiqueScraper = class {
 
                 return {
                     ...movie,
-                    ...(undefined === icon
-                        ? {}
-                        : { icon: import.meta.resolve(`./img/${icon}.svg`) }),
+                    ...(undefined !== icon && {
+                        icon: import.meta.resolve(`./img/${icon}.svg`),
+                    }),
                 };
             }),
         );
     }
 };
 
-// eslint-disable-next-line import/no-anonymous-default-export
 export default chain(
     TransformsScraper,
     FilterScraper,

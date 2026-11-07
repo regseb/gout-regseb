@@ -5,8 +5,9 @@
  */
 
 import Cron from "https://esm.sh/cronnor@2";
+import styleSheet from "./tv.css" with { type: "css" };
 
-const hashCode = function (item) {
+const hashCode = (item) => {
     return Math.abs(
         Array.from(item.guid ?? JSON.stringify(item)).reduce(
             (code, character) => {
@@ -45,7 +46,7 @@ export default class TVModule extends HTMLElement {
         const ul = this.shadowRoot.querySelector("ul");
         const guid = hashCode(item);
         const li =
-            ul.querySelector(`li[data-guid="${guid}"]`) ??
+            ul.querySelector(`li[data-guid="${CSS.escape(guid)}"]`) ??
             this.shadowRoot
                 .querySelector("template")
                 .content.querySelector("li")
@@ -53,11 +54,7 @@ export default class TVModule extends HTMLElement {
 
         li.dataset.guid = guid;
         li.dataset.date = item.date?.toString() ?? "0";
-        if (empty) {
-            li.classList.add("empty");
-        } else {
-            li.classList.remove("empty");
-        }
+        li.classList.toggle("empty", empty);
 
         const imgChannel = li.querySelector("img.channel");
         imgChannel.src = import.meta.resolve(
@@ -122,7 +119,7 @@ export default class TVModule extends HTMLElement {
         );
         const items = results
             .flat()
-            .sort((i1, i2) => (i2.date ?? 0) - (i1.date ?? 0))
+            .toSorted((i1, i2) => (i2.date ?? 0) - (i1.date ?? 0))
             .slice(0, this.#max);
 
         if (0 === items.length) {
@@ -151,22 +148,19 @@ export default class TVModule extends HTMLElement {
             .querySelector("template");
 
         this.attachShadow({ mode: "open" });
-        this.shadowRoot.append(template.content.cloneNode(true));
+        this.shadowRoot.append(document.importNode(template.content, true));
+        this.shadowRoot.adoptedStyleSheets.push(styleSheet);
 
         this.style.setProperty("--color", this.#options.color ?? "#9e9e9e");
-
-        const link = document.createElement("link");
-        link.rel = "stylesheet";
-        link.href = import.meta.resolve("./tv.css");
-        this.shadowRoot.append(link);
+        this.style.setProperty(
+            "--icon",
+            undefined === this.#options.icon
+                ? "none"
+                : `url("${new URL(this.#options.icon, location.href)}")`,
+        );
 
         this.#max = this.#options.max ?? Number.MAX_SAFE_INTEGER;
         this.#empty = this.#options.empty ?? {};
-
-        if (undefined !== this.#options.icon) {
-            this.shadowRoot.querySelector("ul").style.backgroundImage =
-                `url("${this.#options.icon}")`;
-        }
 
         // Par défaut, mettre à jour les données tous les jours à 1h.
         this.#cron = new Cron(

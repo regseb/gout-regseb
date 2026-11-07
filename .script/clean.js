@@ -15,7 +15,7 @@ const PATHS = [
     "jsdocs/",
     "node_modules/",
     // Supprimer les autres lockfiles.
-    "bun.lockb",
+    "bun.lock",
     "pnpm-lock.yaml",
     "yarn.lock",
 ];

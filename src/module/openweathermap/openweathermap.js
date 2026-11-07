@@ -5,6 +5,7 @@
  */
 
 import Cron from "https://esm.sh/cronnor@2";
+import styleSheet from "./openweathermap.css" with { type: "css" };
 
 // Ne pas basculer sur la version 3.0, car elle nécessite une carte bancaire
 // pour activer l'API (même si 1000 appels journaliers sont gratuits).
@@ -22,7 +23,7 @@ const COMPASS_ROSE = [
     [360, "nord"],
 ];
 
-const extractWeather = async function (city, appid) {
+const extractWeather = async (city, appid) => {
     const response = await fetch(
         `${API_URL}weather?q=${city}&units=metric&lang=fr&APPID=${appid}`,
     );
@@ -44,7 +45,7 @@ const extractWeather = async function (city, appid) {
     };
 };
 
-const extractForecasts = async function (city, appid, max) {
+const extractForecasts = async (city, appid, max) => {
     if (0 === max) {
         return [];
     }
@@ -92,10 +93,9 @@ export default class OpenWeatherMapModule extends HTMLElement {
             .content.querySelector("li")
             .cloneNode(true);
 
-        const date = new Date();
-        date.setDate(
-            date.getDate() + this.shadowRoot.querySelectorAll("li").length,
-        );
+        const date = Temporal.Now.plainDateISO().add({
+            days: this.shadowRoot.querySelectorAll("li").length,
+        });
         const strong = li.querySelector("p:first-of-type strong");
         strong.textContent = date.toLocaleString("fr-FR", { weekday: "long" });
 
@@ -165,14 +165,10 @@ export default class OpenWeatherMapModule extends HTMLElement {
             .querySelector("template");
 
         this.attachShadow({ mode: "open" });
-        this.shadowRoot.append(template.content.cloneNode(true));
+        this.shadowRoot.append(document.importNode(template.content, true));
+        this.shadowRoot.adoptedStyleSheets.push(styleSheet);
 
         this.style.setProperty("--color", this.#options.color ?? "#005891");
-
-        const link = document.createElement("link");
-        link.rel = "stylesheet";
-        link.href = import.meta.resolve("./openweathermap.css");
-        this.shadowRoot.append(link);
 
         this.#city = this.#options.city;
         this.#appid = this.#options.appid;
@@ -181,7 +177,7 @@ export default class OpenWeatherMapModule extends HTMLElement {
         this.#max = (this.#options.max ?? 1) - 1;
 
         this.shadowRoot.querySelector("h1").textContent =
-            this.#options.title ?? this.#city.split(",")[0];
+            this.#options.title ?? this.#city.split(",", 1)[0];
 
         this.#cron = new Cron(
             this.#options.cron ?? "@hourly",

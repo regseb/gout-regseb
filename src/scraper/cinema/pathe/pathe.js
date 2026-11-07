@@ -32,7 +32,7 @@ const PatheScraper = class {
             "available" === showtime.status &&
             this.#versions.includes(showtime.version) &&
             this.#includes.every((t) => showtime.tags.includes(t)) &&
-            !showtime.tags.some((t) => this.#excludes.includes(t))
+            showtime.tags.every((t) => !this.#excludes.includes(t))
         );
     }
 
@@ -40,9 +40,9 @@ const PatheScraper = class {
         const response = await fetch(`${API_URL}/cinema/${this.#cinema}/shows`);
         const { shows } = await response.json();
 
-        const today = new Date().toISOString().slice(0, 10);
+        const today = Temporal.Now.plainDateISO().toString();
         const promises = Object.entries(shows)
-            .filter(([, s]) => today in s.days)
+            .filter(([, s]) => Object.hasOwn(s.days, today))
             .map(async ([slug]) => {
                 let subresponse = await fetch(`${API_URL}/show/${slug}`);
                 const show = await subresponse.json();
@@ -83,9 +83,9 @@ const PatheScraper = class {
                 return {
                     title: show.title,
                     link: `https://www.pathe.fr/films/${slug}`,
-                    ...(undefined === icon
-                        ? {}
-                        : { icon: import.meta.resolve(`./img/${icon}.svg`) }),
+                    ...(undefined !== icon && {
+                        icon: import.meta.resolve(`./img/${icon}.svg`),
+                    }),
                     showings,
                 };
             });
@@ -95,7 +95,6 @@ const PatheScraper = class {
     }
 };
 
-// eslint-disable-next-line import/no-anonymous-default-export
 export default chain(
     TransformsScraper,
     FilterScraper,

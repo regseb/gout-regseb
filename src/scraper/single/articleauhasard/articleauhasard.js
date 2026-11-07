@@ -12,8 +12,8 @@ import chain from "https://cdn.jsdelivr.net/gh/regseb/gout@0/src/utils/scraper/c
 const ArticleAuHasardScraper = class {
     #lang;
 
-    constructor({ lang }) {
-        this.#lang = lang ?? "fr";
+    constructor({ lang = "fr" }) {
+        this.#lang = lang;
     }
 
     async extract(max = Number.MAX_SAFE_INTEGER) {
@@ -33,7 +33,6 @@ const ArticleAuHasardScraper = class {
     }
 };
 
-// eslint-disable-next-line import/no-anonymous-default-export
 export default chain(
     TransformsScraper,
     FilterScraper,
