@@ -21,11 +21,9 @@ const GogGiveawayScraper = class {
             return [];
         }
 
-        const link = "https://www.gog.com" + giveaway.getAttribute("ng-href");
-        const title = giveaway.querySelector(
-            '[ng-if="!giveaway.wasMarketingConsentGiven"]' +
-                " .giveaway-banner__title",
-        );
+        const link = giveaway.querySelector(
+            'a[selenium-id="giveawayOverlayLink"]',
+        ).href;
 
         return [
             {
@@ -33,13 +31,18 @@ const GogGiveawayScraper = class {
                 guid: link,
                 link,
                 icon: "https://cdn.simpleicons.org/gog.com/fff",
-                title: title.textContent.trim().slice(10),
+                img: giveaway.querySelector(
+                    '*[selenium-id="giveawayImage"] source',
+                ).srcset,
+                title: giveaway
+                    .querySelector('*[selenium-id="giveawayImage"] img')
+                    // Enlever le suffixe " giveaway".
+                    .alt.slice(0, -9),
             },
         ].slice(0, max);
     }
 };
 
-// eslint-disable-next-line import/no-anonymous-default-export
 export default chain(
     TransformsScraper,
     FilterScraper,
