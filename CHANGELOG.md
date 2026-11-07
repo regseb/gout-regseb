@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.16.0](https://github.com/regseb/gout-regseb/compare/v0.15.0...v0.16.0) (2026-11-07)
+
+### Features
+
+- Ajouter le logo de AlloCiné.
+  ([49378e8](https://github.com/regseb/gout-regseb/commit/49378e8eb674e312196cf98f126419c82f72e8c7))
+
+### Bug Fixes
+
+- Actualiser le scraper pour GOG.
+  ([a1ae781](https://github.com/regseb/gout-regseb/commit/a1ae7810c4be11ef564ebe79f1e7ac2b41a42d10))
+- Actualiser le scraper pour Tele7Jours.
+  ([87f6050](https://github.com/regseb/gout-regseb/commit/87f60504e82e241d048e1a24449101303b374f2a))
+- Enlever le scraper isthereanydeal.
+  ([e170bd4](https://github.com/regseb/gout-regseb/commit/e170bd480c1a1d552009118bdad6610a73c3b88a))
+
 ## [0.15.0](https://github.com/regseb/gout-regseb/compare/v0.14.0...v0.15.0) (2025-07-05)
 
 ### Features
